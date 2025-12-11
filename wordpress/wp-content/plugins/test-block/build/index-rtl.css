@@ -1,0 +1,99 @@
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@citeo/css-kit/dist/css/common/core.css ***!
+  \**********************************************************************************************************************************************************************************************************/
+
+:root {
+    --ds-core-size-10: 32px;
+    --ds-core-size-11: 40px;
+    --ds-core-size-12: 48px;
+    --ds-core-size-13: 56px;
+    --ds-core-size-14: 64px;
+    --ds-core-size-15: 72px;
+    --ds-core-size-16: 80px;
+    --ds-core-size-17: 120px;
+    --ds-core-size-18: 168px;
+    --ds-core-size-19: 240px;
+    --ds-core-size-20: 288px;
+    --ds-core-size-21: 320px;
+    --ds-core-size-22: 440px;
+    --ds-core-size-23: 560px;
+    --ds-core-size-24: 600px;
+    --ds-core-size-25: 672px;
+    --ds-core-size-26: 768px;
+    --ds-core-size-27: 896px;
+    --ds-core-size-28: 960px;
+    --ds-core-size-29: 1024px;
+    --ds-core-size-30: 1152px;
+    --ds-core-size-31: 1280px;
+    --ds-core-size-32: 1440px;
+    --ds-core-size-01: 2px;
+    --ds-core-size-02: 4px;
+    --ds-core-size-03: 6px;
+    --ds-core-size-04: 8px;
+    --ds-core-size-05: 12px;
+    --ds-core-size-06: 16px;
+    --ds-core-size-07: 20px;
+    --ds-core-size-08: 24px;
+    --ds-core-size-09: 28px;
+    --ds-core-radius-sharp: 0px;
+    --ds-core-radius-light: 4px;
+    --ds-core-radius-moderate: 8px;
+    --ds-core-radius-round: 16px;
+    --ds-core-radius-pill: 100px;
+    --ds-core-typography-font-size-2xs: 12px;
+    --ds-core-typography-font-size-xs: 14px;
+    --ds-core-typography-font-size-s: 16px;
+    --ds-core-typography-font-size-s-bis: 18px;
+    --ds-core-typography-font-size-m: 20px;
+    --ds-core-typography-font-size-l: 24px;
+    --ds-core-typography-font-size-l-bis: 28px;
+    --ds-core-typography-font-size-xl: 32px;
+    --ds-core-typography-font-size-2xl: 48px;
+    --ds-core-typography-font-size-3xl: 72px;
+    --ds-core-typography-line-height-2xs: 12px;
+    --ds-core-typography-line-height-xs: 14px;
+    --ds-core-typography-line-height-s: 16px;
+    --ds-core-typography-line-height-m: 20px;
+    --ds-core-typography-line-height-l: 24px;
+    --ds-core-typography-line-height-xl: 32px;
+    --ds-core-typography-line-height-2xl: 40px;
+    --ds-core-typography-font-weight-regular: 400;
+    --ds-core-typography-font-weight-medium: 500;
+    --ds-core-typography-font-weight-semibold: 600;
+    --ds-core-color-white: rgb(255, 255, 255);
+    --ds-core-color-gray-50: rgb(249, 250, 251);
+    --ds-core-color-gray-100: rgb(243, 244, 246);
+    --ds-core-color-gray-200: rgb(229, 231, 235);
+    --ds-core-color-gray-300: rgb(209, 213, 219);
+    --ds-core-color-gray-400: rgb(156, 163, 175);
+    --ds-core-color-gray-500: rgb(107, 114, 128);
+    --ds-core-color-gray-600: rgb(75, 85, 99);
+    --ds-core-color-gray-700: rgb(55, 65, 81);
+    --ds-core-color-gray-800: rgb(31, 41, 55);
+    --ds-core-color-gray-900: rgb(17, 24, 39);
+}
+  
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ */
+.wp-block-create-block-test-block {
+  border: 1px dotted #f00;
+}
+.wp-block-create-block-test-block ds-citeo-icon svg {
+  fill: currentColor !important;
+  color: inherit !important;
+}
+.wp-block-create-block-test-block ds-citeo-icon svg path, .wp-block-create-block-test-block ds-citeo-icon svg circle, .wp-block-create-block-test-block ds-citeo-icon svg rect, .wp-block-create-block-test-block ds-citeo-icon svg polygon {
+  fill: currentColor !important;
+}
+.wp-block-create-block-test-block ds-citeo-icon {
+  --ds-citeo-icon-color: var(--icon-custom-color, currentColor);
+  --icon-color: var(--icon-custom-color, currentColor);
+}
+.wp-block-create-block-test-block .citeo-main-icon ds-citeo-icon svg {
+  width: 4rem !important;
+  height: 4rem !important;
+}

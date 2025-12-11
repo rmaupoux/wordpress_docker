@@ -1,0 +1,34 @@
+/**
+ * The following styles get applied inside the editor only.
+ */
+
+.wp-block-create-block-test-block {
+	border: 1px dotted #f00;
+
+	// Force la couleur des icônes SVG hydratées
+	ds-citeo-icon {
+		svg {
+			fill: currentColor !important;
+			color: inherit !important;
+			
+			path, circle, rect, polygon {
+				fill: currentColor !important;
+				// stroke: currentColor !important;
+			}
+		}
+		
+		// Utilise les variables CSS personnalisées si disponibles
+		--ds-citeo-icon-color: var(--icon-custom-color, currentColor);
+		--icon-color: var(--icon-custom-color, currentColor);
+	}
+	
+	// Classe spécifique pour l'icône principale
+	.citeo-main-icon {
+		ds-citeo-icon {
+			svg {
+				width: 4rem !important;
+				height: 4rem !important;
+			}
+		}
+	}
+}
