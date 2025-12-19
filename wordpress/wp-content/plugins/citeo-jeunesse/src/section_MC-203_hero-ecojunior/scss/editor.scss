@@ -1,0 +1,22 @@
+.wp-block-citeo-jeunesse-section-discover {
+    margin: 11.25rem auto;
+
+    &>.block-editor-inner-blocks {
+        &>.block-editor-block-list__layout {
+            &>.block-editor-block-list__block {
+                display: flex;
+                flex-direction: row;
+                gap: 42px;
+            }
+        }
+    }
+
+    .wp-block-image {
+        // transform: translateY(-50%) !important;
+
+        & > div {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

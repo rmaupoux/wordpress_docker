@@ -1,0 +1,9 @@
+@import "../common/core.compatibility.css";
+@import "../common/core.css";
+@import "../common/fonts.css";
+@import "../common/semantics.compatibility.css";
+@import "../common/typography.css";
+/* citeob2c theme */
+@import "./theme-citeob2c.css";
+
+/*# sourceMappingURL=tokens.css.map */

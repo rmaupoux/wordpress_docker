@@ -1,0 +1,8 @@
+.ds-theme-adelphe .ds-space-emb, .ds-theme-adelphe.ds-space-emb {
+  --ds-space-content-medium: var(--ds-brand-color-blue-600);
+  --ds-space-surface-subtle: var(--ds-brand-color-blue-50);
+  --ds-space-surface-medium: var(--ds-brand-color-blue-500);
+  --ds-space-border-medium: var(--ds-brand-color-blue-600);
+}
+
+/*# sourceMappingURL=space-adelphe-emb.css.map */

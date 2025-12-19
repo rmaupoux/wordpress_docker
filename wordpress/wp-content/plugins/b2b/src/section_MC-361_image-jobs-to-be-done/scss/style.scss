@@ -1,0 +1,45 @@
+.wp-block-b2b-section-image-jobs-to-be-done {
+
+    padding: var(--ds-semantic-spacing-4xl) 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+    gap: var(--ds-semantic-spacing-l);
+
+    .wp-block-b2b-group-filiale-link:nth-child(n + 5) {
+        display: none;
+    }
+
+    .wp-block-b2b-group-filiale-link {
+        max-width: 19rem;
+        width: 100%;
+    }
+
+    @media screen and (max-width: 1256px) {
+
+        padding: var(--ds-semantic-spacing-3xl) 0;
+        grid-template-columns: repeat(2, 1fr);
+
+        .wp-block-b2b-group-filiale-link {                
+            &:nth-child(odd) {
+                justify-self: end;
+            }
+        }
+    }
+
+    @media screen and (max-width: 840px) {
+        padding: var(--ds-semantic-spacing-2xl) 0;
+    }
+
+    @media screen and (max-width: 648px) {
+
+        grid-template-columns: repeat(1, 1fr);
+        gap: var(--ds-semantic-spacing-s);
+
+        .wp-block-b2b-group-filiale-link {                
+            &:nth-child(odd), &:nth-child(even) {
+                justify-self: center;
+            }
+        }
+    }
+}

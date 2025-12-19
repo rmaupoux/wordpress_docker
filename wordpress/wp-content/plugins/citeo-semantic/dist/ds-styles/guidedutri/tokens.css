@@ -1,0 +1,9 @@
+@import "../common/core.compatibility.css";
+@import "../common/core.css";
+@import "../common/fonts.css";
+@import "../common/semantics.compatibility.css";
+@import "../common/typography.css";
+/* guidedutri theme */
+@import "./theme-guidedutri.css";
+
+/*# sourceMappingURL=tokens.css.map */

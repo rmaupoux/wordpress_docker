@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "citeo-semantic/illustration",
+	"version": "1.0.0",
+	"title": "Illustration",
+	"category": "semantic",
+	"icon": "smiley",
+	"description": "Illustrations de la librairie Citeo",
+	"example": {},
+	"attributes": {
+		"illustration": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "semantic",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./js/view.js"
+}

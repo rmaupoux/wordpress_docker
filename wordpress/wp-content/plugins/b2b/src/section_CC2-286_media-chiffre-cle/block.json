@@ -1,0 +1,49 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ds-citeocom/section-box-media",
+	"version": "2.0.0",
+	"title": "Média & chiffres clés",
+	"category": "b2b-page-builder-block",
+	"description": "Ce bloc permet de mettre en avant du texte, une image / vidéo et potentiellement des chiffres clés",
+	"supports": {
+		"html": false,
+		"align":true
+	},
+	"attributes": {
+		  "preview": {
+            "type": "boolean",
+            "default": false
+        },
+        "align": {
+            "type": "string",
+            "default": "full"
+        },
+        "theme": {
+            "type": "string",
+            "default": ""
+        },
+        "themeSwapConfirm": {
+            "type": "boolean",
+            "default": false
+        },
+		"textSize": {
+			"type": "string",
+			"default": "ds-text-large"
+		}
+       
+	},
+	"example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"providesContext": {
+		"allowResize": "allowResize"
+	},
+	"textdomain": "headelines",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./js/view.js"
+}

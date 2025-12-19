@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "menu/fixed-menu",
+	"version": "1.0.0",
+	"title": "Barre du menu fixe",
+	"category": "citeo-menu",
+	"icon": "smiley",
+	"description": "Barre du menu qui reste fixée en haut de l'écran au scroll. Contient les principaux menus de navigation.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"isTop": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "citeo",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

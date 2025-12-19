@@ -1,0 +1,66 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/block_CC2-384_picto/scss/style.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+.picto-right-col .picto-block-wrap {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1.25rem;
+  position: relative;
+}
+.picto-right-col .picto-block-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: var(--ds-semantic-sizing-4xl);
+  height: var(--ds-semantic-sizing-4xl);
+  box-sizing: border-box;
+  border-radius: var(--ds-semantic-radius-default);
+  border: solid 1px var(--ds-semantic-color-accent1-border-medium);
+  background: var(--ds-semantic-color-accent1-surface-subtlest);
+}
+.picto-right-col .picto-block-wrap:not(:last-child) {
+  margin-bottom: var(--ds-semantic-spacing-2xl);
+}
+.picto-right-col .picto-block-wrap .txt-wrap {
+  padding-top: var(--ds-semantic-spacing-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-semantic-spacing-xs);
+}
+.picto-right-col .picto-block-wrap .txt-wrap p, .picto-right-col .picto-block-wrap .txt-wrap .wp-block-heading {
+  margin: 0;
+}
+.picto-right-col .picto-block-wrap .txt-wrap .ds-text-paragraph, .picto-right-col .picto-block-wrap .txt-wrap .ds-text-base, .picto-right-col .picto-block-wrap .txt-wrap .ds-text-small {
+  color: var(--ds-semantic-color-layout-content-subtle);
+}
+.picto-right-col .picto-block-wrap .picto-num {
+  position: absolute;
+  left: calc(-1 * var(--ds-semantic-spacing-3xl));
+  top: 0;
+  color: var(--ds-semantic-color-layout-content-subtle);
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0;
+}
+.picto-right-col .picto-block-wrap .picto-ttl {
+  margin-bottom: var(--ds-semantic-spacing-xs);
+}
+.picto-right-col .picto-block-wrap .chart-picto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  width: var(--ds-semantic-sizing-4xl);
+  height: var(--ds-semantic-sizing-4xl);
+  box-sizing: border-box;
+  background-color: var(--ds-semantic-color-accent1-content-strong) !important;
+  border: solid 1px transparent;
+  border-radius: 0.25rem;
+  -webkit-mask-size: 2em !important;
+          mask-size: 2em !important;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

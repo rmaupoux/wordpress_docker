@@ -1,0 +1,81 @@
+.picto-right-col {
+    .picto-block-wrap {
+        display: grid;
+        grid-template-columns: 4rem 1fr;
+        gap: 1.25rem;
+
+        position: relative;
+
+        // Hack to add a background on the icon
+        &::before {
+            content: '';
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+
+            width: var(--ds-semantic-sizing-4xl);
+            height: var(--ds-semantic-sizing-4xl);
+            box-sizing: border-box;
+
+            border-radius: var(--ds-semantic-radius-default);
+            border: solid 1px var(--ds-semantic-color-accent1-border-medium);
+            background: var(--ds-semantic-color-accent1-surface-subtlest);
+        }
+        
+        &:not(:last-child) {
+            margin-bottom: var(--ds-semantic-spacing-2xl);
+        }
+
+        .txt-wrap {
+            padding-top: var(--ds-semantic-spacing-m);
+            display: flex;
+            flex-direction: column;
+            gap: var(--ds-semantic-spacing-xs);
+
+            p, .wp-block-heading {
+                margin: 0;
+            }
+
+            .ds-text-paragraph, .ds-text-base, .ds-text-small {
+                color: var(--ds-semantic-color-layout-content-subtle);
+            }
+        }
+    
+        .picto-num {
+            position: absolute;
+            left: calc(-1 * var(--ds-semantic-spacing-3xl));
+            top: 0;
+
+            color: var(--ds-semantic-color-layout-content-subtle);
+
+            width: fit-content;
+            margin: 0;
+        }
+    
+        .picto-ttl {
+            margin-bottom: var(--ds-semantic-spacing-xs)
+        }
+
+        .chart-picto {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            z-index: 1;
+
+            width: var(--ds-semantic-sizing-4xl);
+            height: var(--ds-semantic-sizing-4xl);
+            box-sizing: border-box;
+
+            background-color: var(--ds-semantic-color-accent1-content-strong) !important;
+            border: solid 1px transparent;
+            border-radius: .25rem;
+
+            mask-size: 2em !important;
+        }
+        
+    }
+}

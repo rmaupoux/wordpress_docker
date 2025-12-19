@@ -1,0 +1,8 @@
+.ds-theme-citeob2b .ds-space-tsu, .ds-theme-citeob2b.ds-space-tsu {
+  --ds-space-content-medium: var(--ds-brand-color-teal-600);
+  --ds-space-surface-subtle: var(--ds-brand-color-teal-50);
+  --ds-space-surface-medium: var(--ds-brand-color-teal-500);
+  --ds-space-border-medium: var(--ds-brand-color-teal-600);
+}
+
+/*# sourceMappingURL=space-citeob2b-tsu.css.map */

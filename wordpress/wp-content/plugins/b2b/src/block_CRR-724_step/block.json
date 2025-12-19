@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "b2b/block-step",
+	"version": "1.0.0",
+	"title": "Étape",
+	"category": "",
+	"icon": "smiley",
+	"description": "Bloc étape du carrousel étape par étape.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"allowResize": {
+			"type": "boolean",
+			"default": false
+		},
+		"stepIndex": {
+			"type": "string",
+			"default": "1"
+		},
+		"hasImage": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"providesContext": {
+		"allowResize": "allowResize"
+	},
+	"ancestor": [ "b2b/section-step-by-step" ],
+	"parent": [ "citeo-semantic/horizontal-slider" ],
+	"textdomain": "citeo",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

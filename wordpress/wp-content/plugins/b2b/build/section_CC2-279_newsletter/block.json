@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ds-citeocom/section-newsletter",
+  "version": "2.0.0",
+  "title": "Newsletter",
+  "category": "b2b-funnel-block",
+  "icon": "smiley",
+  "description": "Section encadré couleur comportant un titre, description, un champs email et bouton d'inscription.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "checkboxLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "submitLabel": {
+      "type": "string",
+      "default": "S'inscrire"
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    },
+    "isEnglish": {
+      "type": "boolean",
+      "default": false
+    },
+    "captchaSiteKey": {
+      "type": "string",
+      "default": "default-key"
+    },
+    "formDestination": {
+      "type": "string"
+    },
+    "theme": {
+      "type": "string",
+      "default": ""
+    },
+    "subTheme": {
+      "type": "string",
+      "default": "subtheme-accent1"
+    },
+    "themeSwapConfirm": {
+      "type": "boolean",
+      "default": false
+    },
+    "emailLabel": {
+      "type": "string",
+      "default": "Adresse e-mail"
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "b2b",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

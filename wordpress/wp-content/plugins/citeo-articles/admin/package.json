@@ -1,0 +1,14 @@
+{
+	"name": "citeo-articles-public",
+	"version": "1.0.0",
+	"description": "Citeo articles public module to parse front side sass",
+	"author": "ED dev team",
+	"license": "GPL-2.0-or-later",
+	"main": "js/citeo-articles-public.js",
+	"scripts": {
+		"start": "sass -w scss/:css/"
+	},
+	"devDependencies": {
+		"sass": "^1.93.2"
+	}
+}

@@ -1,0 +1,40 @@
+.wp-block-b2b-card {
+    width: fit-content;
+    padding: var(--ds-semantic-spacing-l) var(--ds-semantic-spacing-l) var(--ds-semantic-spacing-xl);
+
+    color: var(--ds-semantic-color-layout-invert-content-medium);
+    background-color: var(--ds-semantic-color-action-surface-strong);
+    border-radius: var(--ds-semantic-radius-elevated);
+
+    .wp-block-citeo-semantic-tag {
+        color: var(--ds-semantic-color-layout-content-medium);
+        background-color: var(--ds-semantic-color-layout-invert-content-medium);
+        padding: var(--ds-semantic-spacing-3xs) var(--ds-semantic-spacing-xs);
+
+        border-radius: var(--ds-semantic-radius-default);
+        border: none;
+
+        // ds-text-small
+        font-size: var(--ds-core-typography-font-size-xs);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+    }
+
+    .semantic-icon:not(.illustration-icon) {
+        background-color: var(--ds-semantic-color-layout-content-medium);
+    }
+
+    & > a {
+        color: var(--ds-semantic-color-layout-invert-content-medium);
+    }
+
+    p {
+        margin: 0;
+    }
+
+    &.image-card {
+        background-color: transparent;
+        color: var(--ds-semantic-color-layout-content-medium);
+    }
+}

@@ -1,0 +1,32 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/block_MC-171_icon/scss/style.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-citeo-semantic-icon {
+  --ds-icon-color: var(--ds-semantic-color-neutral-content-medium);
+  display: block;
+  width: var(--ds-semantic-sizing-xl);
+  height: var(--ds-semantic-sizing-xl);
+}
+.wp-block-citeo-semantic-icon.ds-icon .hydrated {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.wp-block-citeo-semantic-icon.ds-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.wp-block-citeo-semantic-icon.semantic-icon:not(.illustration-icon) {
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  background-color: var(--ds-semantic-color-layout-content-medium);
+}
+.wp-block-citeo-semantic-icon.illustration-icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

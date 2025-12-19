@@ -1,0 +1,127 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_MC-232_vignette-chiffre-cle/scss/style.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-ds-citeocom-section-vignettes {
+  position: relative;
+  padding-top: var(--ds-semantic-spacing-4xl, 4rem);
+  background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-vignettes.is-white {
+  background-color: transparent !important;
+}
+.wp-block-ds-citeocom-section-vignettes.is-white .picto-wrapper {
+  background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-vignettes .picto-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--ds-semantic-color-layout-invert-content-subtle);
+  -webkit-mask-image: var(--svg-pattern-corner);
+          mask-image: var(--svg-pattern-corner);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: right bottom;
+          mask-position: right bottom;
+  -webkit-mask-size: clamp(20rem, 33%, 30rem);
+          mask-size: clamp(20rem, 33%, 30rem);
+  pointer-events: none;
+}
+.wp-block-ds-citeocom-section-vignettes .wp-block-b2b-title-description-button {
+  display: grid;
+  grid-template-columns: 1fr 42%;
+  gap: var(--ds-semantic-spacing-l);
+  position: relative;
+  z-index: 1;
+  max-width: var(--wp--style--global--content-size);
+  margin-left: auto;
+  margin-right: auto;
+}
+.wp-block-ds-citeocom-section-vignettes .wp-block-b2b-title-description-button > *:not(.wp-block-buttons) {
+  grid-column: 1;
+}
+.wp-block-ds-citeocom-section-vignettes .wp-block-b2b-title-description-button > .wp-block-buttons {
+  grid-column: 2;
+  margin-top: 0;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.wp-block-ds-citeocom-section-vignettes .vignettes-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-semantic-spacing-l);
+  position: relative;
+  z-index: 1;
+  padding: var(--ds-semantic-spacing-2xl, 2.5rem) 0;
+  max-width: var(--wp--style--global--content-size);
+  margin-left: auto;
+  margin-right: auto;
+}
+.wp-block-ds-citeocom-section-vignettes .vignettes-wrapper .wp-block-b2b-number-card {
+  flex-basis: calc(33.33% - 1.5rem);
+  flex-grow: 1;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--ds-semantic-spacing-s, 0.75rem);
+  padding: var(--ds-semantic-spacing-m, 1rem) var(--ds-semantic-spacing-2xl, 2.5rem) var(--ds-semantic-spacing-2xl, 2.5rem) var(--ds-semantic-spacing-2xl, 2.5rem);
+  box-sizing: border-box;
+  border-radius: var(--ds-semantic-radius-action, 0.5rem);
+  background-color: var(--ds-semantic-color-layout-surface-medium-default);
+}
+.wp-block-ds-citeocom-section-vignettes .vignettes-wrapper .wp-block-b2b-number-card .wp-block-citeo-semantic-icon {
+  width: 6em;
+  height: 6rem;
+  padding: var(--ds-semantic-spacing-s);
+  -webkit-mask-size: 80%;
+          mask-size: 80%;
+}
+.wp-block-ds-citeocom-section-vignettes .vignettes-wrapper .wp-block-b2b-number-card p {
+  margin: 0;
+}
+.wp-block-ds-citeocom-section-vignettes .vignettes-wrapper .wp-block-b2b-number-card .ds-text-base, .wp-block-ds-citeocom-section-vignettes .vignettes-wrapper .wp-block-b2b-number-card .ds-text-large, .wp-block-ds-citeocom-section-vignettes .vignettes-wrapper .wp-block-b2b-number-card .ds-text-small, .wp-block-ds-citeocom-section-vignettes .vignettes-wrapper .wp-block-b2b-number-card .ds-text-xsmall {
+  color: var(--ds-semantic-color-layout-content-subtle);
+}
+@media screen and (max-width: 1264px) {
+  .wp-block-ds-citeocom-section-vignettes {
+    box-sizing: border-box;
+    padding: var(--ds-semantic-spacing-4xl, 4rem) var(--ds-semantic-spacing-xl) 0;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .wp-block-ds-citeocom-section-vignettes .wp-block-b2b-title-description-button {
+    display: flex;
+    flex-direction: column;
+  }
+  .wp-block-ds-citeocom-section-vignettes .wp-block-b2b-title-description-button > .wp-block-buttons {
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 600px) {
+  .wp-block-ds-citeocom-section-vignettes {
+    padding: var(--ds-semantic-spacing-4xl, 4rem) var(--ds-semantic-spacing-m);
+    gap: var(--ds-semantic-spacing-xs);
+  }
+  .wp-block-ds-citeocom-section-vignettes .vignettes-wrapper .wp-block-b2b-number-card {
+    flex-basis: 100%;
+  }
+}
+.wp-block-ds-citeocom-section-vignettes.subtheme-accent2 {
+  background-color: var(--ds-semantic-color-accent2-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-vignettes.subtheme-accent2.is-white .picto-wrapper {
+  background-color: var(--ds-semantic-color-accent2-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-vignettes.subtheme-accent3 {
+  background-color: var(--ds-semantic-color-accent3-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-vignettes.subtheme-accent3.is-white .picto-wrapper {
+  background-color: var(--ds-semantic-color-accent3-surface-subtlest);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

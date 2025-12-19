@@ -1,0 +1,21 @@
+.wp-block-b2b-hero-img-full-text-above {
+    & > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block-image {
+        width: 100%;
+        height: 23.75rem;
+        
+        max-width: 1440px;
+        margin: auto;
+
+        & > div {
+            width: 100% !important;
+            height: 100% !important;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+}

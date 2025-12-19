@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "citeo-semantic/block-iframe",
+  "version": "1.0.0",
+  "title": "Iframe",
+  "category": "b2b-service-block",
+  "icon": "smiley",
+  "description": "Ajouter une iframe.",
+  "example": {},
+  "attributes": {
+    "iframeSrc": {
+      "type": "string",
+      "default": ""
+    },
+    "isValid": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "b2c",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

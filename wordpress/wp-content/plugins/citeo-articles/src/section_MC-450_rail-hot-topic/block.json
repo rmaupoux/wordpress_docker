@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "citeo-articles/section-hot-topic",
+	"version": "1.0.0",
+	"title": "Rail à la une",
+	"category": "b2b-redirect-block",
+	"description": "Section de trois exergue d'articles à lier à l'article en cours.",
+	"supports": {
+		"html": false,
+		"align": ["full"]
+	},
+	"attributes": {	
+		"preview": {
+			"type": "boolean",
+			"default": false
+		}
+		
+	},
+	"example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"textdomain": "citeo",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./js/view.js"
+}

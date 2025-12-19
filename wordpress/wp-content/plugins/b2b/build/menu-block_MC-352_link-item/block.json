@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "menu/link-item",
+  "version": "1.0.0",
+  "title": "Lien du menu",
+  "category": "citeo-menu",
+  "icon": "smiley",
+  "description": "Lien autour d'un label et flèche vers la droite",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "ancestor": [
+    "menu/dropdown"
+  ],
+  "attributes": {
+    "allowResize": {
+      "type": "boolean",
+      "default": false
+    },
+    "cardLink": {
+      "type": "object"
+    },
+    "label": {
+      "type": "string",
+      "source": "html",
+      "selector": "span",
+      "default": ""
+    }
+  },
+  "providesContext": {
+    "allowResize": "allowResize"
+  },
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

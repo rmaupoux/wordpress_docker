@@ -1,0 +1,39 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/block_CC2-403_secteur/scss/editor.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-ds-citeocom-block-secteur {
+  position: relative !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+.wp-block-ds-citeocom-block-secteur:not(:last-child) {
+  padding-bottom: var(--ds-semantic-spacing-m);
+  border-bottom: dashed 1px var(--ds-semantic-color-danger-content-medium);
+  margin-bottom: var(--ds-semantic-spacing-m);
+}
+.wp-block-ds-citeocom-block-secteur::before {
+  content: attr(data-name);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-top: var(--ds-semantic-spacing-3xs);
+  padding-right: var(--ds-semantic-spacing-s);
+  pointer-events: none;
+  font-size: var(--ds-core-typography-font-size-l);
+  font-weight: var(--ds-core-typography-font-weight-semibold);
+  color: var(--ds-semantic-color-danger-content-medium);
+  opacity: 0.5;
+  z-index: 10;
+}
+.wp-block-ds-citeocom-block-secteur .wp-block-image > div {
+  width: 100%;
+  height: 100%;
+}
+
+/*# sourceMappingURL=index.css.map*/

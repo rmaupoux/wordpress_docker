@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ds-citeocom/global-assets",
+  "version": "1.0.0",
+  "title": "Mise en exergue",
+  "category": "citeo",
+  "icon": "smiley",
+  "description": "Déclaration de la mise en exergue \"zoro\"",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "global assets",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css"
+}

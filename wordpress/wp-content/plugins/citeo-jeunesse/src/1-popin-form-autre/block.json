@@ -1,0 +1,86 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "citeo-jeunesse/coup-pouce-telecharger",
+	"version": "0.1.0",
+	"title": "Formulaire téléchargement Autre",
+	"category": "citeo-jeunesse",
+	"description": "",
+	"attributes": {
+        "title": {
+            "type": "string",
+            "default": "Télécharger gratuitement"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": "Aidez-nous à connaitre l'impact de nos outils pédagogique en renseignant vos informations, celles-ci seront à remplir à nouveau dans 6 mois."
+        },
+        "selectLabel": {
+            "type": "string",
+            "default": "Vous êtes <span class='required'>*</span>"
+        },
+        "emailLabel": {
+            "type": "string",
+            "default": "Votre email <span class='required'>*</span>"
+        },
+        "emailPlaceholder": {
+            "type": "string",
+            "default": "enseignant@ac-france.com"
+        },
+        "checkboxLabel": {
+            "type": "string",
+            "default": "Je souhaite recevoir par email les autres actualités et ressources pédagogiques relatives aux contenus jeunesse mises <strong>gratuitement</strong> à disposition par Citeo."
+        },
+        "checkboxSondageLabel": {
+            "type": "string",
+            "default": "Je ne souhaite pas que Citeo me contacte pour des enquêtes de satisfaction."
+        },
+        "disclaimer": {
+            "type": "string",
+            "default": "Citeo traite les données à caractère personnel transmises via ce formulaire en qualité de responsable de traitement afin de gérer votre abonnement à la newsletter et éventuellement de réaliser des enquêtes de satisfaction. Vous pouvez à tout moment retirer votre consentement au traitement de vos données et/ou faire valoir vos droits en écrivant à l'adresse : <a href='dpd@citeo.com' target='_blank'>dpd@citeo.com</a>.Pour plus d'informations sur la manière dont nous traitons vos données, ainsi que sur les droits dont vous disposez, vous pouvez consulter notre Politique de confidentialité."
+        },
+        "option1Label": {
+            "type": "string",
+            "default": "Enseignant"
+        },
+        "option2Label": {
+            "type": "string",
+            "default": "Parent"
+        },
+        "telecharge": {
+            "type": "string",
+            "default": "Télécharger"
+        },
+        "captchaSiteKey": {
+            "type": "string",
+            "default": "default-key"
+        },
+        "currentLang": {
+            "type": "string",
+            "default": "fr"
+        },
+        "options": {
+            "type": "array",
+            "default": ["...", "Enseignant", "Parent", "Autre"]
+        },
+        "preview": {
+			"type": "boolean",
+			"default": false
+		}
+    
+    },
+     "example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"textdomain": "citeo-jeunesse",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+    "viewScript": "file:./view.js"
+}
+
+
+
+

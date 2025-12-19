@@ -1,0 +1,118 @@
+.wp-block-b2b-hero-bandeau-image {
+    background-color: var(--ds-semantic-color-action-surface-stronger);
+    border-bottom: solid var(--ds-semantic-sizing-3xs) var(--ds-semantic-color-accent1-surface-medium);
+
+    .wp-block-cover .has-background-dim {
+        opacity: 1 !important;
+
+        background: radial-gradient(circle at 0%, var(--ds-semantic-color-action-surface-stronger), var(--ds-semantic-color-action-surface-stronger) 40%,rgba(0,0,0,0) 60%) !important;
+    }
+
+    .wp-block-cover .wp-block-cover__image-background, .wp-block-cover video.wp-block-cover__video-background, .wp-block-cover-image .wp-block-cover__image-background, .wp-block-cover-image video.wp-block-cover__video-background {
+        left: initial;
+        width: 70%;
+    }
+
+    .wp-block-cover {
+        position: relative;
+
+        &::after {
+            content: '';
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 0;
+            pointer-events: none;
+
+            mask-image: var(--svg-pattern-corner);
+            mask-size: 35%;
+            mask-repeat: no-repeat;
+            mask-position: right bottom;
+            background-color: var(--ds-semantic-color-layout-invert-content-subtle);
+        }    
+        
+        .wp-block-cover .wp-block-cover__inner-container, .wp-block-cover-image .wp-block-cover__inner-container {
+            z-index: 1;
+        }
+    }
+
+    .wp-block-b2b-page-title-button {
+        padding: var(--ds-semantic-spacing-4xl) 0;
+        
+        & > .wp-block-heading, & > p, & > .wp-block-buttons, & > .wp-block-list {
+            width: 100%;
+            max-width: 31rem;
+
+            color: var(--ds-semantic-color-layout-invert-content-medium);
+        }
+
+        .is-style-secondary {
+            .wp-block-button__link {
+                background-color: transparent !important;
+            }
+        }
+
+        .wp-block-button {
+
+            &:not(.is-style-primary) .wp-block-button__link {
+                border: 1px solid var(--ds-semantic-color-layout-invert-border-strongest-default) !important;
+                color: var(--ds-semantic-color-layout-invert-content-medium) !important;
+
+                &::after, &::before {
+                    background-color: var(--ds-semantic-color-layout-invert-content-medium) !important;
+                }
+            }
+
+            &.is-style-primary, &:first-child {
+                .wp-block-button__link {
+                    background-color: var(--ds-semantic-color-layout-surface-medium-default) !important;
+                    color: var(--ds-semantic-color-action-content-medium) !important;
+
+                    &::after, &::before {
+                        background-color: var(--ds-semantic-color-action-content-medium) !important;
+                    }
+                }
+            }
+            
+        }
+    }
+
+    @media screen and (min-width: 1920px) {
+        .wp-block-cover, .wp-block-cover-image {
+            max-width: 1440px;
+            margin: auto;
+        }
+    }
+
+    @media screen and (max-width: 1440px) {
+        .wp-block-cover, .wp-block-cover-image {
+            padding: 0 var(--ds-semantic-spacing-l);
+            box-sizing: border-box;
+        }
+    }
+
+    @media screen and (max-width: 1040px) {
+        .wp-block-cover, .wp-block-cover-image {
+            padding: 0;
+            flex-direction: column;
+
+            .wp-block-cover__image-background, video.wp-block-cover__video-background, .wp-block-cover__image-background, video.wp-block-cover__video-background {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16 / 9;
+            }
+        }
+
+        .wp-block-cover .has-background-dim {
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 32.5vw, var(--ds-semantic-color-action-surface-stronger) 56.25vw) !important;
+        }
+
+        .wp-block-b2b-page-title-button {
+            padding: 35vw var(--ds-semantic-spacing-l) var(--ds-semantic-spacing-5xl);
+            box-sizing: border-box;
+        }
+    }
+}

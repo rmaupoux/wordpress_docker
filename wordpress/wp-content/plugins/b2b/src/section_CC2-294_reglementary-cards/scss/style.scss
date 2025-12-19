@@ -1,0 +1,179 @@
+.wp-block-b2b-section-reglementary-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    position: relative;
+
+    padding: var(--ds-semantic-spacing-5xl) var(--ds-semantic-spacing-xl);
+    box-sizing: border-box;
+    background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+
+    border-top: solid var(--ds-semantic-sizing-3xs) var(--ds-semantic-color-accent1-border-medium);
+
+    .back-picto {
+        position: absolute;
+
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 0;
+
+        max-width: var(--wp--style--global--content-size);
+        margin: auto;
+        width: 100%;
+        height: 100%;
+
+        mask-repeat: no-repeat;
+        mask-position: right 2.5rem;
+        mask-size: clamp(10rem, 30%, 22rem);
+        background-color: var(--ds-semantic-color-accent1-surface-subtle);
+        
+        pointer-events: none;
+    }
+
+    &.has-white-picto {
+        .back-picto {
+            background-color: var(--ds-semantic-color-layout-invert-content-subtle) !important;
+        }
+    }
+
+    &.is-white {
+        background-color: var(--ds-semantic-color-layout-surface-medium-default) !important;
+
+        .back-picto {
+            background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+        }
+    }
+
+    .wp-block-b2b-title-description-button, .wp-block-citeo-semantic-horizontal-slider {
+        position: relative;
+        z-index: 1;
+
+        width: 100%;
+        max-width: var(--wp--style--global--content-size);
+        margin: auto;
+    }
+
+    .wp-block-b2b-title-description-button {
+        & > .wp-block-buttons, & > p, & > .wp-block-heading, & > .wp-block-list {
+            width: 50%;
+        }
+    }
+
+    .wp-block-b2b-card {
+        display: flex;
+        flex-direction: column;
+        gap: var(--ds-semantic-spacing-s);
+
+        width: 21rem;
+        flex-shrink: 0;
+
+        transition: background ease-out .25s;
+
+        &:hover, &:focus {
+            background-color: var(--ds-semantic-color-action-surface-stronger);
+        }
+    }
+
+    &:not(.has-active-hover) {
+        .active-slide {
+            background-color: var(--ds-semantic-color-action-surface-stronger);
+        }
+    }
+
+    .has-horizontal-slider {
+        position: relative;
+        padding-top: var(--ds-semantic-spacing-5xl);
+        overflow: hidden;
+        --control-gap: 6.25rem;
+
+        .total-wrap {
+            width: var(--control-gap);
+            line-height: var(--ds-core-typography-line-height-2xl);
+            text-align: center;
+
+            position: absolute;
+            top: 0;
+            right: var(--ds-semantic-spacing-2xl); // button width
+
+            pointer-events: none;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            margin-top: 0;
+            display: flex;
+            gap: var(--control-gap);
+
+            .wp-block-button {
+                width: var(--ds-semantic-sizing-xl);
+                height: var(--ds-semantic-sizing-xl);
+
+                &.disabled .wp-element-button {
+                    border: none;
+                }
+
+                .wp-element-button {
+                    padding: 0;
+                    background-color: transparent;
+                    border: solid 1px var(--ds-semantic-color-action-border-stronger);
+
+                    &::after {
+                        background-color: var(--ds-semantic-color-action-surface-stronger);
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1040px) {
+        .wp-block-b2b-title-description-button {
+            & > .wp-block-buttons, & > p, & > .wp-block-heading, & > .wp-block-list {
+                width: 66.66%;
+            }
+        }
+    }
+
+    @media screen and (max-width:840px) {
+        .back-picto {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        padding-left: var(--ds-semantic-spacing-m);
+        padding-right: var(--ds-semantic-spacing-m);
+
+        .wp-block-b2b-card {
+            width: 17rem;
+        }
+
+        .wp-block-b2b-title-description-button {
+            & > .wp-block-buttons, & > p, & > .wp-block-heading, & > .wp-block-list {
+                width: 100%;
+            }
+        }
+    }
+
+    @for $i from 2 through 3 {
+        &.subtheme-accent#{$i} {
+            background-color: var(--ds-semantic-color-accent#{$i}-surface-subtlest);
+
+            border-color: var(--ds-semantic-color-accent#{$i}-surface-medium);
+
+            .back-picto {
+                background-color: var(--ds-semantic-color-accent#{$i}-surface-subtle);
+            }
+
+            &.is-white {
+                .back-picto {
+                    background-color: var(--ds-semantic-color-accent#{$i}-surface-subtlest);
+                }
+            }
+        }
+    }
+}

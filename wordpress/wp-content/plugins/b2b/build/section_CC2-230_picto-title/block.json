@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "b2b/image-title-color",
+  "version": "1.0.0",
+  "title": "Pictogramme, titre & boutons",
+  "category": "b2b-page-builder-block",
+  "description": "Affichage d'un picto coloré et d'un titre",
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": true
+  },
+  "attributes": {
+    "preview": {
+      "type": "boolean",
+      "default": false
+    },
+    "allowResize": {
+      "type": "boolean",
+      "default": false
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "left"
+    },
+    "theme": {
+      "type": "string",
+      "default": ""
+    },
+    "subTheme": {
+      "type": "string",
+      "default": "subtheme-accent1"
+    },
+    "themeSwapConfirm": {
+      "type": "boolean",
+      "default": false
+    },
+    "svgUrl": {
+      "type": "string"
+    },
+    "svgContent": {
+      "type": "string"
+    },
+    "svgSpaceBoxWidth": {
+      "type": "number",
+      "default": 600
+    },
+    "useSvgAsBackground": {
+      "type": "boolean",
+      "default": false
+    },
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "allowedBlocks": [],
+  "textdomain": "headelines",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

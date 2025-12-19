@@ -1,0 +1,25 @@
+.wp-block-menu-link-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-semantic-spacing-3xs);
+
+    max-width: 26rem;
+}
+
+.burger-open {
+    .wp-block-menu-link-list {
+        width: 100%;
+        background-color: var(--ds-semantic-color-layout-surface-medium-active);
+
+        border-radius: var(--ds-semantic-radius-elevated);
+        padding-bottom: var(--ds-semantic-spacing-xs);
+
+        .wp-block-menu-link-item {
+            padding: var(--ds-semantic-spacing-s);
+        }
+
+        .section-label {
+            background-color: var(--ds-semantic-color-layout-surface-medium-default);
+        }
+    }
+}

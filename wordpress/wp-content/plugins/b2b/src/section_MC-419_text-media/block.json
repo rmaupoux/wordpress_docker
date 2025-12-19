@@ -1,0 +1,53 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "b2b/section-texte-media",
+	"version": "1.0.0",
+	"title": "Texte & média",
+	"category": "b2b-page-builder-block",
+	"description": "Bloc permettant de présenter un texte et un média.",
+	"attributes": {
+		"preview": {
+			"type": "boolean",
+			"default": false
+		},
+		"theme": {
+			"type": "string",
+			"default": ""
+		},
+		"subTheme": {
+			"type": "string",
+			"default": "subtheme-accent1"
+		},
+		"themeSwapConfirm": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundPictoUrl": {
+			"type": "string"
+		},
+		"align:": {
+			"type": "string",
+			"default": "full"
+		},
+		"isWhite": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"textdomain": "citeo",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

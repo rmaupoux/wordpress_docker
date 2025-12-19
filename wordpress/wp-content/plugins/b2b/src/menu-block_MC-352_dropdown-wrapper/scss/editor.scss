@@ -1,0 +1,126 @@
+.wp-block-menu-dropdown {
+    order: 999;
+    margin: var(--ds-semantic-spacing-m) 0;
+
+    &::before {
+        content: attr(data-name);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+
+        padding-top: var(--ds-semantic-spacing-m);
+        padding-right: var(--ds-semantic-spacing-xl);
+
+        pointer-events: none;
+
+        font-size: var(--ds-core-typography-font-size-xl);
+        font-weight: var(--ds-core-typography-font-weight-semibold);
+
+        color: var(--ds-semantic-color-danger-content-medium);
+        opacity: .5;
+
+        z-index: 10;
+    }
+
+    &:not(.is-active) {
+        opacity: 1;
+        pointer-events: all;
+        visibility: visible;
+
+        // To transition the height
+        transform: scaleY(1);
+        transition: none;
+
+        & > * {
+            opacity: 1;
+
+            transition: none;
+        }
+    }
+
+    .block-library-block__reusable-block-container:last-child {
+        margin-top: auto;
+    }
+
+    .dropdown-content {
+        & > .wp-block-menu-link-image-card, & > .wp-block-menu-link-icon-card, & > .wp-block-menu-link-big-text, & > .wp-block-menu-link-list, & > .wp-block-menu-link-mag-latest {
+            // Prevent more than 4 items (one row) to be displayed in the dropdown
+            &:nth-child(n + 5) {
+                position: relative;
+                display: flex;
+
+                &::before, &::after {
+                    content: 'Seule une rangée d\'éléments sera affichée.';
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 100%;
+                    height: 100%;
+                    padding: var(--ds-semantic-spacing-m);
+                    box-sizing: border-box;
+                    
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    color: var(--ds-semantic-color-danger-content-strong);
+                    background-color: var(--ds-semantic-color-danger-surface-subtlest);
+
+                    z-index: 90;
+
+                    font-size: var(--ds-core-typography-font-size-xs);
+                    text-align: center;
+                }
+            }
+        }
+
+        // Le mag take 2 spot so hiding the 3rd element onward if a le mag child is present
+        &:has(.wp-block-menu-link-mag-latest) {
+            & > .wp-block-menu-link-image-card, & > .wp-block-menu-link-icon-card, & > .wp-block-menu-link-big-text, & > .wp-block-menu-link-list, & > .wp-block-menu-link-mag-latest {
+
+                &:nth-child(n + 4) {
+                    position: relative;
+                    display: flex;
+
+                    &::before, &::after {
+                        content: 'Seule une rangée d\'éléments sera affichée.';
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        width: 100%;
+                        height: 100%;
+                        padding: var(--ds-semantic-spacing-m);
+                        box-sizing: border-box;
+                        
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+
+                        color: var(--ds-semantic-color-danger-content-strong);
+                        background-color: var(--ds-semantic-color-danger-surface-subtlest);
+
+                        z-index: 90;
+
+                        font-size: var(--ds-core-typography-font-size-xs);
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+    
+    .components-toolbar__control[aria-label="Lien"], .components-toolbar__control[aria-label="Link"] {
+        display: none !important;
+    }
+}

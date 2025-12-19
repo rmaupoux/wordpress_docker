@@ -1,0 +1,34 @@
+$colors: (
+    'Noir': #1F2937,
+    'Blanc': #FFFFFF,
+    'Gris': #D1D5DB,
+    'Bleu-clair': #DBEAFE,		
+    'Bleu': #2563EB,	
+    'Bleu-foncé': #1E3A8A,	
+    'Vert-clair': #DCFCE7,
+    'Vert': #16A34A,	
+    'Vert-foncé': #14532D,
+    'Rouge-clair': #FEE2E2,
+    'Rouge': #DC2626,	
+    'Rouge-foncé': #7F1D1D,	
+    'Ambre-clair': #FEF3C7,	
+    'Ambre': #F59E0B,	
+    'Ambre-foncé': #B45309,
+    'Violet-clair': #DDD6FE,	
+    'Violet': #8B5CF6,	
+    'Violet-foncé': #4C1D95,
+    'Jaune-clair': #FEF08A,
+    'Jaune': #FACC15,	
+    'Jaune-foncé': #A16207,
+    'Cyan-clair': #B7ECFF,		
+    'Cyan': #30CFFF,	
+    'Cyan-foncé': #02658A,	
+);
+
+@each $key, $value in $colors {
+    .onlr-body .zoro-color--#{$key} {
+        &::before {
+            background-color: $value;
+        }
+    }
+}

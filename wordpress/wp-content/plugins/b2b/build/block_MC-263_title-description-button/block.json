@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "b2b/title-description-button",
+  "version": "1.0.0",
+  "title": "Titre, description et bouton",
+  "category": "b2b-page-builder-block",
+  "description": "Bloc de titre et texte préformaté",
+  "example": {},
+  "supports": {
+    "html": false,
+    "inserter": false
+  },
+  "attributes": {
+    "preview": {
+      "type": "boolean",
+      "default": false
+    },
+    "textSize": {
+      "type": "string",
+      "default": "ds-text-large"
+    },
+    "hasTags": {
+      "type": "boolean",
+      "default": false
+    },
+    "noDesc": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,20 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_CC2-337_carrousel/scss/editor.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-b2b-carrousel .has-horizontal-slider {
+  max-width: var(--wp--style--global--content-size);
+  margin: var(--ds-semantic-spacing-5xl) auto 0;
+}
+.wp-block-b2b-carrousel .block-editor-block-list__block.wp-block-image {
+  width: 100%;
+  background-color: var(--ds-semantic-color-neutral-surface-medium-default);
+}
+.wp-block-b2b-carrousel .block-editor-block-list__block.wp-block-image > div {
+  background-color: var(--ds-semantic-color-neutral-surface-medium-default);
+}
+.wp-block-b2b-carrousel .wp-block-post-featured-image .components-placeholder, .wp-block-b2b-carrousel .wp-block-post-featured-image .wp-block-post-featured-image__placeholder {
+  min-height: 280px;
+}
+.wp-block-b2b-carrousel.is-selected .components-placeholder.has-illustration {
+  overflow: hidden;
+}

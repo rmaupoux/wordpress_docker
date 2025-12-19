@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "b2b/block-job-to-be-done",
+  "version": "1.0.0",
+  "title": "Bouton job to be done",
+  "category": "",
+  "icon": "smiley",
+  "description": "Permet de présenter plusieurs liens vers des ressources internes ou externes à la page à travers des applats de texte.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "allowResize": {
+      "type": "boolean",
+      "default": false
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    },
+    "cardLink": {
+      "type": "object"
+    },
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": "span",
+      "default": ""
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "parent": [
+    "b2b/section-jobs-to-be-done"
+  ],
+  "providesContext": {
+    "allowResize": "allowResize"
+  },
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

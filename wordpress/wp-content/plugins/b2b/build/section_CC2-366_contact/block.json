@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ds-citeocom/section-contact",
+  "version": "0.1.0",
+  "title": "Contact",
+  "category": "b2b-funnel-block",
+  "description": "Section comportant un titre, un téléphone et un paragraphe.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "preview": {
+      "type": "boolean",
+      "default": false
+    },
+    "theme": {
+      "type": "string",
+      "default": ""
+    },
+    "subTheme": {
+      "type": "string",
+      "default": "subtheme-accent1"
+    },
+    "themeSwapConfirm": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "headelines",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./js/view.js"
+}

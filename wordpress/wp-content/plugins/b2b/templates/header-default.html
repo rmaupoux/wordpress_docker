@@ -1,0 +1,78 @@
+<!-- wp:group {"allowedBlocks":[],"tagName":"header","metadata":{"name":"Header"},"layout":{"type":"default"}} -->
+<header class="wp-block-group">
+    
+    <!-- wp:group {"allowedBlocks":["core/group"],"metadata":{"name":"Conteneur d'alignement"},"className":"center-align-wrapper","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group center-align-wrapper">
+
+        <!-- wp:group {"allowedBlocks":["core/group","core/site-logo","core/image"],"metadata":{"name":"Logo et filiales"},"className":"has-bot-separator","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+        <div class="wp-block-group has-bot-separator">
+            
+            <!-- wp:site-logo /-->
+
+            <!-- wp:group {"allowedBlocks":["core/buttons","core/shortcode"],"metadata":{"name":"Choix langue et filiales"},"className":"logo-lang-container","layout":{"type":"constrained"}} -->
+            <div class="wp-block-group logo-lang-container">
+
+                <!-- wp:buttons {"metadata":{"name":"Conteneur boutons filiales"},"className":"site-logo-list"} -->
+                <div class="wp-block-buttons site-logo-list">
+
+                    <!-- wp:shortcode -->
+                    [lang_switcher]
+                    <!-- /wp:shortcode -->
+
+                    <!-- wp:button {"className":"logo-citeo ds-subtheme-group is-style-link"} -->
+                    <div class="wp-block-button logo-citeo ds-subtheme-group is-style-link">
+                        <a class="wp-block-button__link wp-element-button">Groupe CITEO</a>
+                    </div>
+                    <!-- /wp:button -->
+
+                    <!-- wp:button {"className":"logo-citeo ds-subtheme-emp is-style-link"} -->
+                    <div class="wp-block-button logo-citeo ds-subtheme-emp is-style-link">
+                        <a class="wp-block-button__link wp-element-button">CITEO Ménager et Papier</a>
+                    </div>
+                    <!-- /wp:button -->
+
+                    <!-- wp:button {"className":"logo-citeo ds-subtheme-pro is-style-link"} -->
+                    <div class="wp-block-button logo-citeo ds-subtheme-pro is-style-link">
+                        <a class="wp-block-button__link wp-element-button">CITEO PRO</a>
+                    </div>
+                    <!-- /wp:button -->
+
+                    <!-- wp:button {"className":"logo-citeo ds-subtheme-sh is-style-link"} -->
+                    <div class="wp-block-button logo-citeo ds-subtheme-sh is-style-link">
+                        <a class="wp-block-button__link wp-element-button">CITEO Soin et Hygiène</a>
+                    </div>
+                    <!-- /wp:button -->
+
+                    <!-- wp:button {"className":"is-style-link adelphe"} -->
+                    <div class="wp-block-button is-style-link adelphe">
+                        <a class="wp-block-button__link wp-element-button">Adelphe</a>
+                    </div>
+                    <!-- /wp:button -->
+
+                </div>
+                <!-- /wp:buttons -->
+
+            </div>
+            <!-- /wp:group -->
+
+            <!-- wp:citeo-semantic/icon {"dsIcon":"icon-core_menu","metadata":{"name":"Menu - ouvert"},"className":"burger-nav"} -->
+            <span class="wp-block-citeo-semantic-icon ds-icon burger-nav"><menu-icon-component size="40" color="var(--ds-icon-color)"></menu-icon-component></span>
+            <!-- /wp:citeo-semantic/icon -->
+
+            <!-- wp:citeo-semantic/icon {"dsIcon":"icon-core_x","metadata":{"name":"Menu - fermé"},"className":"burger-nav burger-close"} -->
+            <span class="wp-block-citeo-semantic-icon ds-icon burger-nav burger-close"><x-icon-component size="40" color="var(--ds-icon-color)"></x-icon-component></span>
+            <!-- /wp:citeo-semantic/icon -->
+
+        </div>
+        <!-- /wp:group -->
+
+        <!-- wp:menu/fixed-menu {isTop: true} -->
+            <div class="wp-block-menu-fixed-menu">
+            </div>
+        <!-- /wp:menu/fixed-menu -->
+
+    </div>
+    <!-- /wp:group -->
+
+</header>
+<!-- /wp:group -->

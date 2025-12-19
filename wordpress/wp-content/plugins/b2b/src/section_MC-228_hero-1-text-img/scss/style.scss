@@ -1,0 +1,83 @@
+.wp-block-ds-citeocom-section-hero {
+    position: relative;
+
+    width: 100%;
+    padding: 3.75rem var(--ds-semantic-spacing-xl);
+    box-sizing: border-box;
+
+    border-bottom: var(--ds-semantic-sizing-3xs) solid var(--ds-semantic-color-accent1-surface-medium);
+    background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+
+    .content-wrap {
+        display: flex;
+        align-items: center;
+        gap: 6.5rem;
+        flex-wrap: nowrap;
+
+        max-width: var(--wp--style--global--content-size);
+        margin: auto;
+
+        .wp-block-b2b-page-title-button {
+            flex-basis: 50%;
+
+            .is-style-secondary {
+                .wp-block-button__link {
+                    background-color: transparent !important;
+                }
+            }
+        }
+
+        .wp-block-image {
+            display: flex;
+            align-items: center;
+            aspect-ratio: 3 / 2;
+
+            flex-basis: 50%;
+            flex-shrink: 0;
+
+            img, picture {
+                width: 100%;
+                height: 100%;
+                border-radius: var(--ds-semantic-radius-default);
+
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }    
+
+    &.bg-white {
+        background-color: var(--ds-semantic-color-layout-surface-medium-default) !important;
+    }
+
+    @media screen and (max-width: 1200px) {
+        padding: 3.75rem var(--ds-semantic-spacing-l);
+    }
+
+    @media screen and (max-width: 1000px) {
+        .content-wrap {
+            flex-direction: column;
+            gap: var(--ds-semantic-spacing-3xl);
+
+            .wp-block-b2b-page-title-button, .wp-block-image {
+                flex-basis: initial;
+                width: 100%;
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        &::after {
+            background-position: center;
+        }
+    }
+
+    @for $i from 2 through 3 {
+        &.subtheme-accent#{$i} {
+            background-color: var(--ds-semantic-color-accent#{$i}-surface-subtlest);
+
+            border-color: var(--ds-semantic-color-accent#{$i}-surface-medium);
+        }
+    }
+    
+}

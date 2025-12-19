@@ -1,0 +1,34 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/block_CC2-829_fade-slider/scss/style.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.has-fade-slider .slider-wrap {
+  position: relative;
+}
+.has-fade-slider .slider-wrap > * {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 1;
+  transition: opacity 0.4s ease-out 0.25s, transform 0.4s ease-out 0.25s;
+}
+.has-fade-slider .slider-wrap > *:not(.is-active) {
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.25s ease-out, transform 0s 0.25s;
+}
+.has-fade-slider .slider-controls {
+  margin-top: var(--ds-semantic-spacing-2xl);
+}
+.has-fade-slider .slider-controls .prev-slide, .has-fade-slider .slider-controls .next-slide {
+  transition: opacity ease-out 0.25s;
+}
+.has-fade-slider .slider-controls .prev-slide {
+  transform: rotateZ(180deg);
+}
+.has-fade-slider .slider-controls .disabled {
+  pointer-events: none;
+  opacity: 0.25;
+}
+.has-fade-slider .no-slide + .slider-controls {
+  display: none;
+}

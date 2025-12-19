@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ds-citeocom/section-hero-slider",
+	"version": "1.0.0",
+	"title": "En tête - Home & actualités",
+	"category": "b2b-page-start-block",
+	"icon": "smiley",
+	"description": "Permet d'introduire des pages internes avec un carousel.",
+	"supports": {
+		"html": false,
+		"align": ["full"]
+	},
+	"attributes": {
+		"allowResize": {
+			"type": "boolean",
+			"default": false
+		},
+		"preview": {
+			"type": "boolean",
+			"default": false
+    	},
+		"theme": {
+			"type": "string",
+			"default": ""
+		},
+		"subTheme": {
+			"type": "string",
+			"default": "subtheme-accent1"
+		}
+	},
+	"example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"providesContext": {
+		"allowResize": "allowResize"
+	},
+	"textdomain": "citeo",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

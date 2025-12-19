@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ds-citeocom/list",
+	"version": "0.1.0",
+	"title": "Liste",
+	"icon": "smiley",
+	"description": "Liste avec icone custom.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"className": true
+	},
+	"textdomain": "list",
+	"editorScript": "file:./index.js"
+}

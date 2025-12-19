@@ -1,0 +1,82 @@
+.has-horizontal-slider {
+
+    .slider-wrap {
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: var(--ds-semantic-spacing-l);
+        flex-wrap: nowrap;
+
+        width: 100%;
+
+        // transform: translateX(0);
+        transition: transform ease-out .25s;
+
+        cursor: grab;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        // Very important for iOS
+        touch-action: auto;
+
+        font-family: var(--ds-semantic-font-default);
+
+        &:active {
+            cursor: grabbing;
+        }
+
+        &.no-slide {
+            cursor: default;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        &.shifting {
+            .stepper-wrap {
+                pointer-events: none;
+            }
+        }
+
+        &:not(.shifting) {
+            transition: none !important;
+        }
+    }
+
+    .stepper-wrap {
+        .step-index {
+            cursor: pointer;
+        }
+    }
+
+    .slider-controls {
+        margin-top: var(--ds-semantic-spacing-2xl);
+
+        .prev-slide, .next-slide {
+            transition: opacity ease-out .25s;
+        }
+        .prev-slide {
+            transform: rotateZ(-180deg);
+        }
+        .disabled {
+            pointer-events: none;
+            opacity: .25;
+
+        }
+    }
+
+    .no-slide + .slider-controls {
+        display: none;
+    }
+
+    .total-wrap {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+}

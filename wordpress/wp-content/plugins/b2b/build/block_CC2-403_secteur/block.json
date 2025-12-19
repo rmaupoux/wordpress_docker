@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ds-citeocom/block-secteur",
+  "version": "2.0.0",
+  "title": "Secteur d'activité",
+  "category": "citeo",
+  "icon": "smiley",
+  "description": "Block de secteur d'activité avec image, titre, description, features et boutons.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "allowResize": {
+      "type": "boolean",
+      "default": false
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "isDefaultActive": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "providesContext": {
+    "allowResize": "allowResize"
+  },
+  "ancestor": [
+    "ds-citeocom/section-secteur-liste"
+  ],
+  "usesContext": [
+    "ds-citeocom/sector-list-id"
+  ],
+  "textdomain": "headelines",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

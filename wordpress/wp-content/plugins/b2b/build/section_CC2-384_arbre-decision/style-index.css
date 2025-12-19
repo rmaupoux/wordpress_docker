@@ -1,0 +1,193 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_CC2-384_arbre-decision/scss/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-ds-citeocom-section-chart {
+  position: relative;
+  padding: 7.5rem 0;
+  box-sizing: border-box;
+  background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-chart > *:not(.back-picto) {
+  max-width: var(--wp--style--global--content-size);
+  margin: auto;
+}
+.wp-block-ds-citeocom-section-chart.is-white {
+  background-color: transparent !important;
+}
+.wp-block-ds-citeocom-section-chart.is-white .back-picto {
+  background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-chart .back-picto {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask-position: right top;
+          mask-position: right top;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-size: 30%;
+          mask-size: 30%;
+  background-color: var(--ds-semantic-color-layout-invert-content-subtle);
+  pointer-events: none;
+}
+.wp-block-ds-citeocom-section-chart .wp-block-b2b-title-description-button {
+  position: relative;
+  z-index: 1;
+}
+.wp-block-ds-citeocom-section-chart .wp-block-b2b-title-description-button p, .wp-block-ds-citeocom-section-chart .wp-block-b2b-title-description-button .wp-block-heading {
+  max-width: 32rem;
+}
+.wp-block-ds-citeocom-section-chart .chart-section {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 11rem;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 3.75rem 5.5625rem;
+  margin-top: var(--ds-semantic-spacing-5xl);
+  background-color: var(--ds-semantic-color-layout-surface-medium-default);
+  border-radius: 0.75rem;
+  box-shadow: 0 17px 32px -2px rgba(28, 39, 49, 0.05);
+}
+.wp-block-ds-citeocom-section-chart .chart-section::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - var(--ds-semantic-spacing-xl) - 1px);
+  left: calc(5.5625rem + 1px);
+  z-index: 0;
+  width: var(--ds-semantic-sizing-4xl);
+  height: var(--ds-semantic-sizing-4xl);
+  box-sizing: border-box;
+  border-radius: var(--ds-semantic-radius-default);
+  border: solid 1px var(--ds-semantic-color-accent1-border-medium);
+  background: var(--ds-semantic-color-accent1-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-chart .chart-section .main-picto {
+  position: relative;
+  z-index: 1;
+  width: var(--ds-semantic-sizing-4xl);
+  height: var(--ds-semantic-sizing-4xl);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ds-semantic-color-accent1-content-strong) !important;
+  border: solid 1px transparent;
+  border-radius: 0.25rem;
+  -webkit-mask-size: 2rem !important;
+          mask-size: 2rem !important;
+}
+.wp-block-ds-citeocom-section-chart .chart-section .ds-icon {
+  --ds-icon-color: var(--ds-semantic-color-accent1-content-strong);
+  padding: var(--ds-semantic-spacing-s);
+  background-color: transparent !important;
+}
+.wp-block-ds-citeocom-section-chart .chart-section .chart-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  color: var(--ds-semantic-color-accent1-border-subtle);
+}
+.wp-block-ds-citeocom-section-chart .chart-section .chart-wrap .chart-canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 1024px) {
+  .wp-block-ds-citeocom-section-chart .chart-section {
+    padding: 3.75rem 3.5rem;
+  }
+  .wp-block-ds-citeocom-section-chart .chart-section::before {
+    left: calc(3.5rem + 1px);
+  }
+}
+@media screen and (max-width: 834px) {
+  .wp-block-ds-citeocom-section-chart .chart-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-semantic-spacing-2xl);
+    padding: var(--ds-semantic-spacing-3xl) var(--ds-semantic-spacing-xl);
+    margin: 3.5rem 0 0;
+  }
+  .wp-block-ds-citeocom-section-chart .chart-section::before {
+    top: calc(var(--ds-semantic-spacing-3xl) + 1px);
+    left: calc(50% - var(--ds-semantic-spacing-xl) - 1px);
+  }
+  .wp-block-ds-citeocom-section-chart .chart-section .chart-wrap {
+    display: none;
+  }
+  .wp-block-ds-citeocom-section-chart .chart-section .picto-block-wrap {
+    grid-template-columns: 3.75rem 1fr;
+  }
+  .wp-block-ds-citeocom-section-chart .chart-section .picto-block-wrap .picto-num {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .wp-block-ds-citeocom-section-chart .chart-section {
+    padding: var(--ds-semantic-spacing-xl) 1.25rem;
+  }
+  .wp-block-ds-citeocom-section-chart .chart-section::before {
+    top: calc(var(--ds-semantic-spacing-xl) + 1px);
+  }
+  .wp-block-ds-citeocom-section-chart .chart-section .picto-block-wrap {
+    grid-template-columns: 3rem 1fr;
+  }
+  .wp-block-ds-citeocom-section-chart .chart-section .picto-block-wrap::before, .wp-block-ds-citeocom-section-chart .chart-section .picto-block-wrap .chart-picto {
+    width: var(--ds-semantic-sizing-2xl);
+    height: var(--ds-semantic-sizing-2xl);
+  }
+  .wp-block-ds-citeocom-section-chart .chart-section .picto-block-wrap .txt-wrap {
+    padding-top: var(--ds-semantic-spacing-xs);
+  }
+}
+@media screen and (max-width: 1264px) {
+  .wp-block-ds-citeocom-section-chart {
+    padding-left: var(--ds-semantic-spacing-xl);
+    padding-right: var(--ds-semantic-spacing-xl);
+  }
+}
+@media screen and (max-width: 834px) {
+  .wp-block-ds-citeocom-section-chart {
+    padding-top: var(--ds-semantic-spacing-4xl);
+    padding-bottom: var(--ds-semantic-spacing-4xl);
+  }
+  .wp-block-ds-citeocom-section-chart .chart-section {
+    margin-top: var(--ds-semantic-spacing-2xl);
+  }
+  .wp-block-ds-citeocom-section-chart .back-picto {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .wp-block-ds-citeocom-section-chart {
+    padding-left: var(--ds-semantic-spacing-m);
+    padding-right: var(--ds-semantic-spacing-m);
+  }
+  .wp-block-ds-citeocom-section-chart .back-picto {
+    -webkit-mask-size: 66% !important;
+            mask-size: 66% !important;
+  }
+}
+.wp-block-ds-citeocom-section-chart.subtheme-accent2 {
+  background-color: var(--ds-semantic-color-accent2-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-chart.subtheme-accent2.is-white .back-picto {
+  background-color: var(--ds-semantic-color-accent2-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-chart.subtheme-accent3 {
+  background-color: var(--ds-semantic-color-accent3-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-chart.subtheme-accent3.is-white .back-picto {
+  background-color: var(--ds-semantic-color-accent3-surface-subtlest);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

@@ -1,0 +1,27 @@
+@import "./common/core.compatibility.css";
+@import "./common/core.css";
+@import "./common/fonts.css";
+@import "./common/semantics.compatibility.css";
+@import "./common/typography.css";
+/* All themes */
+@import "./citeob2b/space-citeob2b-chr.css";
+@import "./citeob2b/space-citeob2b-cs.css";
+@import "./citeob2b/space-citeob2b-da.css";
+@import "./citeob2b/space-citeob2b-emb.css";
+@import "./citeob2b/space-citeob2b-opc.css";
+@import "./citeob2b/space-citeob2b-opr.css";
+@import "./citeob2b/space-citeob2b-pap.css";
+@import "./citeob2b/space-citeob2b-pro.css";
+@import "./citeob2b/space-citeob2b-tsu.css";
+@import "./citeob2b/subtheme-citeob2b-emp.css";
+@import "./citeob2b/subtheme-citeob2b-group.css";
+@import "./citeob2b/subtheme-citeob2b-pro.css";
+@import "./citeob2b/subtheme-citeob2b-sh.css";
+@import "./citeob2b/theme-citeob2b.css";
+@import "./adelphe/space-adelphe-emb.css";
+@import "./adelphe/space-adelphe-pap.css";
+@import "./adelphe/theme-adelphe.css";
+@import "./citeob2c/theme-citeob2c.css";
+@import "./guidedutri/theme-guidedutri.css";
+
+/*# sourceMappingURL=allThemes.css.map */

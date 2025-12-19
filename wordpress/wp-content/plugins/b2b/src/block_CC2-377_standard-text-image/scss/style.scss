@@ -1,0 +1,117 @@
+.text-img-wrap {
+
+    & {
+        display: flex;
+        gap: 7.75rem;
+        flex-wrap: nowrap;
+        width: 100%;
+        box-sizing: border-box;
+        padding: var(--ds-semantic-spacing-4xl) 0;
+    }
+
+    &>.wp-block-image {
+        width: calc(50% - var(--ds-semantic-sizing-xs));
+        flex-shrink: 0;
+
+        margin: 0;
+
+        &:last-child {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        picture {
+            width: 100%;
+
+            img {
+                width: 100%;
+                aspect-ratio: 4 / 3;
+
+                object-fit: contain;
+                object-position: center;
+
+                border-radius: var(--ds-semantic-radius-default);
+            }
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .article-txt {
+        & {
+            display: flex;
+            padding: var(--ds-semantic-spacing-xl) 0 0 0;
+            flex-direction: column;
+            gap: var(--ds-semantic-spacing-xs);
+
+
+            width: calc(50% - var(--ds-semantic-sizing-xs));
+            flex-shrink: 1;
+        }
+
+        .wp-block-list {
+            padding-inline-start: 0;
+        }
+
+        .ds-text-base,
+        .ds-text-small,
+        .ds-text-xsmall {
+            color: var(--ds-semantic-color-layout-content-subtle)
+        }
+
+        .wp-block-buttons {
+            margin: 1.25rem 0
+        }
+
+        .add-download {
+            .wp-block-button__link {
+                display: flex;
+                justify-content: flex-start;
+                text-align: left;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        gap: var(--ds-semantic-spacing-4xl);
+    }
+
+    @media screen and (max-width: 834px) {
+        gap: var(--ds-semantic-spacing-2xl);
+    }
+
+    @media screen and (max-width: 600px) {
+        & {
+            flex-direction: column;
+        }
+
+        .article-txt {
+            width: 100%;
+
+            &:last-child {
+                padding: 0;
+            }
+
+            &:first-child {
+                padding: 0;
+            }
+
+            .wp-block-button {
+                display: flex;
+
+                a {
+                    flex-grow: 1;
+                    flex-shrink: initial;
+                }
+            }
+        }
+
+        // force right images to go on top
+        &>.wp-block-image {
+            order: -1;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ds-citeocom/image",
+	"version": "1.0.0",
+	"title": "Image",
+	"description": "Core image retravaillée pour intégration responsive.",
+	"example": {},
+	"attributes": {
+		"mobileSrc": {
+			"type": "string",
+			"default": ""
+		},
+		"customCaption": {
+			"type": "string",
+			"default": ""
+		},
+		"focalPoint": {
+			"type": "object",
+			"default": { "x": 0.5, "y": 0.5 }
+		}
+	},
+	"supports": {
+		"html": false,
+		"className": true
+	},
+	"editorScript": "file:./index.js"
+}

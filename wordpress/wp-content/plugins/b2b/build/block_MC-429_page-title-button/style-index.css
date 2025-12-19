@@ -1,0 +1,29 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/block_MC-429_page-title-button/scss/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-b2b-page-title-button {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-semantic-spacing-m);
+}
+.wp-block-b2b-page-title-button .ds-text-xsmall {
+  text-transform: uppercase;
+}
+.wp-block-b2b-page-title-button p {
+  margin: 0;
+}
+.wp-block-b2b-page-title-button .ds-text-base, .wp-block-b2b-page-title-button .ds-text-paragraph, .wp-block-b2b-page-title-button .ds-text-small, .wp-block-b2b-page-title-button p:not(.ds-text-large, .ds-text-xsmall) {
+  color: var(--ds-semantic-color-layout-content-subtle);
+}
+.wp-block-b2b-page-title-button .ds-display-1 .underline, .wp-block-b2b-page-title-button .ds-display-2 .underline {
+  text-decoration-color: transparent;
+}
+.wp-block-b2b-page-title-button .wp-block-list {
+  padding-inline-start: 0;
+}
+.wp-block-b2b-page-title-button .wp-block-buttons {
+  margin: var(--ds-semantic-spacing-m) 0 0;
+  gap: var(--ds-semantic-spacing-m);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

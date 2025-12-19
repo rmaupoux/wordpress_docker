@@ -1,0 +1,17 @@
+.wp-block-citeo-semantic-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ds-semantic-spacing-xs);
+
+    padding: var(--ds-semantic-spacing-xs) var(--ds-semantic-spacing-s);
+
+    border-radius: 1rem;
+    font-family: var(--ds-semantic-font-default);
+
+    border: solid 1px var(--ds-semantic-color-layout-border-strong-default);
+
+    .semantic-icon {
+        width: var(--ds-semantic-sizing-s);
+        height: var(--ds-semantic-sizing-s);
+    }
+}

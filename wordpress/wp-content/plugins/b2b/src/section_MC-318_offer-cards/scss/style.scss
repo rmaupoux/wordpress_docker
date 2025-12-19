@@ -1,0 +1,102 @@
+
+.wp-block-ds-citeocom-section-cards-offer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-semantic-spacing-3xl);
+
+    position: relative;
+
+    padding: var(--ds-semantic-spacing-5xl) var(--ds-semantic-spacing-xl);
+    box-sizing: border-box;
+    background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+
+    border-top: solid var(--ds-semantic-sizing-3xs) var(--ds-semantic-color-accent1-surface-medium);
+
+    &.is-white {
+        background-color: var(--ds-semantic-color-layout-surface-medium-default) !important;
+
+        .back-picto {
+            background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+        }
+    }
+
+    .back-picto {
+        max-width: var(--wp--style--global--content-size);
+        margin: auto;
+        mask-position: right 2.5rem;
+        mask-size: clamp(10rem, 30%, 22rem);
+    }
+
+    .wp-block-b2b-title-description-button, .offer-card-wrapper {
+        position: relative;
+        z-index: 1;
+
+        width: 100%;
+        max-width: var(--wp--style--global--content-size);
+        margin: auto;
+    }
+
+    .wp-block-b2b-title-description-button {
+        & > .wp-block-buttons, & > p, & > .wp-block-heading, & > .wp-block-list {
+            width: 50%;
+        }
+    }
+    
+    .offer-card-wrapper {
+        align-items: flex-start;
+        gap: var(--ds-semantic-spacing-l);
+
+        &:has(.wp-block-b2b-card-offer:nth-child(4):last-child) {
+            .wp-block-b2b-card-offer {
+                flex-basis: 50%;
+            }
+        }
+    }
+
+    .wp-block-b2b-card-offer {
+        &:nth-child(n + 7) {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 1040px) {
+        .wp-block-b2b-title-description-button {
+            & > .wp-block-buttons, & > p, & > .wp-block-heading, & > .wp-block-list {
+                width: 66.66%;
+            }
+        }
+    }
+
+    @media screen and (max-width: 840px) {
+        gap: 7.5rem;
+    }
+
+    @media screen and (max-width: 600px) {
+        padding-left: var(--ds-semantic-spacing-m);
+        padding-right: var(--ds-semantic-spacing-m);
+
+        .wp-block-b2b-title-description-button {
+            & > .wp-block-buttons, & > p, & > .wp-block-heading, & > .wp-block-list {
+                width: 100%;
+            }
+        }
+    }
+
+    @for $i from 2 through 3 {
+        &.subtheme-accent#{$i} {
+            background-color: var(--ds-semantic-color-accent#{$i}-surface-subtlest);
+
+            border-color: var(--ds-semantic-color-accent#{$i}-surface-medium);
+
+            .back-picto {
+                background-color: var(--ds-semantic-color-accent#{$i}-surface-subtle);
+            }
+
+            &.is-white {
+                .back-picto {
+                    background-color: var(--ds-semantic-color-accent#{$i}-surface-subtlest);
+                }
+            }
+        }
+    }
+}

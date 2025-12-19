@@ -1,0 +1,8 @@
+.ds-theme-citeob2b .ds-space-opc, .ds-theme-citeob2b.ds-space-opc {
+  --ds-space-content-medium: var(--ds-brand-color-green-600);
+  --ds-space-surface-subtle: var(--ds-brand-color-green-50);
+  --ds-space-surface-medium: var(--ds-brand-color-green-600);
+  --ds-space-border-medium: var(--ds-brand-color-green-600);
+}
+
+/*# sourceMappingURL=space-citeob2b-opc.css.map */

@@ -1,0 +1,26 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_CC2-792_iframe/scss/style.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-citeo-semantic-block-iframe {
+  margin-top: var(--ds-semantic-spacing-2xl);
+  margin-bottom: var(--ds-semantic-spacing-2xl);
+  box-sizing: border-box;
+  padding: var(--ds-semantic-spacing-5xl);
+  border-radius: var(--ds-semantic-radius-elevated);
+  background-color: var(--ds-semantic-color-layout-surface-subtle-default);
+}
+.wp-block-citeo-semantic-block-iframe .in-page-iframe {
+  width: 100%;
+  aspect-ratio: 16/10;
+  border-radius: var(--ds-semantic-radius-elevated);
+}
+@media screen and (max-width: 1040px) {
+  .wp-block-citeo-semantic-block-iframe {
+    padding: var(--ds-semantic-spacing-2xl) var(--ds-semantic-spacing-xl);
+  }
+}
+@media screen and (max-width: 600px) {
+  .wp-block-citeo-semantic-block-iframe {
+    padding: var(--ds-semantic-spacing-xl) var(--ds-semantic-spacing-l);
+  }
+}

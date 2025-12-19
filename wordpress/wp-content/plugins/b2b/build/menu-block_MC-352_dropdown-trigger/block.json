@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "menu/dropdown-trigger",
+  "version": "1.0.0",
+  "title": "Bouton modale de menu",
+  "category": "citeo-menu",
+  "icon": "smiley",
+  "description": "Bouton activant la dropdown associée",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "parent": [
+    "menu/fixed-menu"
+  ],
+  "attributes": {
+    "uuid": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": "span",
+      "default": ""
+    }
+  },
+  "allowedBlocks": [],
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

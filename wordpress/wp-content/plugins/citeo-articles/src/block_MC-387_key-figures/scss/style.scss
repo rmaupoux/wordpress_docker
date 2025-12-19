@@ -1,0 +1,31 @@
+.wp-block-citeo-articles-key-figures {
+	padding: var(--ds-semantic-spacing-l) 0;
+	overflow: hidden;
+	h2 {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding-top: var(--ds-semantic-spacing-l);
+		padding-bottom: var(--ds-semantic-spacing-s);
+	}
+
+	p {
+		padding: var(--ds-semantic-spacing-s) var(--ds-semantic-spacing-s) var(--ds-semantic-spacing-l);
+		width: 100%;
+		border-top: 2px solid transparent;
+		transition: border-top-color 0.3s ease, background-color 0.3s ease;
+		
+		&:first-of-type,
+		&:hover {
+			border-top-color: var(--ds-semantic-color-layout-content-medium);
+			background: var(--ds-semantic-color-accent1-surface-subtlest);
+		}
+	}
+
+	&:has(p:hover) {
+		p:first-of-type:not(:hover) {
+			border-top-color: transparent;
+			background: transparent;
+		}
+	}
+}

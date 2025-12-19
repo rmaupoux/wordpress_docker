@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ds-citeocom/section-word-cloud",
+  "version": "0.1.0",
+  "title": "Infobulles",
+  "category": "b2b-redirect-block",
+  "description": "Ce bloc permet de mettre en avant des mots clefs.",
+  "supports": {
+    "html": false,
+    "inserter": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "attributes": {
+    "preview": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "textdomain": "headelines",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

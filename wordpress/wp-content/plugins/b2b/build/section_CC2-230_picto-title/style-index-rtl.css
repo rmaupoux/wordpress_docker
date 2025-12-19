@@ -1,0 +1,137 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_CC2-230_picto-title/scss/style.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-b2b-image-title-color .large-align-block {
+  display: flex;
+  gap: var(--ds-semantic-spacing-5xl);
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--wp--style--global--content-size);
+  margin: auto;
+  text-align: center;
+}
+.wp-block-b2b-image-title-color .large-align-block .wp-block-b2b-title-description-button {
+  background-color: var(--ds-semantic-color-layout-surface-medium-default);
+  text-align: center;
+  padding: var(--ds-semantic-spacing-m) var(--ds-semantic-spacing-xl);
+  width: 100%;
+}
+.wp-block-b2b-image-title-color .chantier-flex {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-semantic-spacing-l);
+  width: 100%;
+  padding: var(--ds-semantic-spacing-4xl) 0 var(--ds-semantic-spacing-2xl) 0;
+}
+.wp-block-b2b-image-title-color .chantier-flex .main-picto {
+  display: inline-block;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  background-color: var(--ds-semantic-color-accent1-surface-medium);
+  width: var(--ds-semantic-sizing-9xl);
+  height: var(--ds-semantic-sizing-9xl);
+  padding: var(--ds-semantic-spacing-l);
+  box-sizing: border-box;
+}
+.wp-block-b2b-image-title-color .chantier-flex .content-wrap {
+  max-width: 32rem;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.wp-block-b2b-image-title-color .chantier-flex:not(.chantier-flex--background) {
+  display: flex;
+  gap: var(--ds-semantic-spacing-5xl);
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--wp--style--global--content-size);
+  margin: auto;
+}
+.wp-block-b2b-image-title-color .chantier-flex--background {
+  justify-content: center;
+  text-align: center;
+}
+.wp-block-b2b-image-title-color .chantier-flex.flex-row-center {
+  flex-direction: column;
+  gap: var(--ds-semantic-spacing-m);
+}
+.wp-block-b2b-image-title-color .chantier-flex.flex-row-center .main-picto {
+  width: var(--ds-semantic-sizing-7xl);
+  height: var(--ds-semantic-sizing-7xl);
+  padding: var(--ds-semantic-spacing-s);
+}
+.wp-block-b2b-image-title-color .chantier-flex.flex-row-center .wp-block-b2b-title-description-button {
+  text-align: center;
+}
+.wp-block-b2b-image-title-color .chantier-flex.flex-row-center .wp-block-b2b-title-description-button .wp-block-buttons {
+  justify-content: center;
+}
+.wp-block-b2b-image-title-color .chantier-flex.flex-row-reverse {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.wp-block-b2b-image-title-color .chantier-flex.flex-row-reverse .main-picto {
+  width: 10rem;
+  height: 10rem;
+  padding: var(--ds-semantic-spacing-m);
+}
+.wp-block-b2b-image-title-color .chantier-flex svg {
+  width: 100%;
+  height: 100%;
+}
+.wp-block-b2b-image-title-color .chantier-flex svg path {
+  fill: var(--ds-semantic-color-accent1-surface-medium);
+}
+@media (max-width: 768px) {
+  .wp-block-b2b-image-title-color .chantier-flex.flex-row, .wp-block-b2b-image-title-color .chantier-flex.flex-row-reverse {
+    flex-direction: column;
+  }
+}
+.wp-block-b2b-image-title-color .chantier-flex--background {
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+.wp-block-b2b-image-title-color .chantier-flex--background .picto-back-repeat {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  -webkit-mask-size: 280px 160px;
+          mask-size: 280px 160px;
+  -webkit-mask-repeat: repeat;
+          mask-repeat: repeat;
+  -webkit-mask-position: 140px 0, 0 80px;
+          mask-position: 140px 0, 0 80px;
+  pointer-events: none;
+}
+.wp-block-b2b-image-title-color .chantier-flex--background .wp-block-buttons {
+  justify-content: center;
+}
+@media screen and (max-width: 1200px) {
+  .wp-block-b2b-image-title-color .content-wrap {
+    padding-right: var(--ds-semantic-spacing-m);
+    padding-left: var(--ds-semantic-spacing-m);
+  }
+}
+.wp-block-b2b-image-title-color.subtheme-accent2 .chantier-flex .main-picto, .wp-block-b2b-image-title-color.subtheme-accent2 .chantier-flex .picto-back-repeat {
+  background-color: var(--ds-semantic-color-accent2-surface-medium) !important;
+}
+.wp-block-b2b-image-title-color.subtheme-accent2 .chantier-flex svg path {
+  fill: var(--ds-semantic-color-accent2-surface-medium);
+}
+.wp-block-b2b-image-title-color.subtheme-accent3 .chantier-flex .main-picto, .wp-block-b2b-image-title-color.subtheme-accent3 .chantier-flex .picto-back-repeat {
+  background-color: var(--ds-semantic-color-accent3-surface-medium) !important;
+}
+.wp-block-b2b-image-title-color.subtheme-accent3 .chantier-flex svg path {
+  fill: var(--ds-semantic-color-accent3-surface-medium);
+}

@@ -1,0 +1,14 @@
+.wp-block-citeo-articles-slider-image {
+
+    .wrapper__sider-controls {
+        max-height: 20.5rem;
+    }
+
+    .wp-block-image {
+
+        & > div {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+}

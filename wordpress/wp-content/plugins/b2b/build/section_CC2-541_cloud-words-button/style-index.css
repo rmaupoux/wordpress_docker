@@ -1,0 +1,29 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_CC2-541_cloud-words-button/scss/style.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-ds-citeocom-section-word-cloud > .wp-block-heading {
+  margin-bottom: var(--ds-semantic-spacing-m);
+}
+.wp-block-ds-citeocom-section-word-cloud .h3-title {
+  font-size: var(--ds-core-typography-font-size-m);
+  margin-bottom: var(--ds-semantic-spacing-3xl);
+  line-height: 1.4;
+}
+.wp-block-ds-citeocom-section-word-cloud .numbers-button {
+  justify-content: center;
+}
+.wp-block-ds-citeocom-section-word-cloud .wp-block-buttons {
+  gap: 0.7rem;
+}
+.wp-block-ds-citeocom-section-word-cloud .wp-block-button.cloud-word--button .wp-element-button {
+  width: auto;
+  height: var(--ds-semantic-sizing-xl);
+  padding: var(--ds-semantic-spacing-xs) var(--ds-semantic-spacing-m) var(--ds-semantic-spacing-xs) var(--ds-semantic-spacing-m);
+  border-radius: 6.25rem;
+  border: 1px solid var(--ds-semantic-color-layout-border-strong-default);
+  background-color: var(--ds-semantic-color-layout-surface-medium-default);
+  color: var(--ds-semantic-color-layout-content-medium);
+  font-size: var(--ds-core-typography-font-size-s);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

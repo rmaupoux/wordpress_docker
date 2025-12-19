@@ -1,0 +1,48 @@
+.ds-theme-citeob2b .ds-subtheme-sh, .ds-theme-citeob2b.ds-subtheme-sh {
+  --ds-subtheme-color-action-all-medium: var(--ds-brand-color-grey-800);
+  --ds-subtheme-color-action-all-strong: var(--ds-brand-color-grey-700);
+  --ds-subtheme-color-action-all-stronger: var(--ds-brand-color-grey-900);
+  --ds-subtheme-color-action-all-subtlest: var(--ds-brand-color-grey-50);
+  --ds-subtheme-color-action-all-subtle: var(--ds-brand-color-grey-100);
+  --ds-subtheme-color-accent1-all-strong: rgb(18, 115, 116);
+  --ds-subtheme-color-accent1-all-subtlest: rgb(214, 236, 237);
+  --ds-subtheme-color-accent1-all-subtle: rgb(136, 200, 201);
+  --ds-subtheme-color-accent1-all-medium: rgb(24, 166, 167);
+  --ds-subtheme-color-accent2-all-strong: rgb(175, 116, 33);
+  --ds-subtheme-color-accent2-all-subtlest: rgb(252, 238, 216);
+  --ds-subtheme-color-accent2-all-subtle: rgb(251, 220, 177);
+  --ds-subtheme-color-accent2-all-medium: rgb(255, 167, 46);
+  --ds-subtheme-color-accent3-all-strong: rgb(9, 66, 70);
+  --ds-subtheme-color-accent3-all-subtlest: rgb(209, 222, 224);
+  --ds-subtheme-color-accent3-all-subtle: rgb(119, 157, 161);
+  --ds-subtheme-color-accent3-all-medium: rgb(11, 94, 100);
+  --ds-semantic-color-action-content-medium: var(--ds-subtheme-color-action-all-medium);
+  --ds-semantic-color-action-content-strong: var(--ds-subtheme-color-action-all-strong);
+  --ds-semantic-color-action-content-stronger: var(--ds-subtheme-color-action-all-stronger);
+  --ds-semantic-color-action-surface-subtlest: var(--ds-subtheme-color-action-all-subtlest);
+  --ds-semantic-color-action-surface-subtle: var(--ds-subtheme-color-action-all-subtle);
+  --ds-semantic-color-action-surface-medium: var(--ds-subtheme-color-action-all-medium);
+  --ds-semantic-color-action-surface-strong: var(--ds-subtheme-color-action-all-strong);
+  --ds-semantic-color-action-surface-stronger: var(--ds-subtheme-color-action-all-stronger);
+  --ds-semantic-color-action-border-medium: var(--ds-subtheme-color-action-all-medium);
+  --ds-semantic-color-action-border-strong: var(--ds-subtheme-color-action-all-strong);
+  --ds-semantic-color-action-border-stronger: var(--ds-subtheme-color-action-all-stronger);
+  --ds-semantic-color-accent1-content-strong: var(--ds-subtheme-color-accent1-all-strong);
+  --ds-semantic-color-accent1-content-medium: var(--ds-subtheme-color-accent1-all-medium);
+  --ds-semantic-color-accent1-surface-subtlest: var(--ds-subtheme-color-accent1-all-subtlest);
+  --ds-semantic-color-accent1-surface-subtle: var(--ds-subtheme-color-accent1-all-subtle);
+  --ds-semantic-color-accent1-surface-medium: var(--ds-subtheme-color-accent1-all-medium);
+  --ds-semantic-color-accent1-border-subtle: var(--ds-subtheme-color-accent1-all-subtle);
+  --ds-semantic-color-accent2-content-strong: var(--ds-subtheme-color-accent2-all-strong);
+  --ds-semantic-color-accent2-content-medium: var(--ds-subtheme-color-accent2-all-medium);
+  --ds-semantic-color-accent2-surface-subtlest: var(--ds-subtheme-color-accent2-all-subtlest);
+  --ds-semantic-color-accent2-surface-subtle: var(--ds-subtheme-color-accent2-all-subtle);
+  --ds-semantic-color-accent2-surface-medium: var(--ds-subtheme-color-accent2-all-medium);
+  --ds-semantic-color-accent3-content-strong: var(--ds-subtheme-color-accent3-all-strong);
+  --ds-semantic-color-accent3-content-medium: var(--ds-subtheme-color-accent3-all-medium);
+  --ds-semantic-color-accent3-surface-subtlest: var(--ds-subtheme-color-accent3-all-subtlest);
+  --ds-semantic-color-accent3-surface-subtle: var(--ds-subtheme-color-accent3-all-subtle);
+  --ds-semantic-color-accent3-surface-medium: var(--ds-subtheme-color-accent3-all-medium);
+}
+
+/*# sourceMappingURL=subtheme-citeob2b-sh.css.map */

@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ds-citeocom/post-button",
+	"title": "Bouton d'article",
+	"category": "citeo",
+	"icon": "smiley",
+	"description": "Bouton à lien fixe vers le lien de l'article",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"buttonText": {
+			"type": "string",
+			"default": "Lire l'article"
+		},
+		"linkTarget": {
+			"type": "string",
+			"default": "_blank"
+		}
+	},
+	"ancestor": ["core/post-template", "ds-citeocom/section-latest-posts"],
+	"example": {},
+	"usesContext": ["postId", "postType"],
+	"textdomain": "default",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

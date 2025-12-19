@@ -1,0 +1,86 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_MC-318_offer-cards/scss/style.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-ds-citeocom-section-cards-offer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-semantic-spacing-3xl);
+  position: relative;
+  padding: var(--ds-semantic-spacing-5xl) var(--ds-semantic-spacing-xl);
+  box-sizing: border-box;
+  background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+  border-top: solid var(--ds-semantic-sizing-3xs) var(--ds-semantic-color-accent1-surface-medium);
+}
+.wp-block-ds-citeocom-section-cards-offer.is-white {
+  background-color: var(--ds-semantic-color-layout-surface-medium-default) !important;
+}
+.wp-block-ds-citeocom-section-cards-offer.is-white .back-picto {
+  background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-cards-offer .back-picto {
+  max-width: var(--wp--style--global--content-size);
+  margin: auto;
+  -webkit-mask-position: right 2.5rem;
+          mask-position: right 2.5rem;
+  -webkit-mask-size: clamp(10rem, 30%, 22rem);
+          mask-size: clamp(10rem, 30%, 22rem);
+}
+.wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button, .wp-block-ds-citeocom-section-cards-offer .offer-card-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--wp--style--global--content-size);
+  margin: auto;
+}
+.wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button > .wp-block-buttons, .wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button > p, .wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button > .wp-block-heading, .wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button > .wp-block-list {
+  width: 50%;
+}
+.wp-block-ds-citeocom-section-cards-offer .offer-card-wrapper {
+  align-items: flex-start;
+  gap: var(--ds-semantic-spacing-l);
+}
+.wp-block-ds-citeocom-section-cards-offer .offer-card-wrapper:has(.wp-block-b2b-card-offer:nth-child(4):last-child) .wp-block-b2b-card-offer {
+  flex-basis: 50%;
+}
+.wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-card-offer:nth-child(n+7) {
+  display: none;
+}
+@media screen and (max-width: 1040px) {
+  .wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button > .wp-block-buttons, .wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button > p, .wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button > .wp-block-heading, .wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button > .wp-block-list {
+    width: 66.66%;
+  }
+}
+@media screen and (max-width: 840px) {
+  .wp-block-ds-citeocom-section-cards-offer {
+    gap: 7.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .wp-block-ds-citeocom-section-cards-offer {
+    padding-right: var(--ds-semantic-spacing-m);
+    padding-left: var(--ds-semantic-spacing-m);
+  }
+  .wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button > .wp-block-buttons, .wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button > p, .wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button > .wp-block-heading, .wp-block-ds-citeocom-section-cards-offer .wp-block-b2b-title-description-button > .wp-block-list {
+    width: 100%;
+  }
+}
+.wp-block-ds-citeocom-section-cards-offer.subtheme-accent2 {
+  background-color: var(--ds-semantic-color-accent2-surface-subtlest);
+  border-color: var(--ds-semantic-color-accent2-surface-medium);
+}
+.wp-block-ds-citeocom-section-cards-offer.subtheme-accent2 .back-picto {
+  background-color: var(--ds-semantic-color-accent2-surface-subtle);
+}
+.wp-block-ds-citeocom-section-cards-offer.subtheme-accent2.is-white .back-picto {
+  background-color: var(--ds-semantic-color-accent2-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-cards-offer.subtheme-accent3 {
+  background-color: var(--ds-semantic-color-accent3-surface-subtlest);
+  border-color: var(--ds-semantic-color-accent3-surface-medium);
+}
+.wp-block-ds-citeocom-section-cards-offer.subtheme-accent3 .back-picto {
+  background-color: var(--ds-semantic-color-accent3-surface-subtle);
+}
+.wp-block-ds-citeocom-section-cards-offer.subtheme-accent3.is-white .back-picto {
+  background-color: var(--ds-semantic-color-accent3-surface-subtlest);
+}

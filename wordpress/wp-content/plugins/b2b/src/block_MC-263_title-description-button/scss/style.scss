@@ -1,0 +1,52 @@
+.wp-block-b2b-title-description-button {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-semantic-spacing-m);
+
+    p {
+        margin: 0;
+    }
+
+    .ds-text-xsmall {
+        display: block;
+        text-transform: uppercase;
+    }
+
+    .ds-text-base, .ds-text-paragraph, .ds-text-small, p:not(.ds-text-large, .ds-text-xsmall) {
+        color: var(--ds-semantic-color-layout-content-subtle);
+    }
+
+    .ds-display-1 .underline, .ds-display-2 .underline {
+        text-decoration-color: transparent
+    }
+
+    .wp-block-list {
+        padding-inline-start: 0;
+    }
+
+    .wp-block-buttons {
+        margin: var(--ds-semantic-spacing-m) 0 0;
+        gap: var(--ds-semantic-spacing-m);
+    }
+
+    .tag-wrapper {
+        gap: var(--ds-semantic-spacing-xs);
+        row-gap: .25rem;
+        align-items: flex-start;
+
+        .wp-block-citeo-semantic-tag {
+            // ds-text-xmall
+            font-family: var(--ds-semantic-font-default);
+            font-size: var(--ds-core-typography-font-size-xs);
+            font-weight: var(--ds-core-typography-font-weight-semibold);
+            line-height: 130%;
+        }
+    }
+}
+
+.container > .wp-block-b2b-title-description-button {
+    max-width: var(--wp--style--global--content-size);
+    margin: 0 auto;
+
+    padding: var(--ds-semantic-spacing-xl) 0;
+}

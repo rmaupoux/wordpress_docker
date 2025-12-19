@@ -1,0 +1,58 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ds-citeocom/block-tab",
+	"version": "2.0.0",
+	"title": "Tabulation",
+	"category": "citeo",
+	"icon": "smiley",
+	"description": "Tabulation de contenu",
+	"example": {},
+	"supports": {
+		"html": false,
+		"inserter": false,
+		"removable": false
+	},
+	"attributes": {
+		"hasTooltip": {
+			"type": "boolean",
+			"default": false
+		},
+		"tooltip": {
+			"type": "string",
+			"default": ""
+		},
+		"uuid": {
+			"type": "string"
+		},
+		"text": {
+			"type": "string",
+			"source": "html",
+			"selector": "span.ds-text-base",
+			"default": ""
+		},
+		"isDefaultActive": {
+			"type": "boolean",
+			"default": false
+		},
+		"icon": {
+			"type": "string",
+			"default": "Aucun"
+		},
+		"isIllustration": {
+			"type": "boolean",
+			"default": false
+		},
+		"dsIcon": {
+			"type": "string",
+			"default": "icon-core_box"
+		}
+	},
+	"usesContext": ["ds-citeocom/sector-list-id"],
+	"ancestor": ["ds-citeocom/section-secteur-liste"],
+	"textdomain": "headelines",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./js/view.js"
+}

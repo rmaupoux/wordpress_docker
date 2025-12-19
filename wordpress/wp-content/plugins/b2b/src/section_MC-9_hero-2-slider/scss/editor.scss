@@ -1,0 +1,32 @@
+.wp-block-ds-citeocom-section-hero-slider {
+    align-items: flex-start;
+    
+    .has-fade-slider {
+        .wp-block-b2b-card {
+
+            &:not(:last-child) {
+                margin-bottom: var(--ds-semantic-spacing-m);
+            }
+
+            & > .block-editor-inner-blocks {
+                padding: 0 !important;
+
+                & > .block-editor-block-list__layout {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: var(--ds-semantic-spacing-s);
+
+                    & > *:not(.wp-block-image) {
+                        padding: 0 var(--ds-semantic-spacing-m);
+                    }
+                } 
+            }
+
+            .wp-block-image > div{
+                height: 100%;
+            }
+        }
+    }
+
+}

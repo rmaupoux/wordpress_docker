@@ -1,0 +1,8 @@
+.ds-theme-citeob2b .ds-space-cs, .ds-theme-citeob2b.ds-space-cs {
+  --ds-space-content-medium: var(--ds-brand-color-pink-600);
+  --ds-space-surface-subtle: var(--ds-brand-color-pink-50);
+  --ds-space-surface-medium: var(--ds-brand-color-pink-600);
+  --ds-space-border-medium: var(--ds-brand-color-pink-600);
+}
+
+/*# sourceMappingURL=space-citeob2b-cs.css.map */

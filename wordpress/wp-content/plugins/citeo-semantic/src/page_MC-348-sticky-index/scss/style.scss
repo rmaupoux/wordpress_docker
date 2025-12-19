@@ -1,0 +1,107 @@
+.wp-block-citeo-semantic-sticky-index-page {
+    max-width: var(--wp--style--global--content-size);
+    margin: auto;
+    padding: var(--ds-semantic-spacing-5xl) var(--ds-semantic-spacing-l);
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(auto-fill, minmax(0, auto));
+    column-gap: var(--ds-semantic-spacing-l);
+
+    position: relative;
+
+    & > .wp-block-group, & > .section-list, & > .page-title {
+        grid-column: span 8;
+        min-width: 0;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .page-title {
+        padding-bottom: var(--ds-semantic-spacing-m);
+        border-bottom: solid 2px var(--ds-semantic-color-accent1-surface-medium);
+    }
+
+    & > .wp-block-citeo-semantic-sticky-index-wrapper {
+        grid-row: 1;
+        grid-column: 10 / span 3;
+
+        position: sticky;
+        top: 8rem;
+        min-width: 0;
+        max-height: fit-content;
+    }
+
+    &:has(.page-title) {
+        & > .wp-block-citeo-semantic-sticky-index-wrapper {
+            grid-row: 2;
+        }
+    }
+
+    &.faq-template .section-list {
+        row-gap: var(--ds-semantic-spacing-3xl);
+    }
+
+    &.text-template, &.text-template .section-list {
+        row-gap: var(--ds-semantic-spacing-l);
+    }
+
+    @media screen and (max-width: 950px) {
+        & {
+            display: flex;
+            flex-direction: column;
+
+            padding: var(--ds-semantic-spacing-5xl) 0;
+        }
+
+        & > .wp-block-group, & > .section-list, & > .wp-block-citeo-semantic-sticky-index-wrapper {
+            width: 100%;
+        }
+
+        & > .wp-block-citeo-semantic-sticky-index-wrapper {
+            position: static;
+            max-width: none;
+            order: -1;
+
+            padding-left: calc(var(--ds-semantic-sizing-2xl) / 2);
+            padding-right: calc(var(--ds-semantic-sizing-2xl) / 2);
+            box-sizing: border-box;
+
+            &::after {
+                display: none;
+            }
+
+            nav {
+                overflow: visible;
+                max-height: none;
+
+                ol {
+                    padding: 0;
+                }
+            }
+
+            .wp-block-citeo-semantic-sticky-index-item.is-active {
+                border: none;
+            }
+        }
+
+        .page-title {
+            padding: 0 var(--ds-semantic-spacing-l);
+            border-bottom: none;
+        }
+
+        &.text-template, &.text-template .section-list {
+            row-gap: var(--ds-semantic-spacing-xl);
+        }
+    }
+
+    @for $i from 1 through 3 {
+        &.subtheme-accent#{$i} {
+            .page-title {
+                border-color: var(--ds-semantic-color-accent#{$i}-surface-medium);
+            }
+                
+        }
+    }
+}

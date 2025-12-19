@@ -1,0 +1,48 @@
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/block_MC-348_sticky-index-section/scss/style.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-citeo-semantic-sticky-index-linked-section {
+  width: 100%;
+}
+
+.faq-template .wp-block-citeo-semantic-sticky-index-linked-section .section-title {
+  padding: var(--ds-semantic-spacing-m) 0;
+}
+
+.text-template .wp-block-citeo-semantic-sticky-index-linked-section {
+  padding: var(--ds-semantic-spacing-l) 0;
+}
+
+.text-template .wp-block-citeo-semantic-sticky-index-linked-section .section-title {
+  margin-bottom: var(--ds-semantic-spacing-xs);
+}
+
+.text-template .wp-block-citeo-semantic-sticky-index-linked-section p, .text-template .wp-block-citeo-semantic-sticky-index-linked-section .wp-block-list {
+  margin: 0;
+  color: var(--ds-semantic-color-layout-content-subtle);
+  font-family: var(--ds-semantic-font-default, Cabin);
+  font-size: var(--ds-core-typography-font-size-s-bis, 1.125rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.text-template .wp-block-citeo-semantic-sticky-index-linked-section .wp-block-list {
+  gap: 0;
+  padding: 0 var(--ds-semantic-spacing-l) 0 0;
+}
+
+.text-template .wp-block-citeo-semantic-sticky-index-linked-section .wp-block-list li::before {
+  background-color: var(--ds-semantic-color-layout-content-subtle);
+  right: calc(-1 * (var(--ds-semantic-spacing-l)));
+  -webkit-mask-size: 4px;
+          mask-size: 4px;
+  -webkit-mask-position: center 60%;
+          mask-position: center 60%;
+}
+
+@media screen and (max-width: 950px) {
+  .text-template .wp-block-citeo-semantic-sticky-index-linked-section {
+    padding: 0;
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "b2b/number-card",
+  "version": "2.0.0",
+  "title": "Exergue de chiffre",
+  "category": "citeo",
+  "icon": "smiley",
+  "description": "Carte avec chiffre mis en exergue.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "allowResize": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasIcon": {
+      "type": "boolean",
+      "default": false
+    },
+    "theme": {
+      "type": "string",
+      "default": ""
+    },
+    "subTheme": {
+      "type": "string",
+      "default": "subtheme-accent1"
+    }
+  },
+  "providesContext": {
+    "allowResize": "allowResize"
+  },
+  "usesContext": [
+    "b2b/theme-context"
+  ],
+  "ancestor": [
+    "ds-citeocom/section-vignettes",
+    "ds-citeocom/section-box-media"
+  ],
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

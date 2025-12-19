@@ -1,0 +1,19 @@
+.wp-block-menu-link-image-card .wp-block-image {
+    &.is-selected {
+        aspect-ratio: initial
+    }
+
+    & > .block-editor-media-placeholder {
+        overflow: hidden;
+    }
+}
+
+.button-edit-popover .components-popover__content{
+    display: flex;
+    align-items: center;
+    padding-right: var(--ds-semantic-spacing-m);
+
+    .block-editor-link-control__search-item {
+        padding-right: 0;
+    }
+}

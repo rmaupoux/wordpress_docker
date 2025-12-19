@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "citeo-jeunesse/section-download",
+  "version": "1.0.0",
+  "title": "Section - Download - ecojunior",
+  "category": "citeo-jeunesse",
+  "description": "Découverte d'un produit.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "preview": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "providesContext": {
+    "allowResize": "allowResize"
+  },
+  "textdomain": "headelines",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./js/view.js"
+}

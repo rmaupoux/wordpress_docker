@@ -1,0 +1,35 @@
+.text-img-wrap {
+
+    & {
+        display: flex;
+        gap: 7.75rem;
+        flex-wrap: nowrap;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    &>.wp-block-image {
+        width: calc(50% - var(--ds-semantic-sizing-xs));
+        flex-shrink: 0;
+
+        margin: 0;
+
+        &:last-child {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        &>div {
+
+            picture,
+            img {
+                width: 100%;
+                object-fit: contain;
+                object-position: center;
+                border-radius: var(--ds-semantic-radius-default);
+                border: 1px solid lightgrey;
+                aspect-ratio: 4 / 3;
+            }
+        }
+    }
+}

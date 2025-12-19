@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "citeo-semantic/text-size-formatting",
+  "version": "1.0.0",
+  "title": "Tailles des textes",
+  "category": "citeo",
+  "icon": "smiley",
+  "description": "Mise en forme des tailles de textes et titre",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js"
+}

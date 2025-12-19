@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "menu/dropdown",
+	"version": "1.0.0",
+	"title": "Conteneur de dropdown",
+	"category": "citeo-menu",
+	"icon": "smiley",
+	"description": "Conteneur de dropdown",
+	"example": {},
+	"supports": {
+		"html": false,
+		"inserter": false
+	},
+	"parent": ["menu/fixed-menu"],
+	"attributes": {
+		"allowResize": {
+			"type": "boolean",
+			"default": false
+		},
+		"uuid": {
+			"type": "string"
+		},
+		"name": {
+			"type": "string"
+		}
+	},
+	"providesContext": {
+		"allowResize": "allowResize"
+	},
+	"textdomain": "citeo",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./js/view.js"
+}

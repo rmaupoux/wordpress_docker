@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "b2b/card-offer",
+  "version": "2.0.0",
+  "title": "Carte offre",
+  "category": "",
+  "icon": "smiley",
+  "description": "Carte offre avec lien et avec ou sans illustration.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "allowResize": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasIllustration": {
+      "type": "boolean",
+      "default": false
+    },
+    "cardLink": {
+      "type": "object",
+      "default": {}
+    },
+    "label": {
+      "type": "string",
+      "default": "Découvrir"
+    }
+  },
+  "providesContext": {
+    "allowResize": "allowResize"
+  },
+  "ancestor": [
+    "ds-citeocom/section-cards-offer"
+  ],
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,140 @@
+// Core icons styling, bar the icon value that are passed with a dynamically generated CSS
+
+.has-prefix-- .wp-element-button::before, .has-suffix-- .wp-element-button::after, .list-icon--::before {
+    display: none !important;
+}
+.has-icon-- {
+    background-color: transparent !important;
+}
+
+[class*="has-prefix"] {
+    .wp-element-button {
+        &:before {
+            content: '';
+
+            display: block;
+
+            width: var(--ds-semantic-sizing-m);
+            height: var(--ds-semantic-sizing-m);
+            flex-shrink: 0;
+
+            background-color: var(--ds-semantic-color-layout-invert-content-medium);
+
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &.is-style-secondary,
+    &.is-style-tertiary,
+    &.is-style-link {
+        .wp-element-button {
+            &:before {
+                background-color: var(--ds-semantic-color-action-surface-stronger);
+            }
+        }
+    }
+
+    &.is-style-tag {
+        .wp-element-button {
+            &:before {
+                background-color: var(--ds-semantic-color-accent1-content-strong);
+            }
+        }
+    }
+
+    &.chart-picto {
+        .wp-element-button {
+            &:after {
+                width: var(--ds-semantic-sizing-m);
+                height: var(--ds-semantic-sizing-m);
+            }
+        }
+    }
+}
+
+[class*="has-suffix"] {
+    .wp-element-button {
+        &:after {
+            content: '';
+
+            display: block;
+
+            width: var(--ds-semantic-sizing-m);
+            height: var(--ds-semantic-sizing-m);
+            flex-shrink: 0;
+
+            background-color: var(--ds-semantic-color-layout-invert-content-medium);
+
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &.is-style-secondary,
+    &.is-style-tertiary,
+    &.is-style-link {
+        .wp-element-button {
+            &:after {
+                background-color: var(--ds-semantic-color-action-surface-stronger);
+            }
+        }
+    }
+
+    &.is-style-tag {
+        .wp-element-button {
+            &:after {
+                background-color: var(--ds-semantic-color-accent1-content-strong);
+            }
+        }
+    }
+
+    &.chart-picto {
+        .wp-element-button {
+            &:after {
+                width: var(--ds-semantic-sizing-m);
+                height: var(--ds-semantic-sizing-m);
+            }
+        }
+    }
+}
+
+// List icon
+[class*="list-icon--"] {
+    display: block;
+    list-style: none;
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: calc(-1 * (var(--ds-semantic-spacing-xl)));
+        top: 0;
+
+        width: var(--ds-semantic-sizing-m) !important;
+        height: var(--ds-semantic-sizing-m) !important;
+
+        // mask-image: $value;
+        mask-size: 1.5rem;
+        mask-repeat: no-repeat;
+        mask-position: left;
+
+        margin-top: 0 !important;
+
+        background-color: var(--ds-semantic-color-layout-content-medium);
+    }
+
+    &.list-icon--Aucun, &.list-icon-- {
+        // black dot to recreate the list style
+        &::before {
+            mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='7' height='7'><circle cx='3.5' cy='3.5' r='3.5' fill='black'/></svg>");
+            mask-size: 6px;
+            mask-position: center;
+        }
+    }
+}

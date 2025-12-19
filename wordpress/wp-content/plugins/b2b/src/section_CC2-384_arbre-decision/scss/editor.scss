@@ -1,0 +1,20 @@
+.wp-block-ds-citeocom-section-chart {
+    .chart-section {
+        box-sizing: border-box;
+        max-width: var(--wp--style--global--content-size);
+    }
+
+    .wp-block-button.is-style-tag .wp-block-button__link {
+        border-radius: inherit;
+    }
+
+    .picto-left-col {
+        position: static !important;
+    }
+
+    .picto-block-wrap {
+        & > .components-dropdown {
+            display: none;
+        }
+    }
+}

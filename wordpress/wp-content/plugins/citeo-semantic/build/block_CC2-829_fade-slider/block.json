@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "citeo-semantic/fade-slider-wrap",
+  "version": "1.0.0",
+  "title": "Carousel fondu entrée/sortie",
+  "category": "semantic",
+  "icon": "smiley",
+  "description": "Conteneur de slider dont les slides (blocs enfants) changent automatiquement toutes les X secondes",
+  "example": {},
+  "attributes": {
+    "slideTimer": {
+      "type": "number",
+      "default": 5
+    },
+    "allowedBlocks": {
+      "type": "array"
+    },
+    "hasStepper": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasControls": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasTotal": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false,
+    "inserter": false,
+    "align": [
+      "full"
+    ]
+  },
+  "textdomain": "semantic",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./js/view.js"
+}

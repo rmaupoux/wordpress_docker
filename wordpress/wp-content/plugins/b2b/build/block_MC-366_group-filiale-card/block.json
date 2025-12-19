@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "b2b/group-filiale-link",
+  "version": "1.0.0",
+  "title": "Lien filiale avec image de fond.",
+  "category": "",
+  "icon": "smiley",
+  "description": "Carte de filiale avec image de fond, logo et lien de la filiale.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "allowResize": {
+      "type": "boolean",
+      "default": false
+    },
+    "theme": {
+      "type": "string",
+      "default": "ds-subtheme-group"
+    },
+    "cardLink": {
+      "type": "object"
+    },
+    "backgroundImgUrl": {
+      "type": "string"
+    },
+    "logoURL": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "parent": [
+    "b2b/section-hero-group"
+  ],
+  "providesContext": {
+    "allowResize": "allowResize"
+  },
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

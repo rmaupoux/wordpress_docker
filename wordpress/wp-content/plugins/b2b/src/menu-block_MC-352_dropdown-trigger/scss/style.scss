@@ -1,0 +1,48 @@
+.wp-block-menu-dropdown-trigger {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: var(--ds-semantic-spacing-xs);
+    padding: var(--ds-semantic-spacing-xs) var(--ds-semantic-spacing-s);
+    
+    border-radius: .5rem;
+
+    color: var(--ds-semantic-color-neutral-content-medium);
+
+    // ds-text-base
+    font-family: var(--ds-semantic-font-default);
+    font-size: var(--ds-core-typography-font-size-s);
+    font-weight: var(--ds-core-typography-font-weight-regular);
+    line-height: 125%;
+
+    cursor: pointer;
+
+    .btn-text {
+        overflow: hidden;
+        word-break: normal;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
+    .hydrated {
+        transform-origin: center;
+
+        transition: transform ease-out .1s;
+    }
+
+    &:hover, &:focus {
+        background-color: var(--ds-semantic-color-layout-surface-medium-active);
+    }
+
+    &.is-active {
+        background-color: var(--ds-semantic-color-neutral-surface-medium-active);
+
+        .hydrated {
+            transform: rotate(-180deg);
+        }
+    }
+}

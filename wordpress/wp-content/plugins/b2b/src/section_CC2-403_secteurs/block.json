@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ds-citeocom/section-secteur-liste",
+	"version": "2.0.0",
+	"title": "Secteurs",
+	"category": "b2b-redirect-block",
+	"description": "Ce bloc permet de flécher la circulation vers des pages profondes du site",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"clientId": {
+			"type": "string"
+		},
+		"preview": {
+			"type": "boolean",
+			"default": false
+    	},
+		"backgroundPictoUrl": {
+            "type": "string",
+            "default": ""
+        }
+	},
+	"example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"providesContext": {
+		"ds-citeocom/sector-list-id": "clientId"
+	},
+	"allowedBlocks": ["ds-citeocom/block-secteur"],
+	"textdomain": "headelines",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

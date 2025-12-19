@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "citeo-semantic/post-link-wrapper",
+  "version": "1.0.0",
+  "title": "Conteneur de l'article",
+  "category": "semantic",
+  "icon": "smiley",
+  "description": "Conteneur d'article avec lien",
+  "example": {},
+  "attributes": {},
+  "supports": {
+    "html": false,
+    "inserter": false,
+    "innerBlocks": true
+  },
+  "usesContext": [
+    "postId"
+  ],
+  "textdomain": "semantic",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

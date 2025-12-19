@@ -1,0 +1,84 @@
+.wp-block-encart-article {
+    position: relative;
+    border-top: 2px solid var(--ds-semantic-color-action-border-medium);
+    border-bottom: 2px solid var(--ds-semantic-color-action-border-medium);
+    padding-top: .6rem;
+    margin: var(--ds-semantic-spacing-2xl) 0;
+
+    a {
+        color:var(--ds-semantic-color-layout-content-medium);
+        &:hover .display-one-post-frontend--text {
+                    color:var(--ds-semantic-color-layout-content-medium);
+                    .ds-heading-4 {
+                        text-decoration: underline !important;
+                    }
+                }
+    }
+
+    &>.ds-text-xsmall {
+        position: absolute;
+        left: 0;
+        top: calc(-1 * var(--ds-semantic-spacing-xs));
+        padding: 0 var(--ds-semantic-spacing-xs) 0 0;
+        background-color: var(--ds-semantic-color-layout-surface-medium-default);
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+   
+    .display-one-post-frontend {
+        display: flex;
+        align-items: flex-end;
+        gap: var(--ds-semantic-spacing-m);
+        overflow: hidden;
+
+        &--image {
+            aspect-ratio: 1.8 / 1.3;
+            flex-basis: 28%;
+            flex-shrink: 0;
+            overflow: hidden; 
+            margin-bottom: -5px;
+                picture {
+                    width: 100%;
+                    height: 100%;
+                }
+            
+                img {
+                    position: relative;
+                    z-index: -1;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+        }
+         &--text {
+            padding: 0 0 var(--ds-semantic-spacing-m) 0;
+            font-weight: var(--ds-core-typography-font-weight-semibold);
+            flex-shrink: 1;
+            .ds-text-small {
+                margin-top: var(--ds-semantic-spacing-xs);
+            }
+            .ds-heading-4 {
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 1.2;
+                margin: var(--ds-semantic-spacing-xs) 0;
+            }
+            .ds-display-2 {
+                color: var(--ds-semantic-color-accent1-content-strong);
+            }
+
+            
+            
+        }
+        
+    }
+
+   
+}
+
+

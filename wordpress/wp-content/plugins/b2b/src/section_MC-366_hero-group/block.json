@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "b2b/section-hero-group",
+	"version": "1.0.0",
+	"title": "En tête - Filiales CITEO",
+	"category": "b2b-page-start-block",
+	"icon": "smiley",
+	"description": "Permet d'introduire les filiales du groupe CITEO.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"allowResize": {
+			"type": "boolean",
+			"default": false
+		},
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": "h1",
+			"default": "Ensemble, faisons bouger les lignes"
+		},
+		"preview": {
+			"type": "boolean",
+			"default": false
+    	}
+	},
+	"example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"providesContext": {
+		"allowResize": "allowResize"
+	},
+	"textdomain": "citeo",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

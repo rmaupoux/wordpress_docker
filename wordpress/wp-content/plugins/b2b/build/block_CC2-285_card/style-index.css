@@ -1,0 +1,37 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/block_CC2-285_card/scss/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-b2b-card {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: var(--ds-semantic-spacing-l) var(--ds-semantic-spacing-l) var(--ds-semantic-spacing-xl);
+  color: var(--ds-semantic-color-layout-invert-content-medium);
+  background-color: var(--ds-semantic-color-action-surface-strong);
+  border-radius: var(--ds-semantic-radius-elevated);
+}
+.wp-block-b2b-card .wp-block-citeo-semantic-tag {
+  color: var(--ds-semantic-color-layout-content-medium);
+  background-color: var(--ds-semantic-color-layout-invert-content-medium);
+  padding: var(--ds-semantic-spacing-3xs) var(--ds-semantic-spacing-xs);
+  border-radius: var(--ds-semantic-radius-default);
+  border: none;
+  font-size: var(--ds-core-typography-font-size-xs);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+}
+.wp-block-b2b-card .semantic-icon:not(.illustration-icon) {
+  background-color: var(--ds-semantic-color-layout-content-medium);
+}
+.wp-block-b2b-card > a {
+  color: var(--ds-semantic-color-layout-invert-content-medium);
+}
+.wp-block-b2b-card p {
+  margin: 0;
+}
+.wp-block-b2b-card.image-card {
+  background-color: transparent;
+  color: var(--ds-semantic-color-layout-content-medium);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

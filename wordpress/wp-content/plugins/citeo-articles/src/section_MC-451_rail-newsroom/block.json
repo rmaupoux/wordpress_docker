@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "citeo-articles/section-rail-news",
+	"version": "1.0.0",
+	"title": "Rail newsroom",
+	"category": "b2b-redirect-block",
+	"description": "Section de trois exergue d'articles à lier à l'article en cours.",
+	"supports": {
+		"html": false,
+		"align": ["full"]
+	},
+	"attributes": {	
+		"preview": {
+			"type": "boolean",
+			"default": false
+		},
+		"queryPerPage": {
+			"type": "number",
+			"default": 8
+		},
+		"queryOrder": {
+			"type": "string",
+			"default": "desc"
+		},
+		"queryOrderBy": {
+			"type": "string",
+			"default": "date"
+		},
+		"queryPostType": {
+			"type": "string",
+			"default": "post"
+		}
+	},
+	"example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"textdomain": "citeo",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

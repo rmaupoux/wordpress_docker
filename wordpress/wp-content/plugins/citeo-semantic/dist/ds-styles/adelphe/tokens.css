@@ -1,0 +1,11 @@
+@import "../common/core.compatibility.css";
+@import "../common/core.css";
+@import "../common/fonts.css";
+@import "../common/semantics.compatibility.css";
+@import "../common/typography.css";
+/* adelphe theme */
+@import "./space-adelphe-emb.css";
+@import "./space-adelphe-pap.css";
+@import "./theme-adelphe.css";
+
+/*# sourceMappingURL=tokens.css.map */

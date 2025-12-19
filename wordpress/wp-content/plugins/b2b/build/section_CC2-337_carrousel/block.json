@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "b2b/carrousel",
+  "version": "2.0.0",
+  "title": "Carrousel",
+  "category": "b2b-page-builder-block",
+  "description": "Ce bloc permet de mettre en avant plusieurs contenus liés à une même thématique",
+  "attributes": {
+    "preview": {
+      "type": "boolean",
+      "default": false
+    },
+    "align": {
+      "type": "string",
+      "default": "none"
+    },
+    "theme": {
+      "type": "string",
+      "default": ""
+    },
+    "subTheme": {
+      "type": "string",
+      "default": "subtheme-accent1"
+    },
+    "themeSwapConfirm": {
+      "type": "boolean",
+      "default": false
+    },
+    "backgroundPictoUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "hasWhitePicto": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./js/view.js"
+}

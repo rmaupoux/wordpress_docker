@@ -1,0 +1,32 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/block_CC2-377_standard-text-image/scss/editor.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.text-img-wrap {
+  display: flex;
+  gap: 7.75rem;
+  flex-wrap: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+.text-img-wrap > .wp-block-image {
+  width: calc(50% - var(--ds-semantic-sizing-xs));
+  flex-shrink: 0;
+  margin: 0;
+}
+.text-img-wrap > .wp-block-image:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+.text-img-wrap > .wp-block-image > div picture,
+.text-img-wrap > .wp-block-image > div img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: var(--ds-semantic-radius-default);
+  border: 1px solid lightgrey;
+  aspect-ratio: 4/3;
+}
+
+/*# sourceMappingURL=index.css.map*/

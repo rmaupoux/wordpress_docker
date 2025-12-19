@@ -1,0 +1,7 @@
+// When added in a composition editor
+.wp-pattern-category-article-patterns {
+    .wp-block-ds-citeocom-section-newsletter:not(#idhack) {
+        margin-block-start: var(--ds-semantic-spacing-2xl);
+        margin-block-end: var(--ds-semantic-spacing-2xl);
+    }
+}

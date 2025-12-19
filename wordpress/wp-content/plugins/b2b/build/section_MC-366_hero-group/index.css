@@ -1,0 +1,35 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_MC-366_hero-group/scss/editor.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.wp-block-b2b-section-hero-group .filiale-wrap {
+  display: block !important;
+  width: 100%;
+}
+.wp-block-b2b-section-hero-group .filiale-wrap > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-semantic-spacing-l);
+}
+.wp-block-b2b-section-hero-group .filiale-wrap > .block-editor-inner-blocks > .block-editor-block-list__layout .wp-block-b2b-group-filiale-link:nth-child(n+5) {
+  position: relative;
+  display: flex;
+}
+.wp-block-b2b-section-hero-group .filiale-wrap > .block-editor-inner-blocks > .block-editor-block-list__layout .wp-block-b2b-group-filiale-link:nth-child(n+5)::before, .wp-block-b2b-section-hero-group .filiale-wrap > .block-editor-inner-blocks > .block-editor-block-list__layout .wp-block-b2b-group-filiale-link:nth-child(n+5)::after {
+  content: "Seule une rangée d'éléments sera affichée";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--ds-semantic-color-danger-content-strong);
+  background-color: var(--ds-semantic-color-danger-surface-subtlest);
+  z-index: 90;
+  font-size: var(--ds-core-typography-font-size-xs);
+  text-align: center;
+}
+
+/*# sourceMappingURL=index.css.map*/

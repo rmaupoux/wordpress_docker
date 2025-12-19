@@ -1,0 +1,29 @@
+.wp-block-b2b-section-jobs-to-be-done {
+    .wp-block-b2b-block-job-to-be-done:nth-child(n + 5) {
+        position: relative;
+        display: flex;
+
+        &::before, &::after {
+            content: 'Seule une rangée d\'éléments sera affichée';
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            color: var(--ds-semantic-color-danger-content-strong);
+            background-color: var(--ds-semantic-color-danger-surface-subtlest);
+
+            z-index: 90;
+
+            font-size: var(--ds-core-typography-font-size-xs);
+            text-align: center;
+        }
+    }
+}

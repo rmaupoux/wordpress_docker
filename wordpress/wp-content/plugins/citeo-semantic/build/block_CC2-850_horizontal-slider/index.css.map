@@ -1,0 +1,1 @@
+{"version":3,"file":"block_CC2-850_horizontal-slider/index.css","mappings":";;;AAAA;EACI;EACA;AACJ,C","sources":["webpack://ds-citeocom/./src/block_CC2-850_horizontal-slider/scss/editor.scss"],"sourcesContent":[".slider-wrap {\r\n    flex-wrap: wrap !important;\r\n    row-gap: 1rem;\r\n}"],"names":[],"sourceRoot":""}

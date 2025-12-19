@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "citeo-semantic/sticky-index-wrapper",
+  "version": "1.0.0",
+  "title": "Sommaire",
+  "category": "semantic",
+  "description": "Conteneur du sommaire lié à une section.",
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {
+    "indexText": {
+      "type": "string",
+      "default": "Sommaire"
+    }
+  },
+  "example": {},
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

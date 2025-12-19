@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ds-citeocom/section-vignettes",
+  "version": "2.0.0",
+  "title": "Vignettes et chiffres clés",
+  "category": "b2b-page-builder-block",
+  "description": "Ce bloc permet de mettre en avant des services, notre accompagnement en appui de pictos.",
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {
+    "preview": {
+      "type": "boolean",
+      "default": false
+    },
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "theme": {
+      "type": "string",
+      "default": ""
+    },
+    "subTheme": {
+      "type": "string",
+      "default": "subtheme-accent1"
+    },
+    "themeSwapConfirm": {
+      "type": "boolean",
+      "default": false
+    },
+    "isWhite": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "providesContext": {
+    "b2b/theme-context": "theme"
+  },
+  "textdomain": "headelines",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./js/view.js"
+}

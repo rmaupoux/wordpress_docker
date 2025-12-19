@@ -1,0 +1,13 @@
+.wp-block-citeo-articles-text-highlight {
+	padding: var(--ds-semantic-spacing-l) 0;
+	justify-content: center;
+	align-items: center;
+	border-top: 2px solid var(--ds-semantic-color-layout-content-medium);
+	border-bottom: 2px solid var(--ds-semantic-color-layout-content-medium);
+
+	p {
+		color: var(--ds-semantic-color-accent1-content-strong);
+		margin-block: 0;
+		overflow-wrap: break-word;
+	}
+}

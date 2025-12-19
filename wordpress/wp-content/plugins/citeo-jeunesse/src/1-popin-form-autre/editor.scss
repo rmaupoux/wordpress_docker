@@ -1,0 +1,77 @@
+.input-edit {
+    background-color: #efefef;
+    border: 1px solid #ccc;
+    border-radius: .2rem;
+    padding: 0.5rem;
+    
+}
+.encard {
+    background-color: #fbfbfb;
+    padding: 0.8rem;
+    border-radius: 0.2rem;
+    border: 1px solid grey;
+    gap: .5rem;
+}
+
+.popin-jeunesse {
+    display: flex;
+    flex-direction: column;
+    gap:.3rem;
+}
+
+.edit-checkbox-fake {
+    position: relative;
+    padding-left: 2rem;
+    &::before {
+        content:"";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 0.05rem;
+        border: 1px solid grey;
+        display:inline-block;
+    }
+       
+}
+
+
+.popin-jeunesse .font-small {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+
+
+.editor-- {
+    &option-list {
+        display: flex;
+        list-style: none;
+        li {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+#form-jeunesse-autre {
+    margin-top: 0;
+}
+
+
+.popin-jeunesse .input-group {
+        width: 100% !important;
+}
+
+
+.input-group.encard {
+    width: 95% !important;
+}
+
+@media screen and (min-width: 768px) {
+    .popin-jeunesse .input-group {
+        width: 100%;
+    }
+}
+

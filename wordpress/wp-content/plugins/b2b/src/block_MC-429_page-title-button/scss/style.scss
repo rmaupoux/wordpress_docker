@@ -1,0 +1,30 @@
+.wp-block-b2b-page-title-button {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-semantic-spacing-m);
+
+    .ds-text-xsmall {
+        text-transform: uppercase;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .ds-text-base, .ds-text-paragraph, .ds-text-small, p:not(.ds-text-large, .ds-text-xsmall) {
+        color: var(--ds-semantic-color-layout-content-subtle);
+    }
+
+    .ds-display-1 .underline, .ds-display-2 .underline {
+        text-decoration-color: transparent
+    }
+
+    .wp-block-list {
+        padding-inline-start: 0;
+    }
+
+    .wp-block-buttons {
+        margin: var(--ds-semantic-spacing-m) 0 0;
+        gap: var(--ds-semantic-spacing-m);
+    }
+}

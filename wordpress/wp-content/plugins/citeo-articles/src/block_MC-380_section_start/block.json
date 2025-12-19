@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "citeo-articles/section-title",
+	"version": "1.0.0",
+	"title": "Démarrer un nouveau sujet",
+	"category": "article",
+	"description": "Un titre de section avec titre de paragraphe et paragraphe.",
+	"attributes": {
+        "preview": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "example": {
+        "attributes": {
+            "preview": true
+        }
+    },
+	"supports": {
+		"html": false
+	},
+	"textdomain": "citeo",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

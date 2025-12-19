@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "citeo-articles/section-go-further",
+	"version": "1.0.0",
+	"title": "Pour aller plus loin",
+	"category": "article",
+	"icon": "smiley",
+	"description": "Section de trois exergue d'articles à lier à l'article en cours.",
+	"supports": {
+		"html": false,
+		"align": ["full"]
+	},
+	"attributes": {	
+		"preview": {
+			"type": "boolean",
+			"default": false
+		},
+		"title": {
+			"type": "string",
+			"default": "Pour aller plus loin"
+		}
+	},
+	"example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"textdomain": "citeo",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./js/view.js"
+}

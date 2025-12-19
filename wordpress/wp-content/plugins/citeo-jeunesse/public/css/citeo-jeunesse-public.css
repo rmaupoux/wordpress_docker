@@ -1,0 +1,33 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+.post-type-magazine-jeunesse .accordeon-toggle .wp-element-button:not(#idhack) {
+    padding: 1.5rem 2rem 1.5rem 0;
+    text-decoration: none !important;
+    width: 50%;
+}
+.post-type-magazine-jeunesse .accordeon-toggle .wp-element-button:not(#idhack):focus {
+    box-shadow: none;
+}
+.post-type-magazine-jeunesse .accordeon-toggle .wp-element-button::before, .post-type-magazine-jeunesse .accordeon-toggle .wp-element-button::after {
+    background-color: var(--Color-Background-Button-Hover);
+}
+.post-type-magazine-jeunesse .accordeon-content {
+    align-items: flex-start;
+    gap: 7.5rem;
+}
+.post-type-magazine-jeunesse .mag-featured-img {
+    flex-basis: 21rem;
+    flex-shrink: 0;
+}
+.post-type-magazine-jeunesse .mag-txt-wrap {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: .75rem;
+}
+.post-type-magazine-jeunesse .mag-txt-wrap .wp-block-buttons {
+    margin-top: 1rem;
+}

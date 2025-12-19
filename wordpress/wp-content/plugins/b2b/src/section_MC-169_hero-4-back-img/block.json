@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "b2b/hero-bandeau-image",
+	"version": "1.0.1",
+	"title": "En tête - Evènement",
+	"category": "b2b-page-start-block",
+	"description": "Ce bloc permet de mettre lumière l'accroche / le pourquoi de la page",
+	"supports": {
+		"html": false,
+		"align": ["full"]
+	},
+	"attributes": {
+		"preview": {
+			"type": "boolean",
+			"default": false
+		},
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"textdomain": "headelines",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

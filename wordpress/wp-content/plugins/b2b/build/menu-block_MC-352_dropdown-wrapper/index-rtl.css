@@ -1,0 +1,88 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/menu-block_MC-352_dropdown-wrapper/scss/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.wp-block-menu-dropdown {
+  order: 999;
+  margin: var(--ds-semantic-spacing-m) 0;
+}
+.wp-block-menu-dropdown::before {
+  content: attr(data-name);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-top: var(--ds-semantic-spacing-m);
+  padding-left: var(--ds-semantic-spacing-xl);
+  pointer-events: none;
+  font-size: var(--ds-core-typography-font-size-xl);
+  font-weight: var(--ds-core-typography-font-weight-semibold);
+  color: var(--ds-semantic-color-danger-content-medium);
+  opacity: 0.5;
+  z-index: 10;
+}
+.wp-block-menu-dropdown:not(.is-active) {
+  opacity: 1;
+  pointer-events: all;
+  visibility: visible;
+  transform: scaleY(1);
+  transition: none;
+}
+.wp-block-menu-dropdown:not(.is-active) > * {
+  opacity: 1;
+  transition: none;
+}
+.wp-block-menu-dropdown .block-library-block__reusable-block-container:last-child {
+  margin-top: auto;
+}
+.wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-image-card:nth-child(n+5), .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-icon-card:nth-child(n+5), .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-big-text:nth-child(n+5), .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-list:nth-child(n+5), .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-mag-latest:nth-child(n+5) {
+  position: relative;
+  display: flex;
+}
+.wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-image-card:nth-child(n+5)::before, .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-image-card:nth-child(n+5)::after, .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-icon-card:nth-child(n+5)::before, .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-icon-card:nth-child(n+5)::after, .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-big-text:nth-child(n+5)::before, .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-big-text:nth-child(n+5)::after, .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-list:nth-child(n+5)::before, .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-list:nth-child(n+5)::after, .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-mag-latest:nth-child(n+5)::before, .wp-block-menu-dropdown .dropdown-content > .wp-block-menu-link-mag-latest:nth-child(n+5)::after {
+  content: "Seule une rangée d'éléments sera affichée.";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--ds-semantic-spacing-m);
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--ds-semantic-color-danger-content-strong);
+  background-color: var(--ds-semantic-color-danger-surface-subtlest);
+  z-index: 90;
+  font-size: var(--ds-core-typography-font-size-xs);
+  text-align: center;
+}
+.wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-image-card:nth-child(n+4), .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-icon-card:nth-child(n+4), .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-big-text:nth-child(n+4), .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-list:nth-child(n+4), .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-mag-latest:nth-child(n+4) {
+  position: relative;
+  display: flex;
+}
+.wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-image-card:nth-child(n+4)::before, .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-image-card:nth-child(n+4)::after, .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-icon-card:nth-child(n+4)::before, .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-icon-card:nth-child(n+4)::after, .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-big-text:nth-child(n+4)::before, .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-big-text:nth-child(n+4)::after, .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-list:nth-child(n+4)::before, .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-list:nth-child(n+4)::after, .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-mag-latest:nth-child(n+4)::before, .wp-block-menu-dropdown .dropdown-content:has(.wp-block-menu-link-mag-latest) > .wp-block-menu-link-mag-latest:nth-child(n+4)::after {
+  content: "Seule une rangée d'éléments sera affichée.";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--ds-semantic-spacing-m);
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--ds-semantic-color-danger-content-strong);
+  background-color: var(--ds-semantic-color-danger-surface-subtlest);
+  z-index: 90;
+  font-size: var(--ds-core-typography-font-size-xs);
+  text-align: center;
+}
+.wp-block-menu-dropdown .components-toolbar__control[aria-label=Lien], .wp-block-menu-dropdown .components-toolbar__control[aria-label=Link] {
+  display: none !important;
+}

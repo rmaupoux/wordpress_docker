@@ -1,0 +1,135 @@
+.wp-block-ds-citeocom-section-secteur-liste {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--ds-semantic-spacing-l);
+
+    width: 100%;
+    padding: var(--ds-semantic-spacing-2xl) 0 0;
+    margin-bottom: var(--ds-semantic-spacing-2xl);
+    box-sizing: border-box;
+
+    border-bottom: 2px solid var(--ds-semantic-color-action-border-medium);
+
+    .left-col {
+        position: relative;
+        z-index: 1;
+
+        grid-column: span 3;
+        row-gap: var(--ds-semantic-spacing-l);
+        padding-bottom: var(--ds-semantic-spacing-m);
+
+        .wp-block-heading {
+            padding: var(--ds-semantic-spacing-2xl) 0 0;
+        }
+
+        .ds-text-xsmall {
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .has-horizontal-slider {
+            width: 100%;
+            overflow: hidden;
+
+            .slider-wrap {
+                flex-direction: column;
+                gap: var(--ds-semantic-spacing-s);
+
+                // Prevent more than 5 tabulation on one single block
+                & > .wp-block-ds-citeocom-block-tab:nth-child(n + 6) {
+                    display: none;
+                    visibility: hidden;
+                }
+            }
+
+            .slider-controls {
+                margin-top: var(--ds-semantic-spacing-xs);
+
+                display: none;
+                justify-content: flex-end;
+                gap: var(--ds-semantic-spacing-xs);
+
+                .wp-block-button__link {
+                    background-color: transparent;
+                    border: solid 1px var(--ds-semantic-color-action-border-medium);
+
+                    &::after {
+                        background-color: var(--ds-semantic-color-action-content-medium);
+                    }
+                }
+            }
+        }
+    }
+
+    .right-col {
+        position: relative;
+        z-index: 1;
+        grid-column: 5 / span 8;
+
+        & > .wp-block-ds-citeocom-block-secteur:nth-child(n + 6) {
+            display: none;
+            visibility: hidden;
+        }
+    }
+
+    .back-picto {
+        max-height: 42.5rem;
+
+        background-color: var(--ds-semantic-color-layout-surface-medium-active);
+        mask-position: 13.1875rem calc(100% + 1rem);
+
+        mask-size: var(--ds-semantic-sizing-9xl);
+    }
+
+
+    @media screen and (max-width: 1200px) {
+        & {
+            gap: 0;
+        }
+
+        .back-picto {
+            max-height: none;
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        & {
+            display: flex;
+            flex-direction: column;
+            gap: var(--ds-semantic-spacing-l);
+
+            .left-col {
+                padding-bottom: 0;
+
+                .has-horizontal-slider {
+                    .slider-controls {
+                        display: flex;
+                    }
+                    
+                    .slider-wrap {
+                        flex-direction: row;
+
+                        & > .wp-block-ds-citeocom-block-tab {
+                            width: fit-content;
+                            flex-shrink: 0;
+
+                            span.ds-text-base {
+                                overflow: unset;
+                                text-overflow: unset;
+                                display: block;
+                                -webkit-line-clamp: unset;
+                                -webkit-box-orient: unset;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .back-picto {
+                display: none;
+            }
+        }
+    }
+}

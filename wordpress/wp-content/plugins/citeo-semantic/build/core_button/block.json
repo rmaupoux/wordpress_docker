@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ds-citeocom/button",
+  "version": "0.1.0",
+  "title": "Bouton",
+  "icon": "smiley",
+  "description": "Simple Bouton.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "className": true
+  },
+  "textdomain": "bouton",
+  "editorScript": "file:./index.js"
+}

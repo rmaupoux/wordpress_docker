@@ -1,0 +1,35 @@
+.wp-block-citeo-semantic-sticky-index-item {
+    padding: var(--ds-semantic-spacing-xs) var(--ds-semantic-spacing-s);
+
+    color: var(--ds-semantic-color-neutral-content-medium, #1F2937);
+
+    border-radius: var(--ds-semantic-radius-default);
+    border: 1px solid transparent;
+
+    cursor: pointer;
+    transition: border ease-out .1s;
+
+    &:hover {
+        border: 1px solid var(--ds-semantic-color-action-border-strong);
+    }
+
+    &.is-active {
+        // ds-text-base
+        font-family: var(--ds-semantic-font-default);
+        font-size: var(--ds-core-typography-font-size-s);
+        font-style: normal;
+        font-weight: var(--ds-core-typography-font-weight-regular);
+        line-height: 125%;
+
+        border: 1px solid var(--ds-semantic-color-action-border-medium);
+    }
+
+    & > span {
+        overflow: hidden;
+        word-break: normal;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+}

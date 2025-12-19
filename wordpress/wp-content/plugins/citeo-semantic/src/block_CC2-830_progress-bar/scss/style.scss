@@ -1,0 +1,20 @@
+.progress-bar {
+    --progColor: #FACC15;
+    appearance: none;
+    -webkit-appearance: none;
+
+    border-radius: 2rem;
+    overflow: hidden;
+
+    &::-webkit-progress-bar {
+        background-color: rgb(241, 240, 240);
+    } 
+    &::-webkit-progress-value {
+        background-color: var(--progress-bar-color);
+        transition: width ease-out .25s;
+    }
+    ::-moz-progress-bar {
+        background-color: var(--progress-bar-color);
+        transition: width ease-out .25s;
+    }
+}

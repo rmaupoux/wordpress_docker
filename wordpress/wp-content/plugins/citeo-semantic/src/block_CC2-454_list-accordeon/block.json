@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "citeo-semantic/list-accordeon",
+	"version": "1.0.0",
+	"title": "Liste d'accordéon",
+	"category": "semantic",
+	"icon": "smiley",
+	"description": "Accordéon déroulant",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"multipleActive": {
+			"type": "boolean",
+			"default": true
+		},
+		"colorList": {
+			"type": "array",
+			"default": []
+		},
+		"allowedBlocks": {
+			"type": "array"
+		}
+	},
+	"providesContext": {
+		"citeo-semantic/colorList": "colorList"
+	},
+	"textdomain": "semantic",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./js/view.js"
+}

@@ -1,0 +1,29 @@
+.wp-block-b2b-number-card {
+    .semantic-icon:not(.illustration-icon) {
+        background-color: var(--ds-semantic-color-accent1-surface-medium) !important;
+
+        &.has-icon--Aucun, &.has-icon-- {
+            background-color: transparent !important;
+        }
+    }
+
+    .ds-icon {
+        --ds-icon-color: var(--ds-semantic-color-accent1-surface-medium);
+    }
+
+    @for $i from 2 through 3 {
+        &.subtheme-accent#{$i} {
+            .semantic-icon:not(.illustration-icon) {
+                background-color: var(--ds-semantic-color-accent#{$i}-surface-medium) !important;
+            }
+
+            .ds-icon {
+                --ds-icon-color: var(--ds-semantic-color-accent#{$i}-surface-medium);
+            }
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+}

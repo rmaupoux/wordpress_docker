@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "citeo-articles/acf-sous-titre",
+	"version": "0.1.0",
+	"title": "ACF Sous-titre",
+	"icon": "format-quote",
+	"description": "Affiche le champ ACF sous_titre_articles",
+	"example": {},
+	"supports": {
+		"html": false,
+		"className": true,
+        "inserter": true
+	},
+	"usesContext": ["postId", "postType"],
+	"parent": ["citeo-articles/section-rail-actu","citeo-articles/section-rail-news"],
+	"textdomain": "citeo-articles",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "b2b/navigation-link",
+	"version": "1.0.0",
+	"title": "Item du menu navigation",
+	"icon": "smiley",
+	"description": "Options d'icones et de lien externe sur les liens du composant core/navigation.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"className": true
+	},
+	"textdomain": "citeo",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"editorStyle": "file:./index.css"
+}

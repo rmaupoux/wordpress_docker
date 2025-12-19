@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "citeo-semantic/section-wrapper",
+  "version": "1.0.0",
+  "title": "Conteneur de section",
+  "category": "",
+  "description": "Bloc wrapper permettant d'homogénéiser l'espacement entre les différentes sections",
+  "supports": {
+    "html": false,
+    "inserter": false,
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {},
+  "textdomain": "semantic",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

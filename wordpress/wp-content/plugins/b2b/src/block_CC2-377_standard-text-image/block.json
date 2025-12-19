@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ds-citeocom/block-article",
+	"version": "0.1.0",
+	"title": "Bloc texte et image avec bouton",
+	"category": "citeo",
+	"icon": "smiley",
+	"description": "Block d'article avec image, texte et bouton",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"parent": ["ds-citeocom/section-article"],
+	"attributes": {
+		"allowResize": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"allowedBlocks": [],
+	"providesContext": {
+		"allowResize": "allowResize"
+	},
+	"textdomain": "headelines",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,125 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_CC2-975_discover/scss/style.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-citeo-jeunesse-section-discover {
+  margin: 7.5rem auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-height: 26.25rem;
+  padding: 5rem 4.0625rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  background: var(--ds-brand-color-green-900, #093C1C);
+}
+.wp-block-citeo-jeunesse-section-discover .discover-content-wrapper {
+  flex: 0 0 60%;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-citeo-jeunesse-section-discover .discover-content-wrapper .wp-block-heading {
+  color: white;
+  font-size: 2rem;
+}
+.wp-block-citeo-jeunesse-section-discover .discover-content-wrapper .wp-block-image {
+  margin-bottom: 0;
+}
+.wp-block-citeo-jeunesse-section-discover .discover-content-wrapper .wp-block-button.is-style-primary .wp-block-button__link {
+  border: 0.0625rem solid #FFFFFF;
+  background-color: transparent;
+}
+.wp-block-citeo-jeunesse-section-discover .discover-content-wrapper .Body-2 {
+  color: white;
+  padding-bottom: 1rem;
+}
+.wp-block-citeo-jeunesse-section-discover .discover-content-wrapper .block-editor-block-list__block {
+  margin-bottom: 0;
+}
+.wp-block-citeo-jeunesse-section-discover .discover-image-wrapper {
+  flex: 0 0 40%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.wp-block-citeo-jeunesse-section-discover .discover-image-wrapper .discover-img-cover {
+  transform: translateX(-1.125rem) translateY(-2.9rem);
+}
+.wp-block-citeo-jeunesse-section-discover .discover-image-wrapper .discover-img-cover img {
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  display: block;
+}
+.wp-block-citeo-jeunesse-section-discover .discover-image-wrapper .discover-texte-arrow {
+  color: white;
+  position: relative;
+  transform: translateX(25.8125rem) translateY(-22rem);
+  width: auto;
+}
+.wp-block-citeo-jeunesse-section-discover .discover-image-wrapper .discover-texte-arrow:after {
+  content: "";
+  width: 5rem;
+  height: 2.1875rem;
+  background-image: url("data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"80\" height=\"35\" viewBox=\"0 0 80 35\" fill=\"none\"><path d=\"M75.3591 1.82221C75.0969 1.03638 74.2473 0.611913 73.4614 0.87414L60.6556 5.14736C59.8697 5.40959 59.4453 6.2592 59.7075 7.04503C59.9697 7.83086 60.8194 8.25533 61.6052 7.9931L72.9882 4.19468L76.7866 15.5777C77.0488 16.3635 77.8984 16.788 78.6842 16.5257C79.4701 16.2635 79.8945 15.4139 79.6323 14.6281L75.3591 1.82221ZM44.4838 31.6351L44.0262 30.2066L44.4838 31.6351ZM73.9362 2.29701C72.5944 1.62663 72.5945 1.62639 72.5946 1.62624C72.5945 1.62631 72.5946 1.62625 72.5945 1.62639C72.5943 1.62668 72.594 1.62732 72.5935 1.62831C72.5925 1.6303 72.5908 1.63371 72.5884 1.63852C72.5835 1.64815 72.5758 1.66338 72.5653 1.68406C72.5442 1.72542 72.5118 1.78856 72.4683 1.87221C72.3812 2.03952 72.2497 2.28881 72.0752 2.60993C71.7261 3.25229 71.2054 4.18135 70.5249 5.31604C69.1629 7.58726 67.1666 10.6728 64.6319 13.9283C59.5248 20.4879 52.3939 27.5258 44.0262 30.2066L44.4838 31.6351L44.9415 33.0636C54.1884 30.1011 61.7837 22.4699 66.9991 15.7713C69.6257 12.3977 71.6897 9.20685 73.0978 6.85895C73.8023 5.68408 74.344 4.7179 74.7111 4.04241C74.8947 3.7046 75.0347 3.43932 75.1297 3.25678C75.1772 3.1655 75.2134 3.0949 75.2382 3.04625C75.2506 3.02192 75.2601 3.00308 75.2668 2.98989C75.2701 2.98329 75.2727 2.9781 75.2746 2.97435C75.2755 2.97247 75.2763 2.97095 75.2769 2.96979C75.2772 2.96921 75.2775 2.96861 75.2776 2.96832C75.2779 2.96781 75.2781 2.9674 73.9362 2.29701ZM44.4838 31.6351L44.0262 30.2066C35.5799 32.9126 24.9346 32.1241 16.2475 30.5833C11.9329 29.8181 8.15878 28.8782 5.46417 28.1298C4.11765 27.7557 3.04274 27.4301 2.30704 27.1988C1.93924 27.0832 1.65638 26.9912 1.4669 26.9287C1.37217 26.8974 1.3008 26.8734 1.25384 26.8576C1.23036 26.8497 1.21299 26.8437 1.20186 26.8399C1.1963 26.838 1.19228 26.8367 1.18986 26.8358C1.18864 26.8354 1.18782 26.8351 1.1874 26.835C1.18719 26.8349 1.18716 26.8349 1.18706 26.8349C1.18714 26.8349 1.18731 26.835 0.698283 28.253C0.209257 29.6711 0.209628 29.6712 0.210107 29.6713C0.210397 29.6715 0.210975 29.6716 0.211562 29.6718C0.21273 29.6723 0.214295 29.6728 0.216259 29.6735C0.220186 29.6748 0.225697 29.6767 0.232778 29.6791C0.246933 29.6839 0.267374 29.6909 0.293954 29.6999C0.347104 29.7178 0.424839 29.7439 0.526093 29.7773C0.728578 29.8442 1.02518 29.9406 1.4074 30.0608C2.17174 30.301 3.27905 30.6364 4.66127 31.0203C7.42417 31.7878 11.2937 32.7515 15.7236 33.5372C24.5257 35.0983 35.7731 36.0009 44.9415 33.0636L44.4838 31.6351Z\" fill=\"%23F0FDF4\"/></svg>");
+  display: block;
+  position: absolute;
+  right: 69%;
+  top: 2rem;
+  transform: scaleX(-1);
+}
+.wp-block-citeo-jeunesse-section-discover .discover-image-wrapper .discover-img-picto {
+  width: 8.125rem;
+  position: absolute;
+  -o-object-fit: contain;
+     object-fit: contain;
+  right: 85%;
+  top: 83%;
+}
+@media screen and (max-width: 839px) {
+  .wp-block-citeo-jeunesse-section-discover {
+    padding: 5rem 1rem;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    max-height: none;
+  }
+  .wp-block-citeo-jeunesse-section-discover .discover-image-wrapper {
+    max-height: 33vh;
+  }
+  .wp-block-citeo-jeunesse-section-discover .discover-image-wrapper .discover-img-cover {
+    transform: translateX(0) translateY(-10.8rem);
+  }
+  .wp-block-citeo-jeunesse-section-discover .discover-image-wrapper .discover-img-cover img {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+  }
+  .wp-block-citeo-jeunesse-section-discover .discover-image-wrapper .discover-texte-arrow {
+    transform: translateX(-3.4375rem) translateY(-10.2rem);
+  }
+  .wp-block-citeo-jeunesse-section-discover .discover-image-wrapper .discover-texte-arrow:after {
+    transform: scaleX(1);
+    right: 113%;
+    top: -1rem;
+  }
+  .wp-block-citeo-jeunesse-section-discover .discover-content-wrapper .wp-block-heading {
+    font-size: 1.8rem;
+  }
+  .wp-block-citeo-jeunesse-section-discover .discover-content-wrapper .wp-block-buttons > .wp-block-button .wp-block-button__link {
+    width: 100%;
+    padding: 0.75rem;
+  }
+  .wp-block-citeo-jeunesse-section-discover .discover-content-wrapper .wp-block-buttons > .wp-block-button {
+    width: 100%;
+  }
+  .wp-block-citeo-jeunesse-section-discover .discover-image-wrapper {
+    align-items: flex-start;
+  }
+  .wp-block-citeo-jeunesse-section-discover .discover-img-picto {
+    display: none;
+  }
+}

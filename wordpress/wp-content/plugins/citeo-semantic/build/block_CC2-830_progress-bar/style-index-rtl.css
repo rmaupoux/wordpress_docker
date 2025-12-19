@@ -1,0 +1,24 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/block_CC2-830_progress-bar/scss/style.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+.progress-bar {
+  --progColor: #FACC15;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.progress-bar::-webkit-progress-bar {
+  background-color: rgb(241, 240, 240);
+}
+.progress-bar::-webkit-progress-value {
+  background-color: var(--progress-bar-color);
+  -webkit-transition: width ease-out 0.25s;
+  transition: width ease-out 0.25s;
+}
+.progress-bar ::-moz-progress-bar {
+  background-color: var(--progress-bar-color);
+  -moz-transition: width ease-out 0.25s;
+  transition: width ease-out 0.25s;
+}

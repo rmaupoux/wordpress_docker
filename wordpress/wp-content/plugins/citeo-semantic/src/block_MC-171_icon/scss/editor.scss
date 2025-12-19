@@ -1,0 +1,9 @@
+.semantic-icon {
+    &.has-icon--Aucun::before, &.has-icon--::before {
+        content: 'Pas d\'icône';
+
+        font-family: var(--ds-semantic-font-default);
+        font-size: var(--ds-core-typography-font-size-xs);
+        word-wrap: normal;
+    }
+}

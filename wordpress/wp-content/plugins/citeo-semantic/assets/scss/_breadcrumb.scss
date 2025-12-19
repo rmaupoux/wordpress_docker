@@ -1,0 +1,60 @@
+.breadcrumbs {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: var(--ds-semantic-spacing-3xs);
+
+	max-width: 1440px; 
+	box-sizing: border-box;
+	padding: var(--ds-semantic-spacing-m) var(--ds-semantic-spacing-2xl);
+	margin: auto;
+
+	font-family: var(--ds-semantic-font-default);
+	font-size: var(--ds-core-typography-font-size-xs);
+	font-style: normal;
+	font-weight: var(--ds-core-typography-font-weight-medium);
+	line-height: 150%;
+
+	a {
+		padding: var(--ds-semantic-spacing-3xs) var(--ds-semantic-spacing-xs);
+
+		color: var(--ds-semantic-color-layout-content-medium);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--ds-semantic-color-layout-content-medium);
+		}
+
+		&:active {
+			color: var(--ds-semantic-color-accent1-surface-medium);
+		}
+
+		&:focus {
+			box-shadow: 0px 0px 0px 2px var(--ds-semantic-color-layout-surface-medium-default), 0px 0px 0px 4px var(--ds-semantic-color-action-surface-medium);
+		}
+	}
+
+	svg {
+		max-width: var(--ds-semantic-sizing-s);
+	}
+
+	span {
+		padding: var(--ds-semantic-spacing-3xs) var(--ds-semantic-spacing-xs);
+
+        max-width: 180px;
+
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 1;
+		line-clamp: 1;
+		-webkit-box-orient: vertical;
+
+		color: var(--ds-semantic-color-layout-content-medium);
+	}
+
+	@media screen and (max-width: 834px) {
+		& {
+			display: none;
+		}		
+	}
+}

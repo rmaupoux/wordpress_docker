@@ -1,0 +1,45 @@
+.wp-block-b2b-section-hero-group {
+    .hero-top-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--ds-semantic-spacing-l);
+        align-items: center;
+
+        overflow: hidden;
+
+        .site-ttl {
+            font-family: var(--ds-semantic-font-title);
+            font-size: var(--ds-core-typography-font-size-2xl);
+            font-weight: 700;
+            line-height: 120%;
+            text-transform: uppercase;
+        }
+
+        .lottie-anim-wrap {
+            width: 100%;
+            height: 310px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .hero-top-row {
+            display: flex;
+            flex-direction: column;
+
+            .site-ttl{
+                font-size: var(--ds-core-typography-font-size-2xl);
+                text-align: center;
+            }
+            
+        }
+    }
+}

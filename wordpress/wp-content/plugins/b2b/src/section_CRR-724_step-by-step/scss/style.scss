@@ -1,0 +1,137 @@
+.wp-block-b2b-section-step-by-step {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-semantic-spacing-2xl);
+
+    padding: var(--ds-semantic-spacing-5xl) 0;
+
+    .wp-block-citeo-semantic-tag {
+        background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+        color: var(--ds-semantic-color-accent1-content-strong);
+
+        .wp-block-citeo-semantic-icon {
+            --ds-icon-color: var(--ds-semantic-color-accent1-content-strong);
+        }
+    }
+
+    &:not(.has-active-hover) {
+        .active-slide {
+            border-color: transparent;
+            border-bottom: solid 2px var(--ds-semantic-color-accent1-surface-subtle);
+            background: var(--ds-semantic-color-accent1-surface-subtlest);
+        }
+    }
+
+    .wp-block-citeo-semantic-horizontal-slider {
+        position: relative;
+        overflow: hidden;
+        --control-gap: 6.25rem;
+
+        &:not(:has(.slider-wrap.no-slide))::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -1;
+
+            display: block;
+            height: 100%;
+            width: 51rem;
+
+            mask-image: var(--svg-pattern-corner);
+            background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+            mask-position: right bottom;
+            mask-repeat: no-repeat;
+            mask-size: 20rem;
+
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease-out;
+        }
+
+        &:has(.slider-wrap .wp-block-b2b-block-step:nth-last-child(2).active-slide),
+        &:has(.slider-wrap .wp-block-b2b-block-step:nth-last-child(1).active-slide),
+        &:has(.slider-wrap .wp-block-b2b-block-step:nth-last-child(3).active-slide){
+            &::before, &::after {
+                opacity: 1;
+            }
+        }
+
+        &:not(:has(.slider-wrap.no-slide))::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            z-index: 0;
+            
+            width: 120px;
+            height: 500px;
+            flex-shrink: 0;
+
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    var(--ds-semantic-color-layout-surface-medium-default) 100%);
+            transform: translateY(-50%);
+
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .slider-wrap {
+            &:not(.no-slide) {
+                padding-top: calc(var(--ds-semantic-spacing-xl) + var(--ds-semantic-spacing-2xl));
+            }
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            display: flex;
+            gap: var(--control-gap);
+
+            margin-top: 0;
+        }
+
+        .total-wrap {
+            width: var(--control-gap);
+            line-height: 50px;
+            text-align: center;
+
+            position: absolute;
+            top: 0;
+            right: 50px; // button width
+
+            pointer-events: none;
+        }
+    }
+    
+    @for $i from 2 through 3 {
+        &.subtheme-accent#{$i} {
+            .wp-block-citeo-semantic-tag {
+                background-color: var(--ds-semantic-color-accent#{$i}-surface-subtlest);
+                color: var(--ds-semantic-color-accent#{$i}-content-strong);
+
+                .wp-block-citeo-semantic-icon {
+                    --ds-icon-color: var(--ds-semantic-color-accent#{$i}-content-strong);
+                }
+            }
+
+            &:not(.has-active-hover) {
+                .active-slide {
+                    border-color: transparent;
+                    border-bottom: solid 2px var(--ds-semantic-color-accent#{$i}-surface-subtle);
+                    background: var(--ds-semantic-color-accent#{$i}-surface-subtlest);
+                }
+            }
+
+            .wp-block-citeo-semantic-horizontal-slider {
+                &:not(:has(.slider-wrap.no-slide))::after {
+                    background-color: var(--ds-semantic-color-accent#{$i}-surface-subtlest);
+                }
+            }
+        }
+    }
+    
+}

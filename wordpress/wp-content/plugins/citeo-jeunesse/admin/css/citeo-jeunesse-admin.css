@@ -1,0 +1,30 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.tablenav.top,
+.tablenav.bottom {
+    height: auto;
+    margin: 5px 0 5px;
+}
+
+.tablenav-pages {
+    float: right;
+    margin: 0 0 5px;
+}
+
+.alignleft.actions {
+    margin-right: 10px;
+}
+
+.tablenav-pages-navspan.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Ajout d'une classe CSS pour les entrées invalides */
+.invalid-page {
+    border-color: #dc3232;
+    box-shadow: 0 0 2px rgba(220,50,50,0.8);
+}

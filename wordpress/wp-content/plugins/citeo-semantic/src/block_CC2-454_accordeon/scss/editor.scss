@@ -1,0 +1,21 @@
+.accordeon-wrapper {
+    .wp-block-button {
+        width: 100%;
+    }
+
+    .accordeon-toggle {
+        & > .wp-block-button__link:focus {
+            box-shadow: none;
+        }
+
+        .components-dropdown {
+            display: none;
+        }
+    }
+
+    .accordeon-content {
+        max-height: none !important;
+        opacity: 1 !important;
+        overflow: visible !important;
+    }
+}

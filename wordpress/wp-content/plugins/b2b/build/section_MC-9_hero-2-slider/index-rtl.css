@@ -1,0 +1,24 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_MC-9_hero-2-slider/scss/editor.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-ds-citeocom-section-hero-slider {
+  align-items: flex-start;
+}
+.wp-block-ds-citeocom-section-hero-slider .has-fade-slider .wp-block-b2b-card:not(:last-child) {
+  margin-bottom: var(--ds-semantic-spacing-m);
+}
+.wp-block-ds-citeocom-section-hero-slider .has-fade-slider .wp-block-b2b-card > .block-editor-inner-blocks {
+  padding: 0 !important;
+}
+.wp-block-ds-citeocom-section-hero-slider .has-fade-slider .wp-block-b2b-card > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--ds-semantic-spacing-s);
+}
+.wp-block-ds-citeocom-section-hero-slider .has-fade-slider .wp-block-b2b-card > .block-editor-inner-blocks > .block-editor-block-list__layout > *:not(.wp-block-image) {
+  padding: 0 var(--ds-semantic-spacing-m);
+}
+.wp-block-ds-citeocom-section-hero-slider .has-fade-slider .wp-block-b2b-card .wp-block-image > div {
+  height: 100%;
+}

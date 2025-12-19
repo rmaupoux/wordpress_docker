@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "citeo-articles/bloc-encart-article",
+	"version": "0.1.0",
+	"title": "Bloc : encart article",
+	"category": "article",
+	"description": "",
+	"example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"attributes": {
+		"postId": { "type": "integer" },
+		"postTitle": { "type": "string" },
+		"postExcerpt": { "type": "string" },
+		"postLink": { "type": "string" },
+		"postImage": { "type": "string" },
+		"postDate": { "type": "string" },
+		"customText": { "type": "string", "default": "" },
+		"postSubTitle": { "type": "string", "default": "" },
+		"cardRow": { "type": "boolean", "default": false },
+		"preview": {
+			"type": "boolean",
+			"default": false
+    	}
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"html": false
+	},
+	"textdomain": "bouton",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
+
+
+
+

@@ -1,0 +1,24 @@
+.wp-block-query {
+    padding-bottom: var(--ds-semantic-spacing-m);
+    padding-left: var(--ds-semantic-spacing-3xs);
+}
+.wp-block-citeo-articles-section-hot-topic {
+
+    .wp-block-post-featured-image .components-placeholder, .wp-block-post-featured-image .wp-block-post-featured-image__placeholder {
+        min-height: 100%;
+    }
+
+
+}
+
+.wp-block-post-excerpt__more-link {
+     position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

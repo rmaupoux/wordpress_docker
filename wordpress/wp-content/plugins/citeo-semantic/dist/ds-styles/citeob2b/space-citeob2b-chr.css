@@ -1,0 +1,8 @@
+.ds-theme-citeob2b .ds-space-chr, .ds-theme-citeob2b.ds-space-chr {
+  --ds-space-content-medium: var(--ds-brand-color-red-600);
+  --ds-space-surface-subtle: var(--ds-brand-color-red-50);
+  --ds-space-surface-medium: var(--ds-brand-color-red-500);
+  --ds-space-border-medium: var(--ds-brand-color-red-600);
+}
+
+/*# sourceMappingURL=space-citeob2b-chr.css.map */

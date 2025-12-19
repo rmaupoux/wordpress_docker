@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "menu/link-list",
+	"version": "1.0.0",
+	"title": "Liste de liens",
+	"category": "citeo-menu",
+	"icon": "smiley",
+	"description": "Bloc de la modale de menu contenant une liste de liens cliquables",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"ancestor": ["menu/dropdown"],
+	"attributes": {
+		"allowResize": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"providesContext": {
+		"allowResize": "allowResize"
+	},
+	"textdomain": "citeo",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

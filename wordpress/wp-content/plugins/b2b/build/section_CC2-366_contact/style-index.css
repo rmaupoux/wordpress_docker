@@ -1,0 +1,156 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_CC2-366_contact/scss/style.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-ds-citeocom-section-contact {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--ds-semantic-spacing-3xl);
+  align-items: flex-start;
+  background: var(--ds-semantic-color-accent1-surface-subtlest);
+  border-radius: var(--ds-semantic-radius-action);
+  padding: var(--ds-semantic-spacing-5xl) 4.75rem;
+  margin-top: var(--ds-semantic-spacing-2xl);
+  margin-bottom: var(--ds-semantic-spacing-2xl);
+  overflow: hidden;
+}
+.wp-block-ds-citeocom-section-contact::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+  width: 50%;
+  height: 100%;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: right top;
+          mask-position: right top;
+  background-color: var(--ds-semantic-color-layout-invert-content-medium);
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"448\" height=\"391\" viewBox=\"0 0 448 391\" fill=\"none\"><path d=\"M280.748 235.136L319.18 195.419L191.537 63.4895L257.662 0.0709062L328.647 72.9256L315.265 85.9615L257.212 26.3855L218.017 63.9853L345.184 195.419L294.182 248.126L280.748 235.136Z\" fill=\"white\"/><path d=\"M159.231 268.439L230.376 195.419L65.6808 26.3855L26.4799 63.9853L69.7352 108.692L56.3067 121.686L0.00518608 63.4895L66.1301 0.0708895L256.469 195.419L172.613 281.475L159.231 268.439Z\" fill=\"white\"/><path d=\"M191.537 327.344L245.586 271.486L259.015 284.476L218.017 326.853L257.212 364.448L421.907 195.419L348.505 120.075L361.887 107.039L448 195.419L257.662 390.767L191.537 327.344Z\" fill=\"white\"/><path d=\"M-2.49729e-05 327.344L127.643 195.419L91.4738 158.036L104.902 145.042L153.648 195.419L26.4748 326.853L65.6808 364.448L125.99 302.553L139.372 315.594L66.1249 390.767L-2.49729e-05 327.344Z\" fill=\"white\"/></svg>");
+          mask-image: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"448\" height=\"391\" viewBox=\"0 0 448 391\" fill=\"none\"><path d=\"M280.748 235.136L319.18 195.419L191.537 63.4895L257.662 0.0709062L328.647 72.9256L315.265 85.9615L257.212 26.3855L218.017 63.9853L345.184 195.419L294.182 248.126L280.748 235.136Z\" fill=\"white\"/><path d=\"M159.231 268.439L230.376 195.419L65.6808 26.3855L26.4799 63.9853L69.7352 108.692L56.3067 121.686L0.00518608 63.4895L66.1301 0.0708895L256.469 195.419L172.613 281.475L159.231 268.439Z\" fill=\"white\"/><path d=\"M191.537 327.344L245.586 271.486L259.015 284.476L218.017 326.853L257.212 364.448L421.907 195.419L348.505 120.075L361.887 107.039L448 195.419L257.662 390.767L191.537 327.344Z\" fill=\"white\"/><path d=\"M-2.49729e-05 327.344L127.643 195.419L91.4738 158.036L104.902 145.042L153.648 195.419L26.4748 326.853L65.6808 364.448L125.99 302.553L139.372 315.594L66.1249 390.767L-2.49729e-05 327.344Z\" fill=\"white\"/></svg>");
+  -webkit-mask-position: center;
+          mask-position: center;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 420px auto;
+          mask-size: 420px auto;
+}
+.wp-block-ds-citeocom-section-contact .contact-content-wrapper {
+  min-width: 0;
+  z-index: 2;
+}
+.wp-block-ds-citeocom-section-contact .contact-title {
+  margin: 0 0 var(--ds-semantic-spacing-m);
+}
+.wp-block-ds-citeocom-section-contact .contact-intro {
+  margin: 0;
+}
+.wp-block-ds-citeocom-section-contact .contact-left {
+  flex: 3;
+}
+.wp-block-ds-citeocom-section-contact .contact-right {
+  justify-self: end;
+  z-index: 2;
+  flex: 2;
+}
+.wp-block-ds-citeocom-section-contact .contact-phone {
+  margin: 0 0 0.625rem;
+}
+.wp-block-ds-citeocom-section-contact .contact-phone .wp-block-button__link {
+  margin-bottom: var(--ds-semantic-spacing-m);
+  color: var(--ds-semantic-color-accent1-content-strong);
+}
+.wp-block-ds-citeocom-section-contact .contact-phone .wp-block-button__link:hover {
+  background-color: var(--ds-semantic-color-accent1-content-strong);
+  color: var(--ds-semantic-color-layout-invert-content-medium);
+}
+.wp-block-ds-citeocom-section-contact .contact-phone .wp-block-button__link:hover::before {
+  filter: brightness(0) invert(1);
+}
+.wp-block-ds-citeocom-section-contact .contact-hours,
+.wp-block-ds-citeocom-section-contact .contact-mail {
+  margin: 0;
+  color: var(--ds-semantic-color-layout-content-subtle);
+}
+.wp-block-ds-citeocom-section-contact .contact-hours a,
+.wp-block-ds-citeocom-section-contact .contact-mail a {
+  color: inherit;
+  text-decoration: underline;
+}
+.wp-block-ds-citeocom-section-contact .contact-hours {
+  margin-bottom: var(--ds-semantic-spacing-2xs);
+}
+.wp-block-ds-citeocom-section-contact .phone-pill .wp-block-button__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-semantic-spacing-3xs);
+  padding: var(--ds-semantic-spacing-xs) var(--ds-semantic-spacing-m) var(--ds-semantic-spacing-2xs) 0.875rem;
+  border-radius: 0.75rem;
+  background: var(--ds-semantic-color-layout-invert-content-medium);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+.wp-block-ds-citeocom-section-contact .phone-pill .wp-block-button__link::before {
+  content: "";
+  display: inline-block;
+  width: 1.375rem;
+  height: 1.375rem;
+  background-color: var(--ds-semantic-color-accent1-content-strong);
+}
+@media (max-width: 960px) {
+  .wp-block-ds-citeocom-section-contact {
+    flex-direction: column;
+    padding: var(--ds-semantic-spacing-5xl) var(--ds-semantic-spacing-l);
+    gap: var(--ds-semantic-spacing-l);
+    align-items: flex-start;
+  }
+  .wp-block-ds-citeocom-section-contact::after {
+    left: auto;
+    right: 0;
+    top: 0;
+    transform: none;
+    width: var(--ds-semantic-sizing-11xl);
+    height: var(--ds-semantic-sizing-11xl);
+    -webkit-mask-position: right top;
+            mask-position: right top;
+    -webkit-mask-size: 320px 320px;
+            mask-size: 320px 320px;
+  }
+  .wp-block-ds-citeocom-section-contact .contact-right {
+    justify-self: start;
+  }
+  .wp-block-ds-citeocom-section-contact .contact-title {
+    text-wrap: balance;
+  }
+}
+.wp-block-ds-citeocom-section-contact.subtheme-accent2 {
+  background-color: var(--ds-semantic-color-accent2-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-contact.subtheme-accent2 .contact-phone .wp-block-button__link {
+  color: var(--ds-semantic-color-accent2-content-strong);
+}
+.wp-block-ds-citeocom-section-contact.subtheme-accent2 .contact-phone .wp-block-button__link:hover {
+  background-color: var(--ds-semantic-color-accent2-content-strong);
+}
+.wp-block-ds-citeocom-section-contact.subtheme-accent2 .phone-pill .wp-block-button__link::before {
+  background-color: var(--ds-semantic-color-accent2-content-strong);
+}
+.wp-block-ds-citeocom-section-contact.subtheme-accent3 {
+  background-color: var(--ds-semantic-color-accent3-surface-subtlest);
+}
+.wp-block-ds-citeocom-section-contact.subtheme-accent3 .contact-phone .wp-block-button__link {
+  color: var(--ds-semantic-color-accent3-content-strong);
+}
+.wp-block-ds-citeocom-section-contact.subtheme-accent3 .contact-phone .wp-block-button__link:hover {
+  background-color: var(--ds-semantic-color-accent3-content-strong);
+}
+.wp-block-ds-citeocom-section-contact.subtheme-accent3 .phone-pill .wp-block-button__link::before {
+  background-color: var(--ds-semantic-color-accent3-content-strong);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

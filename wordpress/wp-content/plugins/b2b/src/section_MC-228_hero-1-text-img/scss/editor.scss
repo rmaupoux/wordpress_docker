@@ -1,0 +1,10 @@
+.wp-block-ds-citeocom-section-hero {
+    &::after {
+        display: none;
+    }
+
+    .wp-block-image > div {
+        width: 100% !important;
+        height: 100%;
+    }
+}

@@ -1,0 +1,17 @@
+.wp-block-citeo-articles-section-title {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--ds-semantic-spacing-xs);
+
+	width: 100%;
+	padding: var(--ds-semantic-spacing-l) 0;
+	
+	.wp-block-heading:first-child {
+		padding-bottom: var(--ds-semantic-spacing-xs);
+	}
+
+	p {
+		margin-block: 0;
+	}
+}

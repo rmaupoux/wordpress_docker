@@ -1,0 +1,91 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/page_MC-348-sticky-index/scss/style.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-citeo-semantic-sticky-index-page {
+  max-width: var(--wp--style--global--content-size);
+  margin: auto;
+  padding: var(--ds-semantic-spacing-5xl) var(--ds-semantic-spacing-l);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(auto-fill, minmax(0, auto));
+  -moz-column-gap: var(--ds-semantic-spacing-l);
+       column-gap: var(--ds-semantic-spacing-l);
+  position: relative;
+}
+.wp-block-citeo-semantic-sticky-index-page > .wp-block-group, .wp-block-citeo-semantic-sticky-index-page > .section-list, .wp-block-citeo-semantic-sticky-index-page > .page-title {
+  grid-column: span 8;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-citeo-semantic-sticky-index-page .page-title {
+  padding-bottom: var(--ds-semantic-spacing-m);
+  border-bottom: solid 2px var(--ds-semantic-color-accent1-surface-medium);
+}
+.wp-block-citeo-semantic-sticky-index-page > .wp-block-citeo-semantic-sticky-index-wrapper {
+  grid-row: 1;
+  grid-column: 10/span 3;
+  position: sticky;
+  top: 8rem;
+  min-width: 0;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
+.wp-block-citeo-semantic-sticky-index-page:has(.page-title) > .wp-block-citeo-semantic-sticky-index-wrapper {
+  grid-row: 2;
+}
+.wp-block-citeo-semantic-sticky-index-page.faq-template .section-list {
+  row-gap: var(--ds-semantic-spacing-3xl);
+}
+.wp-block-citeo-semantic-sticky-index-page.text-template, .wp-block-citeo-semantic-sticky-index-page.text-template .section-list {
+  row-gap: var(--ds-semantic-spacing-l);
+}
+@media screen and (max-width: 950px) {
+  .wp-block-citeo-semantic-sticky-index-page {
+    display: flex;
+    flex-direction: column;
+    padding: var(--ds-semantic-spacing-5xl) 0;
+  }
+  .wp-block-citeo-semantic-sticky-index-page > .wp-block-group, .wp-block-citeo-semantic-sticky-index-page > .section-list, .wp-block-citeo-semantic-sticky-index-page > .wp-block-citeo-semantic-sticky-index-wrapper {
+    width: 100%;
+  }
+  .wp-block-citeo-semantic-sticky-index-page > .wp-block-citeo-semantic-sticky-index-wrapper {
+    position: static;
+    max-width: none;
+    order: -1;
+    padding-left: calc(var(--ds-semantic-sizing-2xl) / 2);
+    padding-right: calc(var(--ds-semantic-sizing-2xl) / 2);
+    box-sizing: border-box;
+  }
+  .wp-block-citeo-semantic-sticky-index-page > .wp-block-citeo-semantic-sticky-index-wrapper::after {
+    display: none;
+  }
+  .wp-block-citeo-semantic-sticky-index-page > .wp-block-citeo-semantic-sticky-index-wrapper nav {
+    overflow: visible;
+    max-height: none;
+  }
+  .wp-block-citeo-semantic-sticky-index-page > .wp-block-citeo-semantic-sticky-index-wrapper nav ol {
+    padding: 0;
+  }
+  .wp-block-citeo-semantic-sticky-index-page > .wp-block-citeo-semantic-sticky-index-wrapper .wp-block-citeo-semantic-sticky-index-item.is-active {
+    border: none;
+  }
+  .wp-block-citeo-semantic-sticky-index-page .page-title {
+    padding: 0 var(--ds-semantic-spacing-l);
+    border-bottom: none;
+  }
+  .wp-block-citeo-semantic-sticky-index-page.text-template, .wp-block-citeo-semantic-sticky-index-page.text-template .section-list {
+    row-gap: var(--ds-semantic-spacing-xl);
+  }
+}
+.wp-block-citeo-semantic-sticky-index-page.subtheme-accent1 .page-title {
+  border-color: var(--ds-semantic-color-accent1-surface-medium);
+}
+.wp-block-citeo-semantic-sticky-index-page.subtheme-accent2 .page-title {
+  border-color: var(--ds-semantic-color-accent2-surface-medium);
+}
+.wp-block-citeo-semantic-sticky-index-page.subtheme-accent3 .page-title {
+  border-color: var(--ds-semantic-color-accent3-surface-medium);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

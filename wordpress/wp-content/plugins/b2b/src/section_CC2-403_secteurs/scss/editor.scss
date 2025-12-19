@@ -1,0 +1,86 @@
+.wp-block-ds-citeocom-section-secteur-liste {
+    display: block;
+    
+    .slider-controls {
+        display: none !important;
+    }
+
+    & > .block-editor-inner-blocks {
+        & > .block-editor-block-list__layout {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--ds-semantic-spacing-l);
+
+            & > .left-col {
+                .slider-wrap {
+                    // Prevent more than 5 tabulation on one single block
+                    & > .wp-block-ds-citeocom-block-tab:nth-child(n + 6) {
+                        display: flex !important;
+                        visibility: visible !important;
+
+                        position: relative !important;
+
+                        &::before, &::after {
+                            content: 'Limite atteinte (5 tabulations au maximum)';
+
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            width: 100%;
+                            height: 100%;
+                            padding: var(--ds-semantic-spacing-m);
+                            box-sizing: border-box;
+                            
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+
+                            color: var(--ds-semantic-color-danger-content-strong);
+                            background-color: var(--ds-semantic-color-danger-surface-subtlest);
+
+                            z-index: 90;
+
+                            font-size: var(--ds-core-typography-font-size-xs);
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            & > .right-col {
+                & > .wp-block-ds-citeocom-block-secteur:nth-child(n + 6) {
+                    display: flex !important;
+                    visibility: visible !important;
+
+                    position: relative !important;
+
+                    &::before, &::after {
+                        content: 'Limite atteinte (5 secteurs au maximum)';
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        width: 100%;
+                        height: 100%;
+                        padding: var(--ds-semantic-spacing-m);
+                        box-sizing: border-box;
+                        
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+
+                        color: var(--ds-semantic-color-danger-content-strong);
+                        background-color: var(--ds-semantic-color-danger-surface-subtlest);
+
+                        z-index: 90;
+
+                        font-size: var(--ds-core-typography-font-size-xs);
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }    
+}

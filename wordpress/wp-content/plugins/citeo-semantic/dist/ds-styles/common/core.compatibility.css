@@ -1,0 +1,30 @@
+/* Mapping old values to new ones to support old tokens */
+:root {
+  --ds-core-gutters-s: var(--ds-core-size-06);
+  --ds-core-gutters-m: var(--ds-core-size-08);
+  --ds-core-gutters-l: var(--ds-core-size-10);
+  --ds-core-gutters-xl: var(--ds-core-size-12);
+  --ds-core-gutters-2xl: var(--ds-core-size-14);
+  --ds-core-radius-radius-sharp: var(--ds-core-radius-sharp);
+  --ds-core-radius-radius-light: var(--ds-core-radius-light);
+  --ds-core-radius-radius-moderate: var(--ds-core-radius-moderate);
+  --ds-core-radius-radius-round: var(--ds-core-radius-round);
+  --ds-core-radius-radius-pill: var(--ds-core-radius-pill);
+  --ds-core-sizing-width-max-2xl: var(--ds-core-size-25);
+  --ds-core-sizing-width-max-3xl: var(--ds-core-size-26);
+  --ds-core-sizing-width-max-4xl: var(--ds-core-size-27);
+  --ds-core-sizing-width-max-5xl: var(--ds-core-size-29);
+  --ds-core-sizing-width-max-6xl: var(--ds-core-size-30);
+  --ds-core-sizing-width-max-7xl: var(--ds-core-size-31);
+  --ds-core-spacing-2xs: var(--ds-core-size-02);
+  --ds-core-spacing-xs: var(--ds-core-size-04);
+  --ds-core-spacing-s: var(--ds-core-size-05);
+  --ds-core-spacing-m: var(--ds-core-size-06);
+  --ds-core-spacing-l: var(--ds-core-size-08);
+  --ds-core-spacing-xl: var(--ds-core-size-10);
+  --ds-core-spacing-2xl: var(--ds-core-size-11);
+  --ds-core-spacing-3xl: var(--ds-core-size-12);
+  --ds-core-spacing-4xl: var(--ds-core-size-14);
+}
+
+/*# sourceMappingURL=core.compatibility.css.map */

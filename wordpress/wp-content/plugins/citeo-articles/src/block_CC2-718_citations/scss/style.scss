@@ -1,0 +1,134 @@
+.wp-block-citeo-articles-citation {
+    
+    background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+    position: relative;
+    z-index: 1;
+    min-height: 14rem;
+    border-top: 2px solid var(--ds-semantic-color-layout-content-medium);
+    box-sizing: border-box;
+    padding: var(--ds-semantic-spacing-l) 0;
+    margin: var(--ds-semantic-spacing-l) 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--ds-semantic-spacing-l);
+
+    
+     &:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1; 
+        right: 0;
+        bottom: 0;
+        mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="154" height="117" viewBox="0 0 154 117" fill="none"><path d="M3.31361 116.889V112.25C19.8817 100.763 28.9389 85.1889 30.4852 65.5281C10.1617 62.6563 0 52.2737 0 34.3802C0 24.8812 3.31361 16.818 9.94083 10.1908C16.789 3.56361 25.4043 0.25 35.787 0.25C48.1578 0.25 58.0986 4.55769 65.6095 13.1731C73.1203 21.5676 76.8757 32.5025 76.8757 45.9778C76.8757 64.534 70.1381 80.2184 56.6627 93.0311C43.4083 105.844 25.6252 113.796 3.31361 116.889ZM94.7692 116.889V112.25C111.337 100.321 120.394 84.747 121.941 65.5281C101.617 62.6563 91.4556 52.2737 91.4556 34.3802C91.4556 24.8812 94.7692 16.818 101.396 10.1908C108.245 3.56361 116.86 0.25 127.243 0.25C139.613 0.25 149.444 4.55769 156.734 13.1731C164.245 21.5676 168 32.5025 168 45.9778C168 64.534 161.262 80.2184 147.787 93.0311C134.533 105.844 116.86 113.796 94.7692 116.889ZM32.142 98.3328C52.6864 83.9739 62.9586 66.5222 62.9586 45.9778C62.9586 36.037 60.4181 28.3052 55.3373 22.7825C50.2564 17.039 43.7396 14.1672 35.787 14.1672C28.9389 14.1672 23.5266 16.1553 19.5503 20.1317C15.7949 24.108 13.9172 28.8575 13.9172 34.3802C13.9172 47.6346 23.7475 54.7036 43.4083 55.5873C43.8501 70.609 40.0947 84.8575 32.142 98.3328ZM123.266 98.3328C143.811 84.4157 154.083 66.964 154.083 45.9778C154.083 36.037 151.542 28.3052 146.462 22.7825C141.602 17.039 135.195 14.1672 127.243 14.1672C120.394 14.1672 114.982 16.1553 111.006 20.1317C107.25 24.108 105.373 28.8575 105.373 34.3802C105.373 47.6346 115.203 54.7036 134.864 55.5873C134.864 70.8299 130.998 85.0784 123.266 98.3328ZM43.7396 44.321C34.2406 44.321 29.4911 41.1179 29.4911 34.7115C29.4911 32.5025 30.1538 30.6248 31.4793 29.0784C33.0256 27.3111 34.6824 26.4275 36.4497 26.4275C41.3097 26.4275 43.7396 29.8516 43.7396 36.6997V44.321ZM135.195 44.321C125.696 44.321 120.947 41.1179 120.947 34.7115C120.947 32.5025 121.609 30.6248 122.935 29.0784C124.26 27.3111 125.917 26.4275 127.905 26.4275C132.765 26.4275 135.195 29.8516 135.195 36.6997V44.321Z" fill="%23DBB796"/></svg>');
+        mask-repeat: no-repeat;
+        mask-position: right center;
+        background-color: var(--ds-semantic-color-accent1-surface-medium);
+        opacity: .3;
+    }
+
+    p {
+        margin: 0;
+    }
+    
+    .blog-citations {
+    
+
+        &--col-left {
+        
+            grid-column: span 3;
+            display: flex;
+            align-items: flex-start;
+
+            .wrapper-auteur {
+                border-bottom: 2px solid var(--ds-semantic-color-layout-content-medium);
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: .5em;
+                padding-top: var(--ds-semantic-spacing-xs);
+            }
+
+            .wp-block-image {
+                overflow: hidden; 
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-basis: 33%;
+                aspect-ratio: 3 / 4;
+                margin-bottom: -1px !important;
+
+                picture {
+                    width: 100%;
+                    height: 100%;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        
+                        object-fit: cover;
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        &--col-right {
+            padding-left: 0;
+            grid-column: span 9;
+            display: flex;
+            align-items: center;
+            
+            .blog-citations--texte {
+                font-style: italic;
+                width: 100%;
+                color: var(--ds-semantic-color-layout-content-medium);
+                font-size: var(--ds-core-typography-font-size-m);
+                font-style: italic;
+                line-height: 150%; 
+                max-width: 36.75rem;
+
+                margin: 0;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-rows: auto auto;
+        padding: 0;
+
+        .blog-citations--col-left {
+            grid-column: 1 / -1;
+
+            .wrapper-auteur {
+                margin: 0 1.5em;
+            }
+        }
+
+        .blog-citations--col-right {
+            grid-column: 1 / -1;
+            max-width: 100%;
+            flex-basis: auto;
+            border-left: none;
+            padding: var(--ds-semantic-spacing-l);
+
+             .blog-citations--texte {
+                max-width: auto;
+                padding: var(--ds-semantic-spacing-m) 0;
+             }
+        }
+
+        &:after {
+            top: 0;
+            right: 0;
+            left: auto;
+            bottom: unset;
+            height: 90%;
+            mask-position: right bottom;
+
+        }
+    }
+}

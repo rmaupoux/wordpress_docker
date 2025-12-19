@@ -1,0 +1,1 @@
+{"version":3,"file":"section_CC2-578_faq/index.css","mappings":";;;AACI;EACI;AAAR,C","sources":["webpack://ds-citeocom/./src/section_CC2-578_faq/scss/editor.scss"],"sourcesContent":[".wp-block-ds-citeocom-faq-full-width {\r\n    &::before {\r\n        z-index: 0;\r\n    }\r\n}"],"names":[],"sourceRoot":""}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "citeo-semantic/icon",
+  "version": "1.0.0",
+  "title": "Icône",
+  "category": "semantic",
+  "icon": "smiley",
+  "description": "Icône de la librairie Citeo",
+  "example": {},
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "default": "Aucun"
+    },
+    "isIllustration": {
+      "type": "boolean",
+      "default": false
+    },
+    "dsIcon": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "semantic",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./js/view.js"
+}

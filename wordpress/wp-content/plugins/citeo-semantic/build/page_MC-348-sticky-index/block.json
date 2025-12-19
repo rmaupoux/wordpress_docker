@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "citeo-semantic/sticky-index-page",
+  "version": "1.0.0",
+  "title": "Page avec sommaire sticky",
+  "category": "b2b-one-page-block",
+  "description": "Ce bloc permet de créer une page entière avec sommaire sticky. Souvent utilisé pour les pages FAQ ou Mentions légales",
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {
+    "preview": {
+      "type": "boolean",
+      "default": false
+    },
+    "clientId": {
+      "type": "string"
+    },
+    "pageTemplate": {
+      "type": "string",
+      "default": "faq-template"
+    },
+    "pageTitle": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "providesContext": {
+    "citeo-semantic/section-wrapper-id": "clientId",
+    "citeo-semantic/sticky-index-page-template": "pageTemplate"
+  },
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./js/view.js"
+}

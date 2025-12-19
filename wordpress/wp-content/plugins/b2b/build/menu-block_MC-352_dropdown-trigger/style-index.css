@@ -1,0 +1,41 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/menu-block_MC-352_dropdown-trigger/scss/style.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-menu-dropdown-trigger {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: var(--ds-semantic-spacing-xs);
+  padding: var(--ds-semantic-spacing-xs) var(--ds-semantic-spacing-s);
+  border-radius: 0.5rem;
+  color: var(--ds-semantic-color-neutral-content-medium);
+  font-family: var(--ds-semantic-font-default);
+  font-size: var(--ds-core-typography-font-size-s);
+  font-weight: var(--ds-core-typography-font-weight-regular);
+  line-height: 125%;
+  cursor: pointer;
+}
+.wp-block-menu-dropdown-trigger .btn-text {
+  overflow: hidden;
+  word-break: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.wp-block-menu-dropdown-trigger .hydrated {
+  transform-origin: center;
+  transition: transform ease-out 0.1s;
+}
+.wp-block-menu-dropdown-trigger:hover, .wp-block-menu-dropdown-trigger:focus {
+  background-color: var(--ds-semantic-color-layout-surface-medium-active);
+}
+.wp-block-menu-dropdown-trigger.is-active {
+  background-color: var(--ds-semantic-color-neutral-surface-medium-active);
+}
+.wp-block-menu-dropdown-trigger.is-active .hydrated {
+  transform: rotate(-180deg);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

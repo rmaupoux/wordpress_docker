@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "citeo-semantic/tag",
+	"version": "1.0.0",
+	"title": "Etiquette",
+	"category": "semantic",
+	"icon": "smiley",
+	"description": "Etiquette \"bulle\" avec ou sans icone",
+	"example": {},
+	"attributes": {
+		"tagText": {
+			"type": "string",
+			"source": "html",
+			"selector": "span.tag-text",
+			"default": ""
+		},
+		"hasIcon": {
+			"type": "boolean",
+			"default": false
+		},
+		"iconPos": {
+			"type": "string",
+			"default": "left"
+		},
+		"icon": {
+			"type": "string",
+			"default": "Aucun"
+		},
+		"isIllustration": {
+			"type": "boolean",
+			"default": false
+		},
+		"dsIcon": {
+			"type": "string",
+			"default": "icon-core_box"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "semantic",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

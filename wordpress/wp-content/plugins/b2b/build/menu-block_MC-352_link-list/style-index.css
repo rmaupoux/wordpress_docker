@@ -1,0 +1,26 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/menu-block_MC-352_link-list/scss/style.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-menu-link-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-semantic-spacing-3xs);
+  max-width: 26rem;
+}
+
+.burger-open .wp-block-menu-link-list {
+  width: 100%;
+  background-color: var(--ds-semantic-color-layout-surface-medium-active);
+  border-radius: var(--ds-semantic-radius-elevated);
+  padding-bottom: var(--ds-semantic-spacing-xs);
+}
+
+.burger-open .wp-block-menu-link-list .wp-block-menu-link-item {
+  padding: var(--ds-semantic-spacing-s);
+}
+
+.burger-open .wp-block-menu-link-list .section-label {
+  background-color: var(--ds-semantic-color-layout-surface-medium-default);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

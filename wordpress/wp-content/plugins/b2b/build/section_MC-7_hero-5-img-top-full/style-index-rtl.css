@@ -1,0 +1,59 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_MC-7_hero-5-img-top-full/scss/style.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-b2b-hero-img-full-text-above > .wp-block-image {
+  width: 100%;
+  height: 23.75rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.wp-block-b2b-hero-img-full-text-above > .wp-block-image picture {
+  width: 100%;
+  height: 100%;
+}
+.wp-block-b2b-hero-img-full-text-above > .wp-block-image picture img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.wp-block-b2b-hero-img-full-text-above .wp-block-b2b-page-title-button {
+  max-width: var(--wp--style--global--content-size);
+  margin: 0 auto;
+  padding: var(--ds-semantic-spacing-4xl) 0;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+  gap: var(--ds-semantic-spacing-xs) 8rem;
+}
+.wp-block-b2b-hero-img-full-text-above .wp-block-b2b-page-title-button .right-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-semantic-spacing-m);
+}
+.wp-block-b2b-hero-img-full-text-above .wp-block-b2b-page-title-button .right-col .wp-block-buttons {
+  margin-top: var(--ds-semantic-spacing-m);
+}
+.wp-block-b2b-hero-img-full-text-above .wp-block-b2b-page-title-button .is-style-secondary .wp-block-button__link {
+  background-color: transparent !important;
+}
+@media screen and (min-width: 1440px) {
+  .wp-block-b2b-hero-img-full-text-above > .wp-block-image {
+    border-radius: var(--ds-semantic-radius-default);
+    overflow: hidden;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .wp-block-b2b-hero-img-full-text-above .wp-block-b2b-page-title-button {
+    padding: var(--ds-semantic-spacing-2xl) 1.25rem;
+  }
+}
+@media screen and (max-width: 1040px) {
+  .wp-block-b2b-hero-img-full-text-above .wp-block-b2b-page-title-button {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-semantic-spacing-2xl);
+  }
+}

@@ -1,0 +1,17 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_CC2-377_text-image/scss/style.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-ds-citeocom-section-article {
+  padding: var(--ds-semantic-spacing-5xl) 0;
+  margin: 0 auto;
+}
+@media screen and (max-width: 839px) {
+  .wp-block-ds-citeocom-section-article {
+    padding: var(--ds-semantic-spacing-3xl) 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .wp-block-ds-citeocom-section-article {
+    padding: var(--ds-semantic-spacing-5xl) 0;
+  }
+}

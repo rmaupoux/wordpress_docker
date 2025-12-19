@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "citeo-semantic/sticky-index-linked-section",
+  "version": "1.0.0",
+  "title": "Section de page avec index",
+  "category": "semantic",
+  "description": "Section de page liée à un index. Peut contenir une liste d'accordéon ou du texte.",
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "titleSize": {
+      "type": "string",
+      "default": "ds-heading-2"
+    },
+    "tagName": {
+      "type": "string",
+      "default": "h2"
+    },
+    "htmlAnchor": {
+      "type": "string",
+      "default": ""
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "theme": {
+      "type": "string"
+    },
+    "subTheme": {
+      "type": "string",
+      "default": "subtheme-accent1"
+    }
+  },
+  "example": {},
+  "parent": [
+    "citeo-semantic/sticky-index-page"
+  ],
+  "usesContext": [
+    "citeo-semantic/section-wrapper-id",
+    "citeo-semantic/sticky-index-page-template"
+  ],
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

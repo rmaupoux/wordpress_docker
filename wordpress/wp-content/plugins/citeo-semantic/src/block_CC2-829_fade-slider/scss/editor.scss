@@ -1,0 +1,12 @@
+.has-fade-slider .slider-wrap {
+    & > * {
+        opacity: 1 !important;
+        position: static !important;
+
+        transform: none !important;
+    }
+}
+
+.components-range-control {
+    margin-top: var(--ds-semantic-spacing-m);
+}

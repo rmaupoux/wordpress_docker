@@ -1,0 +1,1 @@
+{"version":3,"file":"section_MC-232_vignette-chiffre-cle/index.css","mappings":";;;AACI;EACI;AAAR,C","sources":["webpack://ds-citeocom/./src/section_MC-232_vignette-chiffre-cle/scss/editor.scss"],"sourcesContent":[".wp-block-ds-citeocom-section-vignettes {\n    .semantic-icon {\n        margin: 0 auto;\n    }\n}"],"names":[],"sourceRoot":""}

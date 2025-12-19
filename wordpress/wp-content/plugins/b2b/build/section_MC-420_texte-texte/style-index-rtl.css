@@ -1,0 +1,70 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_MC-420_texte-texte/scss/style.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-b2b-texte-texte {
+  display: flex;
+  flex-direction: column;
+  padding: 3.75rem 0;
+}
+.wp-block-b2b-texte-texte p {
+  margin: 0;
+}
+.wp-block-b2b-texte-texte .ds-text-base, .wp-block-b2b-texte-texte .ds-text-paragraph, .wp-block-b2b-texte-texte .ds-text-small, .wp-block-b2b-texte-texte p:not(.ds-text-large, .ds-text-xsmall) {
+  color: var(--ds-semantic-color-layout-content-subtle);
+}
+.wp-block-b2b-texte-texte .ds-text-xsmall {
+  text-transform: uppercase;
+}
+.wp-block-b2b-texte-texte .ds-text-large + .ds-text-paragraph {
+  margin-top: 0.6rem;
+}
+.wp-block-b2b-texte-texte .ds-display-1 .underline, .wp-block-b2b-texte-texte .ds-display-2 .underline {
+  text-decoration-color: transparent;
+}
+.wp-block-b2b-texte-texte .wp-block-list {
+  padding-inline-start: 0;
+}
+.wp-block-b2b-texte-texte .wp-block-buttons {
+  gap: var(--ds-semantic-spacing-m);
+  padding: var(--ds-semantic-spacing-l) 0 0 0;
+  margin-bottom: var(--ds-semantic-spacing-l);
+}
+.wp-block-b2b-texte-texte .wp-block-buttons:empty {
+  margin-bottom: 0;
+}
+.wp-block-b2b-texte-texte .wp-block-buttons:not(:has(.wp-block-button)) {
+  margin-bottom: 0;
+}
+.wp-block-b2b-texte-texte .wp-block-columns {
+  margin-bottom: 0;
+  gap: 7.5rem;
+}
+.wp-block-b2b-texte-texte .wp-block-columns .wp-block-column + .wp-block-column {
+  margin-top: var(--ds-semantic-spacing-xs);
+}
+.wp-block-b2b-texte-texte .back-to-top-wrapper {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-top: var(--ds-semantic-spacing-l);
+}
+.wp-block-b2b-texte-texte .back-to-top-wrapper .wp-block-button .wp-block-button__link {
+  background-color: var(--ds-semantic-color-layout-content-subtle);
+  color: var(--ds-semantic-color-layout-background-primary);
+  padding: var(--ds-semantic-spacing-xs) var(--ds-semantic-spacing-m);
+  font-size: var(--ds-core-typography-font-size-xs);
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.wp-block-b2b-texte-texte .back-to-top-wrapper .wp-block-button .wp-block-button__link:hover {
+  background-color: var(--ds-semantic-color-layout-content-primary);
+}
+@media (max-width: 767px) {
+  .wp-block-b2b-texte-texte .wp-block-columns {
+    gap: 0;
+  }
+  .wp-block-b2b-texte-texte .wp-block-buttons {
+    gap: 0;
+  }
+}

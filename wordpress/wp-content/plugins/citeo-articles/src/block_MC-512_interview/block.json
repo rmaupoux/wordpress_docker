@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "citeo-articles/interview",
+	"version": "0.1.0",
+	"title": "Bloc interview",
+	"category": "article",
+	"description": "",
+	"example": {},
+	"supports": {
+		"align": ["wide", "full"],
+		"html": false
+	},
+	"textdomain": "bouton",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

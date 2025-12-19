@@ -1,0 +1,1 @@
+{"version":3,"file":"menu-block_MC-352_fixed-menu-bar/style-index.css","mappings":";;;AAAA;EACI;AACJ,C","sources":["webpack://ds-citeocom/./src/menu-block_MC-352_fixed-menu-bar/scss/style.scss"],"sourcesContent":[".wp-block-menu-fixed-menu { \r\n    position: relative;\r\n}"],"names":[],"sourceRoot":""}

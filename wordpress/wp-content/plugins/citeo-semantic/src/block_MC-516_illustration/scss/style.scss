@@ -1,0 +1,17 @@
+.wp-block-citeo-semantic-illustration {
+    --ds-illustration-color: var(--ds-semantic-color-neutral-content-medium);
+
+    display: block;
+    width: fit-content;
+
+    .illustration-wrapper {
+        display: block;
+        width: var(--ds-semantic-sizing-6xl);
+        height: var(--ds-semantic-sizing-6xl);
+
+        background-color: #000;
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+    }
+}

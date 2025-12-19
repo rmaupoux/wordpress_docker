@@ -1,0 +1,94 @@
+/* 
+* LEGACY STYLING : ONLY USED IN REGLEMENTARY BLOCK
+*/
+
+.wp-block-table {
+    margin: var(--ds-semantic-spacing-2xl) 0;
+    font-family: var(--ds-semantic-font-default);
+    font-size: var(--ds-core-typography-font-size-xs);
+    line-height: 1.4;
+
+    padding: var(--ds-semantic-spacing-2xl);
+    box-sizing: border-box;
+    background-color: var(--ds-semantic-color-layout-surface-medium-default);
+    border-radius: 1rem;
+
+    table {
+        border: solid 1px var(--ds-semantic-color-layout-border-strong-default);
+        border-radius: .5rem;
+        border-collapse: separate;
+        border-spacing: 0;
+
+        tbody {
+            vertical-align: top;
+
+            // No tfoot
+            &:last-child {
+                // Last row
+                tr:last-child {
+                    td {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    
+        td {
+            padding: var(--ds-semantic-spacing-s);
+            border-top: none;
+            border-right: none;
+            
+            &:last-child {
+                border-right: none;
+            }
+            &:first-child {
+                border-left: none;
+            }
+        }
+    
+        th {
+            padding: var(--ds-semantic-spacing-m) var(--ds-semantic-spacing-s);
+            color: var(--ds-semantic-color-accent1-content-strong);
+
+            font-weight: normal;
+            font-family: var(--ds-semantic-font-default); font-weight: var(--ds-core-typography-font-weight-semibold);
+            font-size: var(--ds-core-typography-font-size-s);
+            line-height: 1.5;
+
+            border-top: none;
+            border-right: none;
+            border-bottom: solid 1px var(--ds-semantic-color-layout-border-strong-default);
+
+            &:last-child {
+                border-right: none;
+            }
+            &:first-child {
+                border-left: none;
+            }
+        }
+
+        tfoot {
+            border-top: none;
+
+            td {
+                border-bottom: none;
+                vertical-align: top;
+            }
+        }
+
+        thead {
+            border-bottom: none;
+        }
+
+        thead, tfoot, td, th {
+            border-color: var(--ds-semantic-color-layout-border-strong-default);
+        }
+    }
+    
+}
+
+.wp-block-footnotes {
+    font-family: var(--ds-semantic-font-default);
+    font-size: var(--ds-core-typography-font-size-xs);
+    line-height: 1.5;
+}

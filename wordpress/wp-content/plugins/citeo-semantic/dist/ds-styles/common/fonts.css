@@ -1,0 +1,33 @@
+@import url("https://fonts.bunny.net/css?family=bricolage-grotesque:600|poppins:600|raleway:400,600|roboto:400,600");
+@font-face {
+  font-family: "Cabin";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-feature-settings: "ss01" 1;
+  src: url("https://ds-assets.citeo.com/assets/fonts/Cabin/Cabin-Regular.woff2") format("woff2"), url("https://ds-assets.citeo.com/assets/fonts/Cabin/Cabin-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Cabin";
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-feature-settings: "ss01" 1;
+  src: url("https://ds-assets.citeo.com/assets/fonts/Cabin/Cabin-SemiBold.woff2") format("woff2"), url("https://ds-assets.citeo.com/assets/fonts/Cabin/Cabin-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: "Gill Sans Nova Inline";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  src: url("https://ds-assets.citeo.com/assets/fonts/GillSansNovaInline/GillSansNovaInline-Regular.woff2") format("woff2"), url("https://ds-assets.citeo.com/assets/fonts/GillSansNovaInline/GillSansNovaInline-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Blokletters Balpen";
+  src: url("https://ds-assets.citeo.com/assets/fonts/BloklettersBalpen/Blokletters-Balpen.woff2") format("woff2"), url("https://ds-assets.citeo.com/assets/fonts/BloklettersBalpen/Blokletters-Balpen.woff") format("woff");
+  font-style: normal;
+  font-display: fallback;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*# sourceMappingURL=fonts.css.map */

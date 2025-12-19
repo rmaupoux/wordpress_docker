@@ -1,0 +1,70 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "citeo-semantic/horizontal-slider",
+	"version": "1.0.0",
+	"title": "Carousel horizontal",
+	"category": "semantic",
+	"description": "Bloc permettant d'ajouter un comportement de slider sur ses bloc enfants",
+	"supports": {
+		"html": false,
+		"inserter": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"isInfinite" : {
+			"type": "boolean",
+			"default": false
+		},
+		"isDraggable" : {
+			"type": "boolean",
+			"default": true
+		},
+		"step" : {
+			"type": "integer",
+			"default": 1
+		},
+		"hasStepper" : {
+			"type": "boolean",
+			"default": false
+		},
+		"stepperType" : {
+			"type": "string",
+			"default": "none"
+		},
+		"hasControls": {
+			"type": "boolean",
+			"default": true
+		},
+		"allowedBlocks": {
+			"type": "array"
+		},
+		"isAuto": {
+			"type": "boolean",
+			"default": false
+		},
+		"autoDir": {
+			"type": "string",
+			"default": "left"
+		},
+		"speed": {
+			"type": "number",
+			"default": 3
+		},
+		"isRandom": {
+			"type": "boolean",
+			"default": false
+		},
+		"hasTotal": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "semantic",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./js/view.js"
+}

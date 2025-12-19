@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "b2b/page-title-button",
+  "version": "1.0.0",
+  "title": "Titre de page, description et bouton",
+  "category": "b2b-page-builder-block",
+  "description": "Bloc de titre et texte préformaté",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "preview": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "twoCol": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "ancestor": [
+    "b2b/hero-img-full-text-above",
+    "b2b/section-hero-text",
+    "ds-citeocom/section-hero-slider",
+    "b2b/hero-bandeau-image",
+    "ds-citeocom/section-hero"
+  ],
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

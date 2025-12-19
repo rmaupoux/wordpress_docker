@@ -1,0 +1,53 @@
+.wp-block-citeo-semantic-sticky-index-linked-section {
+    width: 100%;
+}
+
+.faq-template {
+    .wp-block-citeo-semantic-sticky-index-linked-section {
+        .section-title {
+            padding: var(--ds-semantic-spacing-m) 0;
+            
+        }
+    }
+}
+
+.text-template {
+    .wp-block-citeo-semantic-sticky-index-linked-section {
+        padding: var(--ds-semantic-spacing-l) 0;
+
+        .section-title {
+            margin-bottom: var(--ds-semantic-spacing-xs);
+        }
+
+        p, .wp-block-list {
+            margin: 0;
+            color: var(--ds-semantic-color-layout-content-subtle);
+
+            // ds-text-large
+            font-family: var(--ds-semantic-font-default, Cabin);
+            font-size: var(--ds-core-typography-font-size-s-bis, 1.125rem);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+        }
+
+        .wp-block-list {
+            gap: 0;
+            padding: 0 0 0 var(--ds-semantic-spacing-l);
+            li {
+                &::before {
+                    background-color: var(--ds-semantic-color-layout-content-subtle);
+                    left: calc(-1 * (var(--ds-semantic-spacing-l)));
+                    mask-size: 4px;
+                    mask-position: center 60%;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 950px) {
+        .wp-block-citeo-semantic-sticky-index-linked-section {
+            padding: 0;
+        }
+    }
+}

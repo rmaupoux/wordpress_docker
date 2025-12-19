@@ -1,0 +1,1 @@
+Folder to host PHP generated styling. Do not remove and do not commit its content to avoid server permission issues.

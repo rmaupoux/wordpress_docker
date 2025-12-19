@@ -1,0 +1,133 @@
+.post-type-post .is-root-container, .post-type-post .is-root-container > .wp-block-block, .wp-pattern-category-article-patterns {
+  max-width: var(--wp--style--global--content-size);
+  margin: auto;
+  display: grid !important;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 1.5rem;
+}
+.post-type-post .is-root-container > *:not(.wp-block-block), .post-type-post .is-root-container > .wp-block-block > *:not(.wp-block-block), .wp-pattern-category-article-patterns > *:not(.wp-block-block) {
+  grid-column: 4/span 6;
+  width: 100%;
+}
+.post-type-post .is-root-container > .wp-block-block, .post-type-post .is-root-container > .wp-block-block > .wp-block-block, .wp-pattern-category-article-patterns > .wp-block-block {
+  grid-column: 1/-1;
+  width: 100%;
+}
+.post-type-post .is-root-container > .wp-block-heading, .post-type-post .is-root-container > p, .post-type-post .is-root-container > .wp-block-list, .post-type-post .is-root-container > .wp-block-image, .post-type-post .is-root-container > .wp-block-group, .post-type-post .is-root-container > .wp-block-embed, .post-type-post .is-root-container > .wp-block-block > .wp-block-heading, .post-type-post .is-root-container > .wp-block-block > p, .post-type-post .is-root-container > .wp-block-block > .wp-block-list, .post-type-post .is-root-container > .wp-block-block > .wp-block-image, .post-type-post .is-root-container > .wp-block-block > .wp-block-group, .post-type-post .is-root-container > .wp-block-block > .wp-block-embed, .wp-pattern-category-article-patterns > .wp-block-heading, .wp-pattern-category-article-patterns > p, .wp-pattern-category-article-patterns > .wp-block-list, .wp-pattern-category-article-patterns > .wp-block-image, .wp-pattern-category-article-patterns > .wp-block-group, .wp-pattern-category-article-patterns > .wp-block-embed {
+  padding-top: var(--ds-semantic-spacing-l);
+  padding-bottom: var(--ds-semantic-spacing-l);
+  margin: 0;
+}
+.post-type-post .is-root-container > .wp-block-citeo-articles-en-bref, .post-type-post .is-root-container > .wp-block-block > .wp-block-citeo-articles-en-bref, .wp-pattern-category-article-patterns > .wp-block-citeo-articles-en-bref {
+  grid-column: 10/span 3;
+  grid-row: 1;
+}
+.post-type-post .is-root-container .wp-block-citeo-articles-citation, .post-type-post .is-root-container .wp-block-ds-citeocom-section-newsletter, .post-type-post .is-root-container .wp-block-citeo-articles-slider-image, .post-type-post .is-root-container .wp-block-citeo-articles-section-go-further, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-citation, .post-type-post .is-root-container > .wp-block-block .wp-block-ds-citeocom-section-newsletter, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-slider-image, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-section-go-further, .wp-pattern-category-article-patterns .wp-block-citeo-articles-citation, .wp-pattern-category-article-patterns .wp-block-ds-citeocom-section-newsletter, .wp-pattern-category-article-patterns .wp-block-citeo-articles-slider-image, .wp-pattern-category-article-patterns .wp-block-citeo-articles-section-go-further {
+  grid-column: 1/span 12;
+}
+.post-type-post .is-root-container .wp-block-citeo-articles-section-go-further, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-section-go-further, .wp-pattern-category-article-patterns .wp-block-citeo-articles-section-go-further {
+  order: 900;
+}
+.post-type-post .is-root-container .wp-block-ds-citeocom-section-newsletter, .post-type-post .is-root-container > .wp-block-block .wp-block-ds-citeocom-section-newsletter, .wp-pattern-category-article-patterns .wp-block-ds-citeocom-section-newsletter {
+  order: 901;
+}
+.post-type-post .is-root-container .wp-block-citeo-articles-list-highlight, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-list-highlight, .wp-pattern-category-article-patterns .wp-block-citeo-articles-list-highlight {
+  grid-column: 3/span 8;
+}
+.post-type-post .is-root-container > .wp-block-buttons, .post-type-post .is-root-container .wp-block-group > .wp-block-buttons, .post-type-post .is-root-container .wp-block-citeo-articles-paragraph-title > .wp-block-buttons, .post-type-post .is-root-container .wp-block-citeo-articles-section-title > .wp-block-buttons, .post-type-post .is-root-container > .wp-block-block > .wp-block-buttons, .post-type-post .is-root-container > .wp-block-block .wp-block-group > .wp-block-buttons, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-paragraph-title > .wp-block-buttons, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-section-title > .wp-block-buttons, .wp-pattern-category-article-patterns > .wp-block-buttons, .wp-pattern-category-article-patterns .wp-block-group > .wp-block-buttons, .wp-pattern-category-article-patterns .wp-block-citeo-articles-paragraph-title > .wp-block-buttons, .wp-pattern-category-article-patterns .wp-block-citeo-articles-section-title > .wp-block-buttons {
+  margin: var(--ds-semantic-spacing-l) 0;
+}
+.post-type-post .is-root-container > .wp-block-buttons .wp-block-button.add-download:not(#idhack), .post-type-post .is-root-container .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack), .post-type-post .is-root-container .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack), .post-type-post .is-root-container .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack), .post-type-post .is-root-container > .wp-block-block > .wp-block-buttons .wp-block-button.add-download:not(#idhack), .post-type-post .is-root-container > .wp-block-block .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack), .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack), .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack), .wp-pattern-category-article-patterns > .wp-block-buttons .wp-block-button.add-download:not(#idhack), .wp-pattern-category-article-patterns .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack), .wp-pattern-category-article-patterns .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack), .wp-pattern-category-article-patterns .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--ds-semantic-spacing-l);
+  border-radius: 0;
+  background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+  border-top: 2px solid var(--ds-semantic-color-layout-content-medium);
+  border-bottom: 2px solid var(--ds-semantic-color-layout-content-medium);
+}
+.post-type-post .is-root-container > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button,
+.post-type-post .is-root-container > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link, .post-type-post .is-root-container .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button,
+.post-type-post .is-root-container .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link, .post-type-post .is-root-container .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button,
+.post-type-post .is-root-container .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link, .post-type-post .is-root-container .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button,
+.post-type-post .is-root-container .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link, .post-type-post .is-root-container > .wp-block-block > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button,
+.post-type-post .is-root-container > .wp-block-block > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link, .post-type-post .is-root-container > .wp-block-block .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button,
+.post-type-post .is-root-container > .wp-block-block .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button,
+.post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button,
+.post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link, .wp-pattern-category-article-patterns > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button,
+.wp-pattern-category-article-patterns > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link, .wp-pattern-category-article-patterns .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button,
+.wp-pattern-category-article-patterns .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link, .wp-pattern-category-article-patterns .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button,
+.wp-pattern-category-article-patterns .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link, .wp-pattern-category-article-patterns .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button,
+.wp-pattern-category-article-patterns .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link {
+  flex: 1 0 0;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  background: none;
+  background-color: transparent;
+  color: var(--ds-semantic-color-layout-content-medium);
+  font-family: var(--ds-semantic-font-title);
+  font-size: var(--ds-core-typography-font-size-m);
+  font-weight: var(--ds-core-typography-font-weight-semibold);
+  line-height: 125%;
+}
+.post-type-post .is-root-container > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button::before,
+.post-type-post .is-root-container > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link::before, .post-type-post .is-root-container .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button::before,
+.post-type-post .is-root-container .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link::before, .post-type-post .is-root-container .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button::before,
+.post-type-post .is-root-container .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link::before, .post-type-post .is-root-container .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button::before,
+.post-type-post .is-root-container .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link::before, .post-type-post .is-root-container > .wp-block-block > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button::before,
+.post-type-post .is-root-container > .wp-block-block > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link::before, .post-type-post .is-root-container > .wp-block-block .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button::before,
+.post-type-post .is-root-container > .wp-block-block .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link::before, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button::before,
+.post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link::before, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button::before,
+.post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link::before, .wp-pattern-category-article-patterns > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button::before,
+.wp-pattern-category-article-patterns > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link::before, .wp-pattern-category-article-patterns .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button::before,
+.wp-pattern-category-article-patterns .wp-block-group > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link::before, .wp-pattern-category-article-patterns .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button::before,
+.wp-pattern-category-article-patterns .wp-block-citeo-articles-paragraph-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link::before, .wp-pattern-category-article-patterns .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-element-button::before,
+.wp-pattern-category-article-patterns .wp-block-citeo-articles-section-title > .wp-block-buttons .wp-block-button.add-download:not(#idhack) .wp-block-button__link::before {
+  order: 900;
+  background-color: var(--ds-semantic-color-layout-content-medium);
+}
+@media screen and (max-width: 1248px) {
+  .post-type-post .is-root-container, .post-type-post .is-root-container > .wp-block-block, .wp-pattern-category-article-patterns {
+    padding: 0 var(--ds-semantic-spacing-l);
+  }
+}
+@media screen and (max-width: 1040px) {
+  .post-type-post .is-root-container .back-to-mag, .post-type-post .is-root-container > .wp-block-block .back-to-mag, .wp-pattern-category-article-patterns .back-to-mag {
+    grid-column: 2/span 10;
+  }
+  .post-type-post .is-root-container .post-title, .post-type-post .is-root-container .meta-data, .post-type-post .is-root-container .excerpt-wrapper, .post-type-post .is-root-container > .wp-block-block .post-title, .post-type-post .is-root-container > .wp-block-block .meta-data, .post-type-post .is-root-container > .wp-block-block .excerpt-wrapper, .wp-pattern-category-article-patterns .post-title, .wp-pattern-category-article-patterns .meta-data, .wp-pattern-category-article-patterns .excerpt-wrapper {
+    grid-column: 2/span 10;
+  }
+  .post-type-post .is-root-container .excerpt-image, .post-type-post .is-root-container > .wp-block-block .excerpt-image, .wp-pattern-category-article-patterns .excerpt-image {
+    grid-column: 1/span 12;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .post-type-post .is-root-container .excerpt-image img, .post-type-post .is-root-container > .wp-block-block .excerpt-image img, .wp-pattern-category-article-patterns .excerpt-image img {
+    grid-column: 2/span 11;
+  }
+  .post-type-post .is-root-container > *, .post-type-post .is-root-container > .wp-block-block > *, .wp-pattern-category-article-patterns > * {
+    grid-column: 2/span 10;
+    width: 100%;
+  }
+  .post-type-post .is-root-container .wp-block-citeo-articles-en-bref, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-en-bref, .wp-pattern-category-article-patterns .wp-block-citeo-articles-en-bref {
+    grid-column: 2/span 10;
+  }
+  .post-type-post .is-root-container .wp-block-citeo-articles-list-highlight, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-list-highlight, .wp-pattern-category-article-patterns .wp-block-citeo-articles-list-highlight {
+    grid-column: 1/span 12;
+  }
+  .post-type-post .is-root-container .wp-block-citeo-articles-citation, .post-type-post .is-root-container .wp-block-ds-citeocom-section-newsletter, .post-type-post .is-root-container .wp-block-citeo-articles-slider-image, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-citation, .post-type-post .is-root-container > .wp-block-block .wp-block-ds-citeocom-section-newsletter, .post-type-post .is-root-container > .wp-block-block .wp-block-citeo-articles-slider-image, .wp-pattern-category-article-patterns .wp-block-citeo-articles-citation, .wp-pattern-category-article-patterns .wp-block-ds-citeocom-section-newsletter, .wp-pattern-category-article-patterns .wp-block-citeo-articles-slider-image {
+    grid-column: 1/span 12;
+  }
+}
+@media screen and (max-width: 600px) {
+  .post-type-post .is-root-container, .post-type-post .is-root-container > .wp-block-block, .wp-pattern-category-article-patterns {
+    grid-template-columns: 1fr;
+  }
+  .post-type-post .is-root-container > *, .post-type-post .is-root-container > .wp-block-block > *, .wp-pattern-category-article-patterns > * {
+    grid-column: 1/span 12 !important;
+  }
+}
+
+/*# sourceMappingURL=citeo-articles-admin.css.map */

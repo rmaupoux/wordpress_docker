@@ -1,0 +1,84 @@
+.wp-block-b2b-texte-texte {
+    display: flex;
+    flex-direction: column;
+    padding: 3.75rem 0;
+
+    p {
+        margin: 0;
+    }
+
+    .ds-text-base, .ds-text-paragraph, .ds-text-small, p:not(.ds-text-large, .ds-text-xsmall) {
+        color: var(--ds-semantic-color-layout-content-subtle);
+    }
+     .ds-text-xsmall {
+        text-transform: uppercase;
+     }
+     .ds-text-large + .ds-text-paragraph {
+        margin-top: .6rem;
+     }
+    .ds-display-1 .underline, .ds-display-2 .underline {
+        text-decoration-color: transparent
+    }
+
+    .wp-block-list {
+        padding-inline-start: 0;
+    }
+
+    .wp-block-buttons {
+        gap: var(--ds-semantic-spacing-m);
+        padding: var(--ds-semantic-spacing-l) 0 0 0;
+        margin-bottom: var(--ds-semantic-spacing-l);
+        
+        &:empty {
+            margin-bottom: 0;
+        }
+        
+        &:not(:has(.wp-block-button)) {
+            margin-bottom: 0;
+        }
+    }
+     .wp-block-columns {
+        margin-bottom: 0;
+        gap:7.5rem;
+        .wp-block-column + .wp-block-column {
+            margin-top: var(--ds-semantic-spacing-xs);
+        }
+     }
+    // Bouton retour en haut
+    .back-to-top-wrapper {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        margin-top: var(--ds-semantic-spacing-l);
+        
+        .wp-block-button {
+            .wp-block-button__link {
+                background-color: var(--ds-semantic-color-layout-content-subtle);
+                color: var(--ds-semantic-color-layout-background-primary);
+                padding: var(--ds-semantic-spacing-xs) var(--ds-semantic-spacing-m);
+                font-size: var(--ds-core-typography-font-size-xs);
+                border-radius: 0.25rem;
+                text-decoration: none;
+                transition: background-color 0.2s ease;
+                
+                &:hover {
+                    background-color: var(--ds-semantic-color-layout-content-primary);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        .wp-block-columns {
+            gap: 0;
+        }
+        
+        .wp-block-buttons {
+            gap: 0;
+        }
+    }
+    
+
+  
+}
+

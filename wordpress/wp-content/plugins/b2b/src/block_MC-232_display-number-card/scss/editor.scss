@@ -1,0 +1,10 @@
+.wp-block-b2b-number-card {
+    & > .block-editor-inner-blocks {
+        & > .block-editor-block-list__layout {
+            display: flex;
+
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}

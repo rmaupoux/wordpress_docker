@@ -1,0 +1,30 @@
+.wp-block-citeo-articles-encart-froid {
+    padding-top: var(--ds-semantic-spacing-m);
+    .block-editor-block-list__block.wp-block-image{
+         width: 180px;
+        height: 130px;
+        background-color: transparent;
+    }
+    .ds-text-xsmall.ds-text-xsmall {
+        text-transform: uppercase;
+    }
+
+    
+    .block-editor-block-list__layout {
+        &>.ds-text-xsmall {
+        position: absolute;
+        left: 0;
+        top: -1.4rem;
+        padding: 0 var(--ds-semantic-spacing-xs) 0 0;
+        background-color: var(--ds-semantic-color-layout-surface-medium-default);
+        margin: 0;
+        text-transform: uppercase;
+    }
+    }
+    .display-one-post-frontend--image {
+        height: auto !important;
+        aspect-ratio: unset;
+    }
+}
+
+

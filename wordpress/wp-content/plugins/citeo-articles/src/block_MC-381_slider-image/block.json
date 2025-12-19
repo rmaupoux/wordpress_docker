@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "citeo-articles/slider-image",
+    "version": "2.0.0",
+    "title": "Section slider",
+    "category": "article",
+    "description": "Ce bloc permet de mettre en avant plusieurs contenus liés à une même thématique",
+    "attributes": {
+        "preview": {
+            "type": "boolean",
+            "default": false
+        },
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "example": {
+        "attributes": {
+            "preview": true
+        }
+    },
+    "supports": {
+        "html": false,
+		"align": ["full"]
+    },
+    "textdomain": "citeo",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css",
+    "viewScript": "file:./js/view.js"
+}

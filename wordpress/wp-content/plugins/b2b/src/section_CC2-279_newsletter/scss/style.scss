@@ -1,0 +1,163 @@
+.wp-block-ds-citeocom-section-newsletter {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6.3rem;
+  align-items: flex-start;
+
+  padding: var(--ds-semantic-spacing-5xl);
+  margin: var(--ds-semantic-spacing-2xl) 0;
+
+  background: var(--ds-semantic-color-accent1-surface-subtlest);
+  border-radius: var(--ds-semantic-radius-action);
+  overflow: hidden;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    opacity: .3;
+    width: 50%;
+    height: 100%;
+    
+    mask-repeat: no-repeat;
+    mask-position: right top;
+    background-color: var(--ds-semantic-color-layout-invert-content-medium);
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="448" height="391" viewBox="0 0 448 391" fill="none"><path d="M280.748 235.136L319.18 195.419L191.537 63.4895L257.662 0.0709062L328.647 72.9256L315.265 85.9615L257.212 26.3855L218.017 63.9853L345.184 195.419L294.182 248.126L280.748 235.136Z" fill="white"/><path d="M159.231 268.439L230.376 195.419L65.6808 26.3855L26.4799 63.9853L69.7352 108.692L56.3067 121.686L0.00518608 63.4895L66.1301 0.0708895L256.469 195.419L172.613 281.475L159.231 268.439Z" fill="white"/><path d="M191.537 327.344L245.586 271.486L259.015 284.476L218.017 326.853L257.212 364.448L421.907 195.419L348.505 120.075L361.887 107.039L448 195.419L257.662 390.767L191.537 327.344Z" fill="white"/><path d="M-2.49729e-05 327.344L127.643 195.419L91.4738 158.036L104.902 145.042L153.648 195.419L26.4748 326.853L65.6808 364.448L125.99 302.553L139.372 315.594L66.1249 390.767L-2.49729e-05 327.344Z" fill="white"/></svg>');
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: 420px auto;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+
+    label { 
+      margin-bottom: var(--ds-semantic-spacing-xs);
+    }
+
+    input {
+      height: var(--ds-semantic-sizing-xl);
+      border: 0;
+      padding: var(--ds-semantic-spacing-xs);
+      box-sizing: border-box;
+      border-radius: var(--ds-semantic-radius-default);
+    }
+  }
+
+  .checkbox-wrap {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--ds-semantic-spacing-3xs);
+
+    label {
+      font-style: .875rem;
+    }
+
+    input[type=checkbox] {
+      flex-shrink: 0;
+      display: inline-block;
+      margin-top: .1rem;
+      height: 1.2rem;
+      width: 1.2rem;
+      line-height: 0;
+      vertical-align: middle;
+      text-align: center;
+      background: transparent;
+      border: 1px solid var(--ds-semantic-color-neutral-border-medium);
+      border-radius: var(--ds-semantic-radius-default);
+      clear: none;
+      outline: 0;
+      appearance: none;
+      -webkit-appearance: none;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: 0.05s border-color ease-in-out;
+
+      &:checked {
+        background-color: var(--ds-semantic-color-action-content-stronger);
+
+        &::before {
+          content: "";
+          display: block;
+          height: 1.4rem;
+          width: 1.4rem;
+          -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'%3E%3Cg transform='translate(0,-952.36218)'%3E%3Cpath d='m 79.88683,977.33612 a 5.0005,5.0005 0 0 0 -3.4375,1.5 c -1.29463,1.2946 -10.3125,10.5625 -19.5625,20.0625 -7.80372,8.01458 -13.67804,14.02358 -16.40625,16.81248 l -17.46875,-13.3125 a 5.006368,5.006368 0 1 0 -6.0625,7.9687 l 21,16.0001 a 5.0005,5.0005 0 0 0 6.5625,-0.4375 c 1.29463,-1.2947 10.3125,-10.5626 19.5625,-20.0626 9.25,-9.49998 18.73213,-19.23208 19.4375,-19.93748 a 5.0005,5.0005 0 0 0 -3.625,-8.5937 z' fill='%23FFFFFF' fill-opacity='1' stroke='none' marker='none' visibility='visible' display='inline' overflow='visible'/%3E%3C/g%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'%3E%3Cg transform='translate(0,-952.36218)'%3E%3Cpath d='m 79.88683,977.33612 a 5.0005,5.0005 0 0 0 -3.4375,1.5 c -1.29463,1.2946 -10.3125,10.5625 -19.5625,20.0625 -7.80372,8.01458 -13.67804,14.02358 -16.40625,16.81248 l -17.46875,-13.3125 a 5.006368,5.006368 0 1 0 -6.0625,7.9687 l 21,16.0001 a 5.0005,5.0005 0 0 0 6.5625,-0.4375 c 1.29463,-1.2947 10.3125,-10.5626 19.5625,-20.0626 9.25,-9.49998 18.73213,-19.23208 19.4375,-19.93748 a 5.0005,5.0005 0 0 0 -3.625,-8.5937 z' fill='%23FFFFFF' fill-opacity='1' stroke='none' marker='none' visibility='visible' display='inline' overflow='visible'/%3E%3C/g%3E%3C/svg%3E");
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          background: var(--ds-semantic-color-layout-surface-medium-default);
+          margin: 0;
+          position: absolute;
+          left: .3rem;
+          top: .1rem;
+        }
+      }
+    }
+  }
+
+  .ds-heading-1, .ds-heading-2 {
+    word-wrap: normal;
+  }
+
+  .newsletter-ttl-col, .newsletter-input-col {
+    flex: 1 1;
+    min-width: 0;
+    z-index: 1;
+  }
+
+  .newsletter-input-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-semantic-spacing-m);  
+    
+    .wp-block-button__link {
+      padding: var(--ds-semantic-spacing-s) var(--ds-semantic-spacing-m);
+    }
+  }
+
+  .contact-content-wrapper {
+    min-width: 0;
+    z-index: 2;
+  }
+
+  @media (max-width: 960px) {    
+    flex-direction: column;
+    padding: var(--ds-semantic-spacing-5xl) var(--ds-semantic-spacing-l);
+    gap: var(--ds-semantic-spacing-l);
+    align-items: flex-start;
+    
+    &::after {
+      left: auto;
+      right: 0;
+      top: 0;
+      transform: none;
+      width: var(--ds-semantic-sizing-11xl);
+      height: var(--ds-semantic-sizing-11xl);
+      mask-position: right top;
+      mask-size: 320px 320px;
+    }
+    .input-group input {
+      max-width: 100%;
+      width: 100%;
+    } 
+
+    .wp-block-button__link {
+      width: 100%;
+    }
+  }
+
+  @for $i from 2 through 3 {
+    &.subtheme-accent#{$i} {
+      background-color: var(--ds-semantic-color-accent#{$i}-surface-subtlest);
+    }
+  }
+}

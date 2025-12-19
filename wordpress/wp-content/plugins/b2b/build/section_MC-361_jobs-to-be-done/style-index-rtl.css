@@ -1,0 +1,53 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_MC-361_jobs-to-be-done/scss/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-b2b-section-jobs-to-be-done {
+  padding: var(--ds-semantic-spacing-4xl) 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  gap: var(--ds-semantic-spacing-l);
+}
+.wp-block-b2b-section-jobs-to-be-done .wp-block-b2b-block-job-to-be-done:nth-child(n+5) {
+  display: none;
+}
+.wp-block-b2b-section-jobs-to-be-done .wp-block-b2b-block-job-to-be-done {
+  max-width: 30rem;
+  width: 100%;
+}
+.wp-block-b2b-section-jobs-to-be-done.big-cta .wp-block-b2b-block-job-to-be-done .cta-text {
+  font-family: var(--ds-semantic-font-title);
+  font-size: var(--ds-core-typography-font-size-m);
+  font-weight: var(--ds-core-typography-font-weight-semibold);
+  line-height: 125%;
+}
+.wp-block-b2b-section-jobs-to-be-done.small-cta .wp-block-b2b-block-job-to-be-done {
+  max-width: 23rem;
+}
+.wp-block-b2b-section-jobs-to-be-done.small-cta .wp-block-b2b-block-job-to-be-done .cta-text {
+  margin-bottom: var(--ds-semantic-spacing-s);
+  font-family: var(--ds-semantic-font-title);
+  font-size: var(--ds-core-typography-font-size-s);
+  font-weight: var(--ds-core-typography-font-weight-semibold);
+  line-height: 125%;
+}
+.wp-block-b2b-section-jobs-to-be-done.small-cta .wp-block-b2b-block-job-to-be-done arrow-right-icon-component {
+  width: var(--ds-semantic-sizing-s);
+  height: var(--ds-semantic-sizing-s);
+}
+@media screen and (max-width: 1256px) {
+  .wp-block-b2b-section-jobs-to-be-done {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wp-block-b2b-section-jobs-to-be-done .wp-block-b2b-block-job-to-be-done:nth-child(odd) {
+    justify-self: end;
+  }
+}
+@media screen and (max-width: 648px) {
+  .wp-block-b2b-section-jobs-to-be-done {
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--ds-semantic-spacing-s);
+  }
+  .wp-block-b2b-section-jobs-to-be-done .wp-block-b2b-block-job-to-be-done:nth-child(odd), .wp-block-b2b-section-jobs-to-be-done .wp-block-b2b-block-job-to-be-done:nth-child(even) {
+    justify-self: center;
+  }
+}

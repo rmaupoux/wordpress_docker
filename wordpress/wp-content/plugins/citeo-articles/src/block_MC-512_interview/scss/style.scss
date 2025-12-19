@@ -1,0 +1,92 @@
+.wp-block-citeo-articles-interview {
+    padding-top: var(--ds-semantic-spacing-xl);
+    border-bottom: 2px solid var(--ds-semantic-color-action-content-medium);
+    grid-column: 1 / span 3 !important;
+    grid-row: 6;
+
+    .author-block__header {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            border-bottom: 2px solid var(--ds-semantic-color-action-content-medium);
+            z-index: 0;
+        }
+
+        .author-block__label,
+        p.author-block__label {
+            position: relative;
+            display: inline-block;
+            margin: 0;
+            padding-right: 1rem;
+            background-color: #fff;
+            font-family: var(--ds-style-text-xsmall-strong-font-family);
+            font-size: var(--ds-style-text-xsmall-strong-font-size);
+            font-weight: 700;
+            font-style: normal;
+            line-height: 130%;
+            color: var(--ds-semantic-color-layout-content-medium);
+            z-index: 1;
+        }
+    }
+
+    .author-block__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .author-block__image,
+        .wp-block-image {
+            width: 100%;
+            max-width: 280px;
+            margin: 0;
+
+            img {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+                align-self: stretch;
+                object-fit: cover;
+                display: block;
+            }
+
+            picture {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        .author-block__info {
+            display: flex;
+            padding: var(--ds-semantic-spacing-s);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: var(--ds-semantic-spacing-4xs);
+
+            p.author-block__name {
+                margin: 0;
+                color: var(--ds-semantic-color-layout-content-medium);
+                font-family: var(--ds-style-heading-4-font-family);
+                font-size: var(--ds-style-heading-4-font-size);
+                font-style: normal;
+                font-weight: 600;
+                line-height: 125%;
+            }
+
+            p.author-block__biography {
+                margin: 0;
+                color: var(--ds-semantic-color-layout-content-medium);
+                font-family: var(--ds-style-text-small-font-family);
+                font-size: var(--ds-style-text-small-font-size);
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+            }
+        }
+    }
+}

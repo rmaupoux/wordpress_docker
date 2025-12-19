@@ -1,0 +1,18 @@
+.wp-block-ds-citeocom-section-article {
+    & {
+        padding: var(--ds-semantic-spacing-5xl) 0;
+        margin: 0 auto;
+    }
+
+    @media screen and (max-width: 839px) {
+        & {
+            padding: var(--ds-semantic-spacing-3xl) 0;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        & {
+            padding: var(--ds-semantic-spacing-5xl) 0;
+        }
+    }
+}

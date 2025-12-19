@@ -1,0 +1,8 @@
+.ds-theme-adelphe .ds-space-pap, .ds-theme-adelphe.ds-space-pap {
+  --ds-space-content-medium: var(--ds-brand-color-green-600);
+  --ds-space-surface-subtle: var(--ds-brand-color-green-50);
+  --ds-space-surface-medium: var(--ds-brand-color-green-500);
+  --ds-space-border-medium: var(--ds-brand-color-green-600);
+}
+
+/*# sourceMappingURL=space-adelphe-pap.css.map */

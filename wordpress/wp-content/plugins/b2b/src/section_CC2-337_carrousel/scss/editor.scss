@@ -1,0 +1,23 @@
+.wp-block-b2b-carrousel {
+
+    .has-horizontal-slider {
+        max-width: var(--wp--style--global--content-size);
+        margin: var(--ds-semantic-spacing-5xl) auto 0;
+    }
+
+    .block-editor-block-list__block.wp-block-image {
+        width: 100%;
+        background-color: var(--ds-semantic-color-neutral-surface-medium-default);
+        &>div {
+            background-color: var(--ds-semantic-color-neutral-surface-medium-default);
+        }
+    }
+
+    .wp-block-post-featured-image .components-placeholder, .wp-block-post-featured-image .wp-block-post-featured-image__placeholder {
+        min-height: 280px;
+    }
+    &.is-selected .components-placeholder.has-illustration {
+        overflow: hidden;
+    }
+
+}

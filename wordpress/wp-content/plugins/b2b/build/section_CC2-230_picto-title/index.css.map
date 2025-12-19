@@ -1,0 +1,1 @@
+{"version":3,"file":"section_CC2-230_picto-title/index.css","mappings":";;;AAAA;EACI;AACJ,C","sources":["webpack://ds-citeocom/./src/section_CC2-230_picto-title/scss/editor.scss"],"sourcesContent":[".wp-block-b2b-image-title .wrapper-media-text {\n    width: 100% !important;\n}"],"names":[],"sourceRoot":""}

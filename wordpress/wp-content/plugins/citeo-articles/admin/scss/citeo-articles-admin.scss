@@ -1,0 +1,143 @@
+.post-type-post .is-root-container, .post-type-post .is-root-container > .wp-block-block, .wp-pattern-category-article-patterns {
+    max-width: var(--wp--style--global--content-size);
+    margin: auto;
+
+    display: grid !important;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 1.5rem;
+
+    & > *:not(.wp-block-block) {
+        grid-column: 4 / span 6;
+        width: 100%;
+    }
+
+    & > .wp-block-block {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    & > .wp-block-heading, & > p, & > .wp-block-list, & > .wp-block-image, & > .wp-block-group, & > .wp-block-embed {
+        padding-top: var(--ds-semantic-spacing-l);
+        padding-bottom: var(--ds-semantic-spacing-l);
+
+        margin: 0;
+    }
+
+    & > .wp-block-citeo-articles-en-bref {
+        grid-column: 10 / span 3;
+        grid-row: 1;
+    }
+
+    // Full width
+    .wp-block-citeo-articles-citation, .wp-block-ds-citeocom-section-newsletter, .wp-block-citeo-articles-slider-image, .wp-block-citeo-articles-section-go-further {
+        grid-column: 1 / span 12;
+    }
+
+    .wp-block-citeo-articles-section-go-further {
+            order: 900;
+    }
+
+    .wp-block-ds-citeocom-section-newsletter {
+        order: 901;
+    }
+
+    .wp-block-citeo-articles-list-highlight {
+        grid-column: 3 / span 8;
+    }
+
+    &, .wp-block-group, .wp-block-citeo-articles-paragraph-title, .wp-block-citeo-articles-section-title{
+        & > .wp-block-buttons {
+            margin: var(--ds-semantic-spacing-l) 0;
+
+            .wp-block-button.add-download:not(#idhack) {
+                display: flex;
+                align-items: center;
+
+                width: 100%;
+                padding: var(--ds-semantic-spacing-l);
+                border-radius: 0;
+
+                background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+                border-top: 2px solid var(--ds-semantic-color-layout-content-medium);
+                border-bottom: 2px solid var(--ds-semantic-color-layout-content-medium);
+
+                .wp-element-button,
+                .wp-block-button__link {
+                    flex: 1 0 0;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: space-between;
+
+                    background: none;
+                    background-color: transparent;
+
+                    color: var(--ds-semantic-color-layout-content-medium);
+
+                    font-family: var(--ds-semantic-font-title);
+                    font-size: var(--ds-core-typography-font-size-m);
+                    font-weight: var(--ds-core-typography-font-weight-semibold);
+                    line-height: 125%;
+
+                    &::before {
+                        order: 900;
+
+                        background-color: var(--ds-semantic-color-layout-content-medium);
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1248px) {
+        & {
+            padding: 0 var(--ds-semantic-spacing-l);
+        }
+    }
+
+    @media screen and (max-width: 1040px) {
+        .back-to-mag {
+            grid-column: 2 / span 10;
+        }
+        
+        .post-title, .meta-data, .excerpt-wrapper {
+            grid-column: 2 / span 10;
+        }
+
+        .excerpt-image {
+            grid-column: 1 / span 12;
+
+            grid-template-columns: repeat(12, 1fr);
+
+            img {
+                grid-column: 2 / span 11;
+            }
+        }
+
+        & > * {
+            grid-column: 2 / span 10;
+            width: 100%;
+        }
+
+        .wp-block-citeo-articles-en-bref {
+            grid-column: 2 / span 10;
+        }
+
+        .wp-block-citeo-articles-list-highlight {
+            grid-column: 1 / span 12;
+        }
+
+        .wp-block-citeo-articles-citation, .wp-block-ds-citeocom-section-newsletter, .wp-block-citeo-articles-slider-image {
+            grid-column: 1 / span 12;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        & {
+            grid-template-columns: 1fr;
+        }
+
+        & > * {
+            grid-column: 1 / span 12 !important;
+        }
+    }
+}

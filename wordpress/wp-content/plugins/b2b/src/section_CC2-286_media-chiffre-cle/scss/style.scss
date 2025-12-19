@@ -1,0 +1,240 @@
+
+.wp-block-ds-citeocom-section-box-media {
+
+    position: relative;
+    padding: var(--ds-semantic-spacing-4xl) var(--ds-semantic-spacing-5xl) ;
+    box-sizing: border-box;
+    background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+     
+    .large-align-block{
+        display: flex;
+        gap: 6.5rem;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: var(--wp--style--global--content-size);
+        margin: auto;
+
+    }
+
+    .wp-block-heading .ds-text-xsmall {
+        text-transform: uppercase;
+    }
+
+    .ds-text-base {
+        color: var(--ds-semantic-color-layout-content-subtle);
+    }
+    .ds-heading-3 {
+        font-family: var(--ds-semantic-font-title);
+    }
+    
+    .wp-block-buttons {
+        margin-top: var(--ds-semantic-spacing-m);
+    }
+
+    .box-embed-img {
+        flex-grow: 1;
+        margin-top: var(--ds-semantic-spacing-2xl);
+        
+        figure {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            
+            margin: 0;
+            border-radius: var(--ds-semantic-radius-default);
+            overflow: hidden;
+
+            picture {
+                width: 100%;
+                height: 100%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            .wp-block-embed__wrapper {
+                width: 100%;
+                height: 100%;
+
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .number-card-title {
+        display: flex;
+        align-items: flex-end;
+        gap: var(--ds-semantic-spacing-3xs);
+    }
+
+    .box-media-wrapper {
+        flex-basis: 40%;
+    }
+    .has-horizontal-slider .slider-wrap {
+        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--ds-semantic-spacing-xl) var(--ds-semantic-spacing-l);
+    }
+
+    .wp-block-b2b-number-card {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        
+        border-top: 2px solid var(--ds-semantic-color-accent1-border-subtle);
+        padding-top: var(--ds-semantic-spacing-s);
+        transition: border-color ease-out .25s;
+
+        gap: var(--ds-semantic-spacing-2xs);
+
+        &:last-child {
+            grid-column: 1 / -1;
+            align-items: flex-start;
+        }
+
+        &:hover, &:focus {
+            border-top: 2px solid var(--ds-semantic-color-accent1-border-medium);
+            cursor: auto !important;
+        }
+    }
+
+    .wp-block-b2b-title-description-button, .wp-block-citeo-semantic-horizontal-slider {
+        position: relative;
+        z-index: 1;
+
+        width: 100%;
+        max-width: var(--wp--style--global--content-size);
+        margin: auto;
+    }
+    .has-horizontal-slider {
+        margin-top: var(--ds-semantic-spacing-xl);
+    }
+
+    &:not(.has-active-hover) {
+        .active-slide {
+            border-top: 2px solid var(--ds-semantic-color-accent1-border-medium);
+        }
+    }
+
+    .has-horizontal-slider {
+        position: relative;
+        --control-gap: 6.25rem;
+
+        .total-wrap {
+            width: var(--control-gap);
+            line-height: var(--ds-core-typography-line-height-2xl);
+            text-align: center;
+
+            position: absolute;
+            top: calc(-1 * var(--ds-semantic-spacing-5xl));
+            right: var(--ds-semantic-spacing-2xl); // button width
+
+            pointer-events: none;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: calc(-1 * var(--ds-semantic-spacing-5xl)); // gap value
+            right: 0;
+
+            margin-top: 0;
+            display: flex;
+            gap: var(--control-gap);
+
+            .wp-block-button {
+                width: var(--ds-semantic-sizing-xl);
+                height: var(--ds-semantic-sizing-xl);
+
+                &.disabled .wp-element-button {
+                    border: none;
+                }
+
+                .wp-element-button {
+                    padding: 0;
+                    background-color: transparent;
+                    border: solid 1px var(--ds-semantic-color-action-border-stronger);
+
+                    &::after {
+                        background-color: var(--ds-semantic-color-action-surface-stronger);
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1040px) {
+        width: 100% !important;
+
+        .large-align-block{
+            flex-direction: column;
+            gap: var(--ds-semantic-spacing-2xl);
+        }
+
+        .wp-block-b2b-title-description-button {
+            & > .wp-block-buttons, & > p, & > .wp-block-heading, & > .wp-block-list {
+                width: 100%;
+            }
+        }
+        .has-horizontal-slider .slider-wrap {
+            display: flex;    
+            flex-wrap: nowrap;
+
+        }
+        
+        .wp-block-b2b-number-card:last-child {
+            margin-right: 0;
+        }
+        .box-media-wrapper {
+            width: auto;
+        }
+        .box-embed-img {
+            margin-top: 0;
+        }
+
+    }
+
+    @media screen and (max-width:840px) {
+        .back-picto {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        padding-left: var(--ds-semantic-spacing-m);
+        padding-right: var(--ds-semantic-spacing-m); 
+    }
+
+    @for $i from 2 through 3 {
+        &.subtheme-accent#{$i} {
+            background-color: var(--ds-semantic-color-accent#{$i}-surface-subtlest);
+
+            .wp-block-button.is-style-secondary .wp-block-button__link {
+                background-color: var(--ds-semantic-color-accent#{$i}-surface-subtlest);
+            }
+
+            .wp-block-b2b-number-card {
+                border-color: var(--ds-semantic-color-accent#{$i}-border-subtle);
+
+                &:hover, &:focus {
+                    border-color: var(--ds-semantic-color-accent#{$i}-surface-medium);
+                }
+            }
+
+            &:not(.has-active-hover) {
+                .active-slide {
+                    border-top: .5rem solid var(--ds-semantic-color-accent#{$i}-surface-medium);
+                }
+            }
+        }
+    }
+}
+

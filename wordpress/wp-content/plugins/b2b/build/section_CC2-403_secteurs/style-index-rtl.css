@@ -1,0 +1,109 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/section_CC2-403_secteurs/scss/style.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-ds-citeocom-section-secteur-liste {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--ds-semantic-spacing-l);
+  width: 100%;
+  padding: var(--ds-semantic-spacing-2xl) 0 0;
+  margin-bottom: var(--ds-semantic-spacing-2xl);
+  box-sizing: border-box;
+  border-bottom: 2px solid var(--ds-semantic-color-action-border-medium);
+}
+.wp-block-ds-citeocom-section-secteur-liste .left-col {
+  position: relative;
+  z-index: 1;
+  grid-column: span 3;
+  row-gap: var(--ds-semantic-spacing-l);
+  padding-bottom: var(--ds-semantic-spacing-m);
+}
+.wp-block-ds-citeocom-section-secteur-liste .left-col .wp-block-heading {
+  padding: var(--ds-semantic-spacing-2xl) 0 0;
+}
+.wp-block-ds-citeocom-section-secteur-liste .left-col .ds-text-xsmall {
+  display: block;
+  text-transform: uppercase;
+}
+.wp-block-ds-citeocom-section-secteur-liste .left-col .has-horizontal-slider {
+  width: 100%;
+  overflow: hidden;
+}
+.wp-block-ds-citeocom-section-secteur-liste .left-col .has-horizontal-slider .slider-wrap {
+  flex-direction: column;
+  gap: var(--ds-semantic-spacing-s);
+}
+.wp-block-ds-citeocom-section-secteur-liste .left-col .has-horizontal-slider .slider-wrap > .wp-block-ds-citeocom-block-tab:nth-child(n+6) {
+  display: none;
+  visibility: hidden;
+}
+.wp-block-ds-citeocom-section-secteur-liste .left-col .has-horizontal-slider .slider-controls {
+  margin-top: var(--ds-semantic-spacing-xs);
+  display: none;
+  justify-content: flex-end;
+  gap: var(--ds-semantic-spacing-xs);
+}
+.wp-block-ds-citeocom-section-secteur-liste .left-col .has-horizontal-slider .slider-controls .wp-block-button__link {
+  background-color: transparent;
+  border: solid 1px var(--ds-semantic-color-action-border-medium);
+}
+.wp-block-ds-citeocom-section-secteur-liste .left-col .has-horizontal-slider .slider-controls .wp-block-button__link::after {
+  background-color: var(--ds-semantic-color-action-content-medium);
+}
+.wp-block-ds-citeocom-section-secteur-liste .right-col {
+  position: relative;
+  z-index: 1;
+  grid-column: 5/span 8;
+}
+.wp-block-ds-citeocom-section-secteur-liste .right-col > .wp-block-ds-citeocom-block-secteur:nth-child(n+6) {
+  display: none;
+  visibility: hidden;
+}
+.wp-block-ds-citeocom-section-secteur-liste .back-picto {
+  max-height: 42.5rem;
+  background-color: var(--ds-semantic-color-layout-surface-medium-active);
+  -webkit-mask-position: 13.1875rem calc(100% + 1rem);
+          mask-position: 13.1875rem calc(100% + 1rem);
+  -webkit-mask-size: var(--ds-semantic-sizing-9xl);
+          mask-size: var(--ds-semantic-sizing-9xl);
+}
+@media screen and (max-width: 1200px) {
+  .wp-block-ds-citeocom-section-secteur-liste {
+    gap: 0;
+  }
+  .wp-block-ds-citeocom-section-secteur-liste .back-picto {
+    max-height: none;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .wp-block-ds-citeocom-section-secteur-liste {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-semantic-spacing-l);
+  }
+  .wp-block-ds-citeocom-section-secteur-liste .left-col {
+    padding-bottom: 0;
+  }
+  .wp-block-ds-citeocom-section-secteur-liste .left-col .has-horizontal-slider .slider-controls {
+    display: flex;
+  }
+  .wp-block-ds-citeocom-section-secteur-liste .left-col .has-horizontal-slider .slider-wrap {
+    flex-direction: row;
+  }
+  .wp-block-ds-citeocom-section-secteur-liste .left-col .has-horizontal-slider .slider-wrap > .wp-block-ds-citeocom-block-tab {
+    width: -moz-fit-content;
+    width: fit-content;
+    flex-shrink: 0;
+  }
+  .wp-block-ds-citeocom-section-secteur-liste .left-col .has-horizontal-slider .slider-wrap > .wp-block-ds-citeocom-block-tab span.ds-text-base {
+    overflow: unset;
+    text-overflow: unset;
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+  }
+  .wp-block-ds-citeocom-section-secteur-liste .back-picto {
+    display: none;
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "menu/link-image-card",
+  "version": "1.0.0",
+  "title": "Carte avec image cliquable",
+  "category": "citeo-menu",
+  "icon": "smiley",
+  "description": "Bloc de la modale de menu contenant un lien autour d'une carte avec image",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "ancestor": [
+    "menu/dropdown"
+  ],
+  "attributes": {
+    "allowResize": {
+      "type": "boolean",
+      "default": false
+    },
+    "cardLink": {
+      "type": "object"
+    },
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": "h5",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "source": "html",
+      "selector": "p",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "source": "html",
+      "selector": "span",
+      "default": ""
+    }
+  },
+  "providesContext": {
+    "allowResize": "allowResize"
+  },
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

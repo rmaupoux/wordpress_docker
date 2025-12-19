@@ -1,0 +1,49 @@
+.wp-block-ds-citeocom-section-box-media {
+
+    .large-align-block {
+        & > .block-editor-inner-blocks > .block-editor-block-list__layout:first-child {
+            display: flex;
+            gap: var(--ds-semantic-spacing-5xl);
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: var(--wp--style--global--content-size);
+            margin: auto;
+        }
+
+        & > .block-editor-inner-blocks {
+            width: 100%;
+        }
+    }
+
+    .box-embed-img {
+        width: 50%;
+    }
+
+    figure {
+        & > div {
+            border-radius: .25rem;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .wp-block-embed {
+        figure {
+            flex-basis: 100%;
+        }
+    }
+
+    .wp-block-b2b-number-card:last-child {
+        .block-editor-block-list__layout {
+            align-items: flex-start;
+        }
+    }
+}
+

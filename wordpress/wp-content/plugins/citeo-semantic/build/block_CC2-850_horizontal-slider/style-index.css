@@ -1,0 +1,60 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/block_CC2-850_horizontal-slider/scss/style.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.has-horizontal-slider .slider-wrap {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: var(--ds-semantic-spacing-l);
+  flex-wrap: nowrap;
+  width: 100%;
+  transition: transform ease-out 0.25s;
+  cursor: grab;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  touch-action: auto;
+  font-family: var(--ds-semantic-font-default);
+}
+.has-horizontal-slider .slider-wrap:active {
+  cursor: grabbing;
+}
+.has-horizontal-slider .slider-wrap.no-slide {
+  cursor: default;
+  transform: none !important;
+  transition: none !important;
+}
+.has-horizontal-slider .slider-wrap.shifting .stepper-wrap {
+  pointer-events: none;
+}
+.has-horizontal-slider .slider-wrap:not(.shifting) {
+  transition: none !important;
+}
+.has-horizontal-slider .stepper-wrap .step-index {
+  cursor: pointer;
+}
+.has-horizontal-slider .slider-controls {
+  margin-top: var(--ds-semantic-spacing-2xl);
+}
+.has-horizontal-slider .slider-controls .prev-slide, .has-horizontal-slider .slider-controls .next-slide {
+  transition: opacity ease-out 0.25s;
+}
+.has-horizontal-slider .slider-controls .prev-slide {
+  transform: rotateZ(-180deg);
+}
+.has-horizontal-slider .slider-controls .disabled {
+  pointer-events: none;
+  opacity: 0.25;
+}
+.has-horizontal-slider .no-slide + .slider-controls {
+  display: none;
+}
+.has-horizontal-slider .total-wrap {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

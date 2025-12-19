@@ -1,0 +1,23 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/block_MC-516_illustration/scss/style.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-citeo-semantic-illustration {
+  --ds-illustration-color: var(--ds-semantic-color-neutral-content-medium);
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.wp-block-citeo-semantic-illustration .illustration-wrapper {
+  display: block;
+  width: var(--ds-semantic-sizing-6xl);
+  height: var(--ds-semantic-sizing-6xl);
+  background-color: #000;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

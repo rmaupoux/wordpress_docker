@@ -1,0 +1,26 @@
+.wp-block-citeo-semantic-block-iframe {
+    margin-top: var(--ds-semantic-spacing-2xl);
+    margin-bottom: var(--ds-semantic-spacing-2xl);
+    box-sizing: border-box;
+    padding: var(--ds-semantic-spacing-5xl);
+    border-radius: var(--ds-semantic-radius-elevated);
+
+    background-color: var(--ds-semantic-color-layout-surface-subtle-default);
+
+    .in-page-iframe {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+
+        border-radius: var(--ds-semantic-radius-elevated);
+    }
+
+    @media screen and (max-width: 1040px) {
+        & {
+            padding: var(--ds-semantic-spacing-2xl) var(--ds-semantic-spacing-xl);
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        padding: var(--ds-semantic-spacing-xl) var(--ds-semantic-spacing-l);
+    }
+}

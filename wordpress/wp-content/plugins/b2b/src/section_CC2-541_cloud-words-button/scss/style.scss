@@ -1,0 +1,32 @@
+.wp-block-ds-citeocom-section-word-cloud {
+
+	> .wp-block-heading {
+		margin-bottom: var(--ds-semantic-spacing-m);
+	}
+	.h3-title {
+		font-size: var(--ds-core-typography-font-size-m);
+		margin-bottom: var(--ds-semantic-spacing-3xl);
+		line-height: 1.4;
+	}
+	.numbers-button { 
+		justify-content: center;
+	}
+
+	.wp-block-buttons {
+		gap:.7rem;
+	}
+	.wp-block-button.cloud-word--button {
+		.wp-element-button {
+			width: auto;
+			height: var(--ds-semantic-sizing-xl); 
+			padding: var(--ds-semantic-spacing-xs) var(--ds-semantic-spacing-m) var(--ds-semantic-spacing-xs) var(--ds-semantic-spacing-m); 
+			border-radius: 6.25rem;
+			border: 1px solid var(--ds-semantic-color-layout-border-strong-default);
+			background-color: var(--ds-semantic-color-layout-surface-medium-default);
+			color: var(--ds-semantic-color-layout-content-medium);
+			font-size: var(--ds-core-typography-font-size-s);
+		}
+	 }
+
+	
+}

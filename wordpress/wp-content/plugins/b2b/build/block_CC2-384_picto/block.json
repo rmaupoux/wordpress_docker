@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ds-citeocom/block-picto",
+  "version": "0.1.0",
+  "title": "Icône avec titre & description",
+  "category": "citeo",
+  "icon": "smiley",
+  "description": "Block picto automatiquement numéroté avec description",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "parent": [
+    "ds-citeocom/section-chart"
+  ],
+  "attributes": {},
+  "textdomain": "headelines",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"deprecated_spacer-wrapper/style-index.css","mappings":";;;AAAA;EACI;AACJ,C","sources":["webpack://ds-citeocom/./src/deprecated_spacer-wrapper/scss/style.scss"],"sourcesContent":[".section-wrapper {   \r\n    margin: 7.5rem auto;\r\n}\r\n"],"names":[],"sourceRoot":""}

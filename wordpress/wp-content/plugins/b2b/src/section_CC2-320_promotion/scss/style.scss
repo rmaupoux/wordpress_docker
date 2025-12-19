@@ -1,0 +1,156 @@
+
+.wp-block-b2b-section-promotion {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--ds-semantic-spacing-xl);
+    
+    box-sizing: border-box;
+    padding: 0 var(--ds-semantic-spacing-5xl) var(--ds-semantic-spacing-5xl);
+    margin-top: 1.875rem;
+    margin-bottom: 3.75rem;
+
+    &::before {
+        content: '';
+
+        position: absolute;
+        left: 0;
+        top: var(--ds-semantic-spacing-5xl);
+        z-index: 0;
+
+        width: 100%;
+        max-width: var(--wp--style--global--content-size);
+        height: calc(100% - var(--ds-semantic-sizing-6xl));
+
+        background-color: var(--ds-semantic-color-accent1-surface-subtlest);
+        border-radius:.75rem;
+    }
+
+    .back-picto {
+        position: absolute;
+        left: 0;
+        top: var(--ds-semantic-spacing-5xl);
+
+        width: 100%;
+        height: calc(100% - var(--ds-semantic-sizing-6xl));
+
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: 35%;
+
+        background-color: var(--ds-semantic-color-disabled-invert-content-medium);
+    }
+
+    .wp-block-image {
+        position: relative;
+        z-index: 1;
+
+        flex-basis: 40%;
+        min-width: var(--ds-semantic-sizing-11xl);
+        margin: 0 auto;
+
+        img {
+            height: auto;
+        }
+    }
+
+    .wp-block-b2b-title-description-button {
+        flex-basis: 50%;
+        padding: var(--ds-semantic-spacing-5xl) 0 0;
+        margin-top: var(--ds-semantic-spacing-5xl);
+
+        position: relative;
+        z-index: 1;
+
+        .wp-block-citeo-semantic-tag {
+            width: fit-content;
+            background-color: var(--ds-semantic-color-layout-surface-medium-default);
+            border-radius: 4px;
+
+            font-weight: var(--ds-core-typography-font-weight-regular);
+
+            .ds-icon:has(citeo-icon-component) {
+                padding: var(--ds-semantic-spacing-4xs);
+                border-radius: 50%;
+                background-color: var(--ds-semantic-color-accent1-surface-medium);
+
+                --ds-icon-color: var(--ds-semantic-color-layout-surface-medium-default);
+            }
+        }
+    }
+
+
+   
+    @media screen and (max-width: 1040px) {
+        .wp-block-b2b-title-description-button {
+            & > .wp-block-buttons, & > p, & > .wp-block-heading, & > .wp-block-list {
+                width: 66.66%;
+            }
+        }
+        .wp-block-image {
+            width: auto;
+        }
+    }
+
+    @media screen and (max-width: 840px) {
+        & {
+            flex-direction: column;
+
+            padding: 0 var(--ds-semantic-spacing-xl) var(--ds-semantic-spacing-3xl);
+
+            &::before {
+                top: var(--ds-semantic-sizing-7xl);
+                height: calc(100% - var(--ds-semantic-sizing-7xl)); 
+            }
+        }
+
+        .back-picto {
+            mask-size: 65%;
+        }
+
+        .wp-block-image {
+            order: -1;
+            min-width: unset;
+        }
+
+        .wp-block-b2b-title-description-button {
+            margin-top: 0;
+            padding-top: 0;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+
+        & {
+            &::before {
+                top: var(--ds-semantic-sizing-6xl);
+                height: calc(100% - var(--ds-semantic-sizing-6xl)); 
+            }
+        }
+
+        .wp-block-b2b-title-description-button {
+            & > .wp-block-buttons, & > p, & > .wp-block-heading, & > .wp-block-list {
+                width: 100%;
+            }
+        }
+    }
+
+    @for $i from 2 through 3 {
+        &.subtheme-accent#{$i} {
+            &::before {
+                background-color: var(--ds-semantic-color-accent#{$i}-surface-subtlest);
+            }
+
+            .wp-block-b2b-title-description-button {
+                .wp-block-citeo-semantic-tag {
+                    .ds-icon:has(citeo-icon-component) {
+                        padding: var(--ds-semantic-spacing-4xs);
+                        border-radius: 50%;
+                        background-color: var(--ds-semantic-color-accent#{$i}-surface-medium);
+                    }
+                }
+            }
+        }
+    }
+}
+

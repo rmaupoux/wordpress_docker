@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "b2b/section-promotion",
+  "version": "2.0.0",
+  "title": "Promotion",
+  "category": "b2b-service-block",
+  "description": "Ce bloc permet de promouvoir un service ou du contenu se trouvant sur une autre page.",
+  "attributes": {
+    "preview": {
+      "type": "boolean",
+      "default": false
+    },
+    "theme": {
+      "type": "string",
+      "default": ""
+    },
+    "subTheme": {
+      "type": "string",
+      "default": "default"
+    },
+    "themeSwapConfirm": {
+      "type": "boolean",
+      "default": false
+    },
+    "backgroundPictoUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "citeo",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./js/view.js"
+}

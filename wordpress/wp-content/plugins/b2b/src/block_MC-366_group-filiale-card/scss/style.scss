@@ -1,0 +1,57 @@
+.wp-block-b2b-group-filiale-link {
+    padding: var(--ds-semantic-spacing-s);
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    aspect-ratio: 4 / 3;
+    border-radius: .25rem .25rem 0 0;
+
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100%;
+
+    &:hover, &:focus { 
+        .hydrated {
+            background: var(--ds-semantic-color-accent1-surface-subtlest);
+        }
+
+        box-shadow: none;
+    }
+
+    &:active { 
+        .hydrated {
+            background: var(--ds-semantic-color-accent1-surface-subtle);
+        }
+    }
+
+    .filiale-card {
+        display: flex;
+        
+        justify-content: center;
+        align-items: flex-end;
+        gap: var(--ds-semantic-spacing-m);
+
+        padding: var(--ds-semantic-spacing-xs);
+
+        border-radius: 0.25rem 0.25rem 0 0;
+        background: var(--ds-semantic-color-layout-surface-medium-default);
+        border-bottom: solid .125rem var(--ds-semantic-color-accent1-border-medium);
+
+        .filiale-logo {
+            padding: var(--ds-semantic-spacing-3xs);
+            height: 2.75rem;
+        }
+
+        .hydrated {
+            width: var(--ds-semantic-sizing-s);
+            height: var(--ds-semantic-sizing-s);
+            padding: var(--ds-semantic-spacing-xs);
+
+            border-radius: 0.5rem;
+            transition: background ease-out .25s;
+        }
+    }
+}

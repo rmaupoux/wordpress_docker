@@ -1,0 +1,34 @@
+.wp-block-citeo-semantic-sticky-index-page {
+    & > .components-dropdown {
+        display: none;
+    }
+
+    & > .block-editor-inner-blocks {
+        grid-column: 1 / -1;
+
+        & > .block-editor-block-list__layout {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(auto-fill, minmax(0, auto));
+            column-gap: var(--ds-semantic-spacing-l);
+
+            & > .wp-block-group, & > .section-list {
+                grid-column: span 8;
+                min-width: 0;
+
+                display: flex;
+                flex-direction: column;
+            }
+
+            & > .wp-block-citeo-semantic-sticky-index-wrapper {
+                grid-row: 1;
+                grid-column: 10 / span 3;
+
+                position: sticky;
+                top: 8rem;
+                min-width: 0;
+                max-height: fit-content;
+            }
+        }
+    }
+}
