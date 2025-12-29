@@ -1,0 +1,370 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velo Club - Elite Cycling Community</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            overflow-x: hidden;
+        }
+        /* Custom grid background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+        /* Icon stroke width adjustment */
+        .iconify {
+            stroke-width: 1.5px !important;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body class="text-slate-400 antialiased selection:bg-indigo-500/20 selection:text-indigo-200">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-[#050505]/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold tracking-tighter group-hover:bg-slate-200 transition-colors">
+                    V
+                </div>
+                <span class="text-white font-medium tracking-tight text-sm">VELO CLUB.</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#routes" class="text-xs font-medium hover:text-white transition-colors">Routes</a>
+                <a href="#schedule" class="text-xs font-medium hover:text-white transition-colors">Schedule</a>
+                <a href="#membership" class="text-xs font-medium hover:text-white transition-colors">Membership</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="#" class="text-xs font-medium hover:text-white transition-colors hidden sm:block">Log in</a>
+                <a href="#" class="text-xs font-medium bg-white text-black px-4 py-2 rounded-full hover:bg-slate-200 transition-colors">
+                    Join Club
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center pt-24 overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 bg-grid z-0"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-indigo-500/20 blur-[120px] rounded-full opacity-20 pointer-events-none"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm animate-fade-in-up">
+                <span class="flex h-2 w-2 rounded-full bg-indigo-500"></span>
+                <span class="text-xs font-medium text-slate-300">New Season 2024 Registration Open</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-semibold text-white tracking-tight leading-[1.1] text-glow">
+                Pedal past the <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500">ordinary.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+                Join a community of elite cyclists. Structured training, competitive insights, and routes designed for those who refuse to compromise on performance.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <button class="h-10 px-6 rounded-full bg-white text-black text-sm font-medium hover:bg-slate-200 transition-all flex items-center gap-2">
+                    Start Riding
+                    <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
+                </button>
+                <button class="h-10 px-6 rounded-full border border-white/10 bg-white/5 text-slate-300 text-sm font-medium hover:bg-white/10 transition-all flex items-center gap-2 backdrop-blur-sm">
+                    <span class="iconify" data-icon="lucide:play-circle" data-width="16"></span>
+                    Watch Film
+                </button>
+            </div>
+        </div>
+
+        <!-- Dashboard Preview / Stats -->
+        <div class="mt-20 w-full max-w-6xl mx-auto px-6 relative z-10">
+            <div class="rounded-t-xl border border-white/10 bg-[#0A0A0A] p-1 shadow-2xl shadow-indigo-500/10">
+                <div class="rounded-lg bg-[#0F0F0F] border border-white/5 p-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="space-y-1">
+                        <div class="text-3xl font-medium text-white tracking-tight">2.4k</div>
+                        <div class="text-xs text-slate-500 font-medium uppercase tracking-wide">Active Riders</div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-3xl font-medium text-white tracking-tight">185</div>
+                        <div class="text-xs text-slate-500 font-medium uppercase tracking-wide">Routes Mapped</div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-3xl font-medium text-white tracking-tight">12</div>
+                        <div class="text-xs text-slate-500 font-medium uppercase tracking-wide">Weekly Events</div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-3xl font-medium text-white tracking-tight">PRO</div>
+                        <div class="text-xs text-slate-500 font-medium uppercase tracking-wide">Coaching Tier</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-24 px-6 relative border-t border-white/5 bg-[#050505]">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-3xl font-semibold text-white tracking-tight mb-4">Precision in every mile.</h2>
+                <p class="text-slate-400 max-w-xl">Everything you need to elevate your cycling experience, from data-driven route planning to post-ride analytics integration.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="group relative rounded-2xl border border-white/10 bg-[#0A0A0A] p-8 hover:border-white/20 transition-all duration-300 overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-opacity">
+                        <span class="iconify" data-icon="lucide:map" data-width="64"></span>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white">
+                            <span class="iconify" data-icon="lucide:compass" data-width="20"></span>
+                        </div>
+                        <h3 class="text-lg font-medium text-white mb-2 tracking-tight">Curated Routes</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Access our library of GPX files optimized for scenery, gradient, and traffic avoidance.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative rounded-2xl border border-white/10 bg-[#0A0A0A] p-8 hover:border-white/20 transition-all duration-300 overflow-hidden md:col-span-2">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 flex flex-col md:flex-row gap-8 items-start md:items-center h-full">
+                        <div class="flex-1">
+                            <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white">
+                                <span class="iconify" data-icon="lucide:users" data-width="20"></span>
+                            </div>
+                            <h3 class="text-lg font-medium text-white mb-2 tracking-tight">Peloton Dynamics</h3>
+                            <p class="text-sm text-slate-500 leading-relaxed max-w-md">Learn the art of drafting and group riding with our certified peloton leaders. Safety and speed combined.</p>
+                        </div>
+                        <div class="w-full md:w-1/2 h-32 md:h-full rounded-xl border border-white/10 bg-white/5 relative overflow-hidden flex items-center justify-center">
+                            <!-- Abstract visual for group riding -->
+                            <div class="flex -space-x-4">
+                                <div class="w-10 h-10 rounded-full bg-slate-800 border-2 border-[#0A0A0A]"></div>
+                                <div class="w-10 h-10 rounded-full bg-slate-700 border-2 border-[#0A0A0A]"></div>
+                                <div class="w-10 h-10 rounded-full bg-slate-600 border-2 border-[#0A0A0A]"></div>
+                                <div class="w-10 h-10 rounded-full bg-indigo-600 border-2 border-[#0A0A0A] flex items-center justify-center text-[10px] text-white font-bold">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative rounded-2xl border border-white/10 bg-[#0A0A0A] p-8 hover:border-white/20 transition-all duration-300 md:col-span-2 overflow-hidden">
+                    <div class="relative z-10 flex flex-col justify-between h-full">
+                         <div class="flex items-start justify-between">
+                             <div>
+                                <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white">
+                                    <span class="iconify" data-icon="lucide:activity" data-width="20"></span>
+                                </div>
+                                <h3 class="text-lg font-medium text-white mb-2 tracking-tight">Performance Analytics</h3>
+                                <p class="text-sm text-slate-500 leading-relaxed max-w-md">Sync your Strava or Garmin data. Visualize your progress with our proprietary dashboard designed for consistent improvement.</p>
+                             </div>
+                             <div class="hidden md:block">
+                                 <span class="iconify text-indigo-500/20" data-icon="lucide:bar-chart-2" data-width="80"></span>
+                             </div>
+                         </div>
+                         <!-- Simulated Graph -->
+                         <div class="mt-8 h-16 flex items-end gap-1 opacity-50">
+                             <div class="w-full bg-slate-800 rounded-t-sm h-[30%]"></div>
+                             <div class="w-full bg-slate-800 rounded-t-sm h-[50%]"></div>
+                             <div class="w-full bg-slate-800 rounded-t-sm h-[40%]"></div>
+                             <div class="w-full bg-indigo-600 rounded-t-sm h-[80%] shadow-[0_0_15px_rgba(79,70,229,0.5)]"></div>
+                             <div class="w-full bg-slate-800 rounded-t-sm h-[60%]"></div>
+                             <div class="w-full bg-slate-800 rounded-t-sm h-[75%]"></div>
+                         </div>
+                    </div>
+                </div>
+
+                 <!-- Card 4 -->
+                 <div class="group relative rounded-2xl border border-white/10 bg-[#0A0A0A] p-8 hover:border-white/20 transition-all duration-300 overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white">
+                            <span class="iconify" data-icon="lucide:coffee" data-width="20"></span>
+                        </div>
+                        <h3 class="text-lg font-medium text-white mb-2 tracking-tight">Social Hub</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Post-ride espresso stops, monthly socials, and an exclusive Discord server for members.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Membership Section -->
+    <section id="membership" class="py-24 px-6 bg-[#050505] relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-semibold text-white tracking-tight mb-4">Membership Tiers</h2>
+                <p class="text-slate-400 mb-8">Choose your pace.</p>
+                
+                <!-- Custom Toggle -->
+                <div class="inline-flex items-center p-1 rounded-full bg-white/5 border border-white/10">
+                    <button class="px-4 py-1.5 rounded-full text-xs font-medium bg-white text-black shadow-sm transition-all">Yearly (-20%)</button>
+                    <button class="px-4 py-1.5 rounded-full text-xs font-medium text-slate-400 hover:text-white transition-all">Monthly</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+                
+                <!-- Tier 1 -->
+                <div class="rounded-xl border border-white/10 bg-[#0A0A0A] p-6 hover:border-white/20 transition-all">
+                    <div class="mb-4">
+                        <h3 class="text-base font-medium text-white">Weekend Warrior</h3>
+                        <div class="mt-2 flex items-baseline gap-1">
+                            <span class="text-2xl font-medium text-white">$15</span>
+                            <span class="text-xs text-slate-500">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <span class="iconify text-slate-500" data-icon="lucide:check" data-width="14"></span>
+                            Access to weekend group rides
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <span class="iconify text-slate-500" data-icon="lucide:check" data-width="14"></span>
+                            GPX Route downloads
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <span class="iconify text-slate-500" data-icon="lucide:check" data-width="14"></span>
+                            Community Discord access
+                        </li>
+                    </ul>
+                    <button class="w-full py-2 rounded-lg border border-white/10 bg-white/5 text-xs font-medium text-white hover:bg-white/10 transition-all">Select Plan</button>
+                </div>
+
+                <!-- Tier 2 (Highlighted) -->
+                <div class="rounded-xl border border-indigo-500/50 bg-[#0E0E10] p-6 relative shadow-[0_0_30px_rgba(99,102,241,0.1)] scale-105 z-10">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wide uppercase">Most Popular</div>
+                    <div class="mb-4">
+                        <h3 class="text-base font-medium text-white">Peloton Pro</h3>
+                        <div class="mt-2 flex items-baseline gap-1">
+                            <span class="text-2xl font-medium text-white">$29</span>
+                            <span class="text-xs text-slate-500">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <span class="iconify text-indigo-400" data-icon="lucide:check" data-width="14"></span>
+                            All Weekend benefits
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <span class="iconify text-indigo-400" data-icon="lucide:check" data-width="14"></span>
+                            Mid-week training sessions
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <span class="iconify text-indigo-400" data-icon="lucide:check" data-width="14"></span>
+                            Club Kit discount (20%)
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <span class="iconify text-indigo-400" data-icon="lucide:check" data-width="14"></span>
+                            Exclusive workshops
+                        </li>
+                    </ul>
+                    <button class="w-full py-2 rounded-lg bg-white text-black text-xs font-medium hover:bg-slate-200 transition-all">Get Started</button>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="rounded-xl border border-white/10 bg-[#0A0A0A] p-6 hover:border-white/20 transition-all">
+                    <div class="mb-4">
+                        <h3 class="text-base font-medium text-white">Elite Racing</h3>
+                        <div class="mt-2 flex items-baseline gap-1">
+                            <span class="text-2xl font-medium text-white">$55</span>
+                            <span class="text-xs text-slate-500">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <span class="iconify text-slate-500" data-icon="lucide:check" data-width="14"></span>
+                            Full coaching plan
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <span class="iconify text-slate-500" data-icon="lucide:check" data-width="14"></span>
+                            Race day support vehicle
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <span class="iconify text-slate-500" data-icon="lucide:check" data-width="14"></span>
+                            Lactate threshold testing
+                        </li>
+                    </ul>
+                    <button class="w-full py-2 rounded-lg border border-white/10 bg-white/5 text-xs font-medium text-white hover:bg-white/10 transition-all">Select Plan</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-[#030303] pt-16 pb-8 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div class="col-span-2 md:col-span-1">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs">V</div>
+                    <span class="text-white font-medium text-sm tracking-tight">VELO CLUB.</span>
+                </div>
+                <p class="text-xs text-slate-500">Established 2024. <br>Designed for the driven.</p>
+            </div>
+            <div>
+                <h4 class="text-white text-xs font-medium mb-4">Club</h4>
+                <ul class="space-y-2 text-xs text-slate-500">
+                    <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Board</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Sponsors</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white text-xs font-medium mb-4">Resources</h4>
+                <ul class="space-y-2 text-xs text-slate-500">
+                    <li><a href="#" class="hover:text-white transition-colors">Route Library</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Training Tips</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Safety Guide</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Insurance</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white text-xs font-medium mb-4">Stay updated</h4>
+                <div class="flex gap-2">
+                    <input type="email" placeholder="Email address" class="bg-white/5 border border-white/10 rounded-md px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 w-full">
+                    <button class="bg-white text-black rounded-md px-3 py-2 text-xs font-medium hover:bg-slate-200 transition-colors">
+                        <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 gap-4">
+            <p class="text-[10px] text-slate-600">© 2024 Velo Cycling Club. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="#" class="text-slate-600 hover:text-white transition-colors"><span class="iconify" data-icon="lucide:instagram" data-width="16"></span></a>
+                <a href="#" class="text-slate-600 hover:text-white transition-colors"><span class="iconify" data-icon="lucide:twitter" data-width="16"></span></a>
+                <a href="#" class="text-slate-600 hover:text-white transition-colors"><span class="iconify" data-icon="lucide:strava" data-width="16"></span></a>
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>
