@@ -585,7 +585,7 @@ function create_ressources_post_type() {
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => array('slug' => 'ressources'),
+        'rewrite'            => array('slug' => 'ressources-download'),
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
@@ -633,7 +633,7 @@ function create_types_ressources_taxonomy() {
         'show_in_nav_menus'          => true,
         'show_tagcloud'              => true,
         'show_in_rest'               => true,
-        'rewrite'                    => array('slug' => 'type-ressources'),
+        'rewrite'                    => array('slug' => 'ressources'),
         'has_archive'                => true, 
     );
 

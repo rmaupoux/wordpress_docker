@@ -509,3 +509,31 @@ function citeo_language_switcher_shortcode($atts) {
     return ob_get_clean();
 }
 add_shortcode('lang_switcher', 'citeo_language_switcher_shortcode');
+
+
+
+// Redirect archive template for type-ressource taxonomy
+function citeo_archive_type_ressource_template( $template ) {
+    global $wp_query;
+    
+    // Handle specific term archives
+    if ( is_tax( 'type-ressource' ) ) {
+        $new_template = plugin_dir_path( __FILE__ ) . 'partials/archive-type-ressource.php';
+        if ( file_exists( $new_template ) ) {
+            return $new_template;
+        }
+    }
+    
+    // Handle general taxonomy archive by checking the request URI
+    $request_uri = $_SERVER['REQUEST_URI'] ?? '';
+    if ( strpos( $request_uri, '/ressources/' ) !== false || 
+         rtrim( $request_uri, '/' ) === '/ressources' ) {
+        $new_template = plugin_dir_path( __FILE__ ) . 'partials/archive-type-ressource.php';
+        if ( file_exists( $new_template ) ) {
+            return $new_template;
+        }
+    }
+    
+    return $template;
+}
+add_filter( 'template_include', 'citeo_archive_type_ressource_template' );

@@ -9,20 +9,22 @@ body {
                 z-index: 1;
 
                 padding: var(--ds-semantic-spacing-s);
-                background: var(--ds-semantic-color-accent1-surface-subtlest);
+                background: var(--ds-semantic-color-layout-invert-content-medium);
                 border-radius: var(--ds-semantic-radius-default);
                 gap: var(--ds-semantic-spacing-s);
 
-                color: var(--ds-semantic-color-action-content-medium);
+                color: var(--ds-semantic-color-layout-invert-content-medium);
                 font-weight: var(--ds-core-typography-font-weight-regular);
+                text-decoration: underline !important;
+                text-decoration-style: solid;
+                text-decoration-skip-ink: auto;
+                text-decoration-thickness: 6%; /* 0.96px */
+                text-underline-offset: 24%; /* 3.84px */
+                text-underline-position: from-font;
 
                 &:hover:not(#idhack) {
                     color: var(--ds-semantic-color-action-content-strong);
-                    background-color: var(--ds-semantic-color-accent1-surface-subtlest);
-
-                    &::before {
-                        background-color: var(--ds-semantic-color-action-content-strongs);
-                    }                    
+                    background-color: var(--ds-semantic-color-layout-invert-content-medium);
                 }
 
                 &:not(#idhack) {
@@ -34,13 +36,15 @@ body {
                         background-color: var(--ds-semantic-color-action-content-medium);
                     }
                 }
+            }
 
-                &:active:not(#idhack) {
-                    color: var(--ds-semantic-color-action-content-strong);
-                    background: var(--ds-semantic-color-accent1-surface-subtlest);
+            &.is-style-secondary {
+                .wp-block-button__link {
+                    border: 0;
+                    text-decoration: underline !important;
 
-                    &::before {
-                        background-color: var(--ds-semantic-color-action-content-strong);
+                    &:hover {
+                        border: 0;
                     }
                 }
             }
@@ -62,7 +66,7 @@ body {
 
             color: var(--ds-semantic-color-layout-invert-content-medium);
 
-            font-family: var(--ds-semantic-font-default); 
+            font-family: var(--ds-semantic-font-default);
             font-weight: var(--ds-core-typography-font-weight-semibold);
             font-size: var(--ds-core-typography-font-size-s);
             font-style: normal;
@@ -73,7 +77,7 @@ body {
             cursor: pointer;
 
             &:not(#idhack) {
-                text-decoration: none
+                // text-decoration: none
             }
 
             path {
@@ -81,11 +85,11 @@ body {
             }
 
             &:hover {
-                background: var(--ds-semantic-color-action-surface-medium);
+                background: var(--ds-semantic-color-action-surface-strong, #374151);
             }
 
             &:active {
-                background: var(--ds-semantic-color-action-surface-strong);
+                background: var(--ds-semantic-color-action-surface-stronger, #111827);
             }
 
             &:focus {
@@ -93,8 +97,8 @@ body {
             }
 
             &.disabled {
-                background: var(--ds-semantic-color-disabled-surface-medium);
-                color: var(--ds-semantic-color-disabled-content-subtle);
+                background: var(--ds-semantic-color-disabled-surface-medium, #F9FAFB);
+                color: var(--ds-semantic-color-disabled-content-medium, #9CA3AF);
 
                 cursor: not-allowed;
 
@@ -102,8 +106,9 @@ body {
                     box-shadow: revert;
                 }
             }
-            
-            &::before, &::after {
+
+            &::before,
+            &::after {
                 transition: background ease-out .25s
             }
         }
@@ -115,7 +120,7 @@ body {
 
                 color: var(--ds-semantic-color-action-content-medium);
 
-                font-family: var(--ds-semantic-font-default); 
+                font-family: var(--ds-semantic-font-default);
                 font-weight: var(--ds-core-typography-font-weight-semibold);
                 font-size: var(--ds-core-typography-font-size-s);
                 font-style: normal;
@@ -128,10 +133,12 @@ body {
                 }
 
                 &:hover {
-                    border: 1px solid var(--ds-semantic-color-action-border-medium);
-                    color: var(--ds-semantic-color-action-content-medium);
+                    border: 1px solid var(--ds-semantic-color-action-border-strong, #374151);
+                    color: var(--ds-semantic-color-action-content-strong, #374151);
+                    background: var(--ds-semantic-color-action-surface-subtlest, #F9FAFB);
 
-                    &::before, &::after {
+                    &::before,
+                    &::after {
                         background-color: var(--ds-semantic-color-action-surface-medium);
                     }
                 }
@@ -139,8 +146,10 @@ body {
                 &:active {
                     border: 1px solid var(--ds-semantic-color-action-border-strong);
                     color: var(--ds-semantic-color-action-content-strong);
+                    background: var(--ds-semantic-color-action-surface-subtle, #F3F4F6);
 
-                    &::before, &::after {
+                    &::before,
+                    &::after {
                         background-color: var(--ds-semantic-color-action-surface-strong);
                     }
                 }
@@ -150,8 +159,10 @@ body {
                 }
 
                 &.disabled {
-                    border: 1px solid var(--ds-semantic-color-disabled-border-medium);
-                    color: var(--ds-semantic-color-disabled-content-subtle);
+                    color: var(--ds-semantic-color-disabled-content-medium, #9CA3AF);
+
+                    border: 1px solid var(--ds-semantic-color-read-only-border-strong, #9CA3AF);
+                    background: var(--ds-semantic-color-action-invert-surface-subtle, rgba(255, 255, 255, 0.16));
 
                     cursor: not-allowed;
 
@@ -168,7 +179,7 @@ body {
 
                 color: var(--ds-semantic-color-action-content-medium);
 
-                font-family: var(--ds-semantic-font-default); 
+                font-family: var(--ds-semantic-font-default);
                 font-weight: var(--ds-core-typography-font-weight-semibold);
                 font-size: var(--ds-core-typography-font-size-s);
                 font-style: normal;
@@ -179,17 +190,25 @@ body {
                 }
 
                 &:hover {
-                    color: var(--ds-semantic-color-action-content-medium);
+                    color: var(--ds-semantic-color-action-content-strong, #374151);
+                    line-height: 125%; /* 20px */
+                    text-decoration-line: underline;
+                    text-decoration-style: solid;
+                    text-decoration-skip-ink: none;
+                    text-decoration-thickness: 6%; /* 0.96px */
+                    text-underline-offset: 25%; /* 4px */
 
-                    &::before, &::after {
+                    &::before,
+                    &::after {
                         background-color: var(--ds-semantic-color-action-surface-medium);
                     }
                 }
 
                 &:active {
-                    color: var(--ds-semantic-color-action-content-strong);
+                    color: var(--ds-semantic-color-action-content-stronger, #111827);
 
-                    &::before, &::after {
+                    &::before,
+                    &::after {
                         background-color: var(--ds-semantic-color-action-surface-strong);
                     }
                 }
@@ -199,7 +218,9 @@ body {
                 }
 
                 &.disabled {
-                    color: var(--ds-semantic-color-disabled-content-subtle);
+                    color: var(--ds-semantic-color-disabled-content-medium, #9CA3AF);
+                    text-decoration: none !important;
+                    background-color: transparent;
 
                     cursor: not-allowed;
 
@@ -266,7 +287,8 @@ body {
                 background: var(--ds-semantic-color-accent1-surface-subtle);
 
                 color: var(--ds-semantic-color-accent1-content-strong);
-                font-family: var(--ds-semantic-font-default); font-weight: var(--ds-core-typography-font-weight-semibold);
+                font-family: var(--ds-semantic-font-default);
+                font-weight: var(--ds-core-typography-font-weight-semibold);
                 font-size: var(--ds-core-typography-font-size-s);
                 font-style: normal;
                 line-height: 150%;
