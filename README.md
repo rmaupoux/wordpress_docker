@@ -1,10 +1,5 @@
 # **Readme**
-## **Prérequis**
-- GIT
-- Docker (facultatif)
-- Node, NPX
-- HTML / SCSS / REACT / WordPress
-- Création de Plugin WordPress
+
 ## **Installation sous Docker**
 - Après avoir cloner le repo, faites un :
 
