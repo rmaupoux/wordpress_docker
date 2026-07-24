@@ -1,0 +1,95 @@
+# Annuaire Unifié - Bateaux & Maritime
+
+Plugin WordPress qui regroupe les fonctionnalités de recherche et d'annuaire pour bateaux (YACHT), contacts maritimes (CHARTER) et réseau (NETWORK).
+
+## Structure du Plugin
+
+```
+annuaire-unifiee/
+├── annuaire-unifiee.php          # Fichier principal du plugin
+├── css/
+│   └── style.css                 # Feuille de styles unifiée
+├── js/
+│   └── script.js                 # Fichiers JavaScript
+├── includes/
+│   ├── class-plugin.php          # Classe principale
+│   ├── helpers.php               # Fonctions utilitaires
+│   ├── inline-styles.php         # Styles inline
+│   ├── shortcodes/               # Shortcodes
+│   │   ├── tabs.php              # Shortcode [annuaire_tabs]
+│   │   ├── bateaux.php           # Shortcode [annuaire_bateaux_recherche]
+│   │   └── maritime.php          # Shortcode [annuaire_recherche]
+│   └── endpoints/                # Endpoints REST
+│       ├── bateaux.php           # Endpoints pour bateaux
+│       └── maritime.php          # Endpoints pour maritime
+└── README.md                     # Cette documentation
+```
+
+## Shortcodes Disponibles
+
+### `[annuaire_tabs]`
+Affiche le système d'onglets complet avec trois tabs :
+- **YACHT** : Recherche et listing des bateaux
+- **CHARTER** : Recherche des contacts maritimes
+- **NETWORK** : Contenu réservé (en attente)
+
+### `[annuaire_bateaux_recherche]`
+Affiche uniquement la recherche de bateaux avec :
+- Recherche instantanée par contact
+- Filtres : type de bateau, longueur, année, prix
+- Tri des résultats
+- Pagination
+
+### `[annuaire_recherche]`
+Affiche uniquement la recherche de contacts maritimes avec :
+- Recherche par nom/prénom
+- Filtres : pays, type de contact
+- Affichage avec drapeaux des pays
+
+## Endpoints REST API
+
+### Bateaux
+- `GET /wp-json/annuaire-bateau/v1/recherche?terme=xxx` - Recherche de contacts
+- `GET /wp-json/annuaire-bateau/v1/types` - Liste des types de bateaux
+- `GET /wp-json/annuaire-bateau/v1/filtrer` - Bateaux avec filtres et pagination
+- `GET /wp-json/annuaire-bateau/v1/par-contact?contact_id=xxx` - Bateaux d'un contact
+
+### Maritime
+- `GET /wp-json/annuaire/v1/recherche?terme=xxx` - Recherche de contacts
+- `GET /wp-json/annuaire/v1/pays` - Liste des pays
+- `GET /wp-json/annuaire/v1/par-pays?code=FR` - Contacts d'un pays
+- `GET /wp-json/annuaire/v1/types` - Types de contact
+- `GET /wp-json/annuaire/v1/par-type?type=slug` - Contacts d'un type
+
+## Fichiers CSS
+
+Le fichier `css/style.css` regroupe tous les styles pour :
+- Système d'onglets
+- Inputs et selects (styling cohérent)
+- Icônes de loupe
+- Cartes de bateaux
+- Pagination
+- Responsive design
+
+## Requêtes GraphQL (optionnel)
+
+Les données peuvent également être récupérées via GraphQL pour :
+- CPT `annuaire_bateau`
+- Taxonomie `type_de_bateau`
+- CPT `annuaire_maritime`
+- Taxonomie `type_de_contact`
+
+## Installation
+
+1. Copier le dossier `annuaire-unifiee` dans `/wp-content/plugins/`
+2. Activer le plugin dans WordPress
+3. Les plugins associés (`annuaire-bateaux-recherche`, `annuaire-maritime-recherche`) seront automatiquement chargés
+
+## Notes
+
+Ce plugin unifié regroupe deux plugins existants en une seule installation pour :
+- Meilleure organisation
+- Partage de CSS et helpers
+- Interface unifiée
+
+Les deux plugins originaux restent disponibles comme includes internes.
