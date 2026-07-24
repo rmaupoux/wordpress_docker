@@ -297,18 +297,22 @@ add_shortcode( 'annuaire_recherche', function () {
 	<div class="am-recherche">
 
 		<!-- Recherche par nom / prénom -->
-		<div class="am-bloc">
+		<div class="am-bloc am-input-wrapper">
 			<input
 				type="search"
 				id="am-recherche-input"
 				placeholder="Rechercher un contact par nom ou prénom…"
 				autocomplete="off"
+				class="am-input"
 			/>
+			<svg class="am-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+			</svg>
 		</div>
 
 		<!-- Filtre par pays -->
 		<div class="am-bloc">
-			<button type="button" id="am-pays-bouton" class="am-filtre-bouton" aria-haspopup="listbox" aria-expanded="false">
+			<button type="button" id="am-pays-bouton" class="am-filtre-bouton ab-select-trigger" aria-haspopup="listbox" aria-expanded="false">
 				Filtrer par pays…
 			</button>
 			<ul id="am-pays-liste" class="am-overlay" role="listbox" hidden></ul>
@@ -316,7 +320,7 @@ add_shortcode( 'annuaire_recherche', function () {
 
 		<!-- Filtre par type de contact -->
 		<div class="am-bloc">
-			<button type="button" id="am-type-bouton" class="am-filtre-bouton" aria-haspopup="listbox" aria-expanded="false">
+			<button type="button" id="am-type-bouton" class="am-filtre-bouton ab-select-trigger" aria-haspopup="listbox" aria-expanded="false">
 				Filtrer par type de contact…
 			</button>
 			<ul id="am-type-liste" class="am-overlay" role="listbox" hidden></ul>
@@ -353,6 +357,9 @@ add_action( 'wp_footer', function () {
 			.am-recherche { grid-template-columns: 1fr; }
 		}
 		.am-recherche .am-bloc { position: relative; }
+		.am-recherche .am-input-wrapper {
+			position: relative;
+		}
 		.am-recherche input,
 		.am-recherche .am-filtre-bouton {
 			width: 100%; padding: .5rem; box-sizing: border-box;
@@ -363,6 +370,9 @@ add_action( 'wp_footer', function () {
 		.am-recherche input {
 			color: #162d55;
 		}
+		.am-recherche input.am-input {
+			padding-right: 2.6rem;
+		}
 		.am-recherche input::placeholder {
 			color: #162d55;
 			font-size: 0.875rem;
@@ -370,6 +380,16 @@ add_action( 'wp_footer', function () {
 		.am-recherche input:focus {
 			outline: none;
 			border-color: #162d55;
+		}
+		.am-search-icon {
+			position: absolute;
+			right: 0.75rem;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 1.25rem;
+			height: 1.25rem;
+			color: #9ca3af;
+			pointer-events: none;
 		}
 
 		.am-recherche .am-filtre-bouton {
