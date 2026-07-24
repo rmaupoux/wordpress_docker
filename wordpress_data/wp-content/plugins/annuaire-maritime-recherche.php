@@ -339,7 +339,7 @@ add_shortcode( 'annuaire_recherche', function () {
 
 add_action( 'wp_footer', function () {
 	global $post;
-	if ( ! $post || ! has_shortcode( $post->post_content, 'annuaire_recherche' ) ) {
+	if ( ! $post || ( ! has_shortcode( $post->post_content, 'annuaire_recherche' ) && ! has_shortcode( $post->post_content, 'annuaire_tabs' ) ) ) {
 		return;
 	}
 	?>
@@ -355,31 +355,36 @@ add_action( 'wp_footer', function () {
 		.am-recherche .am-bloc { position: relative; }
 		.am-recherche input,
 		.am-recherche .am-filtre-bouton {
-			width: 100%; padding: .6em .8em; box-sizing: border-box;
+			width: 100%; padding: .5rem; box-sizing: border-box;
 			font: inherit; font-size: 1rem; text-align: left;
+			border: 1px solid #d1d5db;
+			border-radius: 0.375rem;
 		}
 		.am-recherche input {
-			border-radius: 1rem;
-			padding-right: 2.6em; /* réserve la place de la loupe */
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='16.5' y1='16.5' x2='21' y2='21'/%3E%3C/svg%3E");
-			background-repeat: no-repeat;
-			background-position: right .8em center;
-			background-size: 1.1em;
+			color: #162d55;
 		}
-		/* Masque la croix native des champs type=search (chevaucherait la loupe) */
-		.am-recherche input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+		.am-recherche input::placeholder {
+			color: #162d55;
+			font-size: 0.875rem;
+		}
+		.am-recherche input:focus {
+			outline: none;
+			border-color: #162d55;
+		}
 
 		.am-recherche .am-filtre-bouton {
-			background: #fff; border: 1px solid #767676; border-radius: 3px;
-			cursor: pointer; color: inherit;
+			background: #fff; border: 1px solid #d1d5db;
+			cursor: pointer; color: #162d55;
+			padding: .5rem;
 		}
-		.am-recherche .am-filtre-bouton::after { content: " ▾"; float: right; color: #666; }
+		.am-recherche .am-filtre-bouton::after { content: " ▾"; float: right; color: #162d55; }
 
 		.am-recherche .am-overlay {
-			list-style: none; margin: .25em 0 0; padding: 0;
-			border: 1px solid #ccc; border-radius: 4px;
+			list-style: none; margin: 0; padding: 0;
+			border: 1px solid #d1d5db; border-top: none; border-radius: 0 0 0.375rem 0.375rem;
 			background: #fff; position: absolute; width: 100%; z-index: 100;
 			max-height: 420px; overflow-y: auto;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 		}
 		.am-recherche .am-overlay li { border-bottom: 1px solid #eee; }
 		.am-recherche .am-overlay li:last-child { border-bottom: none; }
@@ -394,7 +399,7 @@ add_action( 'wp_footer', function () {
 		}
 		#am-resultats {
 			list-style: none; margin: .5em 0 0; padding: 0;
-			border: 1px solid #eee; border-radius: 4px;
+			border: 1px solid #d1d5db; border-radius: 0.375rem;
 		}
 		#am-resultats li { border-bottom: 1px solid #eee; }
 		#am-resultats li:last-child { border-bottom: none; }
@@ -402,25 +407,30 @@ add_action( 'wp_footer', function () {
 		.am-recherche .am-overlay a,
 		#am-resultats a,
 		.am-recherche .am-option {
-			display: block; padding: .55em .8em; text-decoration: none;
+			display: block; padding: .5rem; text-decoration: none;
 			color: inherit; cursor: pointer; text-align: left;
+			font-size: 0.875rem;
 		}
 		.am-recherche .am-overlay a:hover,
 		.am-recherche .am-overlay a:focus,
 		#am-resultats a:hover,
 		#am-resultats a:focus,
 		.am-recherche .am-option:hover,
-		.am-recherche .am-option:focus { background: #f2f6fb; }
+		.am-recherche .am-option:focus { background: #f3f4f6; }
 
-		.am-recherche .am-detail { font-size: .85em; color: #666; }
-		.am-recherche .am-compte { font-size: .85em; color: #888; }
-		.am-recherche .am-option-reset { color: #888; font-size: .9em; }
+		.am-recherche .am-detail { font-size: 0.875em; color: #6b7280; }
+		.am-recherche .am-compte { font-size: 0.875em; color: #9ca3af; }
+		.am-recherche .am-option-reset { color: #9ca3af; font-size: 0.875em; }
+		.am-recherche .am-option.selected {
+			background: #162d55;
+			color: white;
+		}
 		.am-recherche .am-flag {
 			height: 14px; width: auto; margin-right: .5em;
 			vertical-align: baseline; border: 1px solid rgba(0,0,0,.1);
 			border-radius: 2px;
 		}
-		#am-message { font-size: .9em; color: #666; margin: .5em 0 0; }
+		#am-message { font-size: 0.875em; color: #6b7280; margin: .5em 0 0; }
 	</style>
 	<script>
 	(function () {
