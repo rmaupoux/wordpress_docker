@@ -1,5 +1,4 @@
 FROM wordpress:latest
-COPY wp-config.php /var/www/html/wp-config.php
 
 # Install WP-CLI
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \

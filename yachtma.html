@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yachtma Brokerage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      input:focus, select:focus {
+        --tw-ring-color: #162d55;
+      }
+
+      input::placeholder {
+        color: #162d55;
+        opacity: 0.7;
+      }
+
+      .select-trigger {
+        color: #162d55;
+      }
+
+      .number-input-group {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+      }
+
+      .number-input-group input[type="number"] {
+        flex: 1;
+        padding-right: 1.75rem;
+      }
+
+      .number-input-group input[type="number"]::-webkit-outer-spin-button,
+      .number-input-group input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .number-input-group input[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      .number-spinners {
+        position: absolute;
+        right: 0.25rem;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .spinner-btn {
+        flex: 1;
+        padding: 0 0.5rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        position: relative;
+      }
+
+      .spinner-btn::before {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-top: 2px solid #162d55;
+        border-right: 2px solid #162d55;
+        transform: translateY(7px) rotate(-45deg);
+        left: 2px;
+      }
+
+      .spinner-btn::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-bottom: 2px solid #162d55;
+        border-right: 2px solid #162d55;
+        transform: translateY(-7px) rotate(45deg);
+        right: .5rem;
+      }
+
+      .spinner-btn[data-action="decrement"]::before {
+        display: none;
+      }
+
+      .spinner-btn[data-action="increment"]::after {
+        display: none;
+      }
+
+      .spinner-btn:hover::before,
+      .spinner-btn:hover::after {
+        border-color: #0d1929;
+      }
+
+      .custom-select {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .custom-select select {
+        display: none;
+      }
+
+      .select-trigger {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        background: white;
+        cursor: pointer;
+        user-select: none;
+        padding-right: 1.75rem;
+      }
+
+      .select-trigger::after {
+        content: '›';
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+        font-size: 1.5rem;
+        color: #162d55;
+        line-height: 1;
+        transition: transform 0.2s;
+      }
+
+      .select-trigger.active::after {
+        transform: translateY(-50%) rotate(-90deg);
+      }
+
+      .select-trigger.no-arrow::after {
+        display: none;
+      }
+
+      .select-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #d1d5db;
+        border-top: none;
+        border-radius: 0 0 0.375rem 0.375rem;
+        max-height: 200px;
+        overflow-y: auto;
+        z-index: 10;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .select-options.open {
+        display: block;
+      }
+
+      .select-option {
+        padding: 0.5rem;
+        cursor: pointer;
+        font-size: 0.875rem;
+      }
+
+      .select-option:hover {
+        background: #f3f4f6;
+      }
+
+      .select-option.selected {
+        background: #162d55;
+        color: white;
+      }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Tabs Section -->
+    <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex gap-8">
+                <button class="py-4 px-2 border-b-4 border-gray-800 text-gray-800 font-semibold hover:text-gray-600">
+                    YACHT
+                </button>
+                <button class="py-4 px-2 border-b-4 border-transparent text-gray-600 font-semibold hover:text-gray-800">
+                    CHARTER
+                </button>
+                <button class="py-4 px-2 border-b-4 border-transparent text-gray-600 font-semibold hover:text-gray-800">
+                    NETWORK
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Section -->
+    <div class="bg-white py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <!-- Search Builder and Select Type -->
+                <div class="space-y-2">
+                    <!-- Search Builder with Icon -->
+                    <div class="relative">
+                        <input
+                            type="text"
+                            placeholder="Search builder..."
+                            class="w-full px-4 py-2 pr-10 border border-gray-300 rounded focus:outline-none focus:ring-2"
+                        >
+                        <svg class="absolute right-3 top-2.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+
+                    <!-- Select Type -->
+                    <div class="custom-select pt-[.8rem]">
+                        <select name="type">
+                            <option value="">Select type</option>
+                            <option value="sailing">Sailing Yacht</option>
+                            <option value="motor">Motor Yacht</option>
+                            <option value="catamaran">Catamaran</option>
+                        </select>
+                        <span class="select-trigger">Select type</span>
+                        <ul class="select-options"></ul>
+                    </div>
+                </div>
+
+                <!-- Length and Unit -->
+                <div class="space-y-2 rounded p-4 border border-gray-300">
+                    <label class="block text-sm text-center font-medium" style="color: #162d55;">Length and Unit</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <!-- FT Selector -->
+                        <div class="custom-select">
+                            <select name="unit">
+                                <option value="">FT</option>
+                                <option value="m">M</option>
+                            </select>
+                            <span class="select-trigger">FT</span>
+                            <ul class="select-options"></ul>
+                        </div>
+
+                        <!-- Min -->
+                        <div class="custom-select">
+                            <select name="length_min">
+                                <option value="">Min</option>
+                                <option value="0">0</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="25">25</option>
+                                <option value="30">30</option>
+                                <option value="35">35</option>
+                                <option value="40">40</option>
+                                <option value="45">45</option>
+                                <option value="50">50</option>
+                                <option value="55">55</option>
+                                <option value="60">60</option>
+                                <option value="65">65</option>
+                                <option value="70">70</option>
+                                <option value="75">75</option>
+                                <option value="80">80</option>
+                                <option value="85">85</option>
+                                <option value="90">90</option>
+                                <option value="95">95</option>
+                                <option value="100">100</option>
+                                <option value="200">200</option>
+                                <option value="300">300</option>
+                                <option value="400">400</option>
+                                <option value="500">500</option>
+                            </select>
+                            <span class="select-trigger no-arrow">Min</span>
+                            <ul class="select-options"></ul>
+                        </div>
+
+                        <!-- Max -->
+                        <div class="custom-select">
+                            <select name="length_max">
+                                <option value="">Max</option>
+                                <option value="0">0</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="25">25</option>
+                                <option value="30">30</option>
+                                <option value="35">35</option>
+                                <option value="40">40</option>
+                                <option value="45">45</option>
+                                <option value="50">50</option>
+                                <option value="55">55</option>
+                                <option value="60">60</option>
+                                <option value="65">65</option>
+                                <option value="70">70</option>
+                                <option value="75">75</option>
+                                <option value="80">80</option>
+                                <option value="85">85</option>
+                                <option value="90">90</option>
+                                <option value="95">95</option>
+                                <option value="100">100</option>
+                                <option value="200">200</option>
+                                <option value="300">300</option>
+                                <option value="400">400</option>
+                                <option value="500">500</option>
+                            </select>
+                            <span class="select-trigger no-arrow">Max</span>
+                            <ul class="select-options"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Year -->
+                <div class="space-y-2 rounded p-4 border border-gray-300">
+                    <label class="block text-sm text-center font-medium" style="color: #162d55;">Year</label>
+                    <div class="flex gap-2">
+                        <div class="number-input-group flex-1">
+                            <input
+                                type="number"
+                                placeholder="Min"
+                                min="1970"
+                                max="2100"
+                                class="px-2 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2"
+                            >
+                            <div class="number-spinners">
+                                <button type="button" class="spinner-btn" data-action="increment"></button>
+                                <button type="button" class="spinner-btn" data-action="decrement"></button>
+                            </div>
+                        </div>
+                        <div class="number-input-group flex-1">
+                            <input
+                                type="number"
+                                placeholder="Max"
+                                min="1970"
+                                max="2100"
+                                class="px-2 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2"
+                            >
+                            <div class="number-spinners">
+                                <button type="button" class="spinner-btn" data-action="increment"></button>
+                                <button type="button" class="spinner-btn" data-action="decrement"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="space-y-2 rounded p-4 border border-gray-300">
+                    <label class="block text-sm text-center font-medium" style="color: #162d55;">Price USD</label>
+                    <div class="flex gap-2">
+                        <div class="number-input-group flex-1">
+                            <input
+                                type="number"
+                                placeholder="Min"
+                                min="1970"
+                                max="2100"
+                                class="px-2 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2"
+                            >
+                            <div class="number-spinners">
+                                <button type="button" class="spinner-btn" data-action="increment"></button>
+                                <button type="button" class="spinner-btn" data-action="decrement"></button>
+                            </div>
+                        </div>
+                        <div class="number-input-group flex-1">
+                            <input
+                                type="number"
+                                placeholder="Max"
+                                min="1970"
+                                max="2100"
+                                class="px-2 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2"
+                            >
+                            <div class="number-spinners">
+                                <button type="button" class="spinner-btn" data-action="increment"></button>
+                                <button type="button" class="spinner-btn" data-action="decrement"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price USD -->
+                <!-- <div class="space-y-2 rounded p-4 border border-gray-300">
+                    <label class="block text-sm text-center font-medium" style="color: #162d55;">Price USD</label>
+                    <div class="flex gap-1">
+                        <div class="number-input-group w-20">
+                            <input
+                                type="number"
+                                placeholder="Min"
+                                min="0"
+                                max="100000000"
+                                class="px-2 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2"
+                            >
+                            <div class="number-spinners">
+                                <button type="button" class="spinner-btn" data-action="increment"></button>
+                                <button type="button" class="spinner-btn" data-action="decrement"></button>
+                            </div>
+                        </div>
+                        <div class="number-input-group w-20">
+                            <input
+                                type="number"
+                                placeholder="Max"
+                                min="0"
+                                max="100000000"
+                                class="px-2 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2"
+                            >
+                            <div class="number-spinners">
+                                <button type="button" class="spinner-btn" data-action="increment"></button>
+                                <button type="button" class="spinner-btn" data-action="decrement"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <!-- Search Button -->
+            <div class="flex justify-center">
+                <button class="px-12 py-3 text-white font-bold rounded-full hover:opacity-90 transition" style="background-color: #162d55;">
+                    SEARCH YACHT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Yachts For Sale Section -->
+    <div class="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header with Filter -->
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-light text-gray-400">YACHTS FOR SALE</h2>
+                <button class="flex items-center gap-2 px-4 py-2 bg-white rounded-full hover:bg-gray-50">
+                    <span class="text-gray-700 font-medium">Filter</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Yachts Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Yacht Card 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+                    <div class="bg-gray-300 h-48 flex items-center justify-center">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23888' width='300' height='200'/%3E%3Ctext x='150' y='100' font-size='20' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3EFeretti 950%3C/text%3E%3C/svg%3E" alt="Feretti 950" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Feretti 950</h3>
+                        <p class="text-2xl font-bold text-gray-900 mb-4">300,000 $</p>
+                        <div class="flex items-center gap-2 text-gray-600 mb-6">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                            </svg>
+                            <span class="text-gray-700">Athens, Greece</span>
+                        </div>
+                        <button class="w-full py-2 bg-gray-900 text-white font-bold rounded hover:bg-gray-800 transition">
+                            More Information
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Yacht Card 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+                    <div class="bg-gray-300 h-48 flex items-center justify-center">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23666' width='300' height='200'/%3E%3Ctext x='150' y='100' font-size='20' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3ERizzardi 63%3C/text%3E%3C/svg%3E" alt="Rizzardi 63" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Rizzardi 63 top line</h3>
+                        <p class="text-2xl font-bold text-gray-900 mb-4">1,300,000 $</p>
+                        <div class="flex items-center gap-2 text-gray-600 mb-6">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                            </svg>
+                            <span class="text-gray-700">Cannes, France</span>
+                        </div>
+                        <button class="w-full py-2 bg-gray-900 text-white font-bold rounded hover:bg-gray-800 transition">
+                            More Information
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Yacht Card 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+                    <div class="bg-gray-300 h-48 flex items-center justify-center">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%231e5a96' width='300' height='200'/%3E%3Ctext x='150' y='100' font-size='18' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3EPrincess 75%3C/text%3E%3C/svg%3E" alt="Princess 75 Motor Yacht" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Princess 75 Motor Yacht</h3>
+                        <p class="text-2xl font-bold text-gray-900 mb-4">2,050,000 $</p>
+                        <div class="flex items-center gap-2 text-gray-600 mb-6">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                            </svg>
+                            <span class="text-gray-700">Milan, Italy</span>
+                        </div>
+                        <button class="w-full py-2 bg-gray-900 text-white font-bold rounded hover:bg-gray-800 transition">
+                            More Information
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Yacht Card 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+                    <div class="bg-gray-300 h-48 flex items-center justify-center">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23d4a574' width='300' height='200'/%3E%3Ctext x='150' y='100' font-size='16' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3ESunseeker Predator%3C/text%3E%3C/svg%3E" alt="Sunseeker Predator 64" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Sunseeker Predator 64</h3>
+                        <p class="text-2xl font-bold text-gray-900 mb-4">4,450,000 $</p>
+                        <div class="flex items-center gap-2 text-gray-600 mb-6">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                            </svg>
+                            <span class="text-gray-700">Majorque, Spain</span>
+                        </div>
+                        <button class="w-full py-2 bg-gray-900 text-white font-bold rounded hover:bg-gray-800 transition">
+                            More Information
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      class CustomSelect {
+        constructor(element) {
+          this.select = element.querySelector('select');
+          this.trigger = element.querySelector('.select-trigger');
+          this.options = element.querySelector('.select-options');
+          this.init();
+        }
+
+        init() {
+          this.updateOptions();
+          this.trigger.addEventListener('click', () => this.toggleOpen());
+          document.addEventListener('click', (e) => {
+            if (!e.target.closest('.custom-select')) {
+              this.close();
+            }
+          });
+        }
+
+        updateOptions() {
+          this.options.innerHTML = '';
+          this.select.querySelectorAll('option').forEach(opt => {
+            if (opt.value) {
+              const li = document.createElement('li');
+              li.className = 'select-option';
+              li.textContent = opt.textContent;
+              li.dataset.value = opt.value;
+              li.addEventListener('click', () => this.selectOption(opt.value, opt.textContent));
+              this.options.appendChild(li);
+            }
+          });
+        }
+
+        toggleOpen() {
+          this.options.classList.toggle('open');
+          this.trigger.classList.toggle('active');
+        }
+
+        close() {
+          this.options.classList.remove('open');
+          this.trigger.classList.remove('active');
+        }
+
+        selectOption(value, text) {
+          this.select.value = value;
+          this.trigger.textContent = text;
+          this.options.querySelectorAll('.select-option').forEach(opt => {
+            opt.classList.toggle('selected', opt.dataset.value === value);
+          });
+          this.close();
+        }
+      }
+
+      document.querySelectorAll('.custom-select').forEach(el => new CustomSelect(el));
+
+      document.querySelectorAll('.spinner-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const input = this.closest('.number-input-group').querySelector('input[type="number"]');
+          const step = input.step || 1;
+          if (this.dataset.action === 'increment') {
+            input.value = Math.min(input.value || input.min || 0, input.max || Infinity) + parseInt(step);
+          } else {
+            input.value = Math.max(input.value || input.min || 0, input.min || -Infinity) - parseInt(step);
+          }
+          input.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+      });
+    </script>
+</body>
+</html>
