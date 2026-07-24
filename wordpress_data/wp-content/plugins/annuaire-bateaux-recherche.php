@@ -411,7 +411,46 @@ function ab_formater_bateaux( $posts ) {
 }
 
 /* -------------------------------------------------------------------------
- * 3. SHORTCODE : [annuaire_bateaux_recherche]
+ * 3. SHORTCODE : [annuaire_tabs] - Affiche les onglets
+ * ---------------------------------------------------------------------- */
+
+add_shortcode( 'annuaire_tabs', function () {
+	ob_start();
+	?>
+	<div class="ab-tabs-container">
+		<!-- Tabs Navigation -->
+		<div class="ab-tabs-nav">
+			<button class="ab-tab-btn ab-tab-active" data-tab="yacht">YACHT</button>
+			<button class="ab-tab-btn" data-tab="charter">CHARTER</button>
+			<button class="ab-tab-btn" data-tab="network">NETWORK</button>
+		</div>
+
+		<!-- Tabs Content -->
+		<div class="ab-tabs-content">
+			<!-- YACHT Tab -->
+			<div class="ab-tab-pane ab-tab-active" id="ab-tab-yacht">
+				<?php echo do_shortcode( '[annuaire_bateaux_recherche]' ); ?>
+			</div>
+
+			<!-- CHARTER Tab -->
+			<div class="ab-tab-pane" id="ab-tab-charter">
+				<?php echo do_shortcode( '[annuaire_recherche]' ); ?>
+			</div>
+
+			<!-- NETWORK Tab -->
+			<div class="ab-tab-pane" id="ab-tab-network">
+				<div class="ab-network-placeholder">
+					<p>Contenu en attente</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php
+	return ob_get_clean();
+} );
+
+/* -------------------------------------------------------------------------
+ * 4. SHORTCODE : [annuaire_bateaux_recherche]
  * ---------------------------------------------------------------------- */
 
 add_shortcode( 'annuaire_bateaux_recherche', function () {
@@ -594,11 +633,68 @@ add_shortcode( 'annuaire_bateaux_recherche', function () {
 
 add_action( 'wp_footer', function () {
 	global $post;
-	if ( ! $post || ! has_shortcode( $post->post_content, 'annuaire_bateaux_recherche' ) ) {
+	if ( ! $post || ( ! has_shortcode( $post->post_content, 'annuaire_bateaux_recherche' ) && ! has_shortcode( $post->post_content, 'annuaire_tabs' ) ) ) {
 		return;
 	}
 	?>
 	<style>
+		/* ===== TABS ===== */
+		.ab-tabs-container {
+			width: 100%;
+		}
+
+		.ab-tabs-nav {
+			display: flex;
+			justify-content: center;
+			gap: 2rem;
+			background: white;
+			border-bottom: 1px solid #d1d5db;
+			padding: 0 1rem;
+		}
+
+		.ab-tab-btn {
+			padding: 1rem 0;
+			border: none;
+			background: none;
+			cursor: pointer;
+			font-weight: 600;
+			color: #666;
+			font-size: 0.95rem;
+			border-bottom: 4px solid transparent;
+			transition: all 0.2s;
+		}
+
+		.ab-tab-btn:hover {
+			color: #162d55;
+		}
+		.ab-tab-btn:focus {
+			border-color:transparent !important;
+		} 
+
+		.ab-tab-btn.ab-tab-active {
+			color: #111;
+			border-bottom-color: #111;
+		}
+
+		.ab-tabs-content {
+			width: 100%;
+		}
+
+		.ab-tab-pane {
+			display: none;
+		}
+
+		.ab-tab-pane.ab-tab-active {
+			display: block;
+		}
+
+		.ab-network-placeholder {
+			padding: 3rem 1rem;
+			text-align: center;
+			color: #999;
+			font-size: 1rem;
+		}
+
 		/* ===== MAIN LAYOUT ===== */
 		.ab-recherche {
 			display: flex;
@@ -615,8 +711,7 @@ add_action( 'wp_footer', function () {
 		}
 
 		.ab-search-container {
-			max-width: 1280px;
-			margin: 0 auto;
+			width: 100%;
 		}
 
 		.ab-search-inputs {
@@ -913,8 +1008,6 @@ add_action( 'wp_footer', function () {
 		}
 
 		.ab-results-header {
-			max-width: 1280px;
-			margin: 0 auto 3rem;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -960,8 +1053,6 @@ add_action( 'wp_footer', function () {
 		}
 
 		.ab-results-grid {
-			max-width: 1280px;
-			margin: 0 auto;
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 			gap: 1.5rem;
@@ -1118,6 +1209,28 @@ add_action( 'wp_footer', function () {
 			}
 		}
 	</style>
+
+	<script>
+	// Gestion des onglets
+	(function() {
+		const tabBtns = document.querySelectorAll('.ab-tab-btn');
+		const tabPanes = document.querySelectorAll('.ab-tab-pane');
+
+		tabBtns.forEach(btn => {
+			btn.addEventListener('click', function() {
+				const tabName = this.getAttribute('data-tab');
+
+				// Retirer la classe active de tous les boutons et panes
+				tabBtns.forEach(b => b.classList.remove('ab-tab-active'));
+				tabPanes.forEach(p => p.classList.remove('ab-tab-active'));
+
+				// Ajouter la classe active au bouton et pane cliqués
+				this.classList.add('ab-tab-active');
+				document.getElementById('ab-tab-' + tabName).classList.add('ab-tab-active');
+			});
+		});
+	})();
+	</script>
 
 	<script>
 	(function () {
