@@ -678,7 +678,6 @@ add_action( 'wp_footer', function () {
 		}
 
 		.ab-tabs-content {
-			width: 100%;
 			min-width: 80%;
 		}
 
