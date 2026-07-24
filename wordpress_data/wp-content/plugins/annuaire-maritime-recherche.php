@@ -349,9 +349,17 @@ add_action( 'wp_footer', function () {
 	?>
 	<style>
 		.am-recherche {
-			display: grid; grid-template-columns: repeat(3, 1fr);
-			gap: 1.25em; align-items: start; font-size: 1rem;
+			width: 100%;
+			box-sizing: border-box;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.25em;
+			align-items: start;
+			font-size: 1rem;
 			text-align: left;
+			padding: 2rem;
+
+
 		}
 		@media (max-width: 760px) {
 			.am-recherche { grid-template-columns: 1fr; }
@@ -397,7 +405,7 @@ add_action( 'wp_footer', function () {
 			cursor: pointer; color: #162d55;
 			padding: .5rem;
 		}
-		.am-recherche .am-filtre-bouton::after { content: " ▾"; float: right; color: #162d55; }
+		.am-recherche .am-filtre-bouton::after {  float: right; color: #162d55; }
 
 		.am-recherche .am-overlay {
 			list-style: none; margin: 0; padding: 0;

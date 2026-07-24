@@ -682,6 +682,8 @@ add_action( 'wp_footer', function () {
 
 		.ab-tab-pane {
 			display: none;
+			width: 100%;
+			box-sizing: border-box;
 		}
 
 		.ab-tab-pane.ab-tab-active {
@@ -689,6 +691,8 @@ add_action( 'wp_footer', function () {
 		}
 
 		.ab-network-placeholder {
+			width: 100%;
+			box-sizing: border-box;
 			padding: 3rem 1rem;
 			text-align: center;
 			color: #999;
@@ -697,6 +701,8 @@ add_action( 'wp_footer', function () {
 
 		/* ===== MAIN LAYOUT ===== */
 		.ab-recherche {
+			width: 100%;
+			box-sizing: border-box;
 			display: flex;
 			flex-direction: column;
 			gap: 2rem;
