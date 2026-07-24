@@ -1,12 +1,365 @@
 <?php
 /**
- * Endpoints REST pour les bateaux
- * Chargé depuis annuaire-bateaux-recherche.php
+ * Endpoints REST pour les bateaux (annuaire-bateau/v1/*)
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Les endpoints sont définis dans le plugin principal (annuaire-bateaux-recherche.php)
-// Ce fichier est un placeholder pour la nouvelle structure
+add_action( 'rest_api_init', function () {
+
+	/* Recherche de contacts : /wp-json/annuaire-bateau/v1/recherche?terme=xxx */
+	register_rest_route( 'annuaire-bateau/v1', '/recherche', array(
+		'methods'             => 'GET',
+		'callback'            => 'ab_recherche_contacts',
+		'permission_callback' => '__return_true',
+		'args'                => array(
+			'terme' => array(
+				'required'          => true,
+				'sanitize_callback' => 'sanitize_text_field',
+				'validate_callback' => function ( $value ) {
+					return mb_strlen( trim( $value ) ) >= 3;
+				},
+			),
+		),
+	) );
+
+	/* Bateaux d'un contact : /wp-json/annuaire-bateau/v1/par-contact?contact_id=xxx */
+	register_rest_route( 'annuaire-bateau/v1', '/par-contact', array(
+		'methods'             => 'GET',
+		'callback'            => 'ab_bateaux_par_contact',
+		'permission_callback' => '__return_true',
+		'args'                => array(
+			'contact_id' => array(
+				'required'          => true,
+				'sanitize_callback' => function( $value ) { return intval( $value ); },
+			),
+		),
+	) );
+
+	/* Types de bateau : /wp-json/annuaire-bateau/v1/types */
+	register_rest_route( 'annuaire-bateau/v1', '/types', array(
+		'methods'             => 'GET',
+		'callback'            => 'ab_get_types',
+		'permission_callback' => '__return_true',
+	) );
+
+	/* Bateaux avec filtres et pagination : /wp-json/annuaire-bateau/v1/filtrer */
+	register_rest_route( 'annuaire-bateau/v1', '/filtrer', array(
+		'methods'             => 'GET',
+		'callback'            => 'ab_filtrer_bateaux',
+		'permission_callback' => '__return_true',
+		'args'                => array(
+			'contact'    => array( 'sanitize_callback' => function( $v ) { return intval( $v ); } ),
+			'type'       => array( 'sanitize_callback' => 'sanitize_title' ),
+			'length_min' => array( 'sanitize_callback' => function( $v ) { return floatval( $v ); } ),
+			'length_max' => array( 'sanitize_callback' => function( $v ) { return floatval( $v ); } ),
+			'year_min'   => array( 'sanitize_callback' => function( $v ) { return intval( $v ); } ),
+			'year_max'   => array( 'sanitize_callback' => function( $v ) { return intval( $v ); } ),
+			'price_min'  => array( 'sanitize_callback' => function( $v ) { return intval( $v ); } ),
+			'price_max'  => array( 'sanitize_callback' => function( $v ) { return intval( $v ); } ),
+			'page'       => array( 'sanitize_callback' => function( $v ) { return max( 1, intval( $v ) ); }, 'default' => 1 ),
+		),
+	) );
+
+	/* Lier tous les bateaux à leur type : /wp-json/annuaire-bateau/v1/link-boats-to-types */
+	register_rest_route( 'annuaire-bateau/v1', '/link-boats-to-types', array(
+		'methods'             => 'POST',
+		'callback'            => 'ab_link_boats_to_types',
+		'permission_callback' => '__return_true',
+	) );
+} );
+
+/**
+ * Recherche les contacts qui ont des bateaux (3+ caractères)
+ */
+function ab_recherche_contacts( WP_REST_Request $request ) {
+	global $wpdb;
+	$terme = trim( $request->get_param( 'terme' ) );
+
+	// Récupérer tous les bateaux qui ont ce contact associé
+	$query = new WP_Query( array(
+		'post_type'      => AB_CPT_NAME,
+		'post_status'    => 'publish',
+		'posts_per_page' => -1,
+		'fields'         => 'ids',
+	) );
+
+	$contact_ids = array();
+	foreach ( $query->posts as $post_id ) {
+		$contact_id = get_post_meta( $post_id, 'contact_assoc', true );
+		if ( $contact_id && ! isset( $contact_ids[ $contact_id ] ) ) {
+			$contact_ids[ $contact_id ] = true;
+		}
+	}
+
+	if ( empty( $contact_ids ) ) {
+		return rest_ensure_response( array() );
+	}
+
+	// Rechercher UNIQUEMENT dans le titre avec LIKE (pas de recherche full-text)
+	$placeholders = implode( ',', array_fill( 0, count( $contact_ids ), '%d' ) );
+	$like_term    = '%' . $wpdb->esc_like( $terme ) . '%';
+
+	$results = $wpdb->get_results( $wpdb->prepare(
+		"SELECT ID, post_title FROM {$wpdb->posts}
+		 WHERE post_type = 'annuaire_maritime'
+		 AND post_status = 'publish'
+		 AND ID IN ($placeholders)
+		 AND post_title LIKE %s
+		 ORDER BY post_title ASC
+		 LIMIT 10",
+		array_merge( array_keys( $contact_ids ), array( $like_term ) )
+	) );
+
+	$resultats = array();
+	foreach ( $results as $contact ) {
+		$resultats[] = array(
+			'id'    => $contact->ID,
+			'nom'   => $contact->post_title,
+			'email' => get_post_meta( $contact->ID, 'email', true ),
+		);
+	}
+
+	return rest_ensure_response( $resultats );
+}
+
+/**
+ * Retourne les bateaux associés à un contact
+ */
+function ab_bateaux_par_contact( WP_REST_Request $request ) {
+	$contact_id = intval( $request->get_param( 'contact_id' ) );
+	$page = max( 1, intval( $request->get_param( 'page' ) ?: 1 ) );
+	$per_page = 12;
+
+	$query = new WP_Query( array(
+		'post_type'      => AB_CPT_NAME,
+		'post_status'    => 'publish',
+		'posts_per_page' => $per_page,
+		'paged'          => $page,
+		'orderby'        => 'title',
+		'order'          => 'ASC',
+		'meta_query'     => array(
+			array(
+				'key'   => 'contact_assoc',
+				'value' => $contact_id,
+			),
+		),
+	) );
+
+	return rest_ensure_response( array(
+		'bateaux'      => ab_formater_bateaux( $query->posts ),
+		'pagination'   => array(
+			'page'        => $page,
+			'per_page'    => $per_page,
+			'total'       => $query->found_posts,
+			'total_pages' => $query->max_num_pages,
+		),
+		'filters'      => array( 'contact' => $contact_id ),
+	) );
+}
+
+/**
+ * Récupère les types de bateau (taxonomie)
+ */
+function ab_get_types() {
+	$termes = get_terms( array(
+		'taxonomy'   => AB_TAXONOMIE_TYPE,
+		'hide_empty' => false,
+		'orderby'    => 'name',
+		'order'      => 'ASC',
+	) );
+
+	if ( is_wp_error( $termes ) ) {
+		return rest_ensure_response( array() );
+	}
+
+	$types = array();
+	foreach ( $termes as $terme ) {
+		$types[] = array(
+			'slug'  => $terme->slug,
+			'label' => $terme->name,
+			'count' => (int) $terme->count,
+		);
+	}
+
+	return rest_ensure_response( $types );
+}
+
+/**
+ * Lie tous les bateaux à leur type de bateau
+ */
+function ab_link_boats_to_types( WP_REST_Request $request ) {
+	$query = new WP_Query( array(
+		'post_type'      => AB_CPT_NAME,
+		'post_status'    => 'publish',
+		'posts_per_page' => -1,
+		'fields'         => 'ids',
+	) );
+
+	$linked_count = 0;
+
+	foreach ( $query->posts as $post_id ) {
+		$model = strtolower( get_post_meta( $post_id, 'model', true ) . ' ' . get_post( $post_id )->post_title );
+		$builder = strtolower( get_post_meta( $post_id, 'builder', true ) );
+
+		// Mapping des mots-clés aux slugs de taxonomie
+		$type_mapping = array(
+			'catamaran'    => 'catamaran',
+			'motor'        => 'motor-yacht',
+			'sailing'      => 'sailing_yacht',
+			'house boat'   => 'house-boat',
+		);
+
+		// Chercher le premier match et lier
+		foreach ( $type_mapping as $keyword => $slug ) {
+			if ( strpos( $model, $keyword ) !== false || strpos( $builder, $keyword ) !== false ) {
+				wp_set_post_terms( $post_id, $slug, AB_TAXONOMIE_TYPE, false );
+				$linked_count++;
+				break;
+			}
+		}
+	}
+
+	return rest_ensure_response( array(
+		'success' => true,
+		'message' => "$linked_count bateaux ont été liés à leur type de bateau",
+		'linked'  => $linked_count,
+		'total'   => count( $query->posts ),
+	) );
+}
+
+/**
+ * Filtre les bateaux selon tous les critères avec pagination
+ */
+function ab_filtrer_bateaux( WP_REST_Request $request ) {
+	$contact    = intval( $request->get_param( 'contact' ) ?: 0 );
+	$type       = trim( $request->get_param( 'type' ) ?: '' );
+	$length_min = floatval( $request->get_param( 'length_min' ) ?: 0 );
+	$length_max = floatval( $request->get_param( 'length_max' ) ?: PHP_INT_MAX );
+	$year_min   = intval( $request->get_param( 'year_min' ) ?: 0 );
+	$year_max   = intval( $request->get_param( 'year_max' ) ?: 9999 );
+	$price_min  = intval( $request->get_param( 'price_min' ) ?: 0 );
+	$price_max  = intval( $request->get_param( 'price_max' ) ?: PHP_INT_MAX );
+	$page       = max( 1, intval( $request->get_param( 'page' ) ?: 1 ) );
+	$per_page   = 12;
+
+	$args = array(
+		'post_type'      => AB_CPT_NAME,
+		'post_status'    => 'publish',
+		'posts_per_page' => $per_page,
+		'paged'          => $page,
+		'orderby'        => 'title',
+		'order'          => 'ASC',
+		'meta_query'     => array( 'relation' => 'AND' ),
+	);
+
+	// Filtre contact_assoc
+	if ( ! empty( $contact ) ) {
+		$args['meta_query'][] = array(
+			'key'   => 'contact_assoc',
+			'value' => $contact,
+		);
+	}
+
+	// Filtres numériques
+	if ( $length_min > 0 || $length_max < PHP_INT_MAX ) {
+		$args['meta_query'][] = array(
+			'key'     => 'lenght_ft',
+			'value'   => array( $length_min, $length_max ),
+			'compare' => 'BETWEEN',
+			'type'    => 'DECIMAL',
+		);
+	}
+
+	if ( $year_min > 0 || $year_max < 9999 ) {
+		$args['meta_query'][] = array(
+			'key'     => 'year',
+			'value'   => array( $year_min, $year_max ),
+			'compare' => 'BETWEEN',
+			'type'    => 'NUMERIC',
+		);
+	}
+
+	if ( $price_min > 0 || $price_max < PHP_INT_MAX ) {
+		$args['meta_query'][] = array(
+			'key'     => 'asking_price',
+			'value'   => array( $price_min, $price_max ),
+			'compare' => 'BETWEEN',
+			'type'    => 'DECIMAL',
+		);
+	}
+
+	// Filtre par type de bateau (taxonomie)
+	if ( ! empty( $type ) ) {
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' => AB_TAXONOMIE_TYPE,
+				'field'    => 'slug',
+				'terms'    => $type,
+			),
+		);
+	}
+
+	$query = new WP_Query( $args );
+
+	return rest_ensure_response( array(
+		'bateaux'      => ab_formater_bateaux( $query->posts ),
+		'pagination'   => array(
+			'page'        => $page,
+			'per_page'    => $per_page,
+			'total'       => $query->found_posts,
+			'total_pages' => $query->max_num_pages,
+		),
+		'filters'      => array(
+			'contact'    => $contact,
+			'type'       => $type,
+			'length_min' => $length_min,
+			'length_max' => $length_max,
+			'year_min'   => $year_min,
+			'year_max'   => $year_max,
+			'price_min'  => $price_min,
+			'price_max'  => $price_max,
+		),
+	) );
+}
+
+/**
+ * Formate les bateaux pour la réponse REST/GraphQL
+ */
+function ab_formater_bateaux( $posts ) {
+	$resultats = array();
+
+	foreach ( $posts as $post ) {
+		// Récupérer les métadonnées
+		$contact_id = get_post_meta( $post->ID, 'contact_assoc', true );
+		$contact_name = '';
+		if ( $contact_id ) {
+			$contact = get_post( $contact_id );
+			$contact_name = $contact ? $contact->post_title : '';
+		}
+
+		// Récupérer l'image à la une
+		$image_url = get_the_post_thumbnail_url( $post->ID, 'medium' );
+		if ( ! $image_url ) {
+			$image_url = get_the_post_thumbnail_url( $post->ID, 'full' );
+		}
+
+		$resultats[] = array(
+			'id'            => $post->ID,
+			'titre'         => $post->post_title,
+			'model'         => get_post_meta( $post->ID, 'model', true ),
+			'contact_assoc' => $contact_name,
+			'longueur'      => (float) get_post_meta( $post->ID, 'lenght_ft', true ),
+			'unite_longueur'=> 'FT',
+			'annee'         => intval( get_post_meta( $post->ID, 'year', true ) ),
+			'prix_usd'      => intval( get_post_meta( $post->ID, 'asking_price', true ) ),
+			'localisation'  => get_post_meta( $post->ID, 'town', true ),
+			'lien'          => get_permalink( $post->ID ),
+			'image_url'     => $image_url,
+		);
+	}
+
+	return $resultats;
+}

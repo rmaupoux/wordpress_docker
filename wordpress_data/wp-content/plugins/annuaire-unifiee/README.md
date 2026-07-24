@@ -12,9 +12,8 @@ annuaire-unifiee/
 ├── js/
 │   └── script.js                 # Fichiers JavaScript
 ├── includes/
-│   ├── class-plugin.php          # Classe principale
-│   ├── helpers.php               # Fonctions utilitaires
-│   ├── inline-styles.php         # Styles inline
+│   ├── class-plugin.php          # Classe principale (init, enqueue CSS/JS, localize)
+│   ├── helpers.php               # Constantes partagées (CPT, taxonomies)
 │   ├── shortcodes/               # Shortcodes
 │   │   ├── tabs.php              # Shortcode [annuaire_tabs]
 │   │   ├── bateaux.php           # Shortcode [annuaire_bateaux_recherche]
@@ -83,13 +82,25 @@ Les données peuvent également être récupérées via GraphQL pour :
 
 1. Copier le dossier `annuaire-unifiee` dans `/wp-content/plugins/`
 2. Activer le plugin dans WordPress
-3. Les plugins associés (`annuaire-bateaux-recherche`, `annuaire-maritime-recherche`) seront automatiquement chargés
+
+## JavaScript et REST API
+
+Les URLs des endpoints REST sont transmises au JavaScript via `wp_localize_script()`
+dans un objet global `AnnuaireUnifieeVars` (voir `includes/class-plugin.php`) :
+
+```js
+AnnuaireUnifieeVars.bateaux.recherche
+AnnuaireUnifieeVars.bateaux.types
+AnnuaireUnifieeVars.bateaux.filtrer
+AnnuaireUnifieeVars.maritime.recherche
+AnnuaireUnifieeVars.maritime.pays
+AnnuaireUnifieeVars.maritime.parPays
+AnnuaireUnifieeVars.maritime.types
+AnnuaireUnifieeVars.maritime.parType
+```
 
 ## Notes
 
-Ce plugin unifié regroupe deux plugins existants en une seule installation pour :
-- Meilleure organisation
-- Partage de CSS et helpers
-- Interface unifiée
-
-Les deux plugins originaux restent disponibles comme includes internes.
+Ce plugin remplace et fusionne les deux anciens plugins `annuaire-bateaux-recherche`
+et `annuaire-maritime-recherche` (désormais supprimés). Tout leur code PHP, CSS et
+JS a été repris à l'identique et réparti dans la structure ci-dessus.

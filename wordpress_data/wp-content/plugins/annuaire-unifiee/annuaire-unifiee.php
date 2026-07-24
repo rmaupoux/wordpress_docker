@@ -19,16 +19,8 @@ define( 'ANNUAIRE_UNIFIEE_VERSION', '1.0.0' );
 define( 'ANNUAIRE_UNIFIEE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ANNUAIRE_UNIFIEE_URL', plugin_dir_url( __FILE__ ) );
 
-// Charger les plugins existants comme includes
-// Cela regroupe les deux plugins en un seul
-add_action( 'plugins_loaded', function() {
-	// Charger annuaire-bateaux-recherche
-	if ( file_exists( dirname( ANNUAIRE_UNIFIEE_PATH ) . '/annuaire-bateaux-recherche.php' ) ) {
-		require_once dirname( ANNUAIRE_UNIFIEE_PATH ) . '/annuaire-bateaux-recherche.php';
-	}
+require_once ANNUAIRE_UNIFIEE_PATH . 'includes/class-plugin.php';
 
-	// Charger annuaire-maritime-recherche
-	if ( file_exists( dirname( ANNUAIRE_UNIFIEE_PATH ) . '/annuaire-maritime-recherche.php' ) ) {
-		require_once dirname( ANNUAIRE_UNIFIEE_PATH ) . '/annuaire-maritime-recherche.php';
-	}
-}, 5 );
+add_action( 'plugins_loaded', function() {
+	new Annuaire_Unifiee();
+} );
