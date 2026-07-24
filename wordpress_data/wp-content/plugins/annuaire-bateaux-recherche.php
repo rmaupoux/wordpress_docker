@@ -678,9 +678,9 @@ add_action( 'wp_footer', function () {
 		}
 
 		.ab-tabs-content {
-			min-width: 1400px;
+			/* min-width: 1400px;
 			max-width: 1400px;
-		}
+		} */
 
 		.ab-tab-pane {
 			display: none;
