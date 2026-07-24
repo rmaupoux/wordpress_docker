@@ -669,7 +669,8 @@ add_action( 'wp_footer', function () {
 		}
 		.ab-tab-btn:focus {
 			border-color:transparent !important;
-		} 
+		 	border-width: 0px !important;
+		}
 
 		.ab-tab-btn.ab-tab-active {
 			color: #111;
@@ -678,6 +679,7 @@ add_action( 'wp_footer', function () {
 
 		.ab-tabs-content {
 			width: 100%;
+			min-width: 80%;
 		}
 
 		.ab-tab-pane {
