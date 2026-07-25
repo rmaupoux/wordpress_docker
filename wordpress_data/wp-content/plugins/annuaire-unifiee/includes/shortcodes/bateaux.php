@@ -49,13 +49,13 @@ add_shortcode( 'annuaire_bateaux_recherche', function () {
 			<div class="ab-search-container">
 				<div class="ab-search-inputs">
 
-					<!-- Search Builder -->
+					<!-- Search Model -->
 					<div class="ab-input-group">
 						<div class="ab-input-wrapper">
 							<input
 								type="text"
 								id="ab-search-input"
-								placeholder="Search builder..."
+								placeholder="Search model..."
 								class="ab-input"
 								autocomplete="off"
 							>

@@ -59,9 +59,10 @@ class Annuaire_Unifiee {
 
 		wp_localize_script( 'annuaire-unifiee-script', 'AnnuaireUnifieeVars', [
 			'bateaux'  => [
-				'recherche' => esc_url_raw( rest_url( 'annuaire-bateau/v1/recherche' ) ),
-				'types'     => esc_url_raw( rest_url( 'annuaire-bateau/v1/types' ) ),
-				'filtrer'   => esc_url_raw( rest_url( 'annuaire-bateau/v1/filtrer' ) ),
+				'recherche'       => esc_url_raw( rest_url( 'annuaire-bateau/v1/recherche' ) ),
+				'rechercheModeles' => esc_url_raw( rest_url( 'annuaire-bateau/v1/recherche-modeles' ) ),
+				'types'           => esc_url_raw( rest_url( 'annuaire-bateau/v1/types' ) ),
+				'filtrer'         => esc_url_raw( rest_url( 'annuaire-bateau/v1/filtrer' ) ),
 			],
 			'maritime' => [
 				'recherche' => esc_url_raw( rest_url( 'annuaire/v1/recherche' ) ),

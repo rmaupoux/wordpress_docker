@@ -25,6 +25,22 @@ add_action( 'rest_api_init', function () {
 		),
 	) );
 
+	/* Recherche de bateaux par modèle : /wp-json/annuaire-bateau/v1/recherche-modeles?terme=xxx */
+	register_rest_route( 'annuaire-bateau/v1', '/recherche-modeles', array(
+		'methods'             => 'GET',
+		'callback'            => 'ab_recherche_modeles',
+		'permission_callback' => '__return_true',
+		'args'                => array(
+			'terme' => array(
+				'required'          => true,
+				'sanitize_callback' => 'sanitize_text_field',
+				'validate_callback' => function ( $value ) {
+					return mb_strlen( trim( $value ) ) >= 3;
+				},
+			),
+		),
+	) );
+
 	/* Bateaux d'un contact : /wp-json/annuaire-bateau/v1/par-contact?contact_id=xxx */
 	register_rest_route( 'annuaire-bateau/v1', '/par-contact', array(
 		'methods'             => 'GET',
@@ -52,6 +68,7 @@ add_action( 'rest_api_init', function () {
 		'permission_callback' => '__return_true',
 		'args'                => array(
 			'contact'    => array( 'sanitize_callback' => function( $v ) { return intval( $v ); } ),
+			'model'      => array( 'sanitize_callback' => 'sanitize_text_field' ),
 			'type'       => array( 'sanitize_callback' => 'sanitize_title' ),
 			'length_min' => array( 'sanitize_callback' => function( $v ) { return floatval( $v ); } ),
 			'length_max' => array( 'sanitize_callback' => function( $v ) { return floatval( $v ); } ),
@@ -119,6 +136,37 @@ function ab_recherche_contacts( WP_REST_Request $request ) {
 			'id'    => $contact->ID,
 			'nom'   => $contact->post_title,
 			'email' => get_post_meta( $contact->ID, 'email', true ),
+		);
+	}
+
+	return rest_ensure_response( $resultats );
+}
+
+/**
+ * Recherche les bateaux dont le modèle correspond au terme (3+ caractères, 10 résultats max)
+ */
+function ab_recherche_modeles( WP_REST_Request $request ) {
+	global $wpdb;
+	$terme     = trim( $request->get_param( 'terme' ) );
+	$like_term = '%' . $wpdb->esc_like( $terme ) . '%';
+
+	$results = $wpdb->get_results( $wpdb->prepare(
+		"SELECT p.ID, pm.meta_value AS model
+		 FROM {$wpdb->posts} p
+		 INNER JOIN {$wpdb->postmeta} pm ON pm.post_id = p.ID AND pm.meta_key = 'model'
+		 WHERE p.post_type = %s
+		 AND p.post_status = 'publish'
+		 AND pm.meta_value LIKE %s
+		 ORDER BY pm.meta_value ASC
+		 LIMIT 10",
+		array( AB_CPT_NAME, $like_term )
+	) );
+
+	$resultats = array();
+	foreach ( $results as $row ) {
+		$resultats[] = array(
+			'id'    => (int) $row->ID,
+			'model' => $row->model,
 		);
 	}
 
@@ -235,6 +283,7 @@ function ab_link_boats_to_types( WP_REST_Request $request ) {
  */
 function ab_filtrer_bateaux( WP_REST_Request $request ) {
 	$contact    = intval( $request->get_param( 'contact' ) ?: 0 );
+	$model      = trim( $request->get_param( 'model' ) ?: '' );
 	$type       = trim( $request->get_param( 'type' ) ?: '' );
 	$length_min = floatval( $request->get_param( 'length_min' ) ?: 0 );
 	$length_max = floatval( $request->get_param( 'length_max' ) ?: PHP_INT_MAX );
@@ -260,6 +309,15 @@ function ab_filtrer_bateaux( WP_REST_Request $request ) {
 		$args['meta_query'][] = array(
 			'key'   => 'contact_assoc',
 			'value' => $contact,
+		);
+	}
+
+	// Filtre par modèle (retrouve les bateaux partageant le même champ "model")
+	if ( ! empty( $model ) ) {
+		$args['meta_query'][] = array(
+			'key'     => 'model',
+			'value'   => $model,
+			'compare' => 'LIKE',
 		);
 	}
 
@@ -314,6 +372,7 @@ function ab_filtrer_bateaux( WP_REST_Request $request ) {
 		),
 		'filters'      => array(
 			'contact'    => $contact,
+			'model'      => $model,
 			'type'       => $type,
 			'length_min' => $length_min,
 			'length_max' => $length_max,

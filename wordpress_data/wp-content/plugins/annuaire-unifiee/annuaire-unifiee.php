@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Annuaire Unifié – Bateaux & Maritime
  * Description: Système complet de recherche avec onglets pour bateaux (YACHT), contacts maritimes (CHARTER) et réseau (NETWORK)
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Maupoux
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Constantes du plugin
-define( 'ANNUAIRE_UNIFIEE_VERSION', '1.0.0' );
+define( 'ANNUAIRE_UNIFIEE_VERSION', '1.0.1' );
 define( 'ANNUAIRE_UNIFIEE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ANNUAIRE_UNIFIEE_URL', plugin_dir_url( __FILE__ ) );
 

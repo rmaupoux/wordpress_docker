@@ -30,7 +30,7 @@
 
 // ===== YACHT: recherche et filtres bateaux =====
 (function () {
-	const endpointRecherche = AnnuaireUnifieeVars.bateaux.recherche;
+	const endpointRechercheModeles = AnnuaireUnifieeVars.bateaux.rechercheModeles;
 	const endpointTypes    = AnnuaireUnifieeVars.bateaux.types;
 	const endpointFiltrer  = AnnuaireUnifieeVars.bateaux.filtrer;
 
@@ -115,29 +115,27 @@
 
 	let searchTimer = null;
 	let controller = null;
-	let selectedContactId = null;
 	let currentPage = 1;
 	let currentFilters = {};
 
-	// Créer un wrapper pour afficher les contacts
-	const contactsDropdown = document.createElement('div');
-	contactsDropdown.id = 'ab-contacts-dropdown';
-	contactsDropdown.style.cssText = 'position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #d1d5db; border-top: none; border-radius: 0 0 0.375rem 0.375rem; max-height: 200px; overflow-y: auto; z-index: 10; display: none; list-style: none; margin: 0; padding: 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);';
+	// Créer un wrapper pour afficher les suggestions de modèles
+	const modelesDropdown = document.createElement('div');
+	modelesDropdown.id = 'ab-modeles-dropdown';
+	modelesDropdown.style.cssText = 'position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #d1d5db; border-top: none; border-radius: 0 0 0.375rem 0.375rem; max-height: 200px; overflow-y: auto; z-index: 10; display: none; list-style: none; margin: 0; padding: 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);';
 	searchInput.parentElement.style.position = 'relative';
-	searchInput.parentElement.appendChild(contactsDropdown);
+	searchInput.parentElement.appendChild(modelesDropdown);
 
-	// Recherche instantanée de contacts (3+ caractères)
+	// Recherche instantanée de bateaux par modèle (3+ caractères, 10 résultats max)
 	searchInput.addEventListener('input', function () {
 		const terme = this.value.trim();
-		selectedContactId = null;
-		contactsDropdown.innerHTML = '';
+		modelesDropdown.innerHTML = '';
 
 		clearTimeout(searchTimer);
 
 		if (terme.length < 3) {
-			contactsDropdown.style.display = 'none';
-			resultsGrid.innerHTML = '';
-			message.hidden = true;
+			modelesDropdown.style.display = 'none';
+			currentFilters.model = '';
+			chargerAvecFiltres(currentFilters, 1);
 			return;
 		}
 
@@ -145,9 +143,9 @@
 			if (controller) controller.abort();
 			controller = new AbortController();
 
-			fetch(endpointRecherche + '?terme=' + encodeURIComponent(terme), { signal: controller.signal })
+			fetch(endpointRechercheModeles + '?terme=' + encodeURIComponent(terme), { signal: controller.signal })
 				.then(r => r.json())
-				.then(contacts => afficherContactsDropdown(contacts))
+				.then(bateaux => afficherModelesDropdown(bateaux))
 				.catch(err => {
 					if (err.name !== 'AbortError') {
 						afficherMessage('Erreur lors de la recherche.');
@@ -156,31 +154,27 @@
 		}, 250);
 	});
 
-	function afficherContactsDropdown(contacts) {
-		contactsDropdown.innerHTML = '';
+	function afficherModelesDropdown(bateaux) {
+		modelesDropdown.innerHTML = '';
 
-		if (!Array.isArray(contacts) || contacts.length === 0) {
+		if (!Array.isArray(bateaux) || bateaux.length === 0) {
 			// Afficher le message "pas de résultat trouvé" dans la dropdown
 			const li = document.createElement('li');
 			li.style.cssText = 'padding: 0.5rem; cursor: default; font-size: 0.875rem; color: #999; text-align: center;';
 			li.textContent = 'Pas de résultat trouvé';
-			contactsDropdown.appendChild(li);
-			contactsDropdown.style.display = 'block';
-
-			resultsGrid.innerHTML = '';
-			message.hidden = true;
+			modelesDropdown.appendChild(li);
+			modelesDropdown.style.display = 'block';
 			return;
 		}
 
-		contacts.forEach(contact => {
+		bateaux.forEach(bateau => {
 			const li = document.createElement('li');
 			li.style.cssText = 'padding: 0.5rem; cursor: pointer; font-size: 0.875rem; border-bottom: 1px solid #eee;';
-			li.textContent = contact.nom;
+			li.textContent = bateau.model;
 			li.addEventListener('click', () => {
-				selectedContactId = contact.id;
-				searchInput.value = contact.nom;
-				contactsDropdown.style.display = 'none';
-				chargerBateauxContact(contact.id);
+				searchInput.value = bateau.model;
+				modelesDropdown.style.display = 'none';
+				chargerBateauxParModele(bateau.model);
 			});
 			li.addEventListener('mouseover', () => {
 				li.style.background = '#f3f4f6';
@@ -188,21 +182,21 @@
 			li.addEventListener('mouseout', () => {
 				li.style.background = 'transparent';
 			});
-			contactsDropdown.appendChild(li);
+			modelesDropdown.appendChild(li);
 		});
 
-		contactsDropdown.style.display = 'block';
+		modelesDropdown.style.display = 'block';
 	}
 
-	function chargerBateauxContact(contactId) {
-		selectedContactId = contactId;
-		chargerAvecFiltres({ contact: contactId }, 1);
+	function chargerBateauxParModele(model) {
+		currentFilters.model = model;
+		chargerAvecFiltres(currentFilters, 1);
 	}
 
 	// Fermer la dropdown en cliquant ailleurs
 	document.addEventListener('click', (e) => {
-		if (!e.target.closest('#ab-search-input') && !e.target.closest('#ab-contacts-dropdown')) {
-			contactsDropdown.style.display = 'none';
+		if (!e.target.closest('#ab-search-input') && !e.target.closest('#ab-modeles-dropdown')) {
+			modelesDropdown.style.display = 'none';
 		}
 	});
 
@@ -211,7 +205,7 @@
 		currentPage = page;
 
 		let url = endpointFiltrer + '?page=' + page;
-		if (filters.contact) url += '&contact=' + filters.contact;
+		if (filters.model) url += '&model=' + encodeURIComponent(filters.model);
 		if (filters.type) url += '&type=' + encodeURIComponent(filters.type);
 		if (filters.length_min) url += '&length_min=' + filters.length_min;
 		if (filters.length_max) url += '&length_max=' + filters.length_max;
@@ -239,9 +233,8 @@
 		document.getElementById('ab-price-min').value = '';
 		document.getElementById('ab-price-max').value = '';
 
-		selectedContactId = null;
 		currentFilters = {};
-		contactsDropdown.style.display = 'none';
+		modelesDropdown.style.display = 'none';
 
 		// Réinitialiser les triggers des custom selects
 		if (customSelects['ab-type-select']) {
@@ -293,7 +286,7 @@
 	// Recherche au clic sur Search Yacht
 	searchBtn.addEventListener('click', function () {
 		const filters = {
-			contact:    selectedContactId || 0,
+			model:      searchInput.value.trim() || '',
 			type:       typeSelect.value || '',
 			length_min: parseFloat(document.getElementById('ab-length-min-select').value) || 0,
 			length_max: parseFloat(document.getElementById('ab-length-max-select').value) || 0,
@@ -308,7 +301,7 @@
 
 	function afficherBateaux(data) {
 		resultsGrid.innerHTML = '';
-		contactsDropdown.style.display = 'none';
+		modelesDropdown.style.display = 'none';
 
 		// Gérer la nouvelle structure avec pagination
 		let bateaux = data;
