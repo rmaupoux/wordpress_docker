@@ -15,6 +15,7 @@ services:
   wordpress:
     depends_on:
       - db
+      - mailpit
     build: .
     volumes:
       - ./wordpress_data:/var/www/html
@@ -28,6 +29,14 @@ services:
       WORDPRESS_TABLE_PREFIX: wpxp_
       WORDPRESS_DEBUG: 1
       WORDPRESS_DEBUG_LOG: 1
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+
+  mailpit:
+    image: axllent/mailpit
+    restart: always
+    ports:
+      - "8025:8025"
 
   wp-cli:
     image: wordpress:cli

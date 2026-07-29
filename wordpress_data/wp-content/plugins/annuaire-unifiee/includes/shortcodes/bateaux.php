@@ -184,6 +184,17 @@ add_shortcode( 'annuaire_bateaux_recherche', function () {
 			</div>
 		</div>
 
+		<!-- Featured Slider -->
+		<div class="ab-featured-section">
+			<h2 class="ab-featured-title">FEATURED YACHTS</h2>
+			<div class="ab-featured-slider-wrapper">
+				<button id="ab-featured-prev" class="ab-featured-nav ab-featured-prev" type="button" aria-label="Précédent">‹</button>
+				<div class="ab-featured-slider" id="ab-featured-slider"></div>
+				<button id="ab-featured-next" class="ab-featured-nav ab-featured-next" type="button" aria-label="Suivant">›</button>
+			</div>
+			<div class="ab-featured-dots" id="ab-featured-dots"></div>
+		</div>
+
 		<!-- Results Section -->
 		<div class="ab-results-section">
 			<div class="ab-results-header">

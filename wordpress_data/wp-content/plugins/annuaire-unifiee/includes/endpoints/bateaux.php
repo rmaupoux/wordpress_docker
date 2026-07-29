@@ -54,6 +54,13 @@ add_action( 'rest_api_init', function () {
 		),
 	) );
 
+	/* Bateaux à la une : /wp-json/annuaire-bateau/v1/a-la-une */
+	register_rest_route( 'annuaire-bateau/v1', '/a-la-une', array(
+		'methods'             => 'GET',
+		'callback'            => 'ab_bateaux_a_la_une',
+		'permission_callback' => '__return_true',
+	) );
+
 	/* Types de bateau : /wp-json/annuaire-bateau/v1/types */
 	register_rest_route( 'annuaire-bateau/v1', '/types', array(
 		'methods'             => 'GET',
@@ -206,6 +213,27 @@ function ab_bateaux_par_contact( WP_REST_Request $request ) {
 		),
 		'filters'      => array( 'contact' => $contact_id ),
 	) );
+}
+
+/**
+ * Retourne les bateaux marqués "à la une"
+ */
+function ab_bateaux_a_la_une() {
+	$query = new WP_Query( array(
+		'post_type'      => AB_CPT_NAME,
+		'post_status'    => 'publish',
+		'posts_per_page' => -1,
+		'orderby'        => 'title',
+		'order'          => 'ASC',
+		'meta_query'     => array(
+			array(
+				'key'   => 'a_la_une',
+				'value' => '1',
+			),
+		),
+	) );
+
+	return rest_ensure_response( ab_formater_bateaux( $query->posts ) );
 }
 
 /**
@@ -417,6 +445,7 @@ function ab_formater_bateaux( $posts ) {
 			'localisation'  => get_post_meta( $post->ID, 'town', true ),
 			'lien'          => get_permalink( $post->ID ),
 			'image_url'     => $image_url,
+			'a_la_une'      => get_post_meta( $post->ID, 'a_la_une', true ) === '1',
 		);
 	}
 

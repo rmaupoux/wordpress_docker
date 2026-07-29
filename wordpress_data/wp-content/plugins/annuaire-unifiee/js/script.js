@@ -33,6 +33,7 @@
 	const endpointRechercheModeles = AnnuaireUnifieeVars.bateaux.rechercheModeles;
 	const endpointTypes    = AnnuaireUnifieeVars.bateaux.types;
 	const endpointFiltrer  = AnnuaireUnifieeVars.bateaux.filtrer;
+	const endpointAlaUne   = AnnuaireUnifieeVars.bateaux.alaUne;
 
 	/* ===== CUSTOM SELECT ===== */
 	class CustomSelect {
@@ -235,6 +236,7 @@
 
 		currentFilters = {};
 		modelesDropdown.style.display = 'none';
+		featuredSection.hidden = false;
 
 		// Réinitialiser les triggers des custom selects
 		if (customSelects['ab-type-select']) {
@@ -271,6 +273,7 @@
 
 			// Événement pour filtrer instantanément quand on change le type
 			typeSelect.addEventListener('change', function() {
+				featuredSection.hidden = true;
 				const selectedType = this.value;
 				if (!selectedType) {
 					// "Tous les types" sélectionné
@@ -285,6 +288,7 @@
 
 	// Recherche au clic sur Search Yacht
 	searchBtn.addEventListener('click', function () {
+		featuredSection.hidden = true;
 		const filters = {
 			model:      searchInput.value.trim() || '',
 			type:       typeSelect.value || '',
@@ -323,31 +327,7 @@
 		afficherMessage((pagination ? pagination.total : bateaux.length) + ' bateau' + ((pagination ? pagination.total : bateaux.length) > 1 ? 'x' : '') + ' trouvé(s)');
 
 		bateaux.forEach(bateau => {
-			const card = document.createElement('div');
-			card.className = 'ab-yacht-card';
-			const titre = bateau.model || bateau.titre;
-			const prix = bateau.prix_usd ? bateau.prix_usd.toLocaleString('en-US') : 'N/A';
-			const localisation = bateau.localisation || 'Location';
-			const imageUrl = bateau.image_url || `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23888' width='300' height='200'/%3E%3Ctext x='150' y='100' font-size='16' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3E${titre}%3C/text%3E%3C/svg%3E`;
-
-			card.innerHTML = `
-				<div class="ab-yacht-image">
-					<img src="${imageUrl}" alt="${titre}">
-				</div>
-				<div class="ab-yacht-body">
-					<h3 class="ab-yacht-title">${titre}</h3>
-					<p class="ab-yacht-price">${prix}&nbsp;$</p>
-					<div class="ab-yacht-location">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-							<circle cx="12" cy="10" r="3"></circle>
-						</svg>
-						<span>${localisation}</span>
-					</div>
-					<a href="${bateau.lien}" class="ab-yacht-btn">More Information</a>
-				</div>
-			`;
-			resultsGrid.appendChild(card);
+			resultsGrid.appendChild(creerCarteBateau(bateau, !!bateau.a_la_une));
 		});
 
 		// Afficher la pagination
@@ -490,6 +470,109 @@
 		// Réafficher les bateaux triés
 		afficherBateauxTries(bateauxTries);
 	});
+
+	/* ===== FEATURED SLIDER (bateaux "à la une") ===== */
+	const featuredSection = document.querySelector('.ab-featured-section');
+	const featuredSlider  = document.getElementById('ab-featured-slider');
+	const featuredDots    = document.getElementById('ab-featured-dots');
+	const featuredPrevBtn = document.getElementById('ab-featured-prev');
+	const featuredNextBtn = document.getElementById('ab-featured-next');
+	const FEATURED_PAR_SLIDE = 4;
+
+	let featuredSlides = [];
+	let featuredIndex = 0;
+
+	function creerCarteBateau(bateau, isFeatured = false) {
+		const card = document.createElement('div');
+		card.className = 'ab-yacht-card';
+		const titre = bateau.model || bateau.titre;
+		const prix = bateau.prix_usd ? bateau.prix_usd.toLocaleString('en-US') : 'N/A';
+		const localisation = bateau.localisation || 'Location';
+		const imageUrl = bateau.image_url || `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23888' width='300' height='200'/%3E%3Ctext x='150' y='100' font-size='16' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3E${titre}%3C/text%3E%3C/svg%3E`;
+
+		card.innerHTML = `
+			<div class="ab-yacht-image">
+				<img src="${imageUrl}" alt="${titre}">
+				${isFeatured ? '<div class="ab-featured-badge">Featured</div>' : ''}
+			</div>
+			<div class="ab-yacht-body">
+				<h3 class="ab-yacht-title">${titre}</h3>
+				<p class="ab-yacht-price">${prix}&nbsp;$</p>
+				<div class="ab-yacht-location">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+						<circle cx="12" cy="10" r="3"></circle>
+					</svg>
+					<span>${localisation}</span>
+				</div>
+				<a href="${bateau.lien}" class="ab-yacht-btn">More Information</a>
+			</div>
+		`;
+		return card;
+	}
+
+	function afficherSlideFeatured() {
+		const slide = featuredSlides[featuredIndex] || [];
+
+		featuredSlider.innerHTML = '';
+		slide.forEach(bateau => featuredSlider.appendChild(creerCarteBateau(bateau, true)));
+
+		featuredPrevBtn.disabled = featuredIndex === 0;
+		featuredNextBtn.disabled = featuredIndex === featuredSlides.length - 1;
+
+		featuredDots.querySelectorAll('.ab-featured-dot').forEach((dot, i) => {
+			dot.classList.toggle('active', i === featuredIndex);
+		});
+	}
+
+	function initFeaturedDots() {
+		featuredDots.innerHTML = '';
+		featuredSlides.forEach((_, i) => {
+			const dot = document.createElement('button');
+			dot.type = 'button';
+			dot.className = 'ab-featured-dot';
+			dot.addEventListener('click', () => {
+				if (i === featuredIndex) return;
+				featuredIndex = i;
+				afficherSlideFeatured();
+			});
+			featuredDots.appendChild(dot);
+		});
+	}
+
+	featuredPrevBtn.addEventListener('click', () => {
+		if (featuredIndex > 0) {
+			featuredIndex--;
+			afficherSlideFeatured();
+		}
+	});
+
+	featuredNextBtn.addEventListener('click', () => {
+		if (featuredIndex < featuredSlides.length - 1) {
+			featuredIndex++;
+			afficherSlideFeatured();
+		}
+	});
+
+	fetch(endpointAlaUne)
+		.then(r => r.json())
+		.then(bateaux => {
+			if (!Array.isArray(bateaux) || bateaux.length === 0) {
+				featuredSection.hidden = true;
+				return;
+			}
+
+			featuredSlides = [];
+			for (let i = 0; i < bateaux.length; i += FEATURED_PAR_SLIDE) {
+				featuredSlides.push(bateaux.slice(i, i + FEATURED_PAR_SLIDE));
+			}
+
+			initFeaturedDots();
+			afficherSlideFeatured();
+		})
+		.catch(() => {
+			featuredSection.hidden = true;
+		});
 })();
 
 

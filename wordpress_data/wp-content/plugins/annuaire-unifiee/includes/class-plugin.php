@@ -21,6 +21,12 @@ class Annuaire_Unifiee {
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/endpoints/bateaux.php';
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/endpoints/maritime.php';
 
+		// Formulaires
+		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/cf7-dynamic-recipient.php';
+
+		// Helpers de magic tag pour les Pods Templates
+		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/pods-template-helpers.php';
+
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 	}
 
@@ -63,6 +69,7 @@ class Annuaire_Unifiee {
 				'rechercheModeles' => esc_url_raw( rest_url( 'annuaire-bateau/v1/recherche-modeles' ) ),
 				'types'           => esc_url_raw( rest_url( 'annuaire-bateau/v1/types' ) ),
 				'filtrer'         => esc_url_raw( rest_url( 'annuaire-bateau/v1/filtrer' ) ),
+				'alaUne'          => esc_url_raw( rest_url( 'annuaire-bateau/v1/a-la-une' ) ),
 			],
 			'maritime' => [
 				'recherche' => esc_url_raw( rest_url( 'annuaire/v1/recherche' ) ),
