@@ -196,7 +196,7 @@ add_shortcode( 'annuaire_bateaux_recherche', function () {
 		</div>
 
 		<!-- Results Section -->
-		<div class="ab-results-section">
+		<div class="ab-results-section" id="ab-results-section" hidden>
 			<div class="ab-results-header">
 				<h2 class="ab-results-title">YACHTS FOR SALE</h2>
 				<div class="ab-select-wrapper" style="min-width: 180px;">

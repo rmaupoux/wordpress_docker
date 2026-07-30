@@ -113,11 +113,19 @@
 	const message = document.getElementById('ab-message');
 	const resultsGrid = document.getElementById('ab-results-grid');
 	const paginationContainer = document.getElementById('ab-pagination');
+	const resultsSection = document.getElementById('ab-results-section');
 
 	let searchTimer = null;
 	let controller = null;
 	let currentPage = 1;
 	let currentFilters = {};
+	let rechercheLancee = false;
+
+	function lancerRecherche(filters, page = 1) {
+		rechercheLancee = true;
+		resultsSection.hidden = false;
+		chargerAvecFiltres(filters, page);
+	}
 
 	// Créer un wrapper pour afficher les suggestions de modèles
 	const modelesDropdown = document.createElement('div');
@@ -136,7 +144,9 @@
 		if (terme.length < 3) {
 			modelesDropdown.style.display = 'none';
 			currentFilters.model = '';
-			chargerAvecFiltres(currentFilters, 1);
+			if (rechercheLancee) {
+				chargerAvecFiltres(currentFilters, 1);
+			}
 			return;
 		}
 
@@ -191,7 +201,7 @@
 
 	function chargerBateauxParModele(model) {
 		currentFilters.model = model;
-		chargerAvecFiltres(currentFilters, 1);
+		lancerRecherche(currentFilters, 1);
 	}
 
 	// Fermer la dropdown en cliquant ailleurs
@@ -243,13 +253,11 @@
 			customSelects['ab-type-select'].selectOption('', 'Select type');
 		}
 
-		// Charger tous les bateaux
-		chargerAvecFiltres({}, 1);
-	});
-
-	// Charger les 12 premiers bateaux au chargement de la page
-	window.addEventListener('load', () => {
-		chargerAvecFiltres({}, 1);
+		// Revenir à l'état initial : masquer les résultats tant qu'aucune recherche n'est lancée
+		rechercheLancee = false;
+		resultsSection.hidden = true;
+		resultsGrid.innerHTML = '';
+		paginationContainer.hidden = true;
 	});
 
 	// Charger les types au chargement
@@ -278,10 +286,10 @@
 				if (!selectedType) {
 					// "Tous les types" sélectionné
 					currentFilters.type = '';
-					chargerAvecFiltres({}, 1);
+					lancerRecherche({}, 1);
 				} else {
 					currentFilters.type = selectedType;
-					chargerAvecFiltres(currentFilters, 1);
+					lancerRecherche(currentFilters, 1);
 				}
 			});
 		});
@@ -300,7 +308,7 @@
 			price_max:  parseInt(document.getElementById('ab-price-max').value) || 0,
 		};
 
-		chargerAvecFiltres(filters, 1);
+		lancerRecherche(filters, 1);
 	});
 
 	function afficherBateaux(data) {
