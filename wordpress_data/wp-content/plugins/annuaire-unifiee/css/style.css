@@ -986,3 +986,394 @@
 		display: none;
 	}
 	#am-message { font-size: 0.875em; color: #6b7280; margin: .5em 0 0; }
+
+
+	/* template Bateaux - Annuaire Unifié */
+
+	.ab-fiche-bateau {
+		--ab-fiche-primary: #162d55;
+		--ab-fiche-accent: #0d1c38;
+		--ab-fiche-light: #f8f9fa;
+		--ab-fiche-border: #e5e5e5;
+		--ab-fiche-text-secondary: #6b7280;
+		--ab-fiche-radius: 12px;
+		--ab-fiche-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+	}
+
+	.ab-fiche-bateau-hero {
+		width: 100%;
+		height: 440px;
+		overflow: hidden;
+		margin-bottom: 2.5rem;
+	}
+
+	.ab-fiche-bateau-hero img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.ab-fiche-bateau-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem 3rem;
+	}
+
+	.ab-fiche-bateau-top {
+		display: grid;
+		grid-template-columns: 3fr 1fr;
+		gap: 4rem;
+		align-items: start;
+		margin-bottom: 2.5rem;
+	}
+
+	.ab-fiche-bateau-model {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #1d1d1b;
+		margin: 0 0 0.5rem;
+		letter-spacing: -0.5px;
+		line-height: 1.15;
+	}
+
+	.ab-fiche-bateau-model-underline {
+		width: 90px;
+		height: 10px;
+		background: #d8d9db;
+	}
+
+	.ab-fiche-bateau-broker {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		justify-self: end;
+	}
+
+	.ab-fiche-bateau-broker img {
+		width: 90px;
+		height: 90px;
+		border-radius: 50%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.ab-fiche-bateau-broker-info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+	}
+
+	.ab-fiche-bateau-broker-name {
+		font-size: 1.1rem;
+		font-weight: 600;
+		color: #1d1d1b;
+		margin: 0;
+	}
+
+	.ab-fiche-bateau-broker-type {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		color: var(--ab-fiche-text-secondary);
+		margin: 0;
+	}
+
+	.ab-fiche-bateau-specs {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.ab-fiche-bateau-specs li {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+		padding: 0.85rem 0;
+		border-bottom: 1px solid var(--ab-fiche-border);
+	}
+
+	.ab-fiche-bateau-specs-label {
+		color: var(--ab-fiche-text-secondary);
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		font-size: 1rem;
+		white-space: nowrap;
+		flex:1;
+	}
+
+	.ab-fiche-bateau-specs-value {
+		font-weight: 400;
+		color: var(--ab-fiche-primary);
+		text-align: left;
+		flex:1;
+
+	}
+	.ab-fiche-bateau-specs-value.ab-fiche-bateau-specs-value-exergue {
+		font-weight: 700;
+		font-family: Arial, sans-serif;
+
+	}
+
+	.ab-fiche-bateau-form .wpcf7-form {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+	.ab-fiche-bateau-form .wpcf7-form p {
+		padding: 0;
+		margin:0;
+	}
+
+	.ab-fiche-bateau-form input[type="text"],
+	.ab-fiche-bateau-form input[type="email"],
+	.ab-fiche-bateau-form input[type="tel"],
+	.ab-fiche-bateau-form textarea {
+		width: 100%;
+		padding: 0.9rem 1.5rem;
+		border: 1px solid #e2e2e2;
+		border-radius: 5px;
+		font-size: 0.95rem;
+		margin-bottom: .5rem;
+		font-family: inherit;
+		color: #333;
+		box-sizing: border-box;
+		transition: border-color 0.2s ease;
+	}
+
+	.ab-fiche-bateau-form input[type="text"]::placeholder,
+	.ab-fiche-bateau-form input[type="email"]::placeholder,
+	.ab-fiche-bateau-form input[type="tel"]::placeholder,
+	.ab-fiche-bateau-form textarea::placeholder {
+		color: #b7b7b7;
+	}
+
+	.ab-fiche-bateau-form input[type="text"]:focus,
+	.ab-fiche-bateau-form input[type="email"]:focus,
+	.ab-fiche-bateau-form input[type="tel"]:focus,
+	.ab-fiche-bateau-form textarea:focus {
+		outline: none;
+		border-color: var(--ab-fiche-primary);
+	}
+
+	.ab-fiche-bateau-form textarea {
+		height: 100px;
+		resize: vertical;
+	}
+
+	.ab-fiche-bateau-form input[type="submit"] {
+		align-self: flex-start;
+		padding: 0.85rem 2rem;
+		background: var(--ab-fiche-primary);
+		color: #fff;
+		border: none;
+		border-radius: 50px;
+		font-weight: 600;
+		letter-spacing: 0.5px;
+		cursor: pointer;
+		transition: background 0.3s ease;
+	}
+
+	.ab-fiche-bateau-form input[type="submit"]:hover {
+		background: var(--ab-fiche-accent);
+	}
+
+	.ab-fiche-bateau-form .wpcf7-not-valid-tip {
+		color: #c0392b;
+		font-size: 0.8rem;
+	}
+
+	.ab-fiche-bateau-form .wpcf7-response-output {
+		margin: 0;
+		border-radius: 8px;
+		padding: 0.75rem 1rem;
+		font-size: 0.9rem;
+	}
+
+	.ab-fiche-bateau-specs-box {
+		background: var(--ab-fiche-light);
+		border-radius: var(--ab-fiche-radius);
+		padding: 2rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.ab-fiche-bateau-specs-title {
+		font-size: 1.4rem;
+		font-weight: 700;
+		letter-spacing: 1px;
+		color: #1d1d1b;
+		margin: 0 0 1.25rem;
+	}
+
+	.ab-fiche-bateau-accordion {
+		background: #fff;
+		border-radius: 8px;
+		margin-bottom: 1rem;
+		box-shadow: var(--ab-fiche-shadow);
+		overflow: hidden;
+	}
+
+	.ab-fiche-bateau-accordion summary {
+		cursor: pointer;
+		padding: 1.1rem 1.5rem;
+		font-weight: 700;
+		letter-spacing: 0.5px;
+		color: var(--ab-fiche-primary);
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.ab-fiche-bateau-accordion summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.ab-fiche-bateau-accordion summary::after {
+		content: '›';
+		rotate: -90deg;
+		transition: transform 0.2s ease;
+	}
+	.ab-fiche-bateau-accordion summary:focus {
+		outline-style:none;
+	}
+
+	.ab-fiche-bateau-accordion[open] summary::after {
+		transform: rotate(180deg);
+	}
+
+	.ab-fiche-bateau-accordion-content {
+		padding: 0 1.5rem 1.5rem;
+		color: #444;
+		line-height: 1.7;
+	}
+
+	.ab-fiche-bateau-equip-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.75rem 2rem;
+	}
+
+	.ab-fiche-bateau-equip-item {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		font-weight: 400;
+		color: #1d1d1b;
+		font-size: 1.2rem;
+
+
+	}
+
+	.ab-fiche-bateau-equip-check {
+		color: var(--ab-fiche-primary);
+		font-weight: 700;
+		width: 1.2em;
+		display: inline-block;
+	}
+
+	.ab-fiche-bateau-gallery .gallery {
+		display: grid !important;
+		grid-template-columns: repeat(3, 1fr) !important;
+		gap: 1rem !important;
+	}
+
+	.ab-fiche-bateau-gallery .gallery-item {
+		width: auto !important;
+		margin: 0 !important;
+		float: none !important;
+	}
+
+	.ab-fiche-bateau-gallery .gallery-item img {
+		width: 100% !important;
+		height: 100% !important;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: 0;
+		display: block;
+	}
+
+	.ab-fiche-bateau-gallery .gallery-caption {
+		display: none;
+	}
+
+	.ab-fiche-bateau-gallery .gallery-item a {
+		cursor: zoom-in;
+	}
+
+	.ab-fiche-bateau-lightbox {
+		display: none;
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.9);
+		z-index: 9999;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.ab-fiche-bateau-lightbox.is-open {
+		display: flex;
+	}
+
+	.ab-fiche-bateau-lightbox-img {
+		max-width: 88vw;
+		max-height: 85vh;
+		object-fit: contain;
+		border-radius: 4px;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+	}
+
+	.ab-fiche-bateau-lightbox-close,
+	.ab-fiche-bateau-lightbox-prev,
+	.ab-fiche-bateau-lightbox-next {
+		position: absolute;
+		background: none;
+		border: none;
+		color: #fff;
+		cursor: pointer;
+		line-height: 1;
+		padding: 0.5rem 1rem;
+	}
+
+	.ab-fiche-bateau-lightbox-close {
+		top: 1.25rem;
+		right: 1.5rem;
+		font-size: 2rem;
+	}
+
+	.ab-fiche-bateau-lightbox-prev,
+	.ab-fiche-bateau-lightbox-next {
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 3rem;
+	}
+
+	.ab-fiche-bateau-lightbox-prev {
+		left: 1rem;
+	}
+
+	.ab-fiche-bateau-lightbox-next {
+		right: 1rem;
+	}
+
+	@media (max-width: 768px) {
+		.ab-fiche-bateau-top {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.ab-fiche-bateau-broker {
+			justify-self: start;
+		}
+
+		.ab-fiche-bateau-equip-grid,
+		.ab-fiche-bateau-gallery .gallery {
+			grid-template-columns: repeat(2, 1fr) !important;
+		}
+
+		.ab-fiche-bateau-hero {
+			height: 260px;
+		}
+	}

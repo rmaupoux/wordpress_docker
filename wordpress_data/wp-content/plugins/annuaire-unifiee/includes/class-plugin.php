@@ -43,8 +43,17 @@ class Annuaire_Unifiee {
 		);
 	}
 
+	/**
+	 * Fiche bateau : le contenu ne passe pas par des shortcodes mais par un
+	 * bloc Pods rendu via le template FSE, donc page_utilise_shortcodes()
+	 * (basée sur $post->post_content) ne le détecte pas.
+	 */
+	private function page_est_fiche_bateau() {
+		return is_singular( 'annuaire_bateau' );
+	}
+
 	public function enqueue_assets() {
-		if ( ! $this->page_utilise_shortcodes() ) {
+		if ( ! $this->page_utilise_shortcodes() && ! $this->page_est_fiche_bateau() ) {
 			return;
 		}
 
