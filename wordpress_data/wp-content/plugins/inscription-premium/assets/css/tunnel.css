@@ -1,0 +1,538 @@
+/* Inscription Premium — charte graphique tunnel & auth */
+
+:root {
+	--ip-navy: #1c2b4a;
+	--ip-navy-light: #2c3e63;
+	--ip-bg: #e8e6e1;
+	--ip-card-bg: #ffffff;
+	--ip-label-bg: #dfe3ea;
+	--ip-border: #c7c7c2;
+	--ip-text: #2a2a2a;
+	--ip-success: #2e7d32;
+	--ip-warning: #b26a00;
+	--ip-danger: #b3261e;
+}
+
+.ip-auth-wrapper,
+.ip-tunnel-step,
+.ip-plans-grid,
+.ip-tunnel-gate,
+.ip-stepper {
+	box-sizing: border-box;
+}
+
+.ip-auth-wrapper *,
+.ip-tunnel-step *,
+.ip-plans-grid * {
+	box-sizing: border-box;
+}
+
+/* Layout général */
+.ip-auth-wrapper,
+.ip-tunnel-step {
+	background: var(--ip-bg);
+	padding: 32px;
+	border-radius: 8px;
+	color: var(--ip-text);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.ip-step-title {
+	text-align: center;
+	color: var(--ip-navy);
+	text-transform: uppercase;
+	font-weight: 300;
+	letter-spacing: 1px;
+	font-size: 22px;
+	margin-bottom: 8px;
+}
+
+.ip-step-subtitle {
+	text-align: center;
+	color: #555;
+	margin-bottom: 24px;
+}
+
+/* Stepper réutilisable */
+.ip-stepper {
+	display: flex;
+	list-style: none;
+	margin: 0 0 24px;
+	padding: 0;
+	counter-reset: none;
+}
+
+.ip-stepper-item {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	text-align: center;
+}
+
+.ip-stepper-item:not(:last-child)::after {
+	content: "";
+	position: absolute;
+	top: 16px;
+	left: 50%;
+	width: 100%;
+	height: 2px;
+	background: var(--ip-border);
+	z-index: 0;
+}
+
+.ip-stepper-item.ip-stepper-complete:not(:last-child)::after {
+	background: var(--ip-navy);
+}
+
+.ip-stepper-circle {
+	position: relative;
+	z-index: 1;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+	background: #fff;
+	border: 2px solid var(--ip-border);
+	color: #888;
+}
+
+.ip-stepper-active .ip-stepper-circle,
+.ip-stepper-complete .ip-stepper-circle {
+	background: var(--ip-navy);
+	border-color: var(--ip-navy);
+	color: #fff;
+}
+
+.ip-stepper-label {
+	margin-top: 6px;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: #666;
+}
+
+.ip-stepper-active .ip-stepper-label {
+	color: var(--ip-navy);
+	font-weight: 600;
+}
+
+.ip-tunnel-return {
+	margin-bottom: 24px;
+	display: inline-block;
+}
+
+/* Boutons */
+.ip-btn {
+	display: inline-block;
+	padding: 12px 24px;
+	border-radius: 6px;
+	font-weight: 600;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.ip-btn-primary {
+	background: var(--ip-navy);
+	color: #fff;
+}
+
+.ip-btn-primary:hover {
+	background: var(--ip-navy-light);
+	color: #fff;
+}
+
+.ip-btn-primary:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.ip-btn-secondary {
+	background: transparent;
+	color: var(--ip-navy);
+	border: 1px solid var(--ip-navy);
+}
+
+.ip-step-actions {
+	margin-top: 24px;
+	text-align: center;
+}
+
+/* Cartes de type (étape 1) */
+.ip-type-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 16px;
+}
+
+.ip-type-card {
+	background: var(--ip-card-bg);
+	border: 2px solid transparent;
+	border-radius: 8px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+	cursor: pointer;
+	overflow: hidden;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.ip-type-card-icon {
+	padding: 28px 0 16px;
+	color: var(--ip-navy);
+}
+
+.ip-type-card-label {
+	width: 100%;
+	background: var(--ip-label-bg);
+	color: var(--ip-navy);
+	padding: 10px;
+	font-weight: 600;
+	text-align: center;
+}
+
+.ip-type-card.is-selected {
+	border-color: var(--ip-navy);
+}
+
+/* Formulaires */
+.ip-spec-form fieldset,
+.ip-radio-group {
+	background: var(--ip-card-bg);
+	border: none;
+	border-radius: 8px;
+	padding: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.ip-spec-form legend,
+.ip-radio-group legend {
+	font-weight: 700;
+	color: var(--ip-navy);
+	text-transform: uppercase;
+	font-size: 13px;
+	letter-spacing: 0.5px;
+	padding: 0 6px;
+}
+
+.ip-spec-form label {
+	display: block;
+	margin-bottom: 14px;
+	font-size: 13px;
+	color: #444;
+}
+
+.ip-spec-form input,
+.ip-spec-form select {
+	display: block;
+	width: 100%;
+	margin-top: 4px;
+	padding: 8px 10px;
+	border: 1px solid var(--ip-border);
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+.ip-radio-group label {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-right: 20px;
+	font-weight: normal;
+}
+
+/* Photos (étape 3) */
+.ip-photo-dropzone {
+	border: 2px dashed var(--ip-border);
+	border-radius: 8px;
+	padding: 40px;
+	text-align: center;
+	background: var(--ip-card-bg);
+	cursor: pointer;
+}
+
+.ip-photo-dropzone.is-dragover {
+	border-color: var(--ip-navy);
+	background: var(--ip-label-bg);
+}
+
+.ip-photo-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+	gap: 12px;
+	margin-top: 20px;
+}
+
+.ip-photo-item {
+	position: relative;
+	border-radius: 6px;
+	overflow: hidden;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.ip-photo-item img {
+	width: 100%;
+	height: 100px;
+	object-fit: cover;
+	display: block;
+}
+
+.ip-photo-item .ip-photo-remove {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	border: none;
+	border-radius: 50%;
+	width: 22px;
+	height: 22px;
+	cursor: pointer;
+	line-height: 1;
+}
+
+.ip-photo-item.is-cover::before {
+	content: "Cover";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: var(--ip-navy);
+	color: #fff;
+	font-size: 10px;
+	text-align: center;
+	padding: 2px 0;
+}
+
+/* Récap & durée (étape 4) */
+.ip-listing-summary {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	background: var(--ip-card-bg);
+	border-radius: 8px;
+	padding: 16px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+	margin-bottom: 24px;
+}
+
+.ip-listing-summary-photo {
+	width: 120px;
+	height: 90px;
+	object-fit: cover;
+	border-radius: 6px;
+}
+
+.ip-listing-summary-price {
+	font-weight: 700;
+	color: var(--ip-navy);
+}
+
+.ip-duration-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 16px;
+	margin-bottom: 20px;
+}
+
+.ip-duration-card {
+	position: relative;
+	background: var(--ip-card-bg);
+	border: 2px solid transparent;
+	border-radius: 8px;
+	padding: 20px;
+	text-align: center;
+	cursor: pointer;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.ip-duration-card input {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.ip-duration-card.is-recommended {
+	border-color: var(--ip-navy);
+}
+
+.ip-duration-days {
+	display: block;
+	font-weight: 700;
+	color: var(--ip-navy);
+	margin-top: 12px;
+}
+
+.ip-duration-price {
+	display: block;
+	margin-top: 6px;
+	font-size: 18px;
+}
+
+.ip-addon-checkbox {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background: var(--ip-card-bg);
+	padding: 14px 18px;
+	border-radius: 8px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Paiement (étape 5) */
+.ip-payment-summary {
+	background: var(--ip-card-bg);
+	border-radius: 8px;
+	padding: 20px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+	margin-bottom: 20px;
+}
+
+.ip-payment-total {
+	font-size: 20px;
+	font-weight: 700;
+	color: var(--ip-navy);
+}
+
+/* Badges */
+.ip-badge {
+	display: inline-block;
+	padding: 3px 10px;
+	border-radius: 12px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.ip-badge-success { background: #e3f3e4; color: var(--ip-success); }
+.ip-badge-warning { background: #fdf0dc; color: var(--ip-warning); }
+.ip-badge-danger { background: #fbe4e2; color: var(--ip-danger); }
+.ip-badge-neutral { background: #e6e6e6; color: #555; }
+.ip-badge-active { background: var(--ip-navy); color: #fff; padding: 6px 14px; border-radius: 20px; }
+.ip-badge-recommended {
+	position: absolute;
+	top: -10px;
+	right: 10px;
+	background: var(--ip-navy);
+	color: #fff;
+	padding: 2px 10px;
+	border-radius: 10px;
+	font-size: 10px;
+}
+
+/* Notices / erreurs */
+.ip-notice {
+	padding: 12px 16px;
+	border-radius: 6px;
+	margin-bottom: 16px;
+}
+
+.ip-notice-error,
+.ip-form-error {
+	background: #fbe4e2;
+	color: var(--ip-danger);
+}
+
+.ip-notice-success {
+	background: #e3f3e4;
+	color: var(--ip-success);
+}
+
+.ip-form-error {
+	padding: 10px 14px;
+	border-radius: 6px;
+	text-align: center;
+}
+
+/* Auth */
+.ip-auth-tabs {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 20px;
+	justify-content: center;
+}
+
+.ip-auth-tab {
+	background: transparent;
+	border: none;
+	padding: 8px 16px;
+	cursor: pointer;
+	color: var(--ip-navy);
+	font-weight: 600;
+	border-bottom: 2px solid transparent;
+}
+
+.ip-auth-tab.active {
+	border-bottom-color: var(--ip-navy);
+}
+
+.ip-auth-form {
+	max-width: 420px;
+	margin: 0 auto;
+	background: var(--ip-card-bg);
+	padding: 24px;
+	border-radius: 8px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.ip-auth-form label {
+	display: block;
+	margin-bottom: 14px;
+	font-size: 13px;
+	color: #444;
+}
+
+.ip-auth-form input {
+	display: block;
+	width: 100%;
+	margin-top: 4px;
+	padding: 8px 10px;
+	border: 1px solid var(--ip-border);
+	border-radius: 4px;
+}
+
+/* Plans d'abonnement */
+.ip-plans-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 20px;
+}
+
+.ip-plan-card {
+	background: var(--ip-card-bg);
+	border-radius: 8px;
+	padding: 24px;
+	text-align: center;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.ip-plan-card h3 {
+	color: var(--ip-navy);
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+.ip-plan-price {
+	font-size: 28px;
+	font-weight: 700;
+	color: var(--ip-navy);
+	margin: 8px 0;
+}
+
+.ip-plan-current {
+	border: 2px solid var(--ip-navy);
+}
+
+.ip-tunnel-gate {
+	background: var(--ip-card-bg);
+	padding: 40px;
+	text-align: center;
+	border-radius: 8px;
+}
