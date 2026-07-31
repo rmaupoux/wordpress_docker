@@ -1,0 +1,46 @@
+/* Inscription Premium — back-office */
+
+.ip-admin-subscribers .ip-badge,
+.ip-admin-subscriber-edit .ip-badge {
+	display: inline-block;
+	padding: 3px 10px;
+	border-radius: 12px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.ip-badge-success { background: #e3f3e4; color: #2e7d32; }
+.ip-badge-warning { background: #fdf0dc; color: #b26a00; }
+.ip-badge-danger { background: #fbe4e2; color: #b3261e; }
+.ip-badge-neutral { background: #e6e6e6; color: #555; }
+
+.ip-danger-link {
+	color: #b3261e;
+}
+
+.ip-subtle {
+	color: #777;
+	font-size: 12px;
+}
+
+.ip-edit-columns {
+	display: grid;
+	grid-template-columns: 1fr 1.4fr;
+	gap: 24px;
+	align-items: start;
+	margin-top: 16px;
+}
+
+.ip-edit-form,
+.ip-edit-history {
+	background: #fff;
+	padding: 20px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+@media (max-width: 900px) {
+	.ip-edit-columns {
+		grid-template-columns: 1fr;
+	}
+}
