@@ -53,11 +53,15 @@ function am_formater_contacts( $posts ) {
 			}
 		}
 
+		$termes_type = get_the_terms( $post->ID, AM_TAXONOMIE_TYPE );
+		$type_label  = ( ! empty( $termes_type ) && ! is_wp_error( $termes_type ) ) ? $termes_type[0]->name : '';
+
 		$resultats[] = array(
 			'id'        => $post->ID,
 			'nom'       => get_post_meta( $post->ID, 'nom', true ),
 			'prenom'    => get_post_meta( $post->ID, 'prenom', true ),
 			'telephone' => get_post_meta( $post->ID, 'telephone', true ),
+			'type'      => $type_label,
 			'pays'      => array_values( $pays ),
 			'lien'      => get_permalink( $post->ID ),
 		);

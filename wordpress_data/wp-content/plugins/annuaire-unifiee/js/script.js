@@ -270,7 +270,7 @@
 			types.forEach(type => {
 				const opt = document.createElement('option');
 				opt.value = type.slug;
-				opt.textContent = type.label + ' (' + type.count + ')';
+				opt.textContent = type.label;
 				typeSelect.appendChild(opt);
 			});
 
@@ -634,30 +634,49 @@
 		return flag;
 	}
 
-	/* ---- Fabrique une ligne de contact (drapeau + nom + téléphone) ---- */
+	/* ---- Fabrique une ligne de contact (drapeau + nom / type / bouton message) ---- */
 	function creerLigneContact(c) {
 		var li = document.createElement('li');
 		var a  = document.createElement('a');
 		a.href = c.lien;
 
-		// Drapeau(x) avant le nom
+		// Colonne 1 : drapeau(x) + nom
+		var colContact = document.createElement('span');
+		colContact.className = 'am-col am-col-contact';
+
 		if (Array.isArray(c.pays)) {
 			c.pays.forEach(function (p) {
-				a.appendChild(creerDrapeau(p));
+				colContact.appendChild(creerDrapeau(p));
 			});
 		}
 
 		var titre = document.createElement('strong');
 		titre.textContent = (c.prenom + ' ' + c.nom).trim();
-		a.appendChild(titre);
+		colContact.appendChild(titre);
 
-		if (c.telephone) {
+		a.appendChild(colContact);
+
+		// Colonne 2 : type de contact
+		var colType = document.createElement('span');
+		colType.className = 'am-col am-col-type';
+		if (c.type) {
 			var detail = document.createElement('span');
 			detail.className = 'am-detail';
-			detail.textContent = c.telephone;
-			a.appendChild(document.createElement('br'));
-			a.appendChild(detail);
+			detail.textContent = c.type;
+			colType.appendChild(detail);
 		}
+		a.appendChild(colType);
+
+		// Colonne 3 : faux bouton "Send message"
+		var colCta = document.createElement('span');
+		colCta.className = 'am-col am-col-cta';
+
+		var bouton = document.createElement('span');
+		bouton.className = 'am-send-btn';
+		bouton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><path d="M6 9L12 13l6-4"></path></svg><span>Send message</span>';
+		colCta.appendChild(bouton);
+
+		a.appendChild(colCta);
 
 		li.appendChild(a);
 		return li;

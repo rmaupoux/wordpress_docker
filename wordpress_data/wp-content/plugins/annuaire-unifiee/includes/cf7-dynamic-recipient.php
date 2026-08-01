@@ -45,6 +45,46 @@ add_filter( 'wpcf7_form_hidden_fields', function ( $fields ) {
 } );
 
 /**
+ * Rendu du formulaire de contact de la fiche annuaire maritime (Contact Form 7),
+ * appelé comme helper depuis le Pods Template via {@ID,annuaire_maritime_render_cf7_form}.
+ *
+ * Le destinataire est fixe (maupouxmarius@gmail.com, voir le formulaire CF7
+ * #2059), contrairement au formulaire bateau dont le destinataire est
+ * dynamique.
+ */
+function annuaire_maritime_render_cf7_form() {
+	return do_shortcode( '[contact-form-7 id="2059" title="Annuaire maritime - Formulaire de contact"]' );
+}
+
+add_filter( 'pods_helper_allowed_callbacks', function ( $allowed ) {
+	$allowed[] = 'annuaire_maritime_render_cf7_form';
+
+	return $allowed;
+} );
+
+/**
+ * Ajoute au formulaire de contact de la fiche annuaire maritime des champs
+ * cachés permettant d'identifier, dans le mail envoyé à
+ * maupouxmarius@gmail.com, sur quelle fiche (nom + URL) le message a été
+ * envoyé ainsi que l'adresse email de la personne affichée sur cette fiche.
+ */
+add_filter( 'wpcf7_form_hidden_fields', function ( $fields ) {
+	$post_id = get_the_ID();
+
+	if ( ! $post_id || 'annuaire_maritime' !== get_post_type( $post_id ) ) {
+		return $fields;
+	}
+
+	$contact = pods( 'annuaire_maritime', $post_id );
+
+	$fields['maritime_contact_name']  = trim( $contact->field( 'prenom' ) . ' ' . $contact->field( 'nom' ) );
+	$fields['maritime_contact_url']   = get_permalink( $post_id );
+	$fields['maritime_contact_email'] = $contact->field( 'email' );
+
+	return $fields;
+} );
+
+/**
  * En local (Docker sans accès internet sortant), la vérification serveur du
  * reCAPTCHA global de CF7 échoue systématiquement (impossible de joindre
  * l'API Google), ce qui marque à tort tous les envois comme spam.
