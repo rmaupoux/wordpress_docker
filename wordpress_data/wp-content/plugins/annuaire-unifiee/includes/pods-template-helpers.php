@@ -28,6 +28,28 @@ add_filter( 'pods_helper_allowed_callbacks', function ( $allowed ) {
 } );
 
 /**
+ * Affiche le nombre de places d'amarrage ("docking") de la fiche annuaire
+ * maritime, uniquement si le champ est strictement positif.
+ *
+ * Appelé comme helper de magic tag Pods : {@docking,annuaire_maritime_docking_label}.
+ */
+function annuaire_maritime_docking_label( $value ) {
+	$docking = (int) $value;
+
+	if ( $docking <= 0 ) {
+		return '';
+	}
+
+	return sprintf( 'Number of berth: %d', $docking );
+}
+
+add_filter( 'pods_helper_allowed_callbacks', function ( $allowed ) {
+	$allowed[] = 'annuaire_maritime_docking_label';
+
+	return $allowed;
+} );
+
+/**
  * Génère un accordéon par groupe de champs Pods du pod "annuaire_bateau"
  * (sauf le groupe technique "Plus de champs"), contenant les champs
  * Yes/No cochés du groupe.
@@ -130,6 +152,28 @@ function annuaire_maritime_boat_count( $id ) {
 
 add_filter( 'pods_helper_allowed_callbacks', function ( $allowed ) {
 	$allowed[] = 'annuaire_maritime_boat_count';
+
+	return $allowed;
+} );
+
+/**
+ * Affiche le nombre de bateaux de la fiche annuaire maritime, uniquement si
+ * strictement positif.
+ *
+ * Appelé comme helper de magic tag Pods : {@ID,annuaire_maritime_boat_count_label}.
+ */
+function annuaire_maritime_boat_count_label( $id ) {
+	$count = annuaire_maritime_boat_count( $id );
+
+	if ( $count <= 0 ) {
+		return '';
+	}
+
+	return sprintf( 'Listing boats: %d', $count );
+}
+
+add_filter( 'pods_helper_allowed_callbacks', function ( $allowed ) {
+	$allowed[] = 'annuaire_maritime_boat_count_label';
 
 	return $allowed;
 } );

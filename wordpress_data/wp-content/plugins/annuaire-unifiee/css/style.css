@@ -4,6 +4,25 @@
  * et annuaire-maritime-recherche (CHARTER)
  */
 
+	/* Annuaire maritime - fiche single (Pods Template "template1", post 1817) */
+	/* ------ VARIABLES ET RESET ------ */
+	:root {
+		--color-primary: #162d55;
+		--color-accent: #0039a6;
+		--color-light: #f8f9fa;
+		--color-dark: #000;
+		--color-border: #e5e5e5;
+		--color-text-secondary: #999;
+		--spacing-sm: 1rem;
+		--spacing-md: 2rem;
+		--spacing-lg: 3rem;
+		--spacing-xl: 4rem;
+		--radius-md: 12px;
+		--radius-lg: 24px;
+		--shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.06);
+		--shadow-med: 0 4px 16px rgba(0, 0, 0, 0.08);
+	}
+
 	/* ===== TABS ===== */
 	.entry-content.wp-block-post-content:has(.ab-tabs-container) {
 		width: 100%;
@@ -1418,26 +1437,6 @@
 		}
 	}
 
-
-	/* Annuaire maritime - fiche single (Pods Template "template1", post 1817) */
-	/* ------ VARIABLES ET RESET ------ */
-	:root {
-		--color-primary: #0052cc;
-		--color-accent: #0039a6;
-		--color-light: #f8f9fa;
-		--color-dark: #000;
-		--color-border: #e5e5e5;
-		--color-text-secondary: #999;
-		--spacing-sm: 1rem;
-		--spacing-md: 2rem;
-		--spacing-lg: 3rem;
-		--spacing-xl: 4rem;
-		--radius-md: 12px;
-		--radius-lg: 24px;
-		--shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.06);
-		--shadow-med: 0 4px 16px rgba(0, 0, 0, 0.08);
-	}
-
 	/* ------ CONTENEUR PRINCIPAL ------ */
 	.annuaire-hero {
 		background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
@@ -1462,8 +1461,8 @@
 
 	.annuaire-photo-wrapper {
 		position: relative;
-		width: 260px;
-		height: 360px;
+		width: 200px;
+		height: 200px;
 		border-radius: 32px;
 		overflow: hidden;
 		box-shadow: var(--shadow-med);
@@ -1499,7 +1498,7 @@
 	}
 
 	.annuaire-name {
-		font-size: 3rem;
+		font-size: 2.5rem;
 		font-weight: 700;
 		color: var(--color-dark);
 		margin: 0 0 0.5rem 0;
@@ -1508,8 +1507,8 @@
 	}
 
 	.annuaire-subtitle {
-		font-size: 1.5rem;
-		color: var(--color-text-secondary);
+		font-size: 1.2rem;
+		color: var(--color-dark);
 		margin: 0 0 0.75rem 0;
 		font-weight: 400;
 	}
@@ -1526,12 +1525,16 @@
 	.annuaire-listing-count {
 		font-size: 0.875rem;
 		color: var(--color-text-secondary);
-		margin: 0 0 var(--spacing-lg) 0;
+		margin: 0;
+		
+	}
+	.annuaire-listing-count:last-of-type {
+		margin-bottom: 1rem;
 	}
 
 	.annuaire-listing-count strong {
-		color: var(--color-dark);
-		font-weight: 600;
+		/*color: var(--color-dark);*/
+		font-weight: 400;
 	}
 
 	.annuaire-bio {
@@ -1596,31 +1599,7 @@
 		text-decoration: underline;
 	}
 
-	/* ------ STATS ------ */
-	.annuaire-stats {
-		display: none;
-		gap: var(--spacing-md);
-		margin-top: var(--spacing-md);
-	}
-
-	.annuaire-stat {
-		text-align: center;
-		flex: 1;
-		max-width: 120px;
-	}
-
-	.annuaire-stat-number {
-		font-size: 1.75rem;
-		font-weight: 700;
-		color: var(--color-primary);
-		margin: 0;
-	}
-
-	.annuaire-stat-label {
-		font-size: 0.875rem;
-		color: var(--color-text-secondary);
-		margin: 0.25rem 0 0 0;
-	}
+	
 
 	/* ------ COLONNE FORMULAIRE ------ */
 	.annuaire-form-section {
@@ -1702,9 +1681,9 @@
 
 	.annuaire-form-section input[type="submit"] {
 		align-self: flex-start;
-		padding: 0.85rem 1.75rem 0.85rem 2.75rem;
+		padding: 0.85rem 1.75rem 0.85rem 3.25rem;
 		background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%236b7280' d='M77.433,30.738c-0.311-0.539-0.92-0.833-1.537-0.733L23.63,38.382c-0.55,0.089-1.006,0.475-1.184,1.002c-0.179,0.527-0.05,1.11,0.335,1.514l11.241,11.799v15.817c0,0.629,0.392,1.19,0.981,1.407c0.17,0.063,0.345,0.093,0.519,0.093c0.431,0,0.852-0.187,1.142-0.527l6.305-7.398l4.249,4.46c0.283,0.298,0.677,0.466,1.086,0.466c0.019,0,0.038,0,0.057-0.001c0.43-0.017,0.832-0.217,1.104-0.55l27.829-34.029C77.688,31.954,77.743,31.278,77.433,30.738z M66.651,34.525l-31.08,15.45l-8.651-9.081L66.651,34.525z M37.022,64.441v-8.595l3.866,4.058L37.022,64.441z M48.218,63.25l-10.48-11.002l32.821-16.316L48.218,63.25z'/%3E%3C/svg%3E") no-repeat 1rem center;
-		background-size: 16px 16px;
+		background-size: 32px 32px;
 		color: #6b7280;
 		border: 1px solid var(--color-border);
 		border-radius: 5px;
@@ -1910,31 +1889,19 @@
 		}
 
 		.annuaire-name {
-			font-size: 1.875rem;
+			font-size: 2.5rem !important;
 		}
 
 		.annuaire-subtitle {
 			margin-bottom: 0.5rem;
 		}
 
-		.annuaire-listing-count {
-			margin-bottom: var(--spacing-md);
+		.annuaire-listing-count:last-of-type
+		 {
+			margin-bottom: 1rem;
 		}
 
-		.annuaire-contact-info {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			text-align: left;
-			border-bottom: 1px solid var(--color-border);
-		}
-
-		.annuaire-contact-item {
-			justify-content: center;
-		}
-
-		.annuaire-stats {
-			justify-content: center;
-		}
+	
 
 		.annuaire-form-section {
 			grid-column: auto;
@@ -1971,20 +1938,4 @@
 			font-size: 0.9rem;
 		}
 
-		.annuaire-contact-info {
-			grid-template-columns: 1fr;
-		}
-
-		.annuaire-contact-item {
-			justify-content: flex-start;
-		}
-
-		.annuaire-stats {
-			flex-direction: column;
-			align-items: stretch;
-		}
-
-		.annuaire-stat {
-			max-width: 100%;
-		}
 	}
