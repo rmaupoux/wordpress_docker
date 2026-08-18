@@ -428,7 +428,7 @@ function ab_formater_bateaux( $posts ) {
 		}
 
 		// Récupérer l'image à la une
-		$image_url = get_the_post_thumbnail_url( $post->ID, 'medium' );
+		$image_url = get_the_post_thumbnail_url( $post->ID, 'medium_large' );
 		if ( ! $image_url ) {
 			$image_url = get_the_post_thumbnail_url( $post->ID, 'full' );
 		}

@@ -219,7 +219,7 @@ function annuaire_maritime_boats_grid( $id ) {
 		$titre    = get_post_meta( $post->ID, 'model', true ) ?: $post->post_title;
 		$prix     = intval( get_post_meta( $post->ID, 'asking_price', true ) );
 		$localisation = get_post_meta( $post->ID, 'town', true ) ?: 'Location';
-		$image_url = get_the_post_thumbnail_url( $post->ID, 'medium' ) ?: get_the_post_thumbnail_url( $post->ID, 'full' );
+		$image_url = get_the_post_thumbnail_url( $post->ID, 'medium_large' ) ?: get_the_post_thumbnail_url( $post->ID, 'full' );
 
 		if ( ! $image_url ) {
 			$image_url = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23888' width='300' height='200'/%3E%3C/svg%3E";
@@ -308,7 +308,7 @@ function annuaire_bateau_featured_carousel( $id ) {
 			$titre        = get_post_meta( $post->ID, 'model', true ) ?: $post->post_title;
 			$prix         = intval( get_post_meta( $post->ID, 'asking_price', true ) );
 			$localisation = get_post_meta( $post->ID, 'town', true ) ?: 'Location';
-			$image_url    = get_the_post_thumbnail_url( $post->ID, 'medium' ) ?: get_the_post_thumbnail_url( $post->ID, 'full' );
+			$image_url    = get_the_post_thumbnail_url( $post->ID, 'medium_large' ) ?: get_the_post_thumbnail_url( $post->ID, 'full' );
 
 			if ( ! $image_url ) {
 				$image_url = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23888' width='300' height='200'/%3E%3C/svg%3E";

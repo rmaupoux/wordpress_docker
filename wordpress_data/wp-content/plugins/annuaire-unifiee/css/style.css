@@ -569,6 +569,7 @@
 		box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 	}
 
+
 	.ab-yacht-image {
 		width: 100%;
 		height: 12rem;
@@ -583,13 +584,13 @@
 	.ab-yacht-image img {
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
 		display: block;
+		object-fit: cover;
 		transition: transform 0.3s ease;
 	}
 
 	.ab-yacht-card:hover .ab-yacht-image img {
-		transform: scale(1.08);
+		transform: scale(1.04);
 	}
 
 	.ab-featured-badge {
@@ -1763,17 +1764,7 @@
 		position: relative;
 	}
 
-	.ab-yacht-image img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		display: block;
-		transition: transform 0.3s ease;
-	}
-
-	.ab-yacht-card:hover .ab-yacht-image img {
-		transform: scale(1.08);
-	}
+	
 
 	.ab-yacht-body {
 		padding: 1.5rem;
