@@ -1962,3 +1962,19 @@
 		white-space: nowrap;
 		width: max-content;
 	}
+
+	/* Le réglage de largeur du bouton dans l'éditeur (25% / 50% / 75% / 100%)
+	   ajoute une classe wp-block-button__width-* et une règle native WP plus
+	   spécifique que celle ci-dessus, qui fige le wrapper à cette largeur ET
+	   force le lien à width:100% dedans. Il faut neutraliser les deux
+	   ensemble, sinon le lien déborde du wrapper de façon asymétrique et le
+	   bouton n'est plus centré. */
+	.wp-block-buttons .wp-block-button[class*="wp-block-button__width-"] {
+		width: max-content !important;
+		max-width: 100%;
+	}
+
+	.wp-block-buttons .wp-block-button[class*="wp-block-button__width-"] .wp-block-button__link {
+		width: max-content !important;
+		max-width: 100%;
+	}
