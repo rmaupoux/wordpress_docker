@@ -387,6 +387,7 @@
 		currentPage = page;
 		// Recharger avec les filtres actuels
 		chargerAvecFiltres(currentFilters, page);
+		resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	}
 
 	function afficherMessage(texte) {

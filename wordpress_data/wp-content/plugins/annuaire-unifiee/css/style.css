@@ -503,6 +503,7 @@
 	.ab-results-section {
 		background: #dbd8d2;
 		padding: 1rem 1rem;
+		scroll-margin-top: 2rem;
 	}
 
 	.ab-results-header {
@@ -1260,9 +1261,31 @@
 	}
 	.ab-fiche-bateau-specs-box--white {
 		background: #fff;
-		
+
 		box-shadow: var(--ab-fiche-shadow);
 
+	}
+
+	#ab-fiche-bateau-engine-specs {
+		scroll-margin-top: 2rem;
+		margin-top: 3rem;
+	}
+
+	.ab-fiche-bateau-engine-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		margin-top: 2.25rem;
+		color: var(--ab-fiche-text-secondary);
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		font-size: 0.8rem;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	.ab-fiche-bateau-engine-link:hover {
+		color: var(--ab-fiche-primary);
 	}
 
 	.ab-fiche-bateau-specs-title {
