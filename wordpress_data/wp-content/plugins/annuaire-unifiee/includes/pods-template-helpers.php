@@ -119,6 +119,67 @@ add_filter( 'pods_helper_allowed_callbacks', function ( $allowed ) {
 } );
 
 /**
+ * Génère la liste des champs (label/valeur) du groupe Pods "Engine" du pod
+ * "annuaire_bateau", un <li> par champ renseigné (style .ab-fiche-bateau-specs).
+ *
+ * Appelé comme helper de magic tag Pods : {@ID,annuaire_bateau_engine_specs}.
+ * Comme pour annuaire_bateau_equipment_accordions, la structure est lue
+ * directement depuis Pods : ajouter un champ au groupe "Engine" dans l'admin
+ * Pods suffit à le faire apparaître ici, sans toucher au template.
+ */
+function annuaire_bateau_engine_specs( $id ) {
+	$id = (int) $id;
+
+	if ( ! $id ) {
+		return '';
+	}
+
+	$pod_data = pods_api()->load_pod( array( 'name' => 'annuaire_bateau' ) );
+
+	if ( empty( $pod_data['groups'] ) ) {
+		return '';
+	}
+
+	$engine_group = null;
+
+	foreach ( $pod_data['groups'] as $group ) {
+		if ( 'engine' === $group['name'] ) {
+			$engine_group = $group;
+			break;
+		}
+	}
+
+	if ( ! $engine_group ) {
+		return '';
+	}
+
+	$bateau = pods( 'annuaire_bateau', $id );
+	$items  = '';
+
+	foreach ( $engine_group['fields'] as $field ) {
+		$value = $bateau->display( $field['name'] );
+
+		if ( '' === $value || null === $value ) {
+			continue;
+		}
+
+		$items .= sprintf(
+			'<li><span class="ab-fiche-bateau-specs-label">%s</span><span class="ab-fiche-bateau-specs-value">%s</span></li>',
+			esc_html( $field['label'] ),
+			esc_html( $value )
+		);
+	}
+
+	return $items;
+}
+
+add_filter( 'pods_helper_allowed_callbacks', function ( $allowed ) {
+	$allowed[] = 'annuaire_bateau_engine_specs';
+
+	return $allowed;
+} );
+
+/**
  * Compte les fiches "annuaire_bateau" publiées dont le champ Relationship
  * contact_assoc pointe vers la fiche "annuaire_maritime" $id.
  *

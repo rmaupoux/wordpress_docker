@@ -1258,6 +1258,12 @@
 		padding: 2rem;
 		margin-bottom: 2.5rem;
 	}
+	.ab-fiche-bateau-specs-box--white {
+		background: #fff;
+		
+		box-shadow: var(--ab-fiche-shadow);
+
+	}
 
 	.ab-fiche-bateau-specs-title {
 		font-size: 1.4rem;
@@ -1419,6 +1425,17 @@
 	}
 
 	@media (max-width: 768px) {
+		.card-charter .wp-block-image {
+			margin-bottom: 2rem;
+		}
+		.card-charter > p:last-of-type {
+    		bottom: 4.5rem;
+		}
+		.wp-block-latest-posts.is-grid li {
+			margin: 0 1.25em 1.25em 1.25rem;
+			width: 100%;
+		}
+
 		.ab-fiche-bateau-top {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
@@ -1929,4 +1946,18 @@
 			font-size: 0.9rem;
 		}
 
+	}
+
+	/* ===== FIX SAFARI : boutons WP natifs (ex. "More destinations") qui
+	   passent en texte vertical caractère par caractère. Safari calcule mal
+	   la largeur intrinsèque d'un lien texte dans un conteneur flex
+	   (.wp-block-buttons), sans ce correctif il rétrécit le bouton jusqu'à
+	   forcer un retour à la ligne sur chaque caractère. ===== */
+	.wp-block-buttons .wp-block-button {
+		flex: none;
+		width: max-content;
+	}
+
+	.wp-block-buttons .wp-block-button__link {
+		white-space: nowrap;
 	}

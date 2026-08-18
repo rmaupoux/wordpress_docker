@@ -327,12 +327,12 @@
 		}
 
 		if (!Array.isArray(bateaux) || bateaux.length === 0) {
-			afficherMessage('Aucun bateau trouvé.');
+			afficherMessage('No boat found.');
 			paginationContainer.hidden = true;
 			return;
 		}
 
-		afficherMessage((pagination ? pagination.total : bateaux.length) + ' bateau' + ((pagination ? pagination.total : bateaux.length) > 1 ? 'x' : '') + ' trouvé(s)');
+		afficherMessage((pagination ? pagination.total : bateaux.length) + ' boat' + ((pagination ? pagination.total : bateaux.length) > 1 ? 's' : '') + ' found');
 
 		bateaux.forEach(bateau => {
 			resultsGrid.appendChild(creerCarteBateau(bateau, !!bateau.a_la_une));
@@ -358,7 +358,7 @@
 
 		// Bouton Précédent
 		const prevBtn = document.createElement('button');
-		prevBtn.textContent = '← Précédent';
+		prevBtn.textContent = '← Previous';
 		prevBtn.disabled = pagination.page === 1;
 		prevBtn.addEventListener('click', () => chargerPage(pagination.page - 1));
 		paginationContainer.appendChild(prevBtn);
@@ -377,7 +377,7 @@
 
 		// Bouton Suivant
 		const nextBtn = document.createElement('button');
-		nextBtn.textContent = 'Suivant →';
+		nextBtn.textContent = 'Next →';
 		nextBtn.disabled = pagination.page === pagination.total_pages;
 		nextBtn.addEventListener('click', () => chargerPage(pagination.page + 1));
 		paginationContainer.appendChild(nextBtn);
