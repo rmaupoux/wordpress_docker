@@ -1955,9 +1955,10 @@
 	   forcer un retour à la ligne sur chaque caractère. ===== */
 	.wp-block-buttons .wp-block-button {
 		flex: none;
-		width: max-content;
 	}
 
 	.wp-block-buttons .wp-block-button__link {
+		display: inline-block;
 		white-space: nowrap;
+		width: max-content;
 	}
