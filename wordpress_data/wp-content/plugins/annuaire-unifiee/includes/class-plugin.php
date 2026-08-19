@@ -53,8 +53,21 @@ class Annuaire_Unifiee {
 		return is_singular( 'annuaire_bateau' ) || is_singular( 'annuaire_maritime' );
 	}
 
+	/**
+	 * Archive de la taxonomie "type_de_bateau" (ex: /type-de-bateau/motor-yacht/) :
+	 * affiche la grille [annuaire_bateaux_par_type] via un bloc Shortcode sur le
+	 * template FSE, sans le formulaire de recherche — seul le CSS est chargé
+	 * (voir enqueue_assets, même raison que page_est_fiche_singuliere : script.js
+	 * suppose la présence du formulaire de recherche, absent ici).
+	 */
+	private function page_est_archive_type_bateau() {
+		return is_tax( AB_TAXONOMIE_TYPE );
+	}
+
 	public function enqueue_assets() {
-		if ( ! $this->page_utilise_shortcodes() && ! $this->page_est_fiche_singuliere() ) {
+		$utilise_recherche = $this->page_utilise_shortcodes() || $this->page_est_fiche_singuliere();
+
+		if ( ! $utilise_recherche && ! $this->page_est_archive_type_bateau() ) {
 			return;
 		}
 
@@ -64,6 +77,10 @@ class Annuaire_Unifiee {
 			[],
 			ANNUAIRE_UNIFIEE_VERSION
 		);
+
+		if ( ! $utilise_recherche ) {
+			return;
+		}
 
 		wp_enqueue_script(
 			'annuaire-unifiee-script',

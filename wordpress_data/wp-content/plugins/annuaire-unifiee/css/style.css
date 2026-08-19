@@ -674,6 +674,7 @@
 	}
 
 	.ab-pagination button,
+	.ab-pagination a,
 	.ab-pagination span {
 		padding: 0.5rem 0.75rem;
 		border: 1px solid #d1d5db;
@@ -682,13 +683,16 @@
 		cursor: pointer;
 		font-size: 0.875rem;
 		transition: all 0.2s;
+		text-decoration: none;
 	}
 
-	.ab-pagination button {
+	.ab-pagination button,
+	.ab-pagination a {
 		color: #162d55;
 	}
 
-	.ab-pagination button:hover:not(:disabled) {
+	.ab-pagination button:hover:not(:disabled),
+	.ab-pagination a:hover {
 		background: #f3f4f6;
 		border-color: #162d55;
 	}
@@ -698,7 +702,8 @@
 		cursor: not-allowed;
 	}
 
-	.ab-pagination .active {
+	.ab-pagination .active,
+	.ab-pagination .current {
 		background: #162d55;
 		color: white;
 		border-color: #162d55;
@@ -728,6 +733,67 @@
 		color: #162d55;
 	}
 
+	/* ===== ARCHIVE TYPE DE BATEAU (Pods Template taxonomie type_de_bateau) ===== */
+	.ab-type-archive {
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: 3rem 2rem;
+	}
+
+	.ab-type-archive-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #1d1d1b;
+		margin: 0 0 2rem;
+		letter-spacing: -0.5px;
+	}
+
+	.ab-type-archive-intro {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 3rem;
+		align-items: start;
+		margin-bottom: 3.5rem;
+	}
+
+	.ab-type-archive-image {
+		aspect-ratio: 4 / 3;
+		background: #f1eeec;
+		border-radius: 0.5rem;
+		overflow: hidden;
+	}
+
+	.ab-type-archive-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.ab-type-archive-description {
+		font-size: 1rem;
+		line-height: 1.7;
+		color: #333;
+	}
+
+	.ab-type-archive-description p:first-child {
+		margin-top: 0;
+	}
+
+	/* Grille de bateaux du type consulté (voir includes/pods-template-helpers.php
+	   / includes/shortcodes/bateaux.php) : mêmes classes .ab-results-grid /
+	   .ab-yacht-card que la grille de résultats de la page d'accueil, mais figée
+	   à 4 colonnes sur cette page pour coller au visuel du template. */
+	.ab-type-archive .ab-results-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	@media (max-width: 1024px) {
+		.ab-type-archive .ab-results-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
 	@media (max-width: 768px) {
 		.ab-search-inputs {
 			grid-template-columns: 1fr;
@@ -735,6 +801,20 @@
 
 		.ab-results-grid {
 			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		}
+
+		.ab-type-archive-intro {
+			grid-template-columns: 1fr;
+		}
+
+		.ab-type-archive .ab-results-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 480px) {
+		.ab-type-archive .ab-results-grid {
+			grid-template-columns: 1fr;
 		}
 	}
 

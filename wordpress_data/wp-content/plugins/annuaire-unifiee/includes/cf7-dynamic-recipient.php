@@ -102,3 +102,4 @@ if ( getenv( 'SMTP_HOST' ) ) {
 		return $spam;
 	}, 20, 2 );
 }
+

@@ -491,3 +491,62 @@ add_filter( 'pods_helper_allowed_callbacks', function ( $allowed ) {
 
 	return $allowed;
 } );
+
+/**
+ * Rend le shortcode [annuaire_bateaux_par_type] (grille + pagination des
+ * bateaux du type de bateau consulté, voir includes/shortcodes/bateaux.php),
+ * appelé comme helper de magic tag Pods depuis le Pods Template d'archive de
+ * la taxonomie "type_de_bateau" via {@ID,annuaire_bateau_type_archive_grid}.
+ *
+ * Les Pods Templates ne passent pas leur sortie dans do_shortcode(), donc le
+ * shortcode écrit directement dans le template ne serait jamais traité :
+ * même raison que annuaire_bateau_render_cf7_form (voir
+ * includes/cf7-dynamic-recipient.php).
+ */
+function annuaire_bateau_type_archive_grid() {
+	return do_shortcode( '[annuaire_bateaux_par_type]' );
+}
+
+add_filter( 'pods_helper_allowed_callbacks', function ( $allowed ) {
+	$allowed[] = 'annuaire_bateau_type_archive_grid';
+
+	return $allowed;
+} );
+
+/**
+ * Corrige le bloc "Pods Single Item" (pods/pods-block-single) utilisé sur les
+ * templates FSE d'archive de la taxonomie "type_de_bateau" (ex:
+ * taxonomy-type_de_bateau-motor-yacht), configuré avec le pod "type_de_bateau"
+ * et sans "Slug or ID" (donc en mode "current item").
+ *
+ * Sur une archive de taxonomie, WordPress fournit par défaut au bloc un
+ * contexte postType/postId basé sur le premier article de la requête
+ * principale (un bateau), pas sur le terme affiché. Le rendu PHP du bloc Pods
+ * (Item_Single::render(), voir pods/src/Pods/Blocks/Types/Item_Single.php)
+ * privilégie ce contexte quand il est présent : le pod chargé devient alors
+ * "annuaire_bateau" (le premier bateau du type) au lieu du terme
+ * "type_de_bateau" consulté, ce qui rend {@image_type_boat._img} et
+ * {@description_du_type_de_boat} vides (ces champs n'existent que sur le pod
+ * du terme) — et {@name} affiche le titre du bateau à la place du nom du
+ * type.
+ *
+ * On retire ce contexte postType/postId avant que le bloc ne s'en serve,
+ * pour ce bloc précis (pod "type_de_bateau", sans slug). Sans contexte, le
+ * bloc retombe sur son comportement "current item" normal, qui résout
+ * correctement le terme de taxonomie affiché via get_queried_object().
+ */
+add_filter( 'render_block_context', function ( $context, $parsed_block ) {
+	if ( 'pods/pods-block-single' !== ( $parsed_block['blockName'] ?? '' ) ) {
+		return $context;
+	}
+
+	$attrs = $parsed_block['attrs'] ?? [];
+	$name  = $attrs['name']['value'] ?? '';
+	$slug  = $attrs['slug'] ?? '';
+
+	if ( AB_TAXONOMIE_TYPE === $name && '' === $slug ) {
+		unset( $context['postType'], $context['postId'] );
+	}
+
+	return $context;
+}, 10, 2 );

@@ -223,3 +223,96 @@ add_shortcode( 'annuaire_bateaux_recherche', function () {
 	<?php
 	return ob_get_clean();
 } );
+
+/* -------------------------------------------------------------------------
+ * SHORTCODE : [annuaire_bateaux_par_type] — grille de bateaux du type
+ * consulté, à placer sur le template FSE d'archive de la taxonomie
+ * "type_de_bateau" (mêmes markup/classes que la grille de résultats de la
+ * page d'accueil : #ab-results-grid / .ab-yacht-card, voir plus haut et
+ * js/script.js).
+ * ---------------------------------------------------------------------- */
+
+add_shortcode( 'annuaire_bateaux_par_type', function () {
+	$terme = get_queried_object();
+
+	if ( ! ( $terme instanceof WP_Term ) || AB_TAXONOMIE_TYPE !== $terme->taxonomy ) {
+		return '';
+	}
+
+	$paged = max( 1, (int) ( get_query_var( 'paged' ) ?: get_query_var( 'page' ) ) );
+
+	$query = new WP_Query( array(
+		'post_type'      => AB_CPT_NAME,
+		'post_status'    => 'publish',
+		'posts_per_page' => 12,
+		'paged'          => $paged,
+		'orderby'        => 'title',
+		'order'          => 'ASC',
+		'tax_query'      => array(
+			array(
+				'taxonomy' => AB_TAXONOMIE_TYPE,
+				'field'    => 'term_id',
+				'terms'    => $terme->term_id,
+			),
+		),
+	) );
+
+	if ( ! $query->have_posts() ) {
+		return sprintf(
+			'<p class="ab-message">Aucun bateau disponible pour le type « %s » pour le moment.</p>',
+			esc_html( $terme->name )
+		);
+	}
+
+	$cards = '';
+
+	foreach ( $query->posts as $post ) {
+		$titre        = get_post_meta( $post->ID, 'model', true ) ?: $post->post_title;
+		$prix         = intval( get_post_meta( $post->ID, 'asking_price', true ) );
+		$localisation = get_post_meta( $post->ID, 'town', true ) ?: 'Location';
+		$image_url    = get_the_post_thumbnail_url( $post->ID, 'medium_large' ) ?: get_the_post_thumbnail_url( $post->ID, 'full' );
+
+		if ( ! $image_url ) {
+			$image_url = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23888' width='300' height='200'/%3E%3C/svg%3E";
+		}
+
+		$cards .= sprintf(
+			'<div class="ab-yacht-card">
+				<div class="ab-yacht-image">
+					<img src="%1$s" alt="%2$s">
+				</div>
+				<div class="ab-yacht-body">
+					<h3 class="ab-yacht-title">%2$s</h3>
+					<p class="ab-yacht-price">%3$s&nbsp;$</p>
+					<div class="ab-yacht-location">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+							<circle cx="12" cy="10" r="3"></circle>
+						</svg>
+						<span>%4$s</span>
+					</div>
+					<a href="%5$s" class="ab-yacht-btn">More Information</a>
+				</div>
+			</div>',
+			esc_url( $image_url ),
+			esc_html( $titre ),
+			esc_html( number_format_i18n( $prix ) ),
+			esc_html( $localisation ),
+			esc_url( get_permalink( $post->ID ) )
+		);
+	}
+
+	$liens_pagination = paginate_links( array(
+		'total'     => $query->max_num_pages,
+		'current'   => $paged,
+		'prev_text' => 'Previous',
+		'next_text' => 'Next',
+		'type'      => 'array',
+	) );
+
+	$pagination = $liens_pagination
+		? sprintf( '<div class="ab-pagination">%s</div>', implode( '', $liens_pagination ) )
+		: '';
+
+	return sprintf( '<div class="ab-results-grid">%s</div>%s', $cards, $pagination );
+} );
