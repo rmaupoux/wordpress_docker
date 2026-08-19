@@ -174,6 +174,7 @@ function ab_recherche_modeles( WP_REST_Request $request ) {
 		$resultats[] = array(
 			'id'    => (int) $row->ID,
 			'model' => $row->model,
+			'url'   => get_permalink( $row->ID ),
 		);
 	}
 

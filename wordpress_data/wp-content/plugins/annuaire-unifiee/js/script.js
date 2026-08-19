@@ -183,9 +183,8 @@
 			li.style.cssText = 'padding: 0.5rem; cursor: pointer; font-size: 0.875rem; border-bottom: 1px solid #eee;';
 			li.textContent = bateau.model;
 			li.addEventListener('click', () => {
-				searchInput.value = bateau.model;
 				modelesDropdown.style.display = 'none';
-				chargerBateauxParModele(bateau.model);
+				window.location.href = bateau.url;
 			});
 			li.addEventListener('mouseover', () => {
 				li.style.background = '#f3f4f6';
@@ -197,11 +196,6 @@
 		});
 
 		modelesDropdown.style.display = 'block';
-	}
-
-	function chargerBateauxParModele(model) {
-		currentFilters.model = model;
-		lancerRecherche(currentFilters, 1);
 	}
 
 	// Fermer la dropdown en cliquant ailleurs

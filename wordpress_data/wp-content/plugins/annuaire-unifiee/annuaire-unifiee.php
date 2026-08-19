@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Constantes du plugin
-define( 'ANNUAIRE_UNIFIEE_VERSION', '1.0.13' );
+define( 'ANNUAIRE_UNIFIEE_VERSION', '1.0.14' );
 define( 'ANNUAIRE_UNIFIEE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ANNUAIRE_UNIFIEE_URL', plugin_dir_url( __FILE__ ) );
 
