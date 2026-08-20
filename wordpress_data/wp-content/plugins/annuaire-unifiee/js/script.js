@@ -291,6 +291,14 @@
 	// Recherche au clic sur Search Yacht
 	searchBtn.addEventListener('click', function () {
 		featuredSection.hidden = true;
+
+		// asking_price est stocké en USD côté serveur (voir includes/endpoints/bateaux.php) :
+		// les champs prix sont saisis dans la devise sélectionnée (js/currency.js),
+		// donc on les reconvertit en USD avant l'appel REST.
+		const prixMin = parseFloat(document.getElementById('ab-price-min').value) || 0;
+		const prixMax = parseFloat(document.getElementById('ab-price-max').value) || 0;
+		const versUSD = (window.AbCurrency && window.AbCurrency.toUSD) || (v => v);
+
 		const filters = {
 			model:      searchInput.value.trim() || '',
 			type:       typeSelect.value || '',
@@ -298,8 +306,8 @@
 			length_max: parseFloat(document.getElementById('ab-length-max-select').value) || 0,
 			year_min:   parseInt(document.getElementById('ab-year-min').value) || 0,
 			year_max:   parseInt(document.getElementById('ab-year-max').value) || 0,
-			price_min:  parseInt(document.getElementById('ab-price-min').value) || 0,
-			price_max:  parseInt(document.getElementById('ab-price-max').value) || 0,
+			price_min:  prixMin ? Math.round(versUSD(prixMin)) : 0,
+			price_max:  prixMax ? Math.round(versUSD(prixMax)) : 0,
 		};
 
 		lancerRecherche(filters, 1);
@@ -438,7 +446,7 @@
 				</div>
 				<div class="ab-yacht-body">
 					<h3 class="ab-yacht-title">${titre}</h3>
-					<p class="ab-yacht-price">${prix}&nbsp;$</p>
+					<p class="ab-yacht-price" data-price-usd="${bateau.prix_usd || 0}">${prix}&nbsp;$</p>
 					<div class="ab-yacht-location">
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -500,7 +508,7 @@
 			</div>
 			<div class="ab-yacht-body">
 				<h3 class="ab-yacht-title">${titre}</h3>
-				<p class="ab-yacht-price">${prix}&nbsp;$</p>
+				<p class="ab-yacht-price" data-price-usd="${bateau.prix_usd || 0}">${prix}&nbsp;$</p>
 				<div class="ab-yacht-location">
 					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 						<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>

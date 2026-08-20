@@ -11,6 +11,7 @@ class Annuaire_Unifiee {
 
 	public function __construct() {
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/helpers.php';
+		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/currency.php';
 
 		// Shortcodes
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/shortcodes/tabs.php';
@@ -78,6 +79,25 @@ class Annuaire_Unifiee {
 			ANNUAIRE_UNIFIEE_VERSION
 		);
 
+		// Sélecteur de devise + conversion des prix (USD -> EUR/GBP/CHF/AED) : chargé
+		// sur toutes les pages qui affichent des cartes bateau (formulaire de
+		// recherche, fiche bateau, archive par type), contrairement à script.js.
+		wp_enqueue_script(
+			'annuaire-unifiee-currency',
+			ANNUAIRE_UNIFIEE_URL . 'js/currency.js',
+			[],
+			ANNUAIRE_UNIFIEE_VERSION,
+			true
+		);
+
+		// Nom distinct de AnnuaireUnifieeVars (localisée plus bas pour script.js) :
+		// wp_localize_script écrase entièrement la variable globale à chaque appel,
+		// donc réutiliser le même nom ferait perdre ces données une fois script.js chargé.
+		wp_localize_script( 'annuaire-unifiee-currency', 'AnnuaireUnifieeDevises', [
+			'base' => AB_DEVISE_BASE,
+			'taux' => ab_get_taux_change(),
+		] );
+
 		if ( ! $utilise_recherche ) {
 			return;
 		}
@@ -85,7 +105,7 @@ class Annuaire_Unifiee {
 		wp_enqueue_script(
 			'annuaire-unifiee-script',
 			ANNUAIRE_UNIFIEE_URL . 'js/script.js',
-			[],
+			[ 'annuaire-unifiee-currency' ],
 			ANNUAIRE_UNIFIEE_VERSION,
 			true
 		);

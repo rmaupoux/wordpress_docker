@@ -293,7 +293,7 @@ function annuaire_maritime_boats_grid( $id ) {
 				</div>
 				<div class="ab-yacht-body">
 					<h3 class="ab-yacht-title">%2$s</h3>
-					<p class="ab-yacht-price">%3$s&nbsp;$</p>
+					<p class="ab-yacht-price" data-price-usd="%6$d">%3$s&nbsp;$</p>
 					<div class="ab-yacht-location">
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -308,7 +308,8 @@ function annuaire_maritime_boats_grid( $id ) {
 			esc_html( $titre ),
 			esc_html( number_format_i18n( $prix ) ),
 			esc_html( $localisation ),
-			esc_url( get_permalink( $post->ID ) )
+			esc_url( get_permalink( $post->ID ) ),
+			$prix
 		);
 	}
 
@@ -383,7 +384,7 @@ function annuaire_bateau_featured_carousel( $id ) {
 					</div>
 					<div class="ab-yacht-body">
 						<h3 class="ab-yacht-title">%2$s</h3>
-						<p class="ab-yacht-price">%3$s&nbsp;$</p>
+						<p class="ab-yacht-price" data-price-usd="%6$d">%3$s&nbsp;$</p>
 						<div class="ab-yacht-location">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 								<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -398,7 +399,8 @@ function annuaire_bateau_featured_carousel( $id ) {
 				esc_html( $titre ),
 				esc_html( number_format_i18n( $prix ) ),
 				esc_html( $localisation ),
-				esc_url( get_permalink( $post->ID ) )
+				esc_url( get_permalink( $post->ID ) ),
+				$prix
 			);
 		}
 
@@ -488,6 +490,25 @@ function annuaire_bateau_featured_carousel( $id ) {
 
 add_filter( 'pods_helper_allowed_callbacks', function ( $allowed ) {
 	$allowed[] = 'annuaire_bateau_featured_carousel';
+
+	return $allowed;
+} );
+
+/**
+ * Prix brut en USD (asking_price) de la fiche bateau $id, sans mise en forme.
+ *
+ * Appelé comme helper de magic tag Pods : {@ID,annuaire_bateau_prix_usd_brut},
+ * pour alimenter l'attribut data-price-usd du bloc "PRICE" de la fiche bateau
+ * (voir includes/currency.php et js/currency.js) : {@asking_price} reste
+ * affiché tel quel (formaté en USD par Pods) et sert de valeur initiale/de
+ * repli tant que le JS n'a pas reformaté le prix dans la devise choisie.
+ */
+function annuaire_bateau_prix_usd_brut( $id ) {
+	return intval( get_post_meta( (int) $id, 'asking_price', true ) );
+}
+
+add_filter( 'pods_helper_allowed_callbacks', function ( $allowed ) {
+	$allowed[] = 'annuaire_bateau_prix_usd_brut';
 
 	return $allowed;
 } );

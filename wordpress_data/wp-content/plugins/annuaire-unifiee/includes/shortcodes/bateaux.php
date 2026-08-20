@@ -76,112 +76,140 @@ add_shortcode( 'annuaire_bateaux_recherche', function () {
 							<button id="ab-reset-filter" class="ab-reset-btn" type="button" title="Réinitialiser les filtres">✕</button>
 						</div>
 					</div>
+					<div class="ab-filters-container">
+						<div class="ab-filters-container-inner">
+							<!-- Length and Unit -->
+							<div class="ab-filter-box">
+								<label class="ab-filter-label">Length and Unit</label>
+								<div class="ab-filter-grid">
+									<!-- Unit Selector -->
+									<div class="ab-select-wrapper">
+										<select id="ab-unit-select" class="ab-select-native">
+											<option value="FT">FT</option>
+											<option value="M">M</option>
+										</select>
+										<span class="ab-select-trigger">FT</span>
+										<ul class="ab-select-options" id="ab-unit-options"></ul>
+									</div>
 
-					<!-- Length and Unit -->
-					<div class="ab-filter-box">
-						<label class="ab-filter-label">Length and Unit</label>
-						<div class="ab-filter-grid">
-							<!-- Unit Selector -->
-							<div class="ab-select-wrapper">
-								<select id="ab-unit-select" class="ab-select-native">
-									<option value="FT">FT</option>
-									<option value="M">M</option>
-								</select>
-								<span class="ab-select-trigger">FT</span>
-								<ul class="ab-select-options" id="ab-unit-options"></ul>
+									<!-- Length Min -->
+									<div class="ab-select-wrapper">
+										<select id="ab-length-min-select" class="ab-select-native">
+											<option value="">Min</option>
+											<option value="0">0</option>
+											<option value="10">10</option>
+											<option value="20">20</option>
+											<option value="30">30</option>
+											<option value="40">40</option>
+											<option value="50">50</option>
+											<option value="60">60</option>
+											<option value="70">70</option>
+											<option value="80">80</option>
+											<option value="90">90</option>
+											<option value="100">100</option>
+										</select>
+										<span class="ab-select-trigger ab-no-arrow">Min</span>
+										<ul class="ab-select-options" id="ab-length-min-options"></ul>
+									</div>
+
+									<!-- Length Max -->
+									<div class="ab-select-wrapper">
+										<select id="ab-length-max-select" class="ab-select-native">
+											<option value="">Max</option>
+											<option value="0">0</option>
+											<option value="10">10</option>
+											<option value="20">20</option>
+											<option value="30">30</option>
+											<option value="40">40</option>
+											<option value="50">50</option>
+											<option value="60">60</option>
+											<option value="70">70</option>
+											<option value="80">80</option>
+											<option value="90">90</option>
+											<option value="100">100</option>
+										</select>
+										<span class="ab-select-trigger ab-no-arrow">Max</span>
+										<ul class="ab-select-options" id="ab-length-max-options"></ul>
+									</div>
+								</div>
 							</div>
 
-							<!-- Length Min -->
-							<div class="ab-select-wrapper">
-								<select id="ab-length-min-select" class="ab-select-native">
-									<option value="">Min</option>
-									<option value="0">0</option>
-									<option value="10">10</option>
-									<option value="20">20</option>
-									<option value="30">30</option>
-									<option value="40">40</option>
-									<option value="50">50</option>
-									<option value="60">60</option>
-									<option value="70">70</option>
-									<option value="80">80</option>
-									<option value="90">90</option>
-									<option value="100">100</option>
-								</select>
-								<span class="ab-select-trigger ab-no-arrow">Min</span>
-								<ul class="ab-select-options" id="ab-length-min-options"></ul>
+							<!-- Year -->
+							<div class="ab-filter-box">
+								<label class="ab-filter-label">Year</label>
+								<div class="ab-number-group">
+									<div class="ab-number-input">
+										<input type="number" id="ab-year-min" placeholder="Min" min="1970" max="2100">
+										<div class="ab-spinners">
+											<button class="ab-spinner-btn" data-action="increment"></button>
+											<button class="ab-spinner-btn" data-action="decrement"></button>
+										</div>
+									</div>
+									<div class="ab-number-input">
+										<input type="number" id="ab-year-max" placeholder="Max" min="1970" max="2100">
+										<div class="ab-spinners">
+											<button class="ab-spinner-btn" data-action="increment"></button>
+											<button class="ab-spinner-btn" data-action="decrement"></button>
+										</div>
+									</div>
+								</div>
 							</div>
 
-							<!-- Length Max -->
-							<div class="ab-select-wrapper">
-								<select id="ab-length-max-select" class="ab-select-native">
-									<option value="">Max</option>
-									<option value="0">0</option>
-									<option value="10">10</option>
-									<option value="20">20</option>
-									<option value="30">30</option>
-									<option value="40">40</option>
-									<option value="50">50</option>
-									<option value="60">60</option>
-									<option value="70">70</option>
-									<option value="80">80</option>
-									<option value="90">90</option>
-									<option value="100">100</option>
-								</select>
-								<span class="ab-select-trigger ab-no-arrow">Max</span>
-								<ul class="ab-select-options" id="ab-length-max-options"></ul>
+							<!-- Price -->
+							<div class="ab-filter-box">
+								<div class="ab-filter-header">
+									<!-- <span class="ab-filter-label">Price</span> -->
+									<!-- <button id="ab-price-reset" class="ab-reset-btn" type="button" title="Réinitialiser le prix">✕</button> -->
+									<label class="ab-filter-label">Price</label>
+											<!-- Currency -->
+									<div class="ab-select-wrapper">
+										<select id="ab-currency-select" class="ab-select-native">
+											<option value="USD">USD</option>
+											<option value="EUR">EUR</option>
+											<option value="GBP">GBP</option>
+											<option value="CHF">CHF</option>
+											<option value="AED">AED</option>
+										</select>
+										<span class="ab-select-trigger ab-select-trigger--currency">USD</span>
+										<ul class="ab-select-options" id="ab-currency-options"></ul>
+									</div>
+								</div>
+							
+								<div class="ab-number-group">
+									<div class="ab-number-input">
+										<input type="number" id="ab-price-min" placeholder="Min" min="0" max="100000000">
+										<div class="ab-spinners">
+											<button class="ab-spinner-btn" data-action="increment"></button>
+											<button class="ab-spinner-btn" data-action="decrement"></button>
+										</div>
+									</div>
+									<div class="ab-number-input">
+										<input type="number" id="ab-price-max" placeholder="Max" min="0" max="100000000">
+										<div class="ab-spinners">
+											<button class="ab-spinner-btn" data-action="increment"></button>
+											<button class="ab-spinner-btn" data-action="decrement"></button>
+										</div>
+									</div>
+							
+								</div>
+							
+
+							
+
+							
+
 							</div>
 						</div>
-					</div>
 
-					<!-- Year -->
-					<div class="ab-filter-box">
-						<label class="ab-filter-label">Year</label>
-						<div class="ab-number-group">
-							<div class="ab-number-input">
-								<input type="number" id="ab-year-min" placeholder="Min" min="1970" max="2100">
-								<div class="ab-spinners">
-									<button class="ab-spinner-btn" data-action="increment"></button>
-									<button class="ab-spinner-btn" data-action="decrement"></button>
-								</div>
-							</div>
-							<div class="ab-number-input">
-								<input type="number" id="ab-year-max" placeholder="Max" min="1970" max="2100">
-								<div class="ab-spinners">
-									<button class="ab-spinner-btn" data-action="increment"></button>
-									<button class="ab-spinner-btn" data-action="decrement"></button>
-								</div>
-							</div>
+						<!-- Search Button -->
+						<div class="ab-button-container">
+							<button id="ab-search-btn" class="ab-search-btn">SEARCH YACHT</button>
 						</div>
 					</div>
-
-					<!-- Price USD -->
-					<div class="ab-filter-box">
-						<label class="ab-filter-label">Price USD</label>
-						<div class="ab-number-group">
-							<div class="ab-number-input">
-								<input type="number" id="ab-price-min" placeholder="Min" min="0" max="100000000">
-								<div class="ab-spinners">
-									<button class="ab-spinner-btn" data-action="increment"></button>
-									<button class="ab-spinner-btn" data-action="decrement"></button>
-								</div>
-							</div>
-							<div class="ab-number-input">
-								<input type="number" id="ab-price-max" placeholder="Max" min="0" max="100000000">
-								<div class="ab-spinners">
-									<button class="ab-spinner-btn" data-action="increment"></button>
-									<button class="ab-spinner-btn" data-action="decrement"></button>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-				<!-- Search Button -->
-				<div class="ab-button-container">
-					<button id="ab-search-btn" class="ab-search-btn">SEARCH YACHT</button>
-				</div>
 			</div>
+		</div>
+
+		
 		</div>
 
 		<!-- Featured Slider -->
@@ -194,6 +222,7 @@ add_shortcode( 'annuaire_bateaux_recherche', function () {
 			</div>
 			<div class="ab-featured-dots" id="ab-featured-dots"></div>
 		</div>
+		
 
 		<!-- Results Section -->
 		<div class="ab-results-section" id="ab-results-section" hidden>
@@ -283,7 +312,7 @@ add_shortcode( 'annuaire_bateaux_par_type', function () {
 				</div>
 				<div class="ab-yacht-body">
 					<h3 class="ab-yacht-title">%2$s</h3>
-					<p class="ab-yacht-price">%3$s&nbsp;$</p>
+					<p class="ab-yacht-price" data-price-usd="%6$d">%3$s&nbsp;$</p>
 					<div class="ab-yacht-location">
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -298,7 +327,8 @@ add_shortcode( 'annuaire_bateaux_par_type', function () {
 			esc_html( $titre ),
 			esc_html( number_format_i18n( $prix ) ),
 			esc_html( $localisation ),
-			esc_url( get_permalink( $post->ID ) )
+			esc_url( get_permalink( $post->ID ) ),
+			$prix
 		);
 	}
 
