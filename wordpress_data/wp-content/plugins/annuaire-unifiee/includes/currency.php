@@ -1,7 +1,7 @@
 <?php
 /**
  * Taux de change pour le sélecteur de devise des prix bateaux (asking_price,
- * stocké en USD). Voir includes/pods-template-helpers.php, includes/shortcodes/bateaux.php,
+ * stocké en EUR). Voir includes/pods-template-helpers.php, includes/shortcodes/bateaux.php,
  * includes/endpoints/bateaux.php et js/currency.js.
  */
 
@@ -9,14 +9,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AB_DEVISE_BASE', 'USD' );
+define( 'AB_DEVISE_BASE', 'EUR' );
 
 // Parité fixe AED/USD maintenue par la Banque centrale des Émirats arabes unis
 // depuis 1997 : ce n'est pas un taux de marché, donc pas besoin de l'API.
-define( 'AB_TAUX_AED_FIXE', 3.6725 );
+// L'AED est pégé à l'USD (pas à l'EUR), on dérive donc son taux depuis celui de l'USD.
+define( 'AB_TAUX_AED_USD', 3.6725 );
 
 /**
- * Taux de change USD -> devise, mis en cache 24h dans un transient.
+ * Taux de change EUR -> devise, mis en cache 24h dans un transient.
  * Source : frankfurter.app (taux de référence quotidiens de la BCE, sans clé API).
  * En cas d'échec de l'appel, on retombe sur des taux approximatifs codés en dur
  * plutôt que d'afficher des prix vides.
@@ -30,14 +31,13 @@ function ab_get_taux_change() {
 
 	// Valeurs de repli si l'API est indisponible.
 	$taux = array(
-		'USD' => 1.0,
-		'EUR' => 0.86,
-		'GBP' => 0.74,
-		'CHF' => 0.81,
-		'AED' => AB_TAUX_AED_FIXE,
+		'EUR' => 1.0,
+		'USD' => 1.16,
+		'GBP' => 0.86,
+		'CHF' => 0.94,
 	);
 
-	$response = wp_remote_get( 'https://api.frankfurter.app/latest?from=USD&to=EUR,GBP,CHF', array(
+	$response = wp_remote_get( 'https://api.frankfurter.app/latest?from=EUR&to=USD,GBP,CHF', array(
 		'timeout' => 5,
 	) );
 
@@ -45,13 +45,15 @@ function ab_get_taux_change() {
 		$corps = json_decode( wp_remote_retrieve_body( $response ), true );
 
 		if ( ! empty( $corps['rates'] ) && is_array( $corps['rates'] ) ) {
-			foreach ( array( 'EUR', 'GBP', 'CHF' ) as $devise ) {
+			foreach ( array( 'USD', 'GBP', 'CHF' ) as $devise ) {
 				if ( isset( $corps['rates'][ $devise ] ) ) {
 					$taux[ $devise ] = (float) $corps['rates'][ $devise ];
 				}
 			}
 		}
 	}
+
+	$taux['AED'] = AB_TAUX_AED_USD * $taux['USD'];
 
 	set_transient( 'ab_taux_change', $taux, DAY_IN_SECONDS );
 
