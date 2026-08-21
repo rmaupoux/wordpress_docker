@@ -292,12 +292,12 @@
 	searchBtn.addEventListener('click', function () {
 		featuredSection.hidden = true;
 
-		// asking_price est stocké en USD côté serveur (voir includes/endpoints/bateaux.php) :
+		// asking_price est stocké en EUR côté serveur (voir includes/endpoints/bateaux.php) :
 		// les champs prix sont saisis dans la devise sélectionnée (js/currency.js),
-		// donc on les reconvertit en USD avant l'appel REST.
+		// donc on les reconvertit en EUR avant l'appel REST.
 		const prixMin = parseFloat(document.getElementById('ab-price-min').value) || 0;
 		const prixMax = parseFloat(document.getElementById('ab-price-max').value) || 0;
-		const versUSD = (window.AbCurrency && window.AbCurrency.toUSD) || (v => v);
+		const versEUR = (window.AbCurrency && window.AbCurrency.toEuros) || (v => v);
 
 		const filters = {
 			model:      searchInput.value.trim() || '',
@@ -306,8 +306,8 @@
 			length_max: parseFloat(document.getElementById('ab-length-max-select').value) || 0,
 			year_min:   parseInt(document.getElementById('ab-year-min').value) || 0,
 			year_max:   parseInt(document.getElementById('ab-year-max').value) || 0,
-			price_min:  prixMin ? Math.round(versUSD(prixMin)) : 0,
-			price_max:  prixMax ? Math.round(versUSD(prixMax)) : 0,
+			price_min:  prixMin ? Math.round(versEUR(prixMin)) : 0,
+			price_max:  prixMax ? Math.round(versEUR(prixMax)) : 0,
 		};
 
 		lancerRecherche(filters, 1);
@@ -436,7 +436,7 @@
 			const card = document.createElement('div');
 			card.className = 'ab-yacht-card';
 			const titre = bateau.model || bateau.titre;
-			const prix = bateau.prix_usd ? bateau.prix_usd.toLocaleString('en-US') : 'N/A';
+			const prix = bateau.prix_euros ? bateau.prix_euros.toLocaleString('en-US') : 'N/A';
 			const localisation = bateau.localisation || 'Location';
 			const imageUrl = bateau.image_url || `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23888' width='300' height='200'/%3E%3Ctext x='150' y='100' font-size='16' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3E${titre}%3C/text%3E%3C/svg%3E`;
 
@@ -446,7 +446,7 @@
 				</div>
 				<div class="ab-yacht-body">
 					<h3 class="ab-yacht-title">${titre}</h3>
-					<p class="ab-yacht-price" data-price-usd="${bateau.prix_usd || 0}">${prix}&nbsp;$</p>
+					<p class="ab-yacht-price" data-price-euros="${bateau.prix_euros || 0}">${prix}&nbsp;€</p>
 					<div class="ab-yacht-location">
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -469,9 +469,9 @@
 		let bateauxTries = [...bateauxActuels];
 
 		if (sortType === 'price_low_high') {
-			bateauxTries.sort((a, b) => (a.prix_usd || 0) - (b.prix_usd || 0));
+			bateauxTries.sort((a, b) => (a.prix_euros || 0) - (b.prix_euros || 0));
 		} else if (sortType === 'price_high_low') {
-			bateauxTries.sort((a, b) => (b.prix_usd || 0) - (a.prix_usd || 0));
+			bateauxTries.sort((a, b) => (b.prix_euros || 0) - (a.prix_euros || 0));
 		} else if (sortType === 'newest') {
 			bateauxTries.sort((a, b) => b.id - a.id);
 		} else if (sortType === 'oldest') {
@@ -497,7 +497,7 @@
 		const card = document.createElement('div');
 		card.className = 'ab-yacht-card';
 		const titre = bateau.model || bateau.titre;
-		const prix = bateau.prix_usd ? bateau.prix_usd.toLocaleString('en-US') : 'N/A';
+		const prix = bateau.prix_euros ? bateau.prix_euros.toLocaleString('en-US') : 'N/A';
 		const localisation = bateau.localisation || 'Location';
 		const imageUrl = bateau.image_url || `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23888' width='300' height='200'/%3E%3Ctext x='150' y='100' font-size='16' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3E${titre}%3C/text%3E%3C/svg%3E`;
 
@@ -508,7 +508,7 @@
 			</div>
 			<div class="ab-yacht-body">
 				<h3 class="ab-yacht-title">${titre}</h3>
-				<p class="ab-yacht-price" data-price-usd="${bateau.prix_usd || 0}">${prix}&nbsp;$</p>
+				<p class="ab-yacht-price" data-price-euros="${bateau.prix_euros || 0}">${prix}&nbsp;€</p>
 				<div class="ab-yacht-location">
 					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 						<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>

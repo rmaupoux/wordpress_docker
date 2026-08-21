@@ -442,7 +442,7 @@ function ab_formater_bateaux( $posts ) {
 			'longueur'      => (float) get_post_meta( $post->ID, 'lenght_ft', true ),
 			'unite_longueur'=> 'FT',
 			'annee'         => intval( get_post_meta( $post->ID, 'year', true ) ),
-			'prix_usd'      => intval( get_post_meta( $post->ID, 'asking_price', true ) ),
+			'prix_euros'    => intval( get_post_meta( $post->ID, 'asking_price', true ) ),
 			'localisation'  => get_post_meta( $post->ID, 'town', true ),
 			'lien'          => get_permalink( $post->ID ),
 			'image_url'     => $image_url,

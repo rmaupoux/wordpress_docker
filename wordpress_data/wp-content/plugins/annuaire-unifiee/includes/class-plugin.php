@@ -79,7 +79,7 @@ class Annuaire_Unifiee {
 			ANNUAIRE_UNIFIEE_VERSION
 		);
 
-		// Sélecteur de devise + conversion des prix (USD -> EUR/GBP/CHF/AED) : chargé
+		// Sélecteur de devise + conversion des prix (EUR -> USD/GBP/CHF/AED) : chargé
 		// sur toutes les pages qui affichent des cartes bateau (formulaire de
 		// recherche, fiche bateau, archive par type), contrairement à script.js.
 		wp_enqueue_script(

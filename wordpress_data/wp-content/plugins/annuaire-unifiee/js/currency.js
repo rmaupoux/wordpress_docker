@@ -4,13 +4,13 @@
  * Chargé sur toutes les pages qui affichent des cartes bateau (formulaire de
  * recherche, fiche bateau, archive par type, grille "Yachts for sale" d'un
  * contact), voir includes/class-plugin.php. Chaque carte porte le prix brut
- * en USD dans data-price-usd (attribut ajouté par pods-template-helpers.php,
+ * en EUR dans data-price-euros (attribut ajouté par pods-template-helpers.php,
  * includes/shortcodes/bateaux.php et script.js) ; ce script se contente de le
  * reformater dans la devise choisie, sans jamais toucher au DOM au-delà des
  * éléments .ab-yacht-price.
  *
  * Le filtre par prix (#ab-price-min / #ab-price-max, dans script.js) continue
- * d'interroger l'API en USD : window.AbCurrency expose toUSD()/fromUSD() pour
+ * d'interroger l'API en EUR : window.AbCurrency expose toEuros()/fromEUR() pour
  * que script.js convertisse les valeurs saisies avant l'appel REST.
  */
 (function () {
@@ -32,28 +32,28 @@
 		deviseCourante = 'USD';
 	}
 
-	function convertirDepuisUSD( montantUSD, devise ) {
-		return montantUSD * ( taux[ devise ] || 1 );
+	function convertirDepuisEUR( montantEUR, devise ) {
+		return montantEUR * ( taux[ devise ] || 1 );
 	}
 
-	function convertirVersUSD( montant, devise ) {
+	function convertirVersEUR( montant, devise ) {
 		return montant / ( taux[ devise ] || 1 );
 	}
 
-	function formater( montantUSD, devise ) {
-		if ( montantUSD === null || isNaN( montantUSD ) ) {
+	function formater( montantEUR, devise ) {
+		if ( montantEUR === null || isNaN( montantEUR ) ) {
 			return 'N/A';
 		}
 
-		var montant = Math.round( convertirDepuisUSD( montantUSD, devise ) );
+		var montant = Math.round( convertirDepuisEUR( montantEUR, devise ) );
 
 		return montant.toLocaleString( 'en-US' ) + ' ' + ( DEVISES[ devise ] || devise );
 	}
 
 	function formaterToutesLesCartes() {
-		document.querySelectorAll( '.ab-yacht-price[data-price-usd]' ).forEach( function ( el ) {
-			var usd = parseFloat( el.getAttribute( 'data-price-usd' ) );
-			el.textContent = formater( usd, deviseCourante );
+		document.querySelectorAll( '.ab-yacht-price[data-price-euros]' ).forEach( function ( el ) {
+			var euros = parseFloat( el.getAttribute( 'data-price-euros' ) );
+			el.textContent = formater( euros, deviseCourante );
 		} );
 	}
 
@@ -65,8 +65,8 @@
 			if ( ! input || input.value === '' ) {
 				return;
 			}
-			var usd = convertirVersUSD( parseFloat( input.value ), devisePrecedente );
-			input.value = Math.round( convertirDepuisUSD( usd, deviseCourante ) );
+			var euros = convertirVersEUR( parseFloat( input.value ), devisePrecedente );
+			input.value = Math.round( convertirDepuisEUR( euros, deviseCourante ) );
 		} );
 	}
 
@@ -209,14 +209,14 @@
 			return deviseCourante;
 		},
 		set: definirDevise,
-		toUSD: function ( montant ) {
-			return convertirVersUSD( montant, deviseCourante );
+		toEuros: function ( montant ) {
+			return convertirVersEUR( montant, deviseCourante );
 		},
-		fromUSD: function ( montantUSD ) {
-			return convertirDepuisUSD( montantUSD, deviseCourante );
+		fromEUR: function ( montantEUR ) {
+			return convertirDepuisEUR( montantEUR, deviseCourante );
 		},
-		format: function ( montantUSD ) {
-			return formater( montantUSD, deviseCourante );
+		format: function ( montantEUR ) {
+			return formater( montantEUR, deviseCourante );
 		},
 	};
 })();

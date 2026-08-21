@@ -312,7 +312,7 @@ add_shortcode( 'annuaire_bateaux_par_type', function () {
 				</div>
 				<div class="ab-yacht-body">
 					<h3 class="ab-yacht-title">%2$s</h3>
-					<p class="ab-yacht-price" data-price-usd="%6$d">%3$s&nbsp;$</p>
+					<p class="ab-yacht-price" data-price-euros="%6$d">%3$s&nbsp;€</p>
 					<div class="ab-yacht-location">
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
