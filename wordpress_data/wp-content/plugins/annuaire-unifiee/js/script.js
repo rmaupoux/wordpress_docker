@@ -299,11 +299,23 @@
 		const prixMax = parseFloat(document.getElementById('ab-price-max').value) || 0;
 		const versEUR = (window.AbCurrency && window.AbCurrency.toEuros) || (v => v);
 
+		// lenght_ft est stocké en pieds côté serveur : si l'utilisateur a choisi
+		// l'unité "M", on convertit les valeurs saisies (en mètres) en pieds
+		// avant l'envoi, avec le facteur de conversion en vigueur (1 m = 3,281 ft).
+		const FT_PER_M = 3.281;
+		const unite = (document.getElementById('ab-unit-select') || {}).value || 'FT';
+		let lengthMin = parseFloat(document.getElementById('ab-length-min-select').value) || 0;
+		let lengthMax = parseFloat(document.getElementById('ab-length-max-select').value) || 0;
+		if (unite === 'M') {
+			lengthMin = lengthMin ? lengthMin * FT_PER_M : 0;
+			lengthMax = lengthMax ? lengthMax * FT_PER_M : 0;
+		}
+
 		const filters = {
 			model:      searchInput.value.trim() || '',
 			type:       typeSelect.value || '',
-			length_min: parseFloat(document.getElementById('ab-length-min-select').value) || 0,
-			length_max: parseFloat(document.getElementById('ab-length-max-select').value) || 0,
+			length_min: lengthMin,
+			length_max: lengthMax,
 			year_min:   parseInt(document.getElementById('ab-year-min').value) || 0,
 			year_max:   parseInt(document.getElementById('ab-year-max').value) || 0,
 			price_min:  prixMin ? Math.round(versEUR(prixMin)) : 0,
