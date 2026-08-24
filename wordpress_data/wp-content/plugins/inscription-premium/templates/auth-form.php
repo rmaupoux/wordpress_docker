@@ -1,7 +1,8 @@
 <?php
 /**
  * Formulaire d'inscription / connexion / mot de passe oublié.
- * Variables disponibles : $redirect_to, $error, $notice.
+ * Variables disponibles : $redirect_to, $error, $notice, $panel,
+ * $prefill_email, $prefill_name, $prefill_login, $current_url.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -30,39 +31,41 @@ $error_messages = array(
 	<?php endif; ?>
 
 	<div class="ip-auth-tabs">
-		<button type="button" class="ip-auth-tab active" data-ip-tab="login"><?php esc_html_e( 'Connexion', 'inscription-premium' ); ?></button>
-		<button type="button" class="ip-auth-tab" data-ip-tab="register"><?php esc_html_e( 'Inscription', 'inscription-premium' ); ?></button>
-		<button type="button" class="ip-auth-tab" data-ip-tab="lost_password"><?php esc_html_e( 'Mot de passe oublié', 'inscription-premium' ); ?></button>
+		<button type="button" class="ip-auth-tab<?php echo ( 'login' === $panel ) ? ' active' : ''; ?>" data-ip-tab="login"><?php esc_html_e( 'Connexion', 'inscription-premium' ); ?></button>
+		<button type="button" class="ip-auth-tab<?php echo ( 'register' === $panel ) ? ' active' : ''; ?>" data-ip-tab="register"><?php esc_html_e( 'Inscription', 'inscription-premium' ); ?></button>
 	</div>
 
-	<form method="post" class="ip-auth-form ip-auth-panel" data-ip-panel="login">
+	<form method="post" class="ip-auth-form ip-auth-panel" data-ip-panel="login" <?php echo ( 'login' === $panel ) ? '' : 'hidden'; ?>>
 		<input type="hidden" name="ip_auth_action" value="login" />
 		<input type="hidden" name="ip_redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>" />
+		<input type="hidden" name="ip_auth_page" value="<?php echo esc_attr( $current_url ); ?>" />
 		<?php wp_nonce_field( 'ip_auth_login', 'ip_auth_nonce' ); ?>
 
 		<label>
 			<?php esc_html_e( 'Email ou identifiant', 'inscription-premium' ); ?>
-			<input type="text" name="ip_login" required />
+			<input type="text" name="ip_login" value="<?php echo esc_attr( $prefill_login ); ?>" required />
 		</label>
 		<label>
 			<?php esc_html_e( 'Mot de passe', 'inscription-premium' ); ?>
 			<input type="password" name="ip_password" required />
 		</label>
+		<button type="button" class="ip-auth-tab ip-lost-password-link" data-ip-tab="lost_password"><?php esc_html_e( 'Mot de passe oublié', 'inscription-premium' ); ?></button>
 		<button type="submit" class="ip-btn ip-btn-primary"><?php esc_html_e( 'Se connecter', 'inscription-premium' ); ?></button>
 	</form>
 
-	<form method="post" class="ip-auth-form ip-auth-panel" data-ip-panel="register" hidden>
+	<form method="post" class="ip-auth-form ip-auth-panel" data-ip-panel="register" <?php echo ( 'register' === $panel ) ? '' : 'hidden'; ?>>
 		<input type="hidden" name="ip_auth_action" value="register" />
 		<input type="hidden" name="ip_redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>" />
+		<input type="hidden" name="ip_auth_page" value="<?php echo esc_attr( $current_url ); ?>" />
 		<?php wp_nonce_field( 'ip_auth_register', 'ip_auth_nonce' ); ?>
 
 		<label>
 			<?php esc_html_e( 'Nom complet', 'inscription-premium' ); ?>
-			<input type="text" name="ip_name" required />
+			<input type="text" name="ip_name" value="<?php echo esc_attr( $prefill_name ); ?>" required />
 		</label>
 		<label>
 			<?php esc_html_e( 'Email', 'inscription-premium' ); ?>
-			<input type="email" name="ip_email" required />
+			<input type="email" name="ip_email" value="<?php echo esc_attr( $prefill_email ); ?>" required />
 		</label>
 		<label>
 			<?php esc_html_e( 'Mot de passe (8 caractères min.)', 'inscription-premium' ); ?>
@@ -71,8 +74,9 @@ $error_messages = array(
 		<button type="submit" class="ip-btn ip-btn-primary"><?php esc_html_e( 'Créer mon compte', 'inscription-premium' ); ?></button>
 	</form>
 
-	<form method="post" class="ip-auth-form ip-auth-panel" data-ip-panel="lost_password" hidden>
+	<form method="post" class="ip-auth-form ip-auth-panel" data-ip-panel="lost_password" <?php echo ( 'lost_password' === $panel ) ? '' : 'hidden'; ?>>
 		<input type="hidden" name="ip_auth_action" value="lost_password" />
+		<input type="hidden" name="ip_auth_page" value="<?php echo esc_attr( $current_url ); ?>" />
 		<?php wp_nonce_field( 'ip_auth_lost_password', 'ip_auth_nonce' ); ?>
 
 		<label>
