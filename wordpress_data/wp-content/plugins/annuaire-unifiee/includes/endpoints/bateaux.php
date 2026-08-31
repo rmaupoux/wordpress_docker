@@ -68,6 +68,37 @@ add_action( 'rest_api_init', function () {
 		'permission_callback' => '__return_true',
 	) );
 
+	/* Pays présents parmi les bateaux (champ Pods "pick" pays) : /wp-json/annuaire-bateau/v1/pays */
+	register_rest_route( 'annuaire-bateau/v1', '/pays', array(
+		'methods'             => 'GET',
+		'callback'            => 'ab_get_pays',
+		'permission_callback' => '__return_true',
+	) );
+
+	/* Autocomplétion (3+ caractères) sur les valeurs existantes d'un champ texte
+	   (whitelist AB_CHAMPS_AUTOCOMPLETE) : /wp-json/annuaire-bateau/v1/valeurs-champ?champ=xxx&terme=yyy */
+	register_rest_route( 'annuaire-bateau/v1', '/valeurs-champ', array(
+		'methods'             => 'GET',
+		'callback'            => 'ab_get_valeurs_champ',
+		'permission_callback' => '__return_true',
+		'args'                => array(
+			'champ' => array(
+				'required'          => true,
+				'sanitize_callback' => 'sanitize_key',
+				'validate_callback' => function ( $value ) {
+					return array_key_exists( sanitize_key( $value ), AB_CHAMPS_AUTOCOMPLETE );
+				},
+			),
+			'terme' => array(
+				'required'          => true,
+				'sanitize_callback' => 'sanitize_text_field',
+				'validate_callback' => function ( $value ) {
+					return mb_strlen( trim( $value ) ) >= 3;
+				},
+			),
+		),
+	) );
+
 	/* Bateaux avec filtres et pagination : /wp-json/annuaire-bateau/v1/filtrer */
 	register_rest_route( 'annuaire-bateau/v1', '/filtrer', array(
 		'methods'             => 'GET',
@@ -83,6 +114,56 @@ add_action( 'rest_api_init', function () {
 			'year_max'   => array( 'sanitize_callback' => function( $v ) { return intval( $v ); } ),
 			'price_min'  => array( 'sanitize_callback' => function( $v ) { return intval( $v ); } ),
 			'price_max'  => array( 'sanitize_callback' => function( $v ) { return intval( $v ); } ),
+			// Slugs cochés dans le filtre "Technical equipements" (ab_filtrer_bateaux les
+			// cumule en ET) : on ne garde que les clés connues de AB_EQUIPEMENTS_TECHNIQUES.
+			'equipements' => array(
+				'sanitize_callback' => function ( $v ) {
+					if ( ! is_array( $v ) ) {
+						return array();
+					}
+					return array_values( array_intersect( array_map( 'sanitize_key', $v ), array_keys( AB_EQUIPEMENTS_TECHNIQUES ) ) );
+				},
+			),
+			// Champs texte libres (LIKE), ex. champs_texte[town]=Cannes&champs_texte[builder]=Sunseeker
+			// — seules les clés connues de AB_CHAMPS_TEXTE sont conservées.
+			'champs_texte' => array(
+				'sanitize_callback' => function ( $v ) {
+					if ( ! is_array( $v ) ) {
+						return array();
+					}
+					$sortie = array();
+					foreach ( $v as $slug => $valeur ) {
+						$slug = sanitize_key( $slug );
+						if ( isset( AB_CHAMPS_TEXTE[ $slug ] ) && '' !== trim( (string) $valeur ) ) {
+							$sortie[ $slug ] = sanitize_text_field( $valeur );
+						}
+					}
+					return $sortie;
+				},
+			),
+			// Champs numériques en plage min/max, ex. champs_numeriques[cabins][min]=2&...[max]=5
+			// — seules les clés connues de AB_CHAMPS_NUMERIQUES sont conservées.
+			'champs_numeriques' => array(
+				'sanitize_callback' => function ( $v ) {
+					if ( ! is_array( $v ) ) {
+						return array();
+					}
+					$sortie = array();
+					foreach ( $v as $slug => $plage ) {
+						$slug = sanitize_key( $slug );
+						if ( ! isset( AB_CHAMPS_NUMERIQUES[ $slug ] ) || ! is_array( $plage ) ) {
+							continue;
+						}
+						$min = isset( $plage['min'] ) ? floatval( $plage['min'] ) : 0;
+						$max = isset( $plage['max'] ) ? floatval( $plage['max'] ) : 0;
+						if ( $min > 0 || $max > 0 ) {
+							$sortie[ $slug ] = array( 'min' => $min, 'max' => $max );
+						}
+					}
+					return $sortie;
+				},
+			),
+			'pays'       => array( 'sanitize_callback' => 'sanitize_text_field' ),
 			'page'       => array( 'sanitize_callback' => function( $v ) { return max( 1, intval( $v ) ); }, 'default' => 1 ),
 		),
 	) );
@@ -265,6 +346,59 @@ function ab_get_types() {
 }
 
 /**
+ * Récupère les codes pays distincts présents parmi les bateaux (champ Pods
+ * "pick" pays) : pas de correspondance code -> nom, voir AB_CHAMP_PAYS_SLUG
+ * dans includes/helpers.php.
+ */
+function ab_get_pays() {
+	global $wpdb;
+
+	$codes = $wpdb->get_col( $wpdb->prepare(
+		"SELECT DISTINCT pm.meta_value
+		 FROM {$wpdb->postmeta} pm
+		 INNER JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+		 WHERE pm.meta_key = %s
+		 AND pm.meta_value != ''
+		 AND p.post_type = %s
+		 AND p.post_status = 'publish'
+		 ORDER BY pm.meta_value ASC",
+		array( AB_CHAMP_PAYS_SLUG, AB_CPT_NAME )
+	) );
+
+	return rest_ensure_response( array_map( function ( $code ) {
+		return array( 'code' => $code, 'label' => $code );
+	}, $codes ) );
+}
+
+/**
+ * Valeurs distinctes existantes pour un champ texte (autocomplétion), limitées
+ * à la whitelist AB_CHAMPS_AUTOCOMPLETE (voir validate_callback ci-dessus et
+ * includes/helpers.php).
+ */
+function ab_get_valeurs_champ( WP_REST_Request $request ) {
+	global $wpdb;
+	$champ     = $request->get_param( 'champ' );
+	$terme     = trim( $request->get_param( 'terme' ) );
+	$like_term = '%' . $wpdb->esc_like( $terme ) . '%';
+
+	$valeurs = $wpdb->get_col( $wpdb->prepare(
+		"SELECT DISTINCT pm.meta_value
+		 FROM {$wpdb->postmeta} pm
+		 INNER JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+		 WHERE pm.meta_key = %s
+		 AND pm.meta_value LIKE %s
+		 AND pm.meta_value != ''
+		 AND p.post_type = %s
+		 AND p.post_status = 'publish'
+		 ORDER BY pm.meta_value ASC
+		 LIMIT 10",
+		array( $champ, $like_term, AB_CPT_NAME )
+	) );
+
+	return rest_ensure_response( $valeurs );
+}
+
+/**
  * Lie tous les bateaux à leur type de bateau
  */
 function ab_link_boats_to_types( WP_REST_Request $request ) {
@@ -320,6 +454,10 @@ function ab_filtrer_bateaux( WP_REST_Request $request ) {
 	$year_max   = intval( $request->get_param( 'year_max' ) ?: 9999 );
 	$price_min  = intval( $request->get_param( 'price_min' ) ?: 0 );
 	$price_max  = intval( $request->get_param( 'price_max' ) ?: PHP_INT_MAX );
+	$equipements = (array) ( $request->get_param( 'equipements' ) ?: array() );
+	$champs_texte      = (array) ( $request->get_param( 'champs_texte' ) ?: array() );
+	$champs_numeriques = (array) ( $request->get_param( 'champs_numeriques' ) ?: array() );
+	$pays       = trim( $request->get_param( 'pays' ) ?: '' );
 	$page       = max( 1, intval( $request->get_param( 'page' ) ?: 1 ) );
 	$per_page   = 12;
 
@@ -378,6 +516,41 @@ function ab_filtrer_bateaux( WP_REST_Request $request ) {
 		);
 	}
 
+	// Filtres équipements techniques (checkboxes) : cumul en ET, un meta_query par équipement coché
+	foreach ( $equipements as $slug ) {
+		$args['meta_query'][] = array(
+			'key'   => $slug,
+			'value' => '1',
+		);
+	}
+
+	// Filtres texte libres ("Plus de champs" / "Engine") : cumul en ET, un meta_query LIKE par champ rempli
+	foreach ( $champs_texte as $slug => $valeur ) {
+		$args['meta_query'][] = array(
+			'key'     => $slug,
+			'value'   => $valeur,
+			'compare' => 'LIKE',
+		);
+	}
+
+	// Filtres numériques en plage ("Plus de champs" / "Engine") : cumul en ET, un meta_query BETWEEN par champ rempli
+	foreach ( $champs_numeriques as $slug => $plage ) {
+		$args['meta_query'][] = array(
+			'key'     => $slug,
+			'value'   => array( $plage['min'], $plage['max'] ?: PHP_INT_MAX ),
+			'compare' => 'BETWEEN',
+			'type'    => 'NUMERIC',
+		);
+	}
+
+	// Filtre pays (champ Pods "pick")
+	if ( ! empty( $pays ) ) {
+		$args['meta_query'][] = array(
+			'key'   => AB_CHAMP_PAYS_SLUG,
+			'value' => $pays,
+		);
+	}
+
 	// Filtre par type de bateau (taxonomie)
 	if ( ! empty( $type ) ) {
 		$args['tax_query'] = array(
@@ -409,6 +582,10 @@ function ab_filtrer_bateaux( WP_REST_Request $request ) {
 			'year_max'   => $year_max,
 			'price_min'  => $price_min,
 			'price_max'  => $price_max,
+			'equipements' => $equipements,
+			'champs_texte'      => $champs_texte,
+			'champs_numeriques' => $champs_numeriques,
+			'pays'              => $pays,
 		),
 	) );
 }
