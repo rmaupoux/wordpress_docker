@@ -16,6 +16,7 @@ class Annuaire_Unifiee {
 		// Shortcodes
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/shortcodes/tabs.php';
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/shortcodes/bateaux.php';
+		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/shortcodes/bateaux-equipements.php';
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/shortcodes/maritime.php';
 
 		// Endpoints REST
@@ -55,6 +56,17 @@ class Annuaire_Unifiee {
 	}
 
 	/**
+	 * Page du filtre par équipements techniques [annuaire_bateaux_filtres_equipements] :
+	 * charge js/equipements.js à la place de script.js, qui suppose la présence du
+	 * formulaire de recherche principal (#ab-search-input, etc.), absent ici.
+	 */
+	private function page_utilise_shortcode_equipements() {
+		global $post;
+
+		return $post && has_shortcode( $post->post_content, 'annuaire_bateaux_filtres_equipements' );
+	}
+
+	/**
 	 * Archive de la taxonomie "type_de_bateau" (ex: /type-de-bateau/motor-yacht/) :
 	 * affiche la grille [annuaire_bateaux_par_type] via un bloc Shortcode sur le
 	 * template FSE, sans le formulaire de recherche — seul le CSS est chargé
@@ -66,9 +78,10 @@ class Annuaire_Unifiee {
 	}
 
 	public function enqueue_assets() {
-		$utilise_recherche = $this->page_utilise_shortcodes() || $this->page_est_fiche_singuliere();
+		$utilise_recherche   = $this->page_utilise_shortcodes() || $this->page_est_fiche_singuliere();
+		$utilise_equipements = $this->page_utilise_shortcode_equipements();
 
-		if ( ! $utilise_recherche && ! $this->page_est_archive_type_bateau() ) {
+		if ( ! $utilise_recherche && ! $this->page_est_archive_type_bateau() && ! $utilise_equipements ) {
 			return;
 		}
 
@@ -97,6 +110,23 @@ class Annuaire_Unifiee {
 			'base' => AB_DEVISE_BASE,
 			'taux' => ab_get_taux_change(),
 		] );
+
+		if ( $utilise_equipements ) {
+			wp_enqueue_script(
+				'annuaire-unifiee-equipements',
+				ANNUAIRE_UNIFIEE_URL . 'js/equipements.js',
+				[ 'annuaire-unifiee-currency' ],
+				ANNUAIRE_UNIFIEE_VERSION,
+				true
+			);
+
+			wp_localize_script( 'annuaire-unifiee-equipements', 'AnnuaireUnifieeEquipementsVars', [
+				'filtrer'      => esc_url_raw( rest_url( 'annuaire-bateau/v1/filtrer' ) ),
+				'types'        => esc_url_raw( rest_url( 'annuaire-bateau/v1/types' ) ),
+				'pays'         => esc_url_raw( rest_url( 'annuaire-bateau/v1/pays' ) ),
+				'valeursChamp' => esc_url_raw( rest_url( 'annuaire-bateau/v1/valeurs-champ' ) ),
+			] );
+		}
 
 		if ( ! $utilise_recherche ) {
 			return;

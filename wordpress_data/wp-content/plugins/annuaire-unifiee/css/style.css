@@ -2145,3 +2145,262 @@
 		width: max-content !important;
 		max-width: 100%;
 	}
+
+	/* ===== FILTRE PAR ÉQUIPEMENTS TECHNIQUES [annuaire_bateaux_filtres_equipements] =====
+	   Colonne de filtres à gauche, résultats (.ab-results-grid / .ab-yacht-card,
+	   partagés avec includes/shortcodes/bateaux.php) à droite. */
+	.abe-filtres {
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+		display: grid;
+		grid-template-columns: 260px 1fr;
+		gap: 2rem;
+		align-items: start;
+		box-sizing: border-box;
+	}
+
+	.abe-sidebar {
+		background: white;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		padding: 1.5rem;
+		position: sticky;
+		top: 1rem;
+		box-sizing: border-box;
+		max-height: calc(100vh - 2rem);
+		overflow-y: auto;
+	}
+
+	/* Pastilles des filtres actifs (checkboxes cochées, champs remplis, plages
+	   renseignées...), générées par js/equipements.js :: afficherPills(). */
+	.abe-pills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.abe-pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		background: #dbeafe;
+		color: #162d55;
+		border-radius: 9999px;
+		padding: 0.3rem 0.4rem 0.3rem 0.75rem;
+		font-size: 0.78rem;
+		font-weight: 500;
+		max-width: 100%;
+	}
+
+	.abe-pill-texte {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.abe-pill-remove {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 1.1rem;
+		height: 1.1rem;
+		border: none;
+		border-radius: 50%;
+		background: rgba(0, 57, 166, 0.15);
+		color: var(--color-accent);
+		cursor: pointer;
+		font-size: 0.85rem;
+		line-height: 1;
+		padding: 0;
+	}
+
+	.abe-pill-remove:hover {
+		background: rgba(0, 57, 166, 0.3);
+	}
+
+	/* Chaque groupe de filtres ("Plus de champs", groupes d'équipements, "Engine")
+	   est un <details>/<summary> natif : repliable sans JS supplémentaire. */
+	.abe-groupe {
+		border-top: 1px solid var(--color-border);
+		padding-top: 1rem;
+		margin-top: 1rem;
+	}
+
+	.abe-groupe:first-of-type {
+		border-top: none;
+		padding-top: 0;
+		margin-top: 0;
+	}
+
+	.abe-groupe-titre {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--color-primary);
+		cursor: pointer;
+		list-style: none;
+	}
+
+	.abe-groupe-titre::-webkit-details-marker {
+		display: none;
+	}
+
+	.abe-groupe-titre::before {
+		content: '▸';
+		display: inline-block;
+		margin-right: 0.5rem;
+		transition: transform 0.15s;
+		color: var(--color-accent);
+	}
+
+	.abe-groupe[open] > .abe-groupe-titre::before {
+		transform: rotate(90deg);
+	}
+
+	.abe-groupe .abe-champs-groupe,
+	.abe-groupe .abe-checkbox-list {
+		margin-top: 1rem;
+	}
+
+	.abe-champs-groupe {
+		display: flex;
+		flex-direction: column;
+		gap: 0.85rem;
+	}
+
+	.abe-champ {
+		position: relative;
+	}
+
+	.abe-champ label {
+		display: block;
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: #666;
+		margin-bottom: 0.3rem;
+	}
+
+	.abe-champ-plage {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.5rem;
+	}
+
+	/* Dropdown d'autocomplétion (3+ caractères) sous un champ texte, voir
+	   js/equipements.js :: initAutocomplete. */
+	.abe-autocomplete {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		z-index: 20;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		background: white;
+		border: 1px solid #d1d5db;
+		border-top: none;
+		border-radius: 0 0 0.375rem 0.375rem;
+		max-height: 200px;
+		overflow-y: auto;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+
+	.abe-autocomplete-option {
+		padding: 0.5rem 0.75rem;
+		font-size: 0.85rem;
+		cursor: pointer;
+	}
+
+	.abe-autocomplete-option:hover {
+		background: #f3f4f6;
+	}
+
+	.abe-autocomplete-reset {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+		background: #f3f4f6;
+		color: #4b5563;
+		font-weight: 600;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.abe-autocomplete-reset:hover {
+		background: #e5e7eb;
+	}
+
+	.abe-autocomplete-reset-croix {
+		flex-shrink: 0;
+		color: #6b7280;
+	}
+
+	.abe-sidebar-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.abe-sidebar-title {
+		font-size: 1.1rem;
+		font-weight: 600;
+		color: var(--color-primary);
+		margin: 0;
+	}
+
+	.abe-checkbox-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.85rem;
+	}
+
+	.abe-checkbox-item label {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		font-size: 0.9rem;
+		color: #333;
+		cursor: pointer;
+	}
+
+	.abe-checkbox-item input[type="checkbox"] {
+		width: 1.1rem;
+		height: 1.1rem;
+		accent-color: var(--color-accent);
+		cursor: pointer;
+		flex-shrink: 0;
+	}
+
+	.abe-results-section {
+		min-width: 0;
+	}
+
+	@media (max-width: 900px) {
+		.abe-filtres {
+			grid-template-columns: 1fr;
+		}
+
+		.abe-sidebar {
+			position: static;
+		}
+
+		.abe-checkbox-list {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 0.5rem 1.25rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.abe-filtres {
+			padding: 1.5rem 1rem;
+		}
+	}
