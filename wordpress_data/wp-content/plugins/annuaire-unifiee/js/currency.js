@@ -26,10 +26,10 @@
 	};
 
 	var CLE_STOCKAGE = 'ab_devise';
-	var deviseCourante = localStorage.getItem( CLE_STOCKAGE ) || 'USD';
+	var deviseCourante = localStorage.getItem( CLE_STOCKAGE ) || 'EUR';
 
 	if ( ! taux[ deviseCourante ] ) {
-		deviseCourante = 'USD';
+		deviseCourante = 'EUR';
 	}
 
 	function convertirDepuisEUR( montantEUR, devise ) {

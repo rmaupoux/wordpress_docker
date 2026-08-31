@@ -1,0 +1,86 @@
+.picto-menu-login > ul.wp-block-navigation__container > li.wp-block-navigation-submenu > a.wp-block-navigation-item__content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background-image: url("data:image/svg+xml,%3Csvg%20height%3D%2226%22%20width%3D%2226%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2036.14%2036.14%22%3E%3Cpath%20d%3D%22M18.25%2019.75c-3.33%200-6.05-2.71-6.05-6.05s2.71-6.05%206.05-6.05%206.05%202.71%206.05%206.05-2.71%206.05-6.05%206.05zm0-10.05c-2.21%200-4.01%201.8-4.01%204.01s1.8%204.01%204.01%204.01%204.01-1.8%204.01-4.01-1.8-4.01-4.01-4.01z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M10%2028.61c-.16%200-.32-.04-.47-.12-.5-.26-.69-.88-.43-1.38%201.79-3.42%205.3-5.55%209.16-5.55s7.26%202.07%209.07%205.39c.27.49.09%201.11-.41%201.38-.49.27-1.11.09-1.38-.41-1.45-2.67-4.24-4.33-7.28-4.33s-5.91%201.71-7.35%204.46c-.18.35-.54.55-.9.55z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3Ccircle%20cx%3D%2218.07%22%20cy%3D%2218.07%22%20r%3D%2217.46%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-miterlimit%3D%2210%22%20stroke-width%3D%221.23%22%3E%3C%2Fcircle%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 26px 26px;
+}
+
+.picto-home a.wp-block-navigation-item__content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2028.24%2025.13%22%3E%3Cpath%20d%3D%22M27.12,14.14h-2.51v9c0,.67-.29,1.5-1.5,1.5h-6v-9h-6v9h-6c-1.21,0-1.5-.83-1.5-1.5v-9H1.11c-.9,0-.7-.49-.09-1.12L13.06.97c.29-.3.68-.45,1.06-.47.39.01.77.16,1.06.47l12.03,12.04c.62.64.81,1.12-.09,1.12Z%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-miterlimit%3D%2210%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+}
+
+.picto-menu-login a.wp-block-navigation-item__content > .wp-block-navigation-item__label,
+.picto-home a.wp-block-navigation-item__content > .wp-block-navigation-item__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.picto-menu-login .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.picto-menu-login .wp-block-navigation__submenu-container .wp-block-navigation-item__content::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.picto-menu-login .wp-block-navigation__submenu-container .icon-listings .wp-block-navigation-item__content::before {
+  width: 30px;
+  height: 30px;
+}
+
+li.icon-login > a.wp-block-navigation-item__content::before {
+  background-image: url("../img/Login.svg");
+}
+
+li.icon-profile > a.wp-block-navigation-item__content::before {
+  background-image: url("../img/login-yachtma.svg");
+}
+
+li.icon-personal > a.wp-block-navigation-item__content::before {
+  background-image: url("../img/personal_info.svg");
+}
+
+li.icon-favorites > a.wp-block-navigation-item__content::before {
+  background-image: url("../img/Favorites.svg");
+}
+
+li.icon-listings > a.wp-block-navigation-item__content::before {
+  background-image: url("../img/Listing.svg");
+}
+
+li.icon-payment > a.wp-block-navigation-item__content::before {
+  background-image: url("../img/Payment.svg");
+}
+
+li.icon-logout > a.wp-block-navigation-item__content::before {
+  background-image: url("../img/Logout.svg");
+}

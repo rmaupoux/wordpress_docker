@@ -164,13 +164,13 @@ add_shortcode( 'annuaire_bateaux_recherche', function () {
 											<!-- Currency -->
 									<div class="ab-select-wrapper">
 										<select id="ab-currency-select" class="ab-select-native">
-											<option value="USD">USD</option>
 											<option value="EUR">EUR</option>
+											<option value="USD">USD</option>
 											<option value="GBP">GBP</option>
 											<option value="CHF">CHF</option>
 											<option value="AED">AED</option>
 										</select>
-										<span class="ab-select-trigger ab-select-trigger--currency">USD</span>
+										<span class="ab-select-trigger ab-select-trigger--currency">EUR</span>
 										<ul class="ab-select-options" id="ab-currency-options"></ul>
 									</div>
 								</div>

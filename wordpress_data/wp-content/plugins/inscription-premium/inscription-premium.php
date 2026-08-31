@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'IP_VERSION', '1.0.0' );
+define( 'IP_VERSION', '1.0.5' );
 define( 'IP_PATH', plugin_dir_path( __FILE__ ) );
 define( 'IP_URL', plugin_dir_url( __FILE__ ) );
 define( 'IP_BASENAME', plugin_basename( __FILE__ ) );
@@ -99,6 +99,8 @@ add_action( 'wp_enqueue_scripts', function () {
 
 	wp_register_style( 'ip-tunnel', IP_URL . 'assets/css/tunnel.css', array(), IP_VERSION );
 	wp_register_script( 'ip-tunnel', IP_URL . 'assets/js/tunnel.js', array(), IP_VERSION, true );
+
+	wp_enqueue_style( 'ip-login-page', IP_URL . 'assets/css/login-page.css', array(), IP_VERSION );
 
 	wp_localize_script( 'ip-tunnel', 'ipTunnel', array(
 		'restUrl'       => esc_url_raw( rest_url( 'inscription-premium/v1' ) ),

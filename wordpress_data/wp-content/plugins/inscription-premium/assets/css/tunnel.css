@@ -527,6 +527,119 @@
 	border-radius: 4px;
 }
 
+/* Écran de connexion / inscription — visuel scindé */
+.ip-visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.ip-login-split {
+	display: flex;
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	min-height: 80vh;
+}
+
+.ip-login-visual {
+	flex: 1 1 50%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.ip-login-panel {
+	flex: 1 1 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--ip-card-bg);
+	padding: 48px 24px;
+}
+
+.ip-login-panel .ip-auth-wrapper {
+	width: 100%;
+	max-width: 380px;
+}
+
+.ip-login-panel .ip-auth-form {
+	max-width: none;
+	margin: 0;
+	background: transparent;
+	padding: 0;
+	box-shadow: none;
+}
+
+.ip-auth-heading {
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 300;
+	letter-spacing: 2px;
+	font-size: 30px;
+	color: #7b8794;
+	margin: 0 0 32px;
+}
+
+.ip-login-panel .ip-auth-form label {
+	margin-bottom: 0;
+}
+
+.ip-login-panel .ip-auth-form input {
+	margin: 0 0 20px;
+	padding: 14px 20px;
+	border: 1px solid var(--ip-border);
+	border-radius: 24px;
+}
+
+.ip-login-panel .ip-lost-password-link {
+	margin: -8px 0 24px;
+	font-size: 13px;
+}
+
+.ip-login-panel .ip-btn-primary {
+	display: block;
+	width: 100%;
+	padding: 14px;
+	border-radius: 24px;
+	font-weight: 600;
+}
+
+.ip-auth-switch {
+	display: block;
+	width: 100%;
+	background: none;
+	border: none;
+	margin-top: 40px;
+	padding: 0;
+	font-weight: 700;
+	text-decoration: underline;
+	color: var(--ip-navy);
+	cursor: pointer;
+	text-align: center;
+}
+
+@media (max-width: 782px) {
+	.ip-login-split {
+		flex-direction: column;
+		min-height: 0;
+	}
+
+	.ip-login-visual {
+		min-height: 240px;
+	}
+
+	.ip-login-panel {
+		padding: 40px 20px;
+	}
+}
+
 /* Plans d'abonnement */
 .ip-plans-grid {
 	display: grid;
