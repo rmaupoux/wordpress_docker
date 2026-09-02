@@ -29,6 +29,9 @@ class Annuaire_Unifiee {
 		// Helpers de magic tag pour les Pods Templates
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/pods-template-helpers.php';
 
+		// Variables Yoast SEO dynamiques (titre/meta description fiches bateaux)
+		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/seo-yoast.php';
+
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 	}
 
@@ -147,6 +150,7 @@ class Annuaire_Unifiee {
 				'types'           => esc_url_raw( rest_url( 'annuaire-bateau/v1/types' ) ),
 				'filtrer'         => esc_url_raw( rest_url( 'annuaire-bateau/v1/filtrer' ) ),
 				'alaUne'          => esc_url_raw( rest_url( 'annuaire-bateau/v1/a-la-une' ) ),
+				'pageFiltres'     => esc_url_raw( ab_get_url_page_filtres() ),
 			],
 			'maritime' => [
 				'recherche' => esc_url_raw( rest_url( 'annuaire/v1/recherche' ) ),

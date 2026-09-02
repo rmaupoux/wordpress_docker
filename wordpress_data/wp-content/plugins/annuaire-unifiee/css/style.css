@@ -662,6 +662,7 @@
 		color: #857f7f;
 		margin: 0 0 .5rem;
 		font-family: arial;
+		text-align: center;
 	}
 
 	/* Sélecteur de devise auto-injecté par js/currency.js (fiche bateau, archive

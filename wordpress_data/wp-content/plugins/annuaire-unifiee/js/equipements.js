@@ -452,35 +452,57 @@
 		charger(1, true);
 	});
 
-	/* ===== Peuplement des selects dynamiques ===== */
+	/* ===== Pré-remplissage depuis l'URL =====
+	   Redirection possible depuis [annuaire_bateaux_recherche] (bouton SEARCH
+	   YACHT, voir js/script.js) dès que Length/Year/Price y sont renseignés :
+	   ces filtres ne s'appliquent plus sur la page d'accueil, ils sont transmis
+	   ici en GET pour s'afficher en pastilles et être appliqués dès le
+	   chargement de cette page. */
+	var paramsURL = new URLSearchParams(window.location.search);
 
-	fetch(endpointTypes)
-		.then(function (r) { return r.json(); })
-		.then(function (types) {
-			types.forEach(function (type) {
-				var opt = document.createElement('option');
-				opt.value = type.slug;
-				opt.textContent = type.label;
-				typeSelect.appendChild(opt);
-			});
-		})
-		.catch(function () {});
+	function prefillDepuisURL() {
+		if (paramsURL.has('model')) modelInput.value = paramsURL.get('model');
+		if (paramsURL.has('length_min')) lengthMin.value = paramsURL.get('length_min');
+		if (paramsURL.has('length_max')) lengthMax.value = paramsURL.get('length_max');
+		if (paramsURL.has('year_min')) yearMin.value = paramsURL.get('year_min');
+		if (paramsURL.has('year_max')) yearMax.value = paramsURL.get('year_max');
 
-	fetch(endpointPays)
-		.then(function (r) { return r.json(); })
-		.then(function (pays) {
-			pays.forEach(function (p) {
-				var opt = document.createElement('option');
-				opt.value = p.code;
-				opt.textContent = p.label;
-				paysSelect.appendChild(opt);
-			});
-		})
-		.catch(function () {});
+		// price_min/price_max sont transmis en EUR (voir js/script.js) : reconvertis
+		// ici dans la devise courante de cette page (js/currency.js) pour l'édition.
+		var versDevise = (window.AbCurrency && window.AbCurrency.fromEUR) || function (v) { return v; };
+		if (paramsURL.has('price_min')) priceMin.value = Math.round(versDevise(parseFloat(paramsURL.get('price_min'))));
+		if (paramsURL.has('price_max')) priceMax.value = Math.round(versDevise(parseFloat(paramsURL.get('price_max'))));
+	}
 
-	// Chargement initial : tous les bateaux publiés, aucun filtre actif (pas de scroll).
-	// afficherPills() est aussi appelé ici pour refléter d'éventuelles valeurs restaurées
-	// par le navigateur (retour arrière, autofill) sur les champs de la sidebar.
-	afficherPills();
-	charger(1, false);
+	/* ===== Peuplement des selects dynamiques =====
+	   Attend que types/pays soient chargés avant d'appliquer un éventuel
+	   paramsURL.type / paramsURL.pays (les <option> doivent exister pour que
+	   l'affectation de .value fonctionne) puis de lancer le chargement initial. */
+	Promise.all([
+		fetch(endpointTypes).then(function (r) { return r.json(); }).catch(function () { return []; }),
+		fetch(endpointPays).then(function (r) { return r.json(); }).catch(function () { return []; })
+	]).then(function (resultats) {
+		(resultats[0] || []).forEach(function (type) {
+			var opt = document.createElement('option');
+			opt.value = type.slug;
+			opt.textContent = type.label;
+			typeSelect.appendChild(opt);
+		});
+
+		(resultats[1] || []).forEach(function (p) {
+			var opt = document.createElement('option');
+			opt.value = p.code;
+			opt.textContent = p.label;
+			paysSelect.appendChild(opt);
+		});
+
+		if (paramsURL.has('type')) typeSelect.value = paramsURL.get('type');
+		if (paramsURL.has('pays')) paysSelect.value = paramsURL.get('pays');
+
+		// Chargement initial : reflète les filtres restaurés depuis l'URL, ou par
+		// le navigateur (retour arrière, autofill) sur les champs de la sidebar.
+		prefillDepuisURL();
+		afficherPills();
+		charger(1, false);
+	});
 })();

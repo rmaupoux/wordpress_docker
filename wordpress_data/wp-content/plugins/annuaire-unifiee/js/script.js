@@ -290,8 +290,6 @@
 
 	// Recherche au clic sur Search Yacht
 	searchBtn.addEventListener('click', function () {
-		featuredSection.hidden = true;
-
 		// asking_price est stocké en EUR côté serveur (voir includes/endpoints/bateaux.php) :
 		// les champs prix sont saisis dans la devise sélectionnée (js/currency.js),
 		// donc on les reconvertit en EUR avant l'appel REST.
@@ -311,18 +309,38 @@
 			lengthMax = lengthMax ? lengthMax * FT_PER_M : 0;
 		}
 
-		const filters = {
-			model:      searchInput.value.trim() || '',
-			type:       typeSelect.value || '',
-			length_min: lengthMin,
-			length_max: lengthMax,
-			year_min:   parseInt(document.getElementById('ab-year-min').value) || 0,
-			year_max:   parseInt(document.getElementById('ab-year-max').value) || 0,
-			price_min:  prixMin ? Math.round(versEUR(prixMin)) : 0,
-			price_max:  prixMax ? Math.round(versEUR(prixMax)) : 0,
-		};
+		const yearMin  = parseInt(document.getElementById('ab-year-min').value) || 0;
+		const yearMax  = parseInt(document.getElementById('ab-year-max').value) || 0;
+		const priceMin = prixMin ? Math.round(versEUR(prixMin)) : 0;
+		const priceMax = prixMax ? Math.round(versEUR(prixMax)) : 0;
 
-		lancerRecherche(filters, 1);
+		// Length and Unit, Year et Price ne filtrent plus la page d'accueil : dès
+		// que l'un de ces champs est renseigné, on change de page vers
+		// [annuaire_bateaux_filtres_equipements] (AnnuaireUnifieeVars.bateaux.pageFiltres)
+		// avec ces valeurs en GET, pour qu'elle les affiche en pastilles et
+		// applique le filtre là-bas (voir js/equipements.js :: prefillDepuisURL).
+		// Model/Type continuent de filtrer en place sur cette page.
+		if (lengthMin || lengthMax || yearMin || yearMax || priceMin || priceMax) {
+			const params = new URLSearchParams();
+			if (searchInput.value.trim()) params.set('model', searchInput.value.trim());
+			if (typeSelect.value) params.set('type', typeSelect.value);
+			if (lengthMin) params.set('length_min', lengthMin);
+			if (lengthMax) params.set('length_max', lengthMax);
+			if (yearMin) params.set('year_min', yearMin);
+			if (yearMax) params.set('year_max', yearMax);
+			if (priceMin) params.set('price_min', priceMin);
+			if (priceMax) params.set('price_max', priceMax);
+
+			window.location.href = AnnuaireUnifieeVars.bateaux.pageFiltres + '?' + params.toString();
+			return;
+		}
+
+		featuredSection.hidden = true;
+
+		lancerRecherche({
+			model: searchInput.value.trim() || '',
+			type:  typeSelect.value || '',
+		}, 1);
 	});
 
 	function afficherBateaux(data) {

@@ -12,6 +12,26 @@ define( 'AB_TAXONOMIE_TYPE', 'type_de_bateau' );
 define( 'AM_TAXONOMIE_TYPE', 'type_de_contact' );
 
 /**
+ * Slug de la page contenant [annuaire_bateaux_filtres_equipements], vers
+ * laquelle le bouton "SEARCH YACHT" de [annuaire_bateaux_recherche] redirige
+ * (avec les filtres Length/Year/Price en GET) au lieu de filtrer sur place —
+ * voir js/script.js et js/equipements.js :: prefillDepuisURL.
+ */
+define( 'AB_SLUG_PAGE_FILTRES', 'boats-research' );
+
+/**
+ * URL de la page AB_SLUG_PAGE_FILTRES, résolue dynamiquement (plutôt que
+ * codée en dur) pour rester correcte si son permalien change. Repli sur
+ * home_url() si la page n'existe pas encore (ex. environnement local sans
+ * cette page créée).
+ */
+function ab_get_url_page_filtres() {
+	$page = get_page_by_path( AB_SLUG_PAGE_FILTRES );
+
+	return $page ? get_permalink( $page ) : home_url( '/' . AB_SLUG_PAGE_FILTRES . '/' );
+}
+
+/**
  * Groupes de champs booléens Pods (_pods_group) sur le CPT annuaire_bateau,
  * affichés en checkboxes (cumulées en ET) dans le filtre
  * [annuaire_bateaux_filtres_equipements] : titre du groupe => [ slug (= meta_key,
