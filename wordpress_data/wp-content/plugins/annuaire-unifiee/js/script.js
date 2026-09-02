@@ -320,10 +320,13 @@
 		// avec ces valeurs en GET, pour qu'elle les affiche en pastilles et
 		// applique le filtre là-bas (voir js/equipements.js :: prefillDepuisURL).
 		// Model/Type continuent de filtrer en place sur cette page.
+		const modele = searchInput.value.trim();
+		const type = typeSelect.value;
+
 		if (lengthMin || lengthMax || yearMin || yearMax || priceMin || priceMax) {
 			const params = new URLSearchParams();
-			if (searchInput.value.trim()) params.set('model', searchInput.value.trim());
-			if (typeSelect.value) params.set('type', typeSelect.value);
+			if (modele) params.set('model', modele);
+			if (type) params.set('type', type);
 			if (lengthMin) params.set('length_min', lengthMin);
 			if (lengthMax) params.set('length_max', lengthMax);
 			if (yearMin) params.set('year_min', yearMin);
@@ -335,11 +338,23 @@
 			return;
 		}
 
+		// Aucun champ renseigné (ni Model/Type, ni Length/Year/Price) : on
+		// redirige quand même vers la page de filtres avec une plage d'années
+		// 1900-2050 par défaut, pour couvrir tous les bateaux.
+		if (!modele && !type) {
+			const params = new URLSearchParams();
+			params.set('year_min', '1900');
+			params.set('year_max', '2050');
+
+			window.location.href = AnnuaireUnifieeVars.bateaux.pageFiltres + '?' + params.toString();
+			return;
+		}
+
 		featuredSection.hidden = true;
 
 		lancerRecherche({
-			model: searchInput.value.trim() || '',
-			type:  typeSelect.value || '',
+			model: modele || '',
+			type:  type || '',
 		}, 1);
 	});
 
