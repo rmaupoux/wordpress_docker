@@ -28,6 +28,7 @@
 	var paginationContainer  = document.getElementById('ab-pagination');
 	var resetBtn             = document.getElementById('abe-reset-filter');
 	var pillsContainer       = document.getElementById('abe-pills');
+	var filtresActifsBox     = document.getElementById('abe-filtres-actifs');
 
 	var modelInput   = document.getElementById('abe-model');
 	var typeSelect   = document.getElementById('abe-type-select');
@@ -200,7 +201,7 @@
 	function afficherPills() {
 		var pills = collecterPills();
 		pillsContainer.innerHTML = '';
-		pillsContainer.hidden = pills.length === 0;
+		filtresActifsBox.hidden = pills.length === 0;
 
 		pills.forEach(function (pill) {
 			var el = document.createElement('span');

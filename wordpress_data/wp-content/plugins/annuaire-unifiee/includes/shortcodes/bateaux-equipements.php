@@ -82,13 +82,20 @@ add_shortcode( 'annuaire_bateaux_filtres_equipements', function () {
 	?>
 	<div class="abe-filtres" id="abe-root">
 
+		<div class="abe-sidebar-col">
+
+			<div id="abe-filtres-actifs" class="abe-filtres-actifs" hidden>
+				<div class="abe-filtres-actifs-header">
+					<span class="abe-filtres-actifs-titre">Active filters</span>
+					<button id="abe-reset-filter" class="ab-reset-btn abe-erase-btn" type="button">Erase filters</button>
+				</div>
+				<div id="abe-pills" class="abe-pills"></div>
+			</div>
+
 		<aside class="abe-sidebar">
 			<div class="abe-sidebar-header">
 				<h2 class="abe-sidebar-title">Filters</h2>
-				<button id="abe-reset-filter" class="ab-reset-btn" type="button" title="Réinitialiser les filtres">✕</button>
 			</div>
-
-			<div id="abe-pills" class="abe-pills" hidden></div>
 
 			<details class="abe-groupe" open>
 				<summary class="abe-groupe-titre">Plus de champs</summary>
@@ -175,6 +182,8 @@ add_shortcode( 'annuaire_bateaux_filtres_equipements', function () {
 				<?php ab_render_champs_numeriques( AB_GROUPES_CHAMPS_NUMERIQUES['Engine'] ); ?>
 			</details>
 		</aside>
+
+		</div>
 
 		<div class="abe-results-section">
 			<div id="ab-message" class="ab-message" hidden></div>

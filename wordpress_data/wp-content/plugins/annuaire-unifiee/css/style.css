@@ -2164,16 +2164,63 @@
 		box-sizing: border-box;
 	}
 
-	.abe-sidebar {
-		background: white;
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-md);
-		padding: 1.5rem;
+	/* Colonne de gauche : encart des filtres actifs + sidebar, sticky ensemble
+	   pour que l'encart reste juste au-dessus des filtres au défilement. */
+	.abe-sidebar-col {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
 		position: sticky;
 		top: 1rem;
 		box-sizing: border-box;
 		max-height: calc(100vh - 2rem);
 		overflow-y: auto;
+	}
+
+	.abe-sidebar {
+		background: white;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		padding: 1.5rem;
+		box-sizing: border-box;
+	}
+
+	/* Encart listant les filtres actifs (pastilles), positionné juste au-dessus
+	   de la sidebar et sticky avec elle (voir .abe-sidebar-col). */
+	.abe-filtres-actifs {
+		background: white;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		padding: 0.85rem 1rem;
+		box-sizing: border-box;
+		flex-shrink: 0;
+	}
+
+	.abe-filtres-actifs-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.75rem;
+		margin-bottom: 0.6rem;
+	}
+
+	.abe-filtres-actifs-titre {
+		font-size: 0.78rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+		color: var(--color-primary);
+	}
+
+	.abe-erase-btn {
+		width: auto;
+		min-width: auto;
+		height: auto;
+		padding: 0.35rem 0.65rem;
+		font-size: 0.72rem;
+		font-weight: 600;
+		white-space: nowrap;
 	}
 
 	/* Pastilles des filtres actifs (checkboxes cochées, champs remplis, plages
@@ -2402,8 +2449,10 @@
 			grid-template-columns: 1fr;
 		}
 
-		.abe-sidebar {
+		.abe-sidebar-col {
 			position: static;
+			max-height: none;
+			overflow-y: visible;
 		}
 
 		.abe-checkbox-list {
