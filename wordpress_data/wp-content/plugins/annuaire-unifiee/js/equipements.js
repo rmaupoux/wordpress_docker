@@ -334,7 +334,11 @@
 		dropdown.innerHTML = '';
 
 		if (!valeurs.length) {
-			dropdown.hidden = true;
+			var aucun = document.createElement('li');
+			aucun.className = 'abe-autocomplete-option abe-autocomplete-empty';
+			aucun.textContent = 'Aucun résultat trouvé';
+			dropdown.appendChild(aucun);
+			dropdown.hidden = false;
 			return;
 		}
 

@@ -2322,6 +2322,16 @@
 		background: #f3f4f6;
 	}
 
+	.abe-autocomplete-empty {
+		cursor: default;
+		color: #9ca3af;
+		font-style: italic;
+	}
+
+	.abe-autocomplete-empty:hover {
+		background: transparent;
+	}
+
 	.abe-autocomplete-reset {
 		display: flex;
 		align-items: center;

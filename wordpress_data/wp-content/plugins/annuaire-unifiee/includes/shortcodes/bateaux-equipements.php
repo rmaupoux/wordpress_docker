@@ -44,7 +44,12 @@ function ab_render_champs_texte( array $champs ) {
 		<?php foreach ( $champs as $slug => $label ) : ?>
 			<div class="abe-champ">
 				<label for="abe-champ-<?php echo esc_attr( $slug ); ?>"><?php echo esc_html( $label ); ?></label>
-				<input type="text" id="abe-champ-<?php echo esc_attr( $slug ); ?>" class="ab-input abe-champ-texte" data-champ-slug="<?php echo esc_attr( $slug ); ?>" autocomplete="off">
+				<div class="ab-input-wrapper">
+					<input type="text" id="abe-champ-<?php echo esc_attr( $slug ); ?>" class="ab-input abe-champ-texte" data-champ-slug="<?php echo esc_attr( $slug ); ?>" autocomplete="off">
+					<svg class="ab-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+					</svg>
+				</div>
 			</div>
 		<?php endforeach; ?>
 	</div>
@@ -91,7 +96,12 @@ add_shortcode( 'annuaire_bateaux_filtres_equipements', function () {
 				<div class="abe-champs-groupe">
 					<div class="abe-champ">
 						<label for="abe-model">Model</label>
-						<input type="text" id="abe-model" class="ab-input" autocomplete="off">
+						<div class="ab-input-wrapper">
+							<input type="text" id="abe-model" class="ab-input" autocomplete="off">
+							<svg class="ab-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+							</svg>
+						</div>
 					</div>
 
 					<div class="abe-champ">
