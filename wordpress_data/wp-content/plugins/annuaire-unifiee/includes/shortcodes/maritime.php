@@ -17,7 +17,7 @@ add_shortcode( 'annuaire_recherche', function () {
 			<input
 				type="search"
 				id="am-recherche-input"
-				placeholder="Rechercher un contact par nom ou prénom…"
+				placeholder="Search for a contact by first or last name…"
 				autocomplete="off"
 				class="am-input"
 			/>
@@ -29,7 +29,7 @@ add_shortcode( 'annuaire_recherche', function () {
 		<!-- Filtre par pays -->
 		<div class="am-bloc">
 			<button type="button" id="am-pays-bouton" class="am-filtre-bouton ab-select-trigger" aria-haspopup="listbox" aria-expanded="false">
-				Filtrer par pays…
+				Filter by country…
 			</button>
 			<ul id="am-pays-liste" class="am-overlay" role="listbox" hidden></ul>
 		</div>
@@ -37,7 +37,7 @@ add_shortcode( 'annuaire_recherche', function () {
 		<!-- Filtre par type de contact -->
 		<div class="am-bloc">
 			<button type="button" id="am-type-bouton" class="am-filtre-bouton ab-select-trigger" aria-haspopup="listbox" aria-expanded="false">
-				Filtrer par type de contact…
+				Filter by contact type…
 			</button>
 			<ul id="am-type-liste" class="am-overlay" role="listbox" hidden></ul>
 		</div>

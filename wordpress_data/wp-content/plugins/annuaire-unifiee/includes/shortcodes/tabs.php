@@ -33,7 +33,7 @@ add_shortcode( 'annuaire_tabs', function () {
 			<!-- NETWORK Tab -->
 			<div class="ab-tab-pane" id="ab-tab-network">
 				<div class="ab-network-placeholder">
-					<p>Contenu en attente</p>
+					<p>Content available soon</p>
 				</div>
 			</div>
 		</div>

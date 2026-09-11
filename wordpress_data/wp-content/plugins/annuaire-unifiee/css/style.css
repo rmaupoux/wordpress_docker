@@ -96,6 +96,9 @@
 		color: #999;
 		font-size: 1rem;
 	}
+	.ab-network-placeholder p {
+		text-align: center;
+	}
 
 	/* ===== MAIN LAYOUT ===== */
 	.ab-recherche {
@@ -928,7 +931,7 @@
 	}
 	.am-recherche input::placeholder {
 		color: #162d55;
-		font-size: 0.875rem;
+		font-size: 1rem;
 	}
 	.am-recherche input:focus {
 		outline: none;
