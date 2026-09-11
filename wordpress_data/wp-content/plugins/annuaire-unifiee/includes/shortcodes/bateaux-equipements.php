@@ -84,14 +84,6 @@ add_shortcode( 'annuaire_bateaux_filtres_equipements', function () {
 
 		<div class="abe-sidebar-col">
 
-			<div id="abe-filtres-actifs" class="abe-filtres-actifs" hidden>
-				<div class="abe-filtres-actifs-header">
-					<span class="abe-filtres-actifs-titre">Active filters</span>
-					<button id="abe-reset-filter" class="ab-reset-btn abe-erase-btn" type="button">Erase filters</button>
-				</div>
-				<div id="abe-pills" class="abe-pills"></div>
-			</div>
-
 		<aside class="abe-sidebar">
 			<div class="abe-sidebar-header">
 				<h2 class="abe-sidebar-title">Filters</h2>
@@ -186,7 +178,20 @@ add_shortcode( 'annuaire_bateaux_filtres_equipements', function () {
 		</div>
 
 		<div class="abe-results-section">
-			<div id="ab-message" class="ab-message" hidden></div>
+			<div class="abe-results-header-row">
+				<div id="abe-filtres-actifs" class="abe-filtres-actifs" hidden>
+					<div class="abe-filtres-actifs-header">
+						<span class="abe-filtres-actifs-titre">Active filters</span>
+						<button id="abe-reset-filter" class="ab-reset-btn abe-erase-btn" type="button">Erase filters</button>
+					</div>
+					<div id="abe-pills" class="abe-pills"></div>
+				</div>
+
+				<div class="abe-results-summary-col">
+					<div id="ab-message" class="ab-message" hidden></div>
+				</div>
+			</div>
+
 			<div id="ab-results-grid" class="ab-results-grid"></div>
 			<div id="ab-pagination" class="ab-pagination" hidden></div>
 		</div>

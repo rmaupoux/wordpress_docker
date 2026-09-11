@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'IP_VERSION', '1.0.6' );
+define( 'IP_VERSION', '1.0.7' );
 define( 'IP_PATH', plugin_dir_path( __FILE__ ) );
 define( 'IP_URL', plugin_dir_url( __FILE__ ) );
 define( 'IP_BASENAME', plugin_basename( __FILE__ ) );

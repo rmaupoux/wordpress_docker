@@ -131,12 +131,23 @@
 			parent = section;
 			avant = section.firstElementChild;
 		} else {
-			var grille = document.querySelector( '.ab-results-grid' );
-			if ( ! grille ) {
-				return;
+			// Sur la grille de filtres [annuaire_bateaux_filtres_equipements],
+			// #ab-message vit dans .abe-results-header-row aux côtés de
+			// .abe-filtres-actifs : on insère le switcher juste après lui pour
+			// former la 3e colonne de cette rangée (voir .abe-results-header-row
+			// dans style.css).
+			var message = document.getElementById( 'ab-message' );
+			if ( message && message.parentElement ) {
+				parent = message.parentElement;
+				avant = message.nextElementSibling;
+			} else {
+				var grille = document.querySelector( '.ab-results-grid' );
+				if ( ! grille ) {
+					return;
+				}
+				parent = grille.parentElement;
+				avant = grille;
 			}
-			parent = grille.parentElement;
-			avant = grille;
 		}
 
 		var switcher = document.createElement( 'div' );
