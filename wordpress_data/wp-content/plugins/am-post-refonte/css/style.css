@@ -83,7 +83,7 @@
 	border-radius: 0.375rem;
 	background: #fff;
 	color: #666;
-	cursor: default;
+	cursor: pointer;
 }
 .am-activities-view-toggle button.is-active { background: #f3f4f6; color: #111; border-color: #111; }
 .am-activities-view-toggle svg { width: 1.1rem; height: 1.1rem; }
@@ -125,17 +125,20 @@
 	line-height: 1.3;
 	color: #569ad3;
 	text-decoration: none;
+	margin-bottom:0;
 }
 .am-activities-card .am-activities-card-title a:hover { text-decoration: underline; }
 .am-activities-card .am-activities-card-date {
 	margin: .5rem 0 0;
 	font-size: 0.875rem;
 	color: #9a978f;
+	text-align: left;
 }
 .am-activities-card .am-activities-card-excerpt {
 	margin: .75rem 0 0;
 	font-size: 0.9375rem;
 	color: #111;
+	text-align: left;
 }
 .am-activities-card .am-activities-card-tags {
 	margin: 1rem 0 0;
@@ -151,6 +154,51 @@
 	color: #1d1d1b;
 	font-size: 0.8125rem;
 	text-decoration: none;
+}
+
+/* Vue liste (bouton droit de am-activities-view-toggle) : image à gauche,
+   titre / date / extrait / tags empilés à droite. */
+.am-activities-grid--list .wp-block-post-template {
+	grid-template-columns: 1fr;
+	gap: 1.75rem;
+}
+.am-activities-grid--list .am-activities-card {
+	display: grid;
+	grid-template-columns: 240px 1fr;
+	column-gap: 1.75rem;
+	align-items: start;
+}
+.am-activities-grid--list .am-activities-card .wp-block-post-featured-image {
+	grid-column: 1;
+	grid-row: 1 / span 4;
+	margin: 0;
+	aspect-ratio: 4 / 3;
+}
+.am-activities-grid--list .am-activities-card .am-activities-card-title { grid-column: 2; grid-row: 1; }
+.am-activities-grid--list .am-activities-card .am-activities-card-date { grid-column: 2; grid-row: 2; }
+.am-activities-grid--list .am-activities-card .am-activities-card-excerpt { grid-column: 2; grid-row: 3; }
+.am-activities-grid--list .am-activities-card .am-activities-card-tags { grid-column: 2; grid-row: 4; }
+
+.am-without-line::after {
+	display: none;
+}
+
+@media (max-width: 640px) {
+	.am-activities-grid--list .am-activities-card {
+		grid-template-columns: 1fr;
+	}
+	.am-activities-grid--list .am-activities-card .wp-block-post-featured-image {
+		grid-column: 1;
+		grid-row: auto;
+		aspect-ratio: 3 / 2;
+	}
+	.am-activities-grid--list .am-activities-card .am-activities-card-title,
+	.am-activities-grid--list .am-activities-card .am-activities-card-date,
+	.am-activities-grid--list .am-activities-card .am-activities-card-excerpt,
+	.am-activities-grid--list .am-activities-card .am-activities-card-tags {
+		grid-column: 1;
+		grid-row: auto;
+	}
 }
 
 .am-activities-view-all {
@@ -170,3 +218,61 @@
 	text-decoration: none;
 }
 .am-activities-view-all .wp-block-query-pagination-next:hover { background: #162d55; color: #fff; }
+
+/* ===== TEMPLATE ARTICLE "SINGLE POST" (voir templates/single.html) ===== */
+.am-post-back-link { margin: 0 0 1.5rem; }
+.am-post-title.wp-block-post-title {
+	margin: 0 0 1rem;
+	font-size: 2.25rem;
+	font-weight: 800;
+	line-height: 1.2;
+	color: #162d55;
+}
+.am-post-title-divider {
+	width: 3rem;
+	height: 3px;
+	background: #b9c4dc;
+	margin: 0 0 1rem;
+}
+.am-post-date {
+	display: flex;
+	align-items: center;
+	gap: .5em;
+	margin: 0 0 2rem;
+	font-size: 0.9375rem;
+	color: #9a978f;
+}
+.am-post-date svg { width: 1.1em; height: 1.1em; flex: 0 0 auto; }
+.am-post-featured-image {
+	margin: 0 0 2rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+.am-post-featured-image img { width: 100%; height: auto; display: block; }
+.am-post-tags {
+	margin: 2rem 0 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5rem;
+}
+.am-post-tags a {
+	display: inline-block;
+	padding: .3em .85em;
+	border-radius: 999px;
+	background: #e5e3e0;
+	color: #1d1d1b;
+	font-size: 0.8125rem;
+	text-decoration: none;
+}
+.am-activities-view-all-link {
+	display: inline-flex;
+	align-items: center;
+	gap: .5em;
+	padding: .75em 1.75em;
+	border: 1px solid #162d55;
+	border-radius: 999px;
+	color: #162d55;
+	font-weight: 600;
+	text-decoration: none;
+}
+.am-activities-view-all-link:hover { background: #162d55; color: #fff; }

@@ -9,12 +9,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Terme « courant » pour le fil d'Ariane / eyebrow / lien retour :
+ * le terme de l'archive sur une page catégorie ou tag, ou la catégorie
+ * principale (Yoast) / première catégorie de l'article sur un post.
+ */
+function am_post_refonte_terme_courant() {
+	if ( is_category() || is_tag() || is_tax() ) {
+		$terme = get_queried_object();
+		return $terme instanceof WP_Term ? $terme : null;
+	}
+
+	if ( is_singular( 'post' ) ) {
+		$id_principale = get_post_meta( get_the_ID(), '_yoast_wpseo_primary_category', true );
+		if ( $id_principale ) {
+			$terme = get_term( (int) $id_principale, 'category' );
+			if ( $terme && ! is_wp_error( $terme ) ) {
+				return $terme;
+			}
+		}
+
+		$categories = get_the_category();
+		return $categories ? $categories[0] : null;
+	}
+
+	return null;
+}
+
+/**
  * [am_breadcrumb] - "Accueil · Activities · World luxury events"
  */
 add_shortcode( 'am_breadcrumb', function () {
 	$fil = [ '<a href="' . esc_url( home_url( '/' ) ) . '">Accueil</a>' ];
 
-	$terme = get_queried_object();
+	$terme = am_post_refonte_terme_courant();
 	if ( $terme instanceof WP_Term ) {
 		$ancetres = array_reverse( get_ancestors( $terme->term_id, $terme->taxonomy ) );
 		foreach ( $ancetres as $ancetre_id ) {
@@ -35,30 +62,29 @@ add_shortcode( 'am_breadcrumb', function () {
  * [am_eyebrow] - Nom de la catégorie racine (ex: "ACTIVITIES")
  */
 add_shortcode( 'am_eyebrow', function () {
-	$terme = get_queried_object();
+	$terme = am_post_refonte_terme_courant();
 	if ( ! ( $terme instanceof WP_Term ) ) {
 		return '';
 	}
 
-	$ancetres = get_ancestors( $terme->term_id, $terme->taxonomy );
-	if ( $ancetres ) {
-		$racine = get_term( end( $ancetres ), $terme->taxonomy );
-		$label  = ( $racine && ! is_wp_error( $racine ) ) ? $racine->name : $terme->name;
-	} else {
-		$label = $terme->name;
-	}
-
-	return '<p class="am-activities-eyebrow">' . esc_html( $label ) . '</p>';
+	return '<p class="am-activities-eyebrow">' . esc_html( 'Activities' ) . '</p>';
 } );
 
 /**
- * [am_back_link label="Back to all articles"] - Lien vers la catégorie parente
+ * [am_back_link label="Back to all articles" arrow="left|right|none" class="..."]
+ * Lien vers la catégorie parente (page catégorie) ou vers la catégorie de
+ * l'article (article), utilisé aussi bien pour le lien retour en haut de
+ * page que pour le bouton "View all articles" en bas d'article.
  */
 add_shortcode( 'am_back_link', function ( $atts ) {
-	$atts = shortcode_atts( [ 'label' => 'Back to all articles' ], $atts );
+	$atts = shortcode_atts( [
+		'label' => 'Back to all articles',
+		'arrow' => 'left',
+		'class' => 'am-activities-back-link',
+	], $atts );
 
 	$url   = home_url( '/' );
-	$terme = get_queried_object();
+	$terme = am_post_refonte_terme_courant();
 	if ( $terme instanceof WP_Term ) {
 		$ancetres = get_ancestors( $terme->term_id, $terme->taxonomy );
 		if ( $ancetres ) {
@@ -69,7 +95,14 @@ add_shortcode( 'am_back_link', function ( $atts ) {
 		}
 	}
 
-	return '<a class="am-activities-back-link" href="' . esc_url( $url ) . '">&larr; ' . esc_html( $atts['label'] ) . '</a>';
+	$texte = esc_html( $atts['label'] );
+	if ( 'right' === $atts['arrow'] ) {
+		$texte .= ' &rarr;';
+	} elseif ( 'left' === $atts['arrow'] ) {
+		$texte = '&larr; ' . $texte;
+	}
+
+	return '<a class="' . esc_attr( $atts['class'] ) . '" href="' . esc_url( $url ) . '">' . $texte . '</a>';
 } );
 
 /**

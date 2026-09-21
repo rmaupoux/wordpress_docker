@@ -2,8 +2,23 @@
 
 <!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
 <main class="wp-block-group" style="margin-top:var(--wp--preset--spacing--60)">
-	<!-- wp:pattern {"slug":"twentytwentyfive/hidden-blog-heading"} /-->
-	<!-- wp:pattern {"slug":"twentytwentyfive/template-query-loop"} /-->
+
+<!-- wp:group {"align":"wide"} -->
+<div class="wp-block-group alignwide">
+<!-- wp:html -->
+[am_home_slider count="5"]
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide"} -->
+<div class="wp-block-group alignwide">
+<!-- wp:html -->
+[am_home_categories per_page="3"]
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
 </main>
 <!-- /wp:group -->
 
