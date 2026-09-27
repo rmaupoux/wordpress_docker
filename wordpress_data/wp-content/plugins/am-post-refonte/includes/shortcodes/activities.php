@@ -71,10 +71,22 @@ add_shortcode( 'am_eyebrow', function () {
 } );
 
 /**
+ * [am_eyebrow_tags] - Nom du tag 
+ */
+add_shortcode( 'am_eyebrow_tags', function () {
+	$terme = am_post_refonte_terme_courant();
+	if ( ! ( $terme instanceof WP_Term ) ) {
+		return '';
+	}
+
+	return '<p class="am-activities-eyebrow">' . esc_html( 'Tags' ) . '</p>';
+} );
+
+/**
  * [am_back_link label="Back to all articles" arrow="left|right|none" class="..."]
- * Lien vers la catégorie parente (page catégorie) ou vers la catégorie de
- * l'article (article), utilisé aussi bien pour le lien retour en haut de
- * page que pour le bouton "View all articles" en bas d'article.
+ * Lien retour vers la page "/activities", utilisé aussi bien pour le lien
+ * retour en haut de page que pour le bouton "View all articles" en bas
+ * d'article.
  */
 add_shortcode( 'am_back_link', function ( $atts ) {
 	$atts = shortcode_atts( [
@@ -83,17 +95,7 @@ add_shortcode( 'am_back_link', function ( $atts ) {
 		'class' => 'am-activities-back-link',
 	], $atts );
 
-	$url   = home_url( '/' );
-	$terme = am_post_refonte_terme_courant();
-	if ( $terme instanceof WP_Term ) {
-		$ancetres = get_ancestors( $terme->term_id, $terme->taxonomy );
-		if ( $ancetres ) {
-			$parent = get_term( $ancetres[0], $terme->taxonomy );
-			if ( $parent && ! is_wp_error( $parent ) ) {
-				$url = get_term_link( $parent );
-			}
-		}
-	}
+	$url = home_url( '/activities' );
 
 	$texte = esc_html( $atts['label'] );
 	if ( 'right' === $atts['arrow'] ) {

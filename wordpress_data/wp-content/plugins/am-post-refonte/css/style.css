@@ -8,6 +8,7 @@
 .am-activities-breadcrumb a {
 	color: #666;
 	text-decoration: none;
+	font-size: 0.875rem;
 }
 .am-activities-breadcrumb a:hover { text-decoration: underline; }
 .am-activities-breadcrumb-sep { color: #999; margin: 0 .25em; }
