@@ -32,6 +32,9 @@ class Annuaire_Unifiee {
 		// Variables Yoast SEO dynamiques (titre/meta description fiches bateaux)
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/seo-yoast.php';
 
+		// Masque le groupe de champs Pods "Charter Specification" hors fiches en location
+		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/charter-specification.php';
+
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 	}
 

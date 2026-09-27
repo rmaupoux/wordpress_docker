@@ -12,6 +12,18 @@ define( 'AB_TAXONOMIE_TYPE', 'type_de_bateau' );
 define( 'AM_TAXONOMIE_TYPE', 'type_de_contact' );
 
 /**
+ * Taxonomie Pods "type_d_achat" (Sale / Rent) rattachée au CPT annuaire_bateau,
+ * terme par défaut "sale" (voir option Pods "default_term" en base, appliqué
+ * par WordPress core aux nouvelles fiches sans terme explicite). Son libellé
+ * ("Type d’achat") utilise l'apostrophe typographique ’ et non l'apostrophe
+ * droite ' : Pods échappe déjà les labels en interne, et l'appel esc_html()
+ * fait lors de l'enregistrement de la taxonomie double-échappe une apostrophe
+ * droite (affichage "d&#039;achat" en front/admin) — la typographique n'étant
+ * pas un caractère spécial HTML, elle évite ce bug.
+ */
+define( 'AB_TAXONOMIE_ACHAT', 'type_d_achat' );
+
+/**
  * Slug de la page contenant [annuaire_bateaux_filtres_equipements], vers
  * laquelle le bouton "SEARCH YACHT" de [annuaire_bateaux_recherche] redirige
  * (avec les filtres Length/Year/Price en GET) au lieu de filtrer sur place —
