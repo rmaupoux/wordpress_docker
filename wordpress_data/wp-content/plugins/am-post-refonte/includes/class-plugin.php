@@ -14,6 +14,20 @@ class AM_Post_Refonte {
 		require_once AM_POST_REFONTE_PATH . 'includes/shortcodes/home.php';
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+		add_filter( 'wpseo_breadcrumb_links', [ $this, 'retirer_article_du_fil_ariane' ] );
+	}
+
+	/**
+	 * Sur un article, le fil d'Ariane Yoast s'arrête à sa catégorie/taxonomie
+	 * parente : on retire le dernier maillon (le titre de l'article), déjà
+	 * affiché juste en dessous dans le template "Single Posts".
+	 */
+	public function retirer_article_du_fil_ariane( $links ) {
+		if ( is_singular( 'post' ) && count( $links ) > 1 ) {
+			array_pop( $links );
+		}
+
+		return $links;
 	}
 
 	/**
