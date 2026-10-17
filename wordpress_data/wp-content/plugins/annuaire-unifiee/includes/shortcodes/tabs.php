@@ -85,8 +85,8 @@ add_shortcode( 'annuaire_tabs', function () {
 		<!-- Tabs Navigation -->
 		<div class="ab-tabs-nav">
 			<button class="ab-tab-btn ab-tab-active" data-tab="yacht">YACHT</button>
-			<button class="ab-tab-btn" data-tab="charter">NETWORK</button>
-			<button class="ab-tab-btn" data-tab="network">CHARTER</button>
+			<button class="ab-tab-btn" data-tab="network">NETWORK</button>
+			<button class="ab-tab-btn" data-tab="charter">CHARTER</button>
 		</div>
 
 		<!-- Tabs Content -->
@@ -97,12 +97,12 @@ add_shortcode( 'annuaire_tabs', function () {
 			</div>
 
 			<!-- CHARTER Tab -->
-			<div class="ab-tab-pane" id="ab-tab-charter">
+			<div class="ab-tab-pane" id="ab-tab-network">
 				<?php echo do_shortcode( '[annuaire_recherche]' ); ?>
 			</div>
 
 			<!-- NETWORK Tab -->
-			<div class="ab-tab-pane" id="ab-tab-network">
+			<div class="ab-tab-pane" id="ab-tab-charter">
 				<div class="ab-search-section">
 					<div class="ab-search-container">
 					<div class="ab-filters-container">

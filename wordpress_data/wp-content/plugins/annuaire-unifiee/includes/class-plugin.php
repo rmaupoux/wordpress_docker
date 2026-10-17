@@ -18,10 +18,12 @@ class Annuaire_Unifiee {
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/shortcodes/bateaux.php';
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/shortcodes/bateaux-equipements.php';
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/shortcodes/maritime.php';
+		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/shortcodes/charter.php';
 
 		// Endpoints REST
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/endpoints/bateaux.php';
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/endpoints/maritime.php';
+		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/endpoints/charter.php';
 
 		// Formulaires
 		require_once ANNUAIRE_UNIFIEE_PATH . 'includes/cf7-dynamic-recipient.php';
@@ -73,6 +75,18 @@ class Annuaire_Unifiee {
 	}
 
 	/**
+	 * Page de filtres dédiée aux bateaux en charter [annuaire_bateaux_filtres_charter] :
+	 * charge js/charter-filtres.js, qui suppose la présence de #abc-root (absent
+	 * du formulaire de recherche principal), même raison que
+	 * page_utilise_shortcode_equipements() ci-dessus.
+	 */
+	private function page_utilise_shortcode_charter() {
+		global $post;
+
+		return $post && has_shortcode( $post->post_content, 'annuaire_bateaux_filtres_charter' );
+	}
+
+	/**
 	 * Archive de la taxonomie "type_de_bateau" (ex: /type-de-bateau/motor-yacht/) :
 	 * affiche la grille [annuaire_bateaux_par_type] via un bloc Shortcode sur le
 	 * template FSE, sans le formulaire de recherche — seul le CSS est chargé
@@ -86,8 +100,9 @@ class Annuaire_Unifiee {
 	public function enqueue_assets() {
 		$utilise_recherche   = $this->page_utilise_shortcodes() || $this->page_est_fiche_singuliere();
 		$utilise_equipements = $this->page_utilise_shortcode_equipements();
+		$utilise_charter     = $this->page_utilise_shortcode_charter();
 
-		if ( ! $utilise_recherche && ! $this->page_est_archive_type_bateau() && ! $utilise_equipements ) {
+		if ( ! $utilise_recherche && ! $this->page_est_archive_type_bateau() && ! $utilise_equipements && ! $utilise_charter ) {
 			return;
 		}
 
@@ -134,6 +149,23 @@ class Annuaire_Unifiee {
 			] );
 		}
 
+		if ( $utilise_charter ) {
+			wp_enqueue_script(
+				'annuaire-unifiee-charter-filtres',
+				ANNUAIRE_UNIFIEE_URL . 'js/charter-filtres.js',
+				[ 'annuaire-unifiee-currency' ],
+				ANNUAIRE_UNIFIEE_VERSION,
+				true
+			);
+
+			wp_localize_script( 'annuaire-unifiee-charter-filtres', 'AnnuaireUnifieeCharterVars', [
+				'filtrer'      => esc_url_raw( rest_url( 'annuaire-bateau/v1/charter/filtrer' ) ),
+				'destinations' => esc_url_raw( rest_url( 'annuaire-bateau/v1/charter/destinations' ) ),
+				'seasons'      => esc_url_raw( rest_url( 'annuaire-bateau/v1/charter/seasons' ) ),
+				'durations'    => esc_url_raw( rest_url( 'annuaire-bateau/v1/charter/durations' ) ),
+			] );
+		}
+
 		if ( ! $utilise_recherche ) {
 			return;
 		}
@@ -154,6 +186,7 @@ class Annuaire_Unifiee {
 				'filtrer'         => esc_url_raw( rest_url( 'annuaire-bateau/v1/filtrer' ) ),
 				'alaUne'          => esc_url_raw( rest_url( 'annuaire-bateau/v1/a-la-une' ) ),
 				'pageFiltres'     => esc_url_raw( ab_get_url_page_filtres() ),
+				'pageFiltresCharter' => esc_url_raw( ab_get_url_page_filtres_charter() ),
 			],
 			'maritime' => [
 				'recherche' => esc_url_raw( rest_url( 'annuaire/v1/recherche' ) ),

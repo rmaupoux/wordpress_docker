@@ -23,10 +23,12 @@ annuaire-unifiee/
 │   │   ├── tabs.php              # Shortcode [annuaire_tabs]
 │   │   ├── bateaux.php           # Shortcodes [annuaire_bateaux_recherche] et [annuaire_bateaux_par_type]
 │   │   ├── bateaux-equipements.php # Shortcode [annuaire_bateaux_filtres_equipements]
-│   │   └── maritime.php          # Shortcode [annuaire_recherche]
+│   │   ├── maritime.php          # Shortcode [annuaire_recherche]
+│   │   └── charter.php           # Shortcode [annuaire_bateaux_filtres_charter]
 │   └── endpoints/                # Endpoints REST
 │       ├── bateaux.php           # Endpoints pour bateaux
-│       └── maritime.php          # Endpoints pour maritime
+│       ├── maritime.php          # Endpoints pour maritime
+│       └── charter.php           # Endpoints pour bateaux en charter
 └── README.md                     # Cette documentation
 ```
 
@@ -79,6 +81,29 @@ Affiche uniquement la recherche de contacts maritimes avec :
 - Filtres : pays, type de contact
 - Affichage avec drapeaux des pays
 
+### `[annuaire_bateaux_filtres_charter]`
+**Page de filtres dédiée aux bateaux en charter** (location), vers laquelle
+redirige le bouton "SEARCH CHARTER" du formulaire de recherche de
+`[annuaire_tabs]` (onglet CHARTER, voir `includes/shortcodes/tabs.php`) avec
+les filtres renseignés en GET (voir `js/script.js`). Même structure que
+`[annuaire_bateaux_filtres_equipements]` (colonne de filtres à gauche,
+résultats instantanés à droite, réutilise `#ab-message` / `#ab-results-grid` /
+`#ab-pagination`), réduite aux 6 filtres propres au charter, tous cumulés en
+ET côté REST (`ab_charter_filtrer_bateaux`) et ne portant que sur les bateaux
+du terme "rent" (taxonomie `type_d_achat`) :
+- **Destination** (champ `town`), **Season** et **Duration** (champs Pods pick
+  `seasonid`/`duration` du groupe "Charter Specification", mêmes listes que le
+  formulaire de recherche)
+- **Guests** (champ `guests_charter`, filtré en `>=`)
+- **Minimum Price** / **Maximum Price** (champs Pods currency
+  `charter_price_min`/`charter_price_max`, ajoutés au groupe "Charter
+  Specification" : chaque bateau porte sa propre plage de tarif charter, on ne
+  garde que les bateaux dont la plage recoupe le budget demandé)
+
+Comme pour `[annuaire_bateaux_filtres_equipements]`, les filtres déjà présents
+dans l'URL au chargement (redirection depuis le formulaire de recherche) sont
+restaurés dans la sidebar (voir `js/charter-filtres.js` :: `prefillDepuisURL`).
+
 ## Endpoints REST API
 
 ### Bateaux (`annuaire-bateau/v1`)
@@ -98,6 +123,12 @@ Affiche uniquement la recherche de contacts maritimes avec :
 - `GET /par-pays?code=FR` - Contacts d'un pays
 - `GET /types` - Types de contact
 - `GET /par-type?type=slug` - Contacts d'un type
+
+### Charter (`annuaire-bateau/v1/charter`)
+- `GET /destinations` - Villes distinctes parmi les bateaux en charter (terme "rent")
+- `GET /seasons` - Options du champ Pods pick `seasonid` (groupe "Charter Specification")
+- `GET /durations` - Options du champ Pods pick `duration` (groupe "Charter Specification")
+- `GET /filtrer` - Bateaux en charter avec filtres et pagination : `destination`, `season`, `duration`, `guests`, `price_min/max`, `page`
 
 ## Fichiers CSS
 
@@ -168,6 +199,8 @@ Les assets sont chargés de façon conditionnelle selon la page (voir
 - `js/equipements.js` : uniquement sur les pages utilisant
   `[annuaire_bateaux_filtres_equipements]` (remplace `script.js`, qui suppose
   la présence du formulaire de recherche principal)
+- `js/charter-filtres.js` : uniquement sur les pages utilisant
+  `[annuaire_bateaux_filtres_charter]` (même raison que `js/equipements.js`)
 
 Les URLs des endpoints REST sont transmises au JavaScript via
 `wp_localize_script()`, dans des objets globaux distincts (un même nom de
@@ -195,6 +228,12 @@ AnnuaireUnifieeEquipementsVars.filtrer
 AnnuaireUnifieeEquipementsVars.types
 AnnuaireUnifieeEquipementsVars.pays
 AnnuaireUnifieeEquipementsVars.valeursChamp
+
+// pour js/charter-filtres.js
+AnnuaireUnifieeCharterVars.filtrer
+AnnuaireUnifieeCharterVars.destinations
+AnnuaireUnifieeCharterVars.seasons
+AnnuaireUnifieeCharterVars.durations
 ```
 
 ## Notes

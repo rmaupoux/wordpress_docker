@@ -44,6 +44,24 @@ function ab_get_url_page_filtres() {
 }
 
 /**
+ * Slug de la page contenant [annuaire_bateaux_filtres_charter], vers laquelle
+ * le bouton "SEARCH CHARTER" de [annuaire_tabs] redirige (avec les filtres
+ * Destination/Season/Guests/Duration/Price en GET) — voir js/script.js et
+ * js/charter-filtres.js :: prefillDepuisURL.
+ */
+define( 'AB_SLUG_PAGE_FILTRES_CHARTER', 'boat-charter' );
+
+/**
+ * URL de la page AB_SLUG_PAGE_FILTRES_CHARTER, résolue dynamiquement (voir
+ * ab_get_url_page_filtres() ci-dessus pour la même logique côté YACHT).
+ */
+function ab_get_url_page_filtres_charter() {
+	$page = get_page_by_path( AB_SLUG_PAGE_FILTRES_CHARTER );
+
+	return $page ? get_permalink( $page ) : home_url( '/' . AB_SLUG_PAGE_FILTRES_CHARTER . '/' );
+}
+
+/**
  * Groupes de champs booléens Pods (_pods_group) sur le CPT annuaire_bateau,
  * affichés en checkboxes (cumulées en ET) dans le filtre
  * [annuaire_bateaux_filtres_equipements] : titre du groupe => [ slug (= meta_key,

@@ -967,3 +967,43 @@
 		});
 	});
 })();
+
+
+// ===== CHARTER BOATS: recherche de bateaux en location =====
+// Formulaire "SEARCH CHARTER" de l'onglet CHARTER de [annuaire_tabs] (voir
+// includes/shortcodes/tabs.php) : redirige vers [annuaire_bateaux_filtres_charter]
+// (AnnuaireUnifieeVars.bateaux.pageFiltresCharter) avec les filtres en GET,
+// lus là-bas par js/charter-filtres.js :: prefillDepuisURL — même principe
+// que le bouton SEARCH YACHT ci-dessus.
+(function () {
+	var searchBtn = document.getElementById('ab-charter-search-btn');
+	if (!searchBtn) {
+		return;
+	}
+
+	searchBtn.addEventListener('click', function () {
+		var destination = (document.getElementById('ab-charter-destination-select') || {}).value || '';
+		var season      = (document.getElementById('ab-charter-season-select') || {}).value || '';
+		var guests      = parseInt((document.getElementById('ab-charter-guests') || {}).value, 10) || 0;
+		var duration    = (document.getElementById('ab-charter-duration-select') || {}).value || '';
+
+		// charter_price_min/max sont stockés en EUR côté serveur : les prix sont
+		// saisis dans la devise sélectionnée (js/currency.js), donc reconvertis
+		// en EUR avant la redirection (même logique que le prix YACHT ci-dessus).
+		var versEUR  = (window.AbCurrency && window.AbCurrency.toEuros) || function (v) { return v; };
+		var prixMin  = parseFloat((document.getElementById('ab-charter-price-min') || {}).value) || 0;
+		var prixMax  = parseFloat((document.getElementById('ab-charter-price-max') || {}).value) || 0;
+		var priceMin = prixMin ? Math.round(versEUR(prixMin)) : 0;
+		var priceMax = prixMax ? Math.round(versEUR(prixMax)) : 0;
+
+		var params = new URLSearchParams();
+		if (destination) params.set('destination', destination);
+		if (season) params.set('season', season);
+		if (guests) params.set('guests', guests);
+		if (duration) params.set('duration', duration);
+		if (priceMin) params.set('price_min', priceMin);
+		if (priceMax) params.set('price_max', priceMax);
+
+		window.location.href = AnnuaireUnifieeVars.bateaux.pageFiltresCharter + '?' + params.toString();
+	});
+})();

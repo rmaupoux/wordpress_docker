@@ -2242,7 +2242,7 @@
 	.abe-filtres {
 		max-width: 1440px;
 		margin: 0 auto;
-		padding: 2rem 1rem;
+		padding: 2rem 0rem;
 		display: grid;
 		grid-template-columns: 260px 1fr;
 		gap: 2rem;
